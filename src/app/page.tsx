@@ -1,19 +1,26 @@
 import { Button } from "@/components/ui/button";
+import { ParticleBackground } from "@/components/ui/particle-background";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-          Spire Technosoft
+    <section className="container flex flex-col items-center justify-center gap-6 pb-8 pt-6 md:py-10">
+      <ParticleBackground />
+      <div className="mx-auto max-w-3xl text-center">
+        <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl">
+          From Vision to Value: <br />
+          Expert-Led Digital Solutions.
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          From Vision to Value: Expert-Led Digital Solutions.
+        <p className="mt-4 max-w-xl mx-auto text-lg text-muted-foreground">
+          Leveraging 17+ years of experience to architect and build technology
+          that solves real business problems.
         </p>
-        <div className="mt-8">
-          <Button>Schedule a Consultation</Button>
+        <div className="mt-8 flex justify-center gap-4">
+          <Button size="lg">Schedule a Consultation</Button>
+          <Button size="lg" variant="outline">
+            View My Work
+          </Button>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
