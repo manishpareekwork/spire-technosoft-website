@@ -1,18 +1,18 @@
 /**
- * @file Contact page.
- * @module /src/app/contact/page.tsx
+ * @file Portfolio page.
+ * @module /src/app/portfolio/page.tsx
  */
 
-export default function ContactPage() {
+export default function PortfolioPage() {
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Get in Touch
+          Portfolio
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          A contact form and other ways to reach me will be available on this
-          page.
+          A showcase of my best work, case studies, and project outcomes will be
+          presented here.
         </p>
       </div>
     </section>
