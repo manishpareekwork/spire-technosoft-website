@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
         <ParticleBackground />
-        <div className="relative flex min-h-screen flex-col">
+        <div className="relative flex min-h-screen flex-col justify-between">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
