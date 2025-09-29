@@ -3,8 +3,12 @@
  * @module /src/components/layout/header.tsx
  */
 
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sprout } from "lucide-react"; // Using a placeholder icon for the logo.
+import { cn } from "@/lib/utils";
 
 /**
  * Defines the navigation links for the header.
@@ -24,11 +28,14 @@ const navLinks = [
 /**
  * The main Header component for the website.
  * It displays the company logo and primary navigation links.
- * This is a server component by default.
+ * This is a client component to track the current active path.
  *
  * @returns {React.ReactElement} The rendered header element.
  */
 export function Header(): React.ReactElement {
+  // Get the current path to highlight the active link.
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container flex h-14 max-w-screen-2xl items-center">
@@ -48,7 +55,12 @@ export function Header(): React.ReactElement {
             <Link
               key={link.href}
               href={link.href}
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === link.href
+                  ? "text-foreground"
+                  : "text-foreground/60"
+              )}
             >
               {link.label}
             </Link>
