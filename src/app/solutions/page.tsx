@@ -61,21 +61,22 @@ const solutionSections = [
 
 export default function SolutionsPage(): React.ReactElement {
   return (
-    <section className="container animate-softFade space-y-10 py-12 md:py-16">
-      <div className="space-y-4 text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
-          Solutions
-        </p>
-        <h1 className="text-3xl font-bold md:text-5xl">
-          Cross-industry platforms built with modular, secure architecture
-        </h1>
-        <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
-          Spire Technosoft delivers domain-focused digital solutions engineered for reliability, scalability, and measurable outcomes.
-          Each solution blends technology, design, and process expertise tailored to your industry context.
-        </p>
-      </div>
+    <section className="container animate-softFade py-12 md:py-16">
+      <div className="section-shell space-y-10">
+        <div className="space-y-4 text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
+            Solutions
+          </p>
+          <h1 className="text-3xl font-bold md:text-5xl">
+            Cross-industry platforms built with modular, secure architecture
+          </h1>
+          <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
+            Spire Technosoft delivers domain-focused digital solutions engineered for reliability, scalability, and measurable
+            outcomes. Each solution blends technology, design, and process expertise tailored to your industry context.
+          </p>
+        </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {solutionSections.map((solution) => (
           <Card key={solution.title} className="flex flex-col overflow-hidden">
             <div
@@ -105,6 +106,7 @@ export default function SolutionsPage(): React.ReactElement {
             </CardContent>
           </Card>
         ))}
+      </div>
       </div>
     </section>
   );

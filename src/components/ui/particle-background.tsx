@@ -107,7 +107,7 @@ export function ParticleBackground() {
       <Particles
         id="tsparticles"
         options={options}
-        className="pointer-events-none absolute inset-0 -z-40" // Positioned behind all other content.
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-40" // Positioned near the hero, away from dense UI.
       />
     );
   }

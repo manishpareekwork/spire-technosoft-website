@@ -111,8 +111,9 @@ const portfolioFilters = ["Domain", "Platform", "Region", "Impact"];
 
 export default function PortfolioPage(): React.ReactElement {
   return (
-    <section className="container animate-softFade space-y-10 py-12 md:py-16">
-      <div className="space-y-4 text-center">
+    <section className="container animate-softFade py-12 md:py-16">
+      <div className="section-shell space-y-10">
+        <div className="space-y-4 text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">
           Portfolio
         </p>
@@ -187,6 +188,7 @@ export default function PortfolioPage(): React.ReactElement {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

@@ -20,10 +20,11 @@ export default function ContactPage() {
   return (
     <div className="flex-1">
       <section className="container animate-softFade flex flex-col gap-8 pb-12 pt-6 md:py-16">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-3 text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
-            Contact
-          </p>
+        <div className="section-shell space-y-8">
+          <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-3 text-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
+              Contact
+            </p>
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
             Let&apos;s discuss how we can engineer growth together.
           </h1>
@@ -31,9 +32,9 @@ export default function ContactPage() {
             Share your roadmap, RFP, or early idea. We respond within two business days with next steps, a discovery call, and a clear
             path forward.
           </p>
-        </div>
-        <div className="grid gap-6 lg:grid-cols-[1fr,1fr]">
-          <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+          </div>
+          <div className="grid gap-6 lg:grid-cols-[1fr,1fr]">
+            <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
             <CardHeader>
               <CardTitle>Office & Contact Info</CardTitle>
             </CardHeader>
@@ -98,14 +99,15 @@ export default function ContactPage() {
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+            <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
             <CardHeader>
               <CardTitle>Send us a brief</CardTitle>
             </CardHeader>
             <CardContent>
               <ContactForm />
             </CardContent>
-          </Card>
+            </Card>
+          </div>
         </div>
       </section>
     </div>

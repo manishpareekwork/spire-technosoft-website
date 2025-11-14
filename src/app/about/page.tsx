@@ -56,9 +56,10 @@ const testimonial = {
 
 export default function AboutPage() {
   return (
-    <section className="container animate-softFade space-y-12 py-12 md:py-16">
-      <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
-        <div className="space-y-4">
+    <section className="container animate-softFade py-12 md:py-16">
+      <div className="section-shell space-y-12">
+        <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
+          <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
             Who We Are
           </p>
@@ -78,7 +79,7 @@ export default function AboutPage() {
             backgroundPosition: "center",
           }}
         />
-      </div>
+        </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.07)]">
@@ -189,6 +190,7 @@ export default function AboutPage() {
             <p className="text-sm text-muted-foreground">{testimonial.author}</p>
           </CardContent>
         </Card>
+      </div>
       </div>
     </section>
   );

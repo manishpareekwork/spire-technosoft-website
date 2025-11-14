@@ -49,8 +49,9 @@ const employeeStory = {
 
 export default function CareersPage(): React.ReactElement {
   return (
-    <section className="container animate-softFade space-y-10 py-12 md:py-16">
-      <div className="space-y-4 text-center">
+    <section className="container animate-softFade py-12 md:py-16">
+      <div className="section-shell space-y-10">
+        <div className="space-y-4 text-center">
         <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
           Careers
         </p>
@@ -61,7 +62,7 @@ export default function CareersPage(): React.ReactElement {
         </p>
       </div>
 
-      <div
+        <div
         className="rounded-3xl"
         style={{
           backgroundImage:
@@ -164,6 +165,7 @@ export default function CareersPage(): React.ReactElement {
           </Button>
         </CardContent>
       </Card>
+      </div>
     </section>
   );
 }
