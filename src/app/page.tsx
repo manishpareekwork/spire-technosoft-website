@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ActivitySquare, HeartPulse, Factory, Sparkles } from "lucide-react";
+import { ArrowRight, ActivitySquare, HeartPulse, Factory, Sparkles, LineChart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -31,6 +31,22 @@ const domainCards = [
       "Delivered compliance and operations platforms for suppliers, grids, and industrial programs with analytics and IoT insights.",
     image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=800&q=80",
   },
+  {
+    title: "Financial & Data Visualization Platforms",
+    meta: "Finance • Capital Markets",
+    icon: <LineChart className="h-6 w-6 text-primary" />,
+    summary:
+      "Interactive reporting suites for capital-market teams turning complex data into actionable decisions.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Energy & Infrastructure Intelligence",
+    meta: "Industrial • Infrastructure",
+    icon: <Globe className="h-6 w-6 text-primary" />,
+    summary:
+      "IoT-powered dashboards connecting field teams, predictive maintenance, and operational foresight.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 const impactMetrics = [
@@ -40,10 +56,53 @@ const impactMetrics = [
   { label: "On-time Enterprise Deliveries", value: "100%" },
 ];
 
+const heroOutcomeHighlights = [
+  {
+    title: "Accelerated Transformation",
+    metric: "40% faster time-to-market",
+    description:
+      "Agile squads connect discovery, UX, engineering, and DevOps so programs move from concept to launch with speed and rigor.",
+  },
+  {
+    title: "Trusted by Global Enterprises",
+    metric: "25+ digital products delivered",
+    description:
+      "Mission-critical platforms built across regulated industries with measurable adoption and quality outcomes.",
+  },
+  {
+    title: "Empowered Innovation",
+    metric: "1M+ user interactions managed",
+    description:
+      "Intelligent ecosystems spanning mobile, web, and cloud, backed by performance, telemetry, and reliability.",
+  },
+];
+
+const clientIndustries = [
+  "Healthcare & Wellness",
+  "Manufacturing",
+  "Financial Services",
+  "Retail & FMCG",
+  "Energy & Infrastructure",
+  "Public Sector",
+];
+
+const quickLinks = [
+  {
+    title: "Solutions",
+    description: "Get a deeper view of our domain accelerators, modular architectures, and compliance-ready patterns.",
+    href: "/solutions",
+  },
+  {
+    title: "Portfolio",
+    description: "Read anonymized case studies outlining challenge, solution, outcomes, and technology choices.",
+    href: "/portfolio",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col space-y-12 pb-12 pt-8">
-      <section className="container">
+      <section className="container animate-softFade">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#004D32] via-[#0f5b3f] to-[#66C2A5]/60 shadow-xl">
           <div
             className="absolute inset-0"
@@ -71,6 +130,10 @@ export default function Home() {
               <h1 className="text-3xl font-bold leading-tight md:text-4xl">
                 Engineering Business Growth, Together.
               </h1>
+              <p className="text-lg font-medium text-white">
+                Building intelligent, secure, and scalable digital products that turn ideas into measurable impact—from enterprise
+                platforms to mobile experiences.
+              </p>
               <p className="text-lg text-white/80">
                 Empowering global enterprises and startups to innovate faster with AI, cloud, and mobile engineering.
               </p>
@@ -107,7 +170,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative rounded-3xl border border-white/30 bg-[#F7F9F7] p-5 text-slate-700 shadow-xl backdrop-blur-sm dark:border-0 dark:bg-charcoal/95 dark:text-foreground">
+            <div className="relative rounded-3xl bg-[#F7F9F7] p-5 text-slate-700 shadow-xl backdrop-blur-sm dark:bg-charcoal/95 dark:text-foreground">
               <div
                 className="h-48 rounded-3xl"
                 style={{
@@ -131,7 +194,57 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container grid gap-10 lg:grid-cols-[3fr,2fr]">
+      <section className="container animate-softFade grid gap-8 lg:grid-cols-[3fr,2fr]">
+        <div className="space-y-6 rounded-3xl bg-card p-6 shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+          <div className="space-y-2">
+            <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
+              Outcomes we deliver
+            </p>
+            <h2 className="text-2xl font-semibold">Case-study level results for every release</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {heroOutcomeHighlights.map((item) => (
+              <div key={item.title} className="rounded-2xl bg-background/80 p-4 shadow-sm">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">{item.title}</p>
+                <p className="text-lg font-semibold text-primary">{item.metric}</p>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {clientIndustries.map((industry) => (
+              <span key={industry} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                {industry}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-4">
+          <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
+            Explore more
+          </p>
+          <div className="space-y-4">
+            {quickLinks.map((link) => (
+              <Card key={link.title}>
+                <CardHeader className="space-y-1">
+                  <CardTitle>{link.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{link.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <Link href={link.href}>
+                    <Button variant="outline" className="w-full">
+                      Visit {link.title}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container animate-softFade grid gap-10 lg:grid-cols-[3fr,2fr]">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">
             About Preview
@@ -154,7 +267,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container space-y-6">
+      <section className="container animate-softFade space-y-6">
         <div className="flex flex-col gap-2 text-center">
           <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">
             Key Domains
@@ -192,7 +305,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container">
+      <section className="container animate-softFade">
         <div className="relative overflow-hidden rounded-3xl">
           <div
             className="absolute inset-0 opacity-90"
@@ -218,7 +331,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container rounded-3xl bg-card/70 px-6 py-12 text-center shadow-sm">
+      <section className="container animate-softFade rounded-3xl bg-card/70 px-6 py-12 text-center shadow-sm">
         <div className="flex flex-col gap-4">
           <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">
             Next Step
@@ -249,7 +362,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="container rounded-3xl bg-gradient-to-br from-primary/15 to-secondary/30 px-8 py-12 text-center shadow-sm">
+      <section className="container animate-softFade rounded-3xl bg-gradient-to-br from-primary/15 to-secondary/30 px-8 py-12 text-center shadow-sm">
         <div className="space-y-4">
           <div className="flex items-center justify-center gap-2 text-primary font-[var(--font-poppins)]">
             <Sparkles className="h-5 w-5" />

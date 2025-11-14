@@ -14,6 +14,7 @@ export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [organization, setOrganization] = useState("");
+  const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
@@ -23,7 +24,7 @@ export function ContactForm() {
 
     // In a real application, you would send the data to a server API endpoint.
     // For now, we'll just log it and simulate a network request.
-    console.log({ name, email, organization, message });
+    console.log({ name, email, organization, projectType, message });
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -33,6 +34,7 @@ export function ContactForm() {
       setName("");
       setEmail("");
       setOrganization("");
+      setProjectType("");
       setMessage("");
       setStatus("");
     }, 2000);
@@ -71,6 +73,25 @@ export function ContactForm() {
           value={organization}
           onChange={(e) => setOrganization(e.target.value)}
         />
+      </div>
+      <div className="grid w-full items-center gap-1.5">
+        <Label htmlFor="projectType">Project Type</Label>
+        <select
+          id="projectType"
+          className="rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          value={projectType}
+          onChange={(e) => setProjectType(e.target.value)}
+          required
+        >
+          <option value="" disabled hidden>
+            Select an option
+          </option>
+          <option value="Audit & Compliance">Audit &amp; Compliance Platforms</option>
+          <option value="Healthcare & Wellness">Healthcare &amp; Wellness</option>
+          <option value="Supply Chain / Industrial">Supply Chain / Industrial</option>
+          <option value="Innovation Lab Sprint">Innovation Lab Sprint</option>
+          <option value="Product Strategy / Other">Product Strategy / Other</option>
+        </select>
       </div>
       <div className="grid w-full gap-1.5">
         <Label htmlFor="message">Your Message</Label>

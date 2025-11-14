@@ -9,7 +9,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { type Container, type ISourceOptions } from "@tsparticles/engine";
+import { type ISourceOptions } from "@tsparticles/engine";
 // Import the slim version of tsparticles, which is smaller and sufficient for our needs.
 import { loadSlim } from "@tsparticles/slim";
 
@@ -33,15 +33,11 @@ export function ParticleBackground() {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log("Particles container loaded", container);
-  };
-
   // Memoize the options object to prevent unnecessary re-renders.
   const options: ISourceOptions = useMemo(() => {
     // Set particle color based on the current theme
     const particleColor =
-      resolvedTheme === "light" ? "rgba(0,77,50,0.35)" : "rgba(193,237,221,0.4)"; // Softer blend for background
+      resolvedTheme === "light" ? "rgba(0,77,50,0.22)" : "rgba(193,237,221,0.3)"; // Softer blend for background
 
     return {
       background: {
@@ -70,10 +66,10 @@ export function ParticleBackground() {
         },
         links: {
           color: particleColor,
-          distance: 140,
+          distance: 120,
           enable: true,
-          opacity: 0.25,
-          width: 0.8,
+          opacity: 0.18,
+          width: 0.4,
         },
         move: {
           direction: "none",
@@ -82,7 +78,7 @@ export function ParticleBackground() {
             default: "out",
           },
           random: false,
-          speed: 0.5, // Slow, subtle movement.
+          speed: 0.25, // Softer motion.
           straight: false,
         },
         number: {
@@ -90,16 +86,16 @@ export function ParticleBackground() {
             enable: true,
             area: 800,
           },
-          value: 60, // Number of particles.
+          value: 40, // Lighter field of particles.
         },
         opacity: {
-          value: 0.25,
+          value: 0.18,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 2, max: 4 }, // Slightly larger particles improve readability.
+          value: { min: 1, max: 3 },
         },
       },
       detectRetina: true,
@@ -110,7 +106,6 @@ export function ParticleBackground() {
     return (
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
         options={options}
         className="pointer-events-none absolute inset-0 -z-40" // Positioned behind all other content.
       />

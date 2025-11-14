@@ -42,10 +42,10 @@ export function Footer(): React.ReactElement {
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary" />
               <Link
-                href="mailto:info@spiretechnosoft.com"
+                href="mailto:contact@spiretechnosoft.com"
                 className="hover:text-foreground"
               >
-                info@spiretechnosoft.com
+                contact@spiretechnosoft.com
               </Link>
             </div>
             <div className="flex items-center gap-2">

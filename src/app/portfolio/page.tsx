@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 const projects = [
   {
@@ -15,7 +16,7 @@ const projects = [
     ],
     outcomes: "Shipped v1 in 6 months, +50% weekly engagement uplift, 40% fewer prod bugs.",
     tags: ["React Native", "React", "GraphQL", "AWS"],
-    image: "/images/portfolio/wellness-platform-mobile-web.png",
+    image: "/images/img1.png",
     imageAlt: "Mobile and web screens showcasing the wellness platform",
   },
   {
@@ -30,7 +31,7 @@ const projects = [
     ],
     outcomes: "30% drop in missed appointments, 65% increase in daily cognitive-game usage.",
     tags: ["React Native", "Firebase", "AWS Cognito"],
-    image: "/images/portfolio/senior-care-companion-app.png",
+    image: "/images/senior-care-companion-app.png",
     imageAlt: "Senior-friendly companion app and caregiver portal",
   },
   {
@@ -45,7 +46,7 @@ const projects = [
     ],
     outcomes: "45% faster audit cycles and >98% report accuracy.",
     tags: ["React", "Node.js", "PostgreSQL", "Azure"],
-    image: "/images/portfolio/enterprise-audit-platform.png",
+    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Audit and compliance dashboard with inspection interface",
   },
   {
@@ -59,7 +60,7 @@ const projects = [
     ],
     outcomes: "Rolled to 2000+ supplier sites; 60% less manual data entry.",
     tags: ["Angular", "Node.js", "MongoDB", "AWS"],
-    image: "/images/portfolio/supply-chain-quality-system.png",
+    image: "/images/supply-chain-quality-system.png",
     imageAlt: "Supply-chain quality portal with map-based dashboard",
   },
   {
@@ -73,7 +74,7 @@ const projects = [
     ],
     outcomes: "Improved decision velocity by ~35%.",
     tags: ["React", "WebSockets", "D3.js", ".NET"],
-    image: "/images/portfolio/financial-visualization-suite.png",
+    image: "https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Dual-monitor trading analytics workspace",
   },
   {
@@ -87,7 +88,7 @@ const projects = [
     ],
     outcomes: "Cut unplanned downtime by ~25%.",
     tags: ["React", "Node.js", "Azure IoT", "Power BI"],
-    image: "/images/portfolio/industrial-energy-dashboard.png",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Field engineer using tablet with energy dashboard",
   },
   {
@@ -101,14 +102,16 @@ const projects = [
     ],
     outcomes: "70% faster discovery and improved research accessibility.",
     tags: ["Next.js", "Node.js", "Elasticsearch", "PostgreSQL"],
-    image: "/images/portfolio/innovation-knowledge-platform.png",
+    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Knowledge platform interface in modern workspace",
   },
 ];
 
+const portfolioFilters = ["Domain", "Platform", "Region", "Impact"];
+
 export default function PortfolioPage(): React.ReactElement {
   return (
-    <section className="container space-y-10 py-12 md:py-16">
+    <section className="container animate-softFade space-y-10 py-12 md:py-16">
       <div className="space-y-4 text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">
           Portfolio
@@ -121,11 +124,32 @@ export default function PortfolioPage(): React.ReactElement {
           industrial operations.
         </p>
       </div>
-      <div className="space-y-10">
+      <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+        <CardContent className="space-y-4 px-6 py-6 text-center">
+          <p className="text-lg font-semibold">
+            Our portfolio demonstrates how intelligent engineering drives measurable growth.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Every project reflects collaboration, innovation, and an obsession with outcomes—spanning industries like healthcare,
+            finance, manufacturing, and energy.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {portfolioFilters.map((filter) => (
+              <Badge key={filter} variant="outline">
+                {filter}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+      <div className="flex flex-col gap-10">
         {projects.map((project, index) => (
           <div
             key={project.title}
-            className="grid items-center gap-6 rounded-3xl bg-card shadow-[0_20px_40px_rgba(0,0,0,0.07)] p-6 lg:grid-cols-2"
+            className={cn(
+              "min-h-[70vh] rounded-3xl bg-card shadow-[0_20px_40px_rgba(0,0,0,0.07)] p-6 transition-transform duration-500 ease-out hover:-translate-y-2",
+              "grid items-center gap-6 lg:grid-cols-2"
+            )}
           >
             <div className={cn("order-1", index % 2 === 1 && "lg:order-2")}>
               <Image
@@ -133,8 +157,9 @@ export default function PortfolioPage(): React.ReactElement {
                 alt={project.imageAlt}
                 width={1200}
                 height={720}
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-[320px] w-full rounded-2xl object-cover md:h-[420px]"
                 priority={index < 2}
+                unoptimized={project.image.startsWith("http")}
               />
             </div>
             <div className={cn("order-2 space-y-4", index % 2 === 1 && "lg:order-1")}>
