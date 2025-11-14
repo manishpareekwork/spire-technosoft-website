@@ -1,24 +1,43 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Open_Sans, Poppins, Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Spire Technosoft - Expert-Led Digital Solutions",
+  title: "Spire Technosoft | Secure Digital Product Engineering",
   description:
-    "IT consulting and custom software development to solve your business pain points.",
+    "Spire Technosoft builds secure, scalable web & mobile products with AI, cloud, and modern UX—end-to-end delivery for enterprises and startups.",
 };
 
 export default function RootLayout({
@@ -27,16 +46,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${montserrat.variable} ${openSans.variable} ${poppins.variable} ${inter.variable} antialiased bg-background font-sans text-foreground`}
       >
-        <ParticleBackground />
-        <div className="relative flex min-h-screen flex-col justify-between">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-screen flex-col">
+            <ParticleBackground />
+            <Header />
+            <main className="relative z-10 flex-1 bg-background/95">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

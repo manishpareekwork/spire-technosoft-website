@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [organization, setOrganization] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
@@ -22,7 +23,7 @@ export function ContactForm() {
 
     // In a real application, you would send the data to a server API endpoint.
     // For now, we'll just log it and simulate a network request.
-    console.log({ name, email, message });
+    console.log({ name, email, organization, message });
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -31,6 +32,7 @@ export function ContactForm() {
     setTimeout(() => {
       setName("");
       setEmail("");
+      setOrganization("");
       setMessage("");
       setStatus("");
     }, 2000);
@@ -58,6 +60,16 @@ export function ContactForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+        />
+      </div>
+      <div className="grid w-full items-center gap-1.5">
+        <Label htmlFor="organization">Organization</Label>
+        <Input
+          type="text"
+          id="organization"
+          placeholder="Company or Team"
+          value={organization}
+          onChange={(e) => setOrganization(e.target.value)}
         />
       </div>
       <div className="grid w-full gap-1.5">

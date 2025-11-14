@@ -4,11 +4,13 @@
  */
 
 "use client";
-
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { Sprout } from "lucide-react"; // Using a placeholder icon for the logo.
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 /**
  * Defines the navigation links for the header.
@@ -19,9 +21,11 @@ import { cn } from "@/lib/utils";
  */
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/innovation", label: "Innovation Lab" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -35,38 +39,88 @@ const navLinks = [
 export function Header(): React.ReactElement {
   // Get the current path to highlight the active link.
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname?.startsWith(href);
+  };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+    <header className="sticky top-0 z-50 w-full bg-background/95 shadow-sm backdrop-blur-sm">
+      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         {/* Logo and Company Name */}
         <Link
           href="/"
           className="mr-6 flex items-center space-x-2"
           aria-label="Spire Technosoft Home"
         >
-          <Sprout className="h-6 w-6" />
-          <span className="font-bold">Spire Technosoft</span>
+          <Image
+            src="/images/logo/24x24.png"
+            alt="Spire Technosoft logo"
+            width={32}
+            height={32}
+            className="rounded-sm"
+          />
+          <div className="flex flex-col leading-none">
+            <span className="font-semibold uppercase tracking-wide">
+              Spire Technosoft
+            </span>
+            <span className="text-[11px] uppercase text-muted-foreground">
+              Product Engineering Studio
+            </span>
+          </div>
         </Link>
 
         {/* Main Navigation */}
-        <nav className="flex flex-1 items-center justify-end space-x-6 text-sm font-medium">
+        <nav className="hidden flex-1 items-center justify-end gap-6 text-sm font-semibold md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "transition-colors hover:text-foreground/80",
-                pathname === link.href
-                  ? "text-foreground"
-                  : "text-foreground/60"
+                "transition-colors hover:text-foreground",
+                isActive(link.href)
+                  ? "text-primary"
+                  : "text-foreground/70"
               )}
             >
               {link.label}
             </Link>
           ))}
+          <ThemeToggle />
         </nav>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Toggle navigation"
+            className="rounded-md border border-border p-2 text-foreground"
+            onClick={() => setMobileOpen((prev) => !prev)}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+      {mobileOpen && (
+        <div className="border-t border-border/60 bg-background/95 px-6 py-4 shadow-lg md:hidden">
+          <nav className="flex flex-col gap-3 text-sm font-semibold">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-md px-3 py-2 transition-colors",
+                  isActive(link.href) ? "bg-primary/10 text-primary" : "text-foreground/80"
+                )}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
