@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Spire Technosoft Website
 
-## Getting Started
+Codex-powered redesign of the Spire Technosoft marketing site following the **Spire_Technosoft_Codex_Brief**. The build highlights enterprise-grade UI, measurable outcomes, and the “Engineering Business Growth” brand platform.
 
-First, run the development server:
+### Highlights
+
+- **Hero + Trust Layer** – Gradient hero with measurable KPIs, outcome teasers, and a client/industry credibility strip.
+- **Navigation & Pages** – Enterprise-friendly IA: Home, About, Solutions, Innovation Lab, Portfolio, Careers, Contact.
+- **Portfolio System** – Centralized project data powering a filterable grid plus detail pages (Challenge → Solution → Role → Outcomes → Tech stack).
+- **Innovation & Solutions Depth** – Modular cards, process flows, R&D spotlights, and mission/vision/values aligned to the brand book.
+- **Accessibility & Typography** – Montserrat / Poppins / Open Sans / Inter stack with WCAG-friendly color tokens from the Spire palette.
+
+### Tech Stack
+
+- [Next.js 15 / App Router](https://nextjs.org/docs/app)
+- TypeScript + ESLint + Tailwind via `@tailwindcss/postcss7-compat`
+- Custom UI primitives in `src/components/ui` + lucide-react icons
+- Data & content modeling in `src/data/portfolio.ts`
+
+### Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # install dependencies
+npm run dev        # start dev server on http://localhost:3000
+npm run lint       # lint using Next.js ESLint config
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | Purpose |
+| --- | --- |
+| `src/app/page.tsx` | Home hero, outcome teasers, domain cards, CTA bands |
+| `src/app/about` | Mission/vision/values, timeline, leadership, testimonial |
+| `src/app/solutions` | Domain-specific solution modules referencing the brief |
+| `src/app/innovation` | Focus areas, discover→scale process, labs content |
+| `src/app/portfolio/page.tsx` | Filterable grid + overview copy |
+| `src/app/portfolio/[slug]/page.tsx` | Detailed case studies fed by `src/data/portfolio.ts` |
+| `src/app/contact` | Enhanced contact form, locations, discovery call CTA |
+| `src/components/portfolio/portfolio-grid.tsx` | Client-side filtering logic |
+| `src/app/globals.css` | Brand tokens, gradients, typography rules |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Brand System Reference
 
-## Learn More
+- **Colors:** Emerald `#004D32`, Forest `#007A53`, Mint `#66C2A5`, Charcoal `#2B2B2B`, Ivory `#F7F9F7`, Soft Gold `#CBBE8A`.
+- **Fonts:** Montserrat (headings), Poppins (subheads), Open Sans (body copy), Inter (UI).
+- **Buttons:** Primary in Emerald/Mint gradient, outlined secondary with Emerald stroke.
+- **Imagery:** Real photography with subtle overlays, no synthetic/AI renders.
 
-To learn more about Next.js, take a look at the following resources:
+### Extending
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Add more portfolio entries by updating `src/data/portfolio.ts`. Each object automatically feeds the landing grid and detail route.
+- Tailor colors or typography tokens in `src/app/globals.css`.
+- Update brand assets in `public/images/logo/` per the Brand Book.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy via [Vercel](https://vercel.com) or any Node-compatible host. Ensure environment includes Node 18+ to match Next.js 15 requirements.

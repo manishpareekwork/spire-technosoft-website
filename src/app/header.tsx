@@ -37,7 +37,7 @@ export function Header(): React.ReactElement {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 shadow-sm backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         {/* Logo and Company Name */}
         <Link

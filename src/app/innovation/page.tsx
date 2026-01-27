@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -6,6 +7,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const focusAreas = [
   {
@@ -31,6 +33,24 @@ const focusAreas = [
     description:
       "Intelligent automation for workflows, documentation, and customer engagement with human-in-the-loop guardrails.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+const demoVisuals = [
+  {
+    title: "Predictive Audit Assistant",
+    caption: "15-sec demo clip showing risk scoring, evidence capture, and CAPA nudges.",
+    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Energy Operations Control Room",
+    caption: "Live telemetry panels, GIS overlays, and alert routing for field crews.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Wellness Personalization Engine",
+    caption: "Dynamic journeys blending biometric signals, coaching, and engagement triggers.",
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -72,14 +92,20 @@ const thinkingPieces = [
   {
     title: "Designing Responsible Copilots for Regulated Industries",
     label: "Thought Leadership",
+    description: "Principles, guardrails, and adoption playbooks for compliant AI copilots.",
+    href: "/downloads/thinking/responsible-copilots.pdf",
   },
   {
     title: "From Field Telemetry to Predictive Dashboards in 12 Weeks",
     label: "Playbook",
+    description: "A 12-week sprint guide for industrial IoT reliability programs.",
+    href: "/downloads/thinking/predictive-dashboards-playbook.pdf",
   },
   {
     title: "AR/VR Proof-of-Concept Checklist for Industrial Operators",
     label: "Guide",
+    description: "Use-case selection, prototype scope, and stakeholder readiness checklist.",
+    href: "/downloads/thinking/ar-vr-poc-checklist.pdf",
   },
 ];
 
@@ -98,7 +124,7 @@ export default function InnovationPage(): React.ReactElement {
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {focusAreas.map((area) => (
-            <Card key={area.title} className="overflow-hidden rounded-2xl bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+            <Card key={area.title} className="overflow-hidden rounded-2xl bg-card">
               <div
                 className="h-48 w-full"
                 style={{
@@ -114,7 +140,33 @@ export default function InnovationPage(): React.ReactElement {
             </Card>
           ))}
         </div>
-        <Card className="bg-gradient-to-r from-primary/10 to-secondary/30 shadow-[0_20px_35px_rgba(0,0,0,0.1)]">
+
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold md:text-3xl">Demo visuals</h2>
+          <p className="text-sm text-muted-foreground">
+            Short clips and GIF-style mock screens from lab experiments and client pilots.
+          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {demoVisuals.map((visual) => (
+              <Card key={visual.title} className="overflow-hidden bg-card">
+                <div
+                  className="demo-sheen h-48 w-full"
+                  style={{
+                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.65)), url(${visual.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+                <CardContent className="space-y-2 px-6 py-5">
+                  <p className="text-base font-semibold">{visual.title}</p>
+                  <p className="text-sm text-muted-foreground">{visual.caption}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <Card className="bg-gradient-to-r from-primary/10 to-secondary/30">
           <CardHeader className="space-y-2 text-center">
             <CardTitle className="text-2xl">How we collaborate</CardTitle>
             <CardDescription className="text-base text-foreground/80">
@@ -123,7 +175,7 @@ export default function InnovationPage(): React.ReactElement {
           </CardHeader>
           <CardContent className="grid gap-4 md:grid-cols-4">
             {processSteps.map((step) => (
-              <div key={step.title} className="rounded-xl bg-background/80 p-4 text-left shadow-sm">
+              <div key={step.title} className="interactive-card bg-background/80 p-4 text-left">
                 <p className="text-sm font-semibold">{step.title}</p>
                 <p className="text-xs text-muted-foreground">{step.description}</p>
               </div>
@@ -131,7 +183,7 @@ export default function InnovationPage(): React.ReactElement {
           </CardContent>
         </Card>
 
-        <Card className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+        <Card className="bg-card">
           <CardHeader>
             <CardTitle>{innovationHighlight.title}</CardTitle>
             <CardDescription>{innovationHighlight.summary}</CardDescription>
@@ -143,9 +195,9 @@ export default function InnovationPage(): React.ReactElement {
                 <span>{item}</span>
               </div>
             ))}
-            <a href={innovationHighlight.link} className="text-sm font-semibold text-primary underline">
+            <Link href={innovationHighlight.link} className="text-sm font-semibold text-primary underline">
               Explore related case studies
-            </a>
+            </Link>
           </CardContent>
         </Card>
 
@@ -153,7 +205,7 @@ export default function InnovationPage(): React.ReactElement {
           <h2 className="text-2xl font-semibold md:text-3xl">Recent Innovations</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {recentInnovations.map((item) => (
-              <Card key={item.title} className="bg-card shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
+              <Card key={item.title} className="bg-card">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg">{item.title}</CardTitle>
@@ -170,17 +222,38 @@ export default function InnovationPage(): React.ReactElement {
           <h2 className="text-2xl font-semibold md:text-3xl">Thinking &amp; Playbooks</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {thinkingPieces.map((piece) => (
-              <Card key={piece.title} className="bg-card shadow-[0_10px_20px_rgba(0,0,0,0.08)]">
-                <CardHeader>
+              <Card key={piece.title} className="bg-card">
+                <CardHeader className="space-y-3">
                   <Badge variant="outline" className="w-fit text-xs uppercase tracking-widest">
                     {piece.label}
                   </Badge>
                   <CardTitle className="text-lg">{piece.title}</CardTitle>
+                  <CardDescription>{piece.description}</CardDescription>
                 </CardHeader>
+                <CardContent>
+                  <a href={piece.href} className="text-sm font-semibold text-primary underline" download>
+                    Download PDF
+                  </a>
+                </CardContent>
               </Card>
             ))}
           </div>
         </div>
+
+        <Card className="bg-gradient-to-r from-primary/10 to-secondary/30">
+          <CardContent className="flex flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">Innovation Lab Sprint</p>
+              <p className="text-lg font-semibold text-foreground">Plan a two-week sprint to validate an idea.</p>
+              <p className="text-sm text-muted-foreground">Get the sprint brochure with artifacts, timelines, and deliverables.</p>
+            </div>
+            <Button asChild size="lg" className="px-6">
+              <a href="/downloads/innovation-lab-sprint-brochure.pdf" download>
+                Download sprint brochure
+              </a>
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

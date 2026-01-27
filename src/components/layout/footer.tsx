@@ -5,6 +5,7 @@
 
 import Link from "next/link";
 import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { resourceDownloads } from "@/data/resources";
 
 /**
  * The main Footer component for the website.
@@ -16,7 +17,7 @@ export function Footer(): React.ReactElement {
   return (
     <footer className="w-full border-t border-border/40 bg-card/60">
       <div className="container flex flex-col gap-10 py-10">
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-4">
           <div className="space-y-3">
             <p className="text-sm uppercase tracking-wide text-primary">
               Core Expertise
@@ -28,8 +29,23 @@ export function Footer(): React.ReactElement {
           <div className="space-y-3">
             <p className="text-sm uppercase tracking-wide text-primary">Impact</p>
             <p className="text-sm text-muted-foreground">
-              25+ Products Delivered • Global User Base &gt; 1 Million • Multi-Industry Presence (FinTech | HealthTech | Energy | Enterprise Solutions)
+              25+ Products Delivered • Global User Base &gt; 1 Million • Multi-Industry Presence (FinTech | HealthTech | Energy | Enterprise Programs)
             </p>
+          </div>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <p className="text-sm uppercase tracking-wide text-primary">Resources</p>
+            <div className="flex flex-col gap-2">
+              {resourceDownloads.map((resource) => (
+                <a
+                  key={resource.title}
+                  href={resource.href}
+                  download
+                  className="text-sm font-semibold text-primary underline underline-offset-4"
+                >
+                  {resource.title}
+                </a>
+              ))}
+            </div>
           </div>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p className="text-sm uppercase tracking-wide text-primary">
