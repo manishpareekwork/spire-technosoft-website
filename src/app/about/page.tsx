@@ -47,40 +47,10 @@ const leadershipTeam = [
     experience: "18+ years in enterprise platforms",
     focus: "Audit automation, supply-chain quality, and product strategy",
     programs: "Global audit suites, compliance dashboards, and delivery playbooks",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Ananya Deshmukh",
-    title: "VP, Product & Experience",
-    experience: "15+ years in healthcare and wellness",
-    focus: "Patient journeys, caregiver workflows, and design systems",
-    programs: "Wellness super apps, cognitive care platforms, UX governance",
-    image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Rahul Iyer",
-    title: "VP, Engineering & Cloud",
-    experience: "16+ years in cloud and IoT",
-    focus: "Industrial telemetry, DevOps, and security architecture",
-    programs: "IoT reliability dashboards, data platforms, automation toolkits",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
-const globalLocations = [
-  { city: "Gurugram", region: "India (HQ)" },
-  { city: "Pune", region: "India (Engineering Hub)" },
-  { city: "London", region: "United Kingdom" },
-  { city: "New York", region: "United States" },
-  { city: "Singapore", region: "APAC" },
-];
 
-const deliveryModel = [
-  "Daily overlap windows across IST, GMT, and ET for real-time collaboration.",
-  "Weekly rituals: sprint planning, design critiques, and release readiness reviews.",
-  "Always-on documentation with shared roadmaps, decision logs, and KPI dashboards.",
-  "Dedicated client success lead for escalation, governance, and stakeholder updates.",
-];
 
 const whySpire = [
   "Proven delivery record across 25+ enterprise-scale projects with regulatory rigor.",
@@ -170,17 +140,9 @@ export default function AboutPage() {
               clients.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="max-w-2xl">
             {leadershipTeam.map((leader) => (
-              <Card key={leader.name} className="flex flex-col overflow-hidden bg-card">
-                <div
-                  className="h-48 w-full"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.65)), url(${leader.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
+              <Card key={leader.name} className="bg-card">
                 <CardContent className="space-y-3 px-6 py-5">
                   <div>
                     <p className="text-lg font-semibold">{leader.name}</p>
@@ -195,43 +157,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[2fr,3fr]">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold">Global Presence</h2>
-            <p className="text-muted-foreground">
-              Delivery hubs across India, the UK, the US, and APAC support follow-the-sun collaboration with executive visibility.
-            </p>
-            <div className="space-y-2">
-              {globalLocations.map((location) => (
-                <div key={`${location.city}-${location.region}`} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="h-2 w-2 rounded-full bg-primary" />
-                  <span>
-                    {location.city} — {location.region}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="pt-4">
-              <p className="text-sm font-semibold text-primary">How global delivery works</p>
-              <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
-                {deliveryModel.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div
-            className="min-h-[260px] rounded-3xl"
-            style={{
-              backgroundImage: `linear-gradient(180deg, rgba(0,152,121,0.25), rgba(43,43,43,0.65)), url(${mapImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        </div>
+
 
         <div className="grid gap-6 lg:grid-cols-[3fr,2fr]">
           <Card className="bg-card">
