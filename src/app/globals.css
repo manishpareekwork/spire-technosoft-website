@@ -143,17 +143,9 @@
   html {
     scroll-behavior: smooth;
   }
-  main {
-    scroll-snap-type: y proximity;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
-    overflow-y: scroll;
-    height: 100vh;
-    scroll-padding-top: 4rem;
-  }
+  /* Main element - no scroll constraints, let body handle scrolling */
   .snap-section {
     scroll-snap-align: start;
-
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -161,9 +153,6 @@
     padding: 2rem 0;
   }
   @media (max-width: 768px) {
-    main {
-      scroll-snap-type: none;
-    }
     .snap-section {
       scroll-snap-align: none;
       min-height: auto;
