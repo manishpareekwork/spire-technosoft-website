@@ -1,25 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  ActivitySquare,
-  HeartPulse,
-  Factory,
-  Sparkles,
-  LineChart,
-  Globe,
-  ShieldCheck,
-  Lock,
-  FileCheck,
-} from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck, Lock, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SocialProofBand } from "@/components/sections/social-proof";
-import { ResourceDownloads } from "@/components/sections/resource-downloads";
+import { Card, CardContent } from "@/components/ui/card";
 import { differentiators } from "@/data/differentiators";
 
 const heroImage = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80";
-const aboutPreviewImage = "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80";
 const outcomeTeasers = [
   {
     title: "Regulatory Audit Cloud",
@@ -46,75 +32,14 @@ const outcomeTeasers = [
     link: "/portfolio/older-adults-caregivers-companion",
   },
 ];
-const domainCards = [
-  {
-    title: "Enterprise Transformation & Audit Platforms",
-    meta: "Manufacturing • Audit • Compliance",
-    icon: <ActivitySquare className="h-6 w-6 text-primary" />,
-    summary:
-      "Built global audit suites with offline capture, media uploads, and certification dashboards for regulators and quality teams.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Healthcare & Wellness Applications",
-    meta: "Health & Wellness • Consumer Tech",
-    icon: <HeartPulse className="h-6 w-6 text-primary" />,
-    summary:
-      "Launched mobile-first wellness ecosystems covering onboarding, workout tracking, cognitive care, and caregiver portals.",
-    image: "https://images.unsplash.com/photo-1584982751630-71223ec43966?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Supply Chain, Retail & Energy Solutions",
-    meta: "Retail • Energy • Industrial",
-    icon: <Factory className="h-6 w-6 text-primary" />,
-    summary:
-      "Delivered compliance and operations platforms for suppliers, grids, and industrial programs with analytics and IoT insights.",
-    image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Financial & Data Visualization Platforms",
-    meta: "Finance • Capital Markets",
-    icon: <LineChart className="h-6 w-6 text-primary" />,
-    summary:
-      "Interactive reporting suites for capital-market teams turning complex data into actionable decisions.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Energy & Infrastructure Intelligence",
-    meta: "Industrial • Infrastructure",
-    icon: <Globe className="h-6 w-6 text-primary" />,
-    summary:
-      "IoT-powered dashboards connecting field teams, predictive maintenance, and operational foresight.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
-  },
-];
+
+const heroClients = ["Regulated Finance", "Smart Energy", "Healthcare", "Retail & FMCG", "Gov & Public Programs"];
 
 const impactMetrics = [
   { label: "Products Delivered", value: "25+" },
   { label: "Users Reached", value: "100K+" },
   { label: "Interactions Processed", value: "1M+" },
   { label: "On-time Enterprise Deliveries", value: "100%" },
-];
-
-const heroClients = ["Regulated Finance", "Smart Energy", "Healthcare", "Retail & FMCG", "Gov & Public Programs"];
-
-const experienceHighlights = [
-  {
-    title: "Platform Strategy",
-    detail: "Roadmaps, capability maps, and measurable KPIs aligning tech investments to business value.",
-  },
-  {
-    title: "Composable Architecture",
-    detail: "Reusable accelerators, secure APIs, and privacy-first data layers tuned for compliance-heavy work.",
-  },
-  {
-    title: "Lifecycle Ownership",
-    detail: "Discovery to Day-2 operations with analytics loops and optimization sprints built in.",
-  },
-  {
-    title: "Global Collaboration",
-    detail: "Hybrid squads across India, EU, and US with transparent rituals and co-creation workshops.",
-  },
 ];
 
 const journeyPhases = [
@@ -137,19 +62,6 @@ const journeyPhases = [
     title: "Day-2 Ops",
     duration: "Ongoing",
     detail: "Experience Ops, telemetry, and optimization playbooks keep value compounding post-launch.",
-  },
-];
-
-const quickLinks = [
-  {
-    title: "Solutions",
-    description: "Domain accelerators, composable architectures, and compliance-ready delivery kits.",
-    href: "/solutions",
-  },
-  {
-    title: "Portfolio",
-    description: "Challenge → solution → outcomes. Explore anonymized case studies across industries.",
-    href: "/portfolio",
   },
 ];
 
@@ -298,61 +210,6 @@ export default function Home() {
       </section>
 
       <section className="container animate-softFade">
-        <div className="section-shell">
-          <SocialProofBand
-            title="Enterprise social proof"
-            description="Results-driven collaborations across regulated industries, with repeatable engagement models."
-          />
-        </div>
-      </section>
-
-      <section className="container animate-softFade">
-        <div className="section-shell grid gap-10 lg:grid-cols-[1.4fr,0.6fr]">
-          <div className="space-y-5">
-            <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">Experience Architecture</p>
-            <h2 className="text-3xl font-semibold md:text-4xl">Delivering AI-ready platforms with enterprise rigor</h2>
-            <p className="text-muted-foreground">
-              Spire Technosoft blends strategy, product, design, and deep engineering to modernize legacy stacks and invent new digital
-              businesses. Every engagement is modular, transparent, and outcome-led.
-            </p>
-            <div className="grid gap-4 md:grid-cols-2">
-              {experienceHighlights.map((highlight) => (
-                <div key={highlight.title} className="interactive-card bg-white/90 p-4 text-sm text-emerald-900 dark:bg-white/5 dark:text-foreground">
-                  <p className="text-base font-semibold">{highlight.title}</p>
-                  <p className="text-muted-foreground">{highlight.detail}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div
-              className="h-48 rounded-[28px]"
-              style={{
-                backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6)), url(${aboutPreviewImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            <div className="space-y-3">
-              {quickLinks.map((link) => (
-                <div key={link.title} className="glass-panel interactive-card bg-white/70 p-5 text-foreground dark:bg-white/5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-base font-semibold">{link.title}</p>
-                      <p className="text-sm text-muted-foreground">{link.description}</p>
-                    </div>
-                    <Link href={link.href} className="inline-flex items-center text-sm font-semibold text-primary">
-                      Visit <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="container animate-softFade">
         <div className="section-shell space-y-6">
           <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">How engagement works</p>
           <h2 className="text-3xl font-semibold md:text-4xl">Discovery to Day-2 ops in a single operating rhythm</h2>
@@ -363,35 +220,6 @@ export default function Home() {
                 <p className="text-base font-semibold">{phase.title}</p>
                 <p className="text-muted-foreground">{phase.detail}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container animate-softFade space-y-6">
-        <div className="section-shell space-y-6 text-center">
-          <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">Key Domains</p>
-          <h2 className="text-3xl font-semibold md:text-4xl">Built for compliance-heavy, data-rich environments</h2>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {domainCards.map((card) => (
-              <Card key={card.title} className="flex flex-col overflow-hidden">
-                <div
-                  className="h-36 w-full"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url(${card.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
-                <CardHeader>
-                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 icon-float">
-                    {card.icon}
-                  </div>
-                  <CardTitle className="text-lg">{card.title}</CardTitle>
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">{card.meta}</p>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">{card.summary}</CardContent>
-              </Card>
             ))}
           </div>
         </div>
@@ -456,45 +284,6 @@ export default function Home() {
       </section>
 
       <section className="container animate-softFade">
-        <div className="section-shell">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {impactMetrics.map((metric) => (
-              <div key={metric.label} className="interactive-card bg-white p-5 text-center text-foreground dark:bg-white/5">
-                <p className="text-3xl font-bold text-primary">{metric.value}</p>
-                <p className="text-sm uppercase tracking-wide text-muted-foreground">{metric.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container animate-softFade">
-        <div className="section-shell">
-          <ResourceDownloads />
-        </div>
-      </section>
-
-      <section className="container animate-softFade">
-        <div className="section-shell bg-gradient-to-r from-primary/15 via-secondary/20 to-emerald-200/40 text-center text-foreground dark:text-white">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.4em] text-secondary font-[var(--font-poppins)]">Next Step</p>
-            <h2 className="text-3xl font-semibold md:text-4xl">Partner with us to build what&apos;s next.</h2>
-            <p className="text-muted-foreground md:text-lg">
-              Whether you need an audit platform, a wellness companion, or intelligent supply-chain tooling, we align squads to ship with clarity and speed.
-            </p>
-          </div>
-          <div className="mt-6 flex justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="px-8">
-                Book a Discovery Call
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="container animate-softFade">
         <div className="section-shell bg-gradient-to-br from-primary/10 to-secondary/20 text-center">
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2 text-primary font-[var(--font-poppins)]">
@@ -513,9 +302,9 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/portfolio">
+            <Link href="/contact">
               <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                See Case Studies
+                Book a Discovery Call
               </Button>
             </Link>
           </div>
