@@ -49,28 +49,30 @@ export function Header(): React.ReactElement {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 shadow-sm backdrop-blur-sm">
-      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 shadow-sm backdrop-blur-xl transition-all duration-300">
+      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         {/* Logo and Company Name */}
         <Link
           href="/"
-          className="mr-6 flex items-center space-x-2"
+          className="group mr-6 flex items-center gap-3"
           aria-label="Spire Technosoft Home"
         >
-          <Image
-            src="/images/logo/24x24.png"
-            alt="Spire Technosoft logo"
-            width={32}
-            height={32}
-            className="rounded-sm"
-          />
-          <div className="flex flex-col leading-none">
-            <span className="font-semibold uppercase tracking-wide">
-              Spire Technosoft
-            </span>
-            <span className="text-[11px] uppercase text-muted-foreground">
-              Product Engineering Studio
-            </span>
+          <div className="flex items-center gap-3 rounded-xl bg-white p-2 shadow-md ring-1 ring-primary/10 transition-all duration-300 group-hover:shadow-lg group-hover:ring-primary/30 dark:bg-card dark:ring-primary/20">
+            <Image
+              src="/images/logo/24x24.png"
+              alt="Spire Technosoft logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+            />
+            <div className="flex flex-col leading-none">
+              <span className="font-bold uppercase tracking-wide text-foreground">
+                Spire Technosoft
+              </span>
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Product Engineering Studio
+              </span>
+            </div>
           </div>
         </Link>
 
@@ -81,9 +83,9 @@ export function Header(): React.ReactElement {
               key={link.href}
               href={link.href}
               className={cn(
-                "transition-colors hover:text-foreground",
+                "relative transition-all duration-200 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full",
                 isActive(link.href)
-                  ? "text-primary"
+                  ? "text-primary after:w-full"
                   : "text-foreground/70"
               )}
             >

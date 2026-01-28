@@ -15,8 +15,8 @@ import { resourceDownloads } from "@/data/resources";
  */
 export function Footer(): React.ReactElement {
   return (
-    <footer className="w-full border-t border-border/40 bg-card/60">
-      <div className="container flex flex-col gap-10 py-10">
+    <footer className="relative z-20 w-full border-t border-border/40 bg-background/80 backdrop-blur-xl">
+      <div className="container flex flex-col gap-10 py-12">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="space-y-3">
             <p className="text-sm uppercase tracking-wide text-primary">

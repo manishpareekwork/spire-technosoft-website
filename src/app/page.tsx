@@ -94,32 +94,28 @@ const securityHighlights = [
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col space-y-12 pb-12 pt-8">
-      <section className="container animate-softFade">
-        <div className="relative overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top,_#0b3d2c_0%,_#022d1f_45%,_#011511_100%)] px-6 py-8 text-white md:px-10">
-          <div
-            className="absolute inset-0 opacity-60"
-            style={{
-              backgroundImage: `linear-gradient(110deg, rgba(0,0,0,0.55), rgba(1,25,20,0.4)), url(${heroImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(102,194,165,0.25),_transparent_55%)]" />
-          <div className="absolute -right-10 top-0 h-56 w-56 rounded-full bg-[#66C2A5]/30 blur-3xl opacity-70 icon-float" />
-          <div className="absolute -bottom-10 left-10 h-40 w-40 rounded-full bg-[#004D32]/40 blur-3xl opacity-60" />
+    <div className="flex flex-1 flex-col">
+      <section className="snap-section container animate-softFade">
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#0b3d2c] via-[#022d1f] to-[#011511] px-6 py-8 text-white md:px-10">
+          {/* Vibrant gradient mesh background - no external images */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_rgba(102,194,165,0.3),_transparent_70%),_radial-gradient(circle_at_80%_70%,_rgba(203,190,138,0.15),_transparent_60%),_radial-gradient(circle_at_50%_50%,_rgba(0,196,152,0.08),_transparent_80%)]" />
+          <div className="absolute -right-10 top-0 h-64 w-64 rounded-full bg-primary/35 blur-3xl opacity-75 pulse-glow" />
+          <div className="absolute -bottom-10 left-10 h-56 w-56 rounded-full bg-secondary/45 blur-3xl opacity-70 pulse-glow" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 right-1/4 h-40 w-40 rounded-full bg-accent/25 blur-2xl opacity-50 pulse-glow" style={{ animationDelay: '3s' }} />
           <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
             <div className="space-y-5 lg:space-y-6">
               <div className="flex items-center gap-4">
-                <Image
-                  src="/images/logo/1080x1080.png"
-                  alt="Spire Technosoft Logo"
-                  width={56}
-                  height={56}
-                  className="rounded-2xl"
-                  priority
-                />
-                <p className="text-[11px] font-semibold uppercase tracking-[0.5em] text-white/70 font-[var(--font-poppins)]">
+                <div className="rounded-2xl bg-white p-3 shadow-xl ring-2 ring-white/20">
+                  <Image
+                    src="/images/logo/1080x1080.png"
+                    alt="Spire Technosoft Logo"
+                    width={72}
+                    height={72}
+                    className="rounded-xl"
+                    priority
+                  />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.5em] text-white/90 font-[var(--font-poppins)]">
                   Engineering Business Growth
                 </p>
               </div>
@@ -135,18 +131,19 @@ export default function Home() {
               </p>
               <div className="flex flex-col gap-4 animate-ctaSlide sm:flex-row">
                 <Link href="/solutions">
-                  <Button size="lg" className="w-full rounded-full bg-white text-primary hover:bg-white/90 sm:w-auto">
+                  <Button size="lg" className="group w-full rounded-full bg-white text-primary shadow-lg transition-all duration-300 hover:bg-white/90 hover:shadow-xl hover:shadow-primary/30 sm:w-auto">
                     Explore Solutions
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </Link>
                 <Link href="/contact">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full rounded-full border-white/30 bg-white/0 text-white hover:bg-white/10 sm:w-auto"
+                    className="group w-full rounded-full border-2 border-white/40 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/15 sm:w-auto"
                   >
                     Book a Strategy Call
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </Link>
               </div>
@@ -184,24 +181,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container animate-softFade">
-        <div className="section-shell space-y-8">
-          <div className="flex flex-col gap-2 text-center">
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full space-y-8 py-16">
+          <div className="flex flex-col gap-3 text-center">
             <p className="text-sm uppercase tracking-[0.35em] text-secondary font-[var(--font-poppins)]">Outcome Teasers</p>
-            <h2 className="text-3xl font-semibold md:text-4xl">Proof points from live enterprise programs</h2>
-            <p className="text-muted-foreground md:text-lg">
+            <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">Proof points from live enterprise programs</h2>
+            <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
               Metrics-led engagements that keep the Engineering Business Growth promise across industries.
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {outcomeTeasers.map((teaser) => (
-              <div key={teaser.title} className="interactive-card bg-white/95 p-5 text-left dark:bg-white/5">
-                <p className="text-xs uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">{teaser.metric}</p>
-                <p className="text-lg font-semibold">{teaser.title}</p>
-                <p className="text-sm text-muted-foreground">{teaser.description}</p>
-                <Link href={teaser.link} className="mt-3 inline-flex items-center text-sm font-semibold text-primary">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {outcomeTeasers.map((teaser, index) => (
+              <div 
+                key={teaser.title} 
+                className="group interactive-card bg-white/95 p-6 text-left dark:bg-white/5"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="mb-3 inline-block rounded-full bg-primary/10 px-3 py-1">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">{teaser.metric}</p>
+                </div>
+                <p className="mb-2 text-xl font-bold">{teaser.title}</p>
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{teaser.description}</p>
+                <Link href={teaser.link} className="group/link inline-flex items-center text-sm font-semibold text-primary transition-all duration-200 hover:text-secondary">
                   Open case
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
                 </Link>
               </div>
             ))}
@@ -209,62 +212,75 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container animate-softFade">
-        <div className="section-shell space-y-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">How engagement works</p>
-          <h2 className="text-3xl font-semibold md:text-4xl">Discovery to Day-2 ops in a single operating rhythm</h2>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {journeyPhases.map((phase) => (
-              <div key={phase.title} className="interactive-card bg-primary/5 p-4 text-sm text-foreground dark:bg-white/5">
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary">{phase.duration}</p>
-                <p className="text-base font-semibold">{phase.title}</p>
-                <p className="text-muted-foreground">{phase.detail}</p>
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full space-y-8 py-16">
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">How engagement works</p>
+            <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">Discovery to Day-2 ops in a single operating rhythm</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {journeyPhases.map((phase, index) => (
+              <div 
+                key={phase.title} 
+                className="group interactive-card bg-gradient-to-br from-primary/10 to-primary/5 p-6 text-sm text-foreground dark:bg-gradient-to-br dark:from-white/10 dark:to-white/5"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="mb-3 inline-block rounded-full bg-primary/20 px-3 py-1">
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary">{phase.duration}</p>
+                </div>
+                <p className="mb-2 text-lg font-bold">{phase.title}</p>
+                <p className="leading-relaxed text-muted-foreground">{phase.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="container animate-softFade">
-        <div className="section-shell grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
-          <div className="space-y-4">
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full grid gap-8 py-16 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
+          <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">Flagship Case Study</p>
-            <h2 className="text-3xl font-semibold md:text-4xl">{flagshipCaseStudy.title}</h2>
-            <p className="text-muted-foreground">{flagshipCaseStudy.summary}</p>
+            <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">{flagshipCaseStudy.title}</h2>
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">{flagshipCaseStudy.summary}</p>
             <div className="flex flex-wrap gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               {flagshipCaseStudy.metrics.map((metric) => (
-                <span key={metric} className="rounded-full bg-primary/10 px-3 py-1 text-primary">
+                <span key={metric} className="rounded-full bg-primary/10 px-4 py-2 text-primary">
                   {metric}
                 </span>
               ))}
             </div>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link href={flagshipCaseStudy.link}>
-                <Button size="lg">
+                <Button size="lg" className="group">
                   View full case study
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="group">
                   Explore all case studies
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
             </div>
           </div>
-          <div
-            className="min-h-[260px] rounded-3xl"
-            style={{
-              backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.65)), url(${flagshipCaseStudy.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+          <div className="relative min-h-[320px] overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent p-8 transition-all duration-300 hover:scale-[1.02] lg:min-h-[400px]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.2),_transparent_50%),_radial-gradient(circle_at_70%_80%,_rgba(203,190,138,0.25),_transparent_60%)]" />
+            <div className="relative z-10 flex h-full flex-col justify-end text-white">
+              <div className="space-y-3">
+                <div className="inline-block rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
+                  <p className="text-sm font-bold">Enterprise Scale</p>
+                </div>
+                <p className="text-2xl font-bold">Regulatory Compliance Platform</p>
+                <p className="text-sm text-white/90">Multi-country deployment serving 1,200+ sites</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container animate-softFade">
-        <div className="section-shell space-y-6">
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full space-y-6">
           <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">Security & Compliance</p>
           <h2 className="text-3xl font-semibold md:text-4xl">Trust frameworks for regulated industries</h2>
           <div className="grid gap-4 md:grid-cols-3">
@@ -283,28 +299,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container animate-softFade">
-        <div className="section-shell bg-gradient-to-br from-primary/10 to-secondary/20 text-center">
-          <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2 text-primary font-[var(--font-poppins)]">
-              <Sparkles className="h-5 w-5 icon-float" />
-              <p className="text-sm font-semibold uppercase tracking-widest">Innovation Lab</p>
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full bg-gradient-to-br from-primary/10 to-secondary/20 py-16 text-center">
+          <div className="space-y-6">
+            <div className="flex items-center justify-center gap-3 text-primary font-[var(--font-poppins)]">
+              <Sparkles className="h-6 w-6 icon-float" />
+              <p className="text-sm font-bold uppercase tracking-widest">Innovation Lab</p>
+              <Sparkles className="h-6 w-6 icon-float" />
             </div>
-            <h2 className="text-3xl font-semibold md:text-4xl">From R&D prototypes to production-ready intelligence</h2>
-            <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
+            <h2 className="mx-auto max-w-4xl text-3xl font-bold md:text-4xl lg:text-5xl">From R&D prototypes to production-ready intelligence</h2>
+            <p className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
               Explore how we apply AI, data visualization, computer vision, and immersive interfaces to research-led engagements. We coach distributed product teams, build accelerators, and publish insights that keep you ahead.
             </p>
           </div>
-          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/innovation">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button size="lg" className="group w-full shadow-lg sm:w-auto">
                 Visit the Innovation Lab
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="group w-full sm:w-auto">
                 Book a Discovery Call
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </Link>
           </div>

@@ -97,8 +97,9 @@ const testimonial = {
 
 export default function AboutPage() {
   return (
-    <section className="container animate-softFade py-12 md:py-16">
-      <div className="section-shell space-y-12">
+    <div className="flex flex-1 flex-col">
+      <section className="snap-section container animate-softFade">
+        <div className="section-shell w-full space-y-8 py-16">
         <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.3em] text-secondary font-[var(--font-poppins)]">Who We Are</p>
@@ -254,7 +255,8 @@ export default function AboutPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }

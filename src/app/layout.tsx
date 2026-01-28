@@ -38,6 +38,15 @@ export const metadata: Metadata = {
   title: "Spire Technosoft | Secure Digital Product Engineering",
   description:
     "Spire Technosoft builds secure, scalable web & mobile products with AI, cloud, and modern UX—end-to-end delivery for enterprises and startups.",
+  icons: {
+    icon: [
+      { url: "/images/logo/24x24.png", sizes: "24x24", type: "image/png" },
+      { url: "/images/logo/1080x1080.png", sizes: "1080x1080", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/logo/1080x1080.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
