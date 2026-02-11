@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import {
   Sparkles,
   Users,
@@ -173,7 +174,15 @@ export default function CareersPage(): React.ReactElement {
               <p className="text-sm text-muted-foreground">{careers.applyIntro.description}</p>
             </div>
             <div className="mt-8">
-              <CareersForm roles={careers.roles.map((role) => role.title)} />
+              <Suspense
+                fallback={
+                  <div className="rounded-2xl border border-border/60 bg-surface-2 p-6 text-sm text-muted-foreground">
+                    Loading application form...
+                  </div>
+                }
+              >
+                <CareersForm roles={careers.roles.map((role) => role.title)} />
+              </Suspense>
             </div>
           </div>
 
