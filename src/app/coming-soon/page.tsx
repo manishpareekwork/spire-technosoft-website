@@ -72,7 +72,7 @@ export default function ComingSoonPage(): React.ReactElement {
 
           <div className="pt-8">
             <Link href="/" className="text-sm text-white/70 transition-colors hover:text-white/90">
-              ← Back to Home
+              <- Back to Home
             </Link>
           </div>
         </div>

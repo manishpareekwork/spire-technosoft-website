@@ -1,4 +1,5 @@
-import { ArrowDownRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowDownRight, FileDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { resourceDownloads } from "@/data/resources";
@@ -24,9 +25,25 @@ export function ResourceDownloads({
       <div className="grid gap-4 md:grid-cols-3">
         {resourceDownloads.map((resource) => (
           <Card key={resource.title} className="bg-card">
-            <CardContent className="flex h-full flex-col gap-3 px-6 py-5">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                <span>{resource.label}</span>
+            <CardContent className="flex h-full flex-col gap-5 px-6 py-5">
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-surface-2">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={resource.cover}
+                    alt={`${resource.title} cover`}
+                    fill
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
+                <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+                  <FileDown className="h-3 w-3" />
+                  {resource.label}
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                <span>{resource.meta}</span>
                 <ArrowDownRight className="h-4 w-4 text-primary" />
               </div>
               <div className="space-y-2">

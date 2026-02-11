@@ -28,9 +28,9 @@ export function SocialProofBand({
 
       <div className="grid gap-6 md:grid-cols-2">
         {resultsCallouts.map((callout) => (
-          <div key={callout.metric} className="interactive-card bg-white/95 dark:bg-card/40 p-10 space-y-4 group">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary group-hover:text-primary transition-colors">Business Impact</p>
-            <p className="text-4xl font-black text-primary transition-transform group-hover:scale-110 group-hover:translate-x-1">{callout.metric}</p>
+          <div key={callout.metric} className="surface-card rounded-3xl p-8 shadow-soft space-y-4">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary">Business Impact</p>
+            <p className="text-3xl font-semibold text-primary">{callout.metric}</p>
             <p className="text-base text-muted-foreground font-medium leading-relaxed">{callout.detail}</p>
           </div>
         ))}
@@ -38,9 +38,9 @@ export function SocialProofBand({
 
       <div className="flex flex-wrap items-center justify-center gap-4">
         {clientLogos.map((client) => (
-          <div key={client.name} className="interactive-card flex min-h-[80px] min-w-[200px] flex-col items-center justify-center px-8 text-center group hover:bg-slate-900 hover:text-white transition-all duration-500">
-            <span className="text-lg font-black tracking-tight text-primary group-hover:text-white transition-colors">{client.name}</span>
-            <span className="text-[10px] uppercase tracking-[0.3em] font-black text-muted-foreground/50 group-hover:text-white/50 transition-colors">{client.tagline}</span>
+          <div key={client.name} className="surface-card flex min-h-[80px] min-w-[200px] flex-col items-center justify-center px-6 text-center shadow-soft">
+            <span className="text-base font-semibold tracking-tight text-primary">{client.name}</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-muted-foreground/50">{client.tagline}</span>
           </div>
         ))}
       </div>
@@ -48,11 +48,11 @@ export function SocialProofBand({
       {showTestimonials && (
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="interactive-card bg-white/95 dark:bg-card/40 p-8 space-y-6 group">
-              <Quote className="h-8 w-8 text-primary/20 group-hover:text-primary transition-colors duration-500" />
+            <div key={testimonial.name} className="surface-card rounded-3xl p-6 shadow-soft space-y-6">
+              <Quote className="h-8 w-8 text-primary/20" />
               <p className="text-base text-muted-foreground italic leading-relaxed font-medium">&quot;{testimonial.quote}&quot;</p>
               <div className="pt-4 border-t border-primary/10">
-                <p className="text-sm font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">{testimonial.name}</p>
+                <p className="text-sm font-black uppercase tracking-tight text-foreground">{testimonial.name}</p>
                 <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60">{testimonial.company}</p>
               </div>
             </div>
@@ -62,4 +62,3 @@ export function SocialProofBand({
     </div>
   );
 }
-

@@ -4,13 +4,16 @@
  */
 
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { Drawer } from "@/components/ui/drawer";
+import { siteContent } from "@/content/site";
 
 /**
  * Defines the navigation links for the header.
@@ -41,6 +44,7 @@ export function Header(): React.ReactElement {
   // Get the current path to highlight the active link.
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -48,9 +52,28 @@ export function Header(): React.ReactElement {
     return pathname?.startsWith(href);
   };
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 12);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 shadow-sm backdrop-blur-xl transition-all duration-300">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        scrolled
+          ? "border-border/60 bg-background/90 shadow-soft backdrop-blur-xl"
+          : "border-transparent bg-background/70"
+      )}
+    >
+      <div
+        className={cn(
+          "container flex items-center justify-between transition-all duration-300",
+          scrolled ? "h-14" : "h-16"
+        )}
+      >
         {/* Logo and Company Name */}
         <Link
           href="/"
@@ -83,15 +106,19 @@ export function Header(): React.ReactElement {
               key={link.href}
               href={link.href}
               className={cn(
-                "relative transition-all duration-200 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full",
+                "relative text-sm transition-all duration-200 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full",
                 isActive(link.href)
                   ? "text-primary after:w-full"
                   : "text-foreground/70"
               )}
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
             </Link>
           ))}
+          <Button asChild size="sm" className="ml-2 px-5">
+            <Link href={siteContent.nav.ctaHref}>{siteContent.nav.ctaLabel}</Link>
+          </Button>
           <ThemeToggle />
         </nav>
         <div className="flex items-center gap-2 md:hidden">
@@ -105,25 +132,37 @@ export function Header(): React.ReactElement {
           </button>
         </div>
       </div>
-      {mobileOpen && (
-        <div className="border-t border-border/60 bg-background/95 px-6 py-4 shadow-lg md:hidden">
-          <nav className="flex flex-col gap-3 text-sm font-semibold">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-md px-3 py-2 transition-colors",
-                  isActive(link.href) ? "bg-primary/10 text-primary" : "text-foreground/80"
-                )}
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      <Drawer
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        side="right"
+        title="Navigate"
+        description="Explore Spire Technosoft"
+        className="md:hidden"
+      >
+        <nav className="flex flex-col gap-3 text-base font-semibold">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "rounded-xl px-4 py-3 transition-colors",
+                isActive(link.href)
+                  ? "bg-primary/10 text-primary"
+                  : "text-foreground/80 hover:bg-muted/60"
+              )}
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button asChild size="lg" className="mt-4 w-full">
+            <Link href={siteContent.nav.ctaHref} onClick={() => setMobileOpen(false)}>
+              {siteContent.nav.mobileCtaLabel}
+            </Link>
+          </Button>
+        </nav>
+      </Drawer>
     </header>
   );
 }

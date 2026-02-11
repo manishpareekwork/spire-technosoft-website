@@ -6,6 +6,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --font-sans: var(--font-open-sans);
   --font-heading: var(--font-montserrat);
   --font-subheading: var(--font-poppins);
@@ -13,11 +16,15 @@
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-subtle: var(--border-subtle);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
+  --color-info: var(--info);
+  --color-success: var(--success);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
@@ -35,11 +42,28 @@
 
 :root {
   /* Border Radius */
-  --radius: 0.5rem;
+  --radius: 0.75rem;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
   /* Base Colors - Ivory White background for maximum readability */
   --background: 120 10% 97%; /* #F7F9F7 - Ivory White */
   --foreground: 0 0% 17%;    /* #2B2B2B - Charcoal Gray */
+  --surface: 0 0% 100%;
+  --surface-2: 120 10% 96%;
+  --surface-3: 120 8% 92%;
   
   /* Card Colors - Clean white cards */
   --card: 0 0% 100%;
@@ -64,20 +88,34 @@
   /* Muted - Soft gray-green */
   --muted: 150 10% 92%;
   --muted-foreground: 142 8% 34%; /* #404B44 - Slate Gray */
+
+  /* Supporting */
+  --info: 210 70% 45%;
+  --success: 152 62% 35%;
   
   /* Destructive */
   --destructive: 0 84% 60%;
   
   /* Borders */
   --border: 150 10% 88%;
+  --border-strong: 150 12% 80%;
+  --border-subtle: 150 10% 92%;
   --input: 150 10% 88%;
   --ring: 161 100% 24%;
+
+  /* Shadows */
+  --shadow-soft: 0 24px 60px -40px rgba(0, 0, 0, 0.3);
+  --shadow-float: 0 32px 80px -48px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 0 1px rgba(0, 77, 50, 0.08), 0 20px 60px -32px rgba(0, 77, 50, 0.3);
 }
 
 .dark {
   /* Dark mode - Pro dark green-charcoal */
   --background: 160 20% 6%;
   --foreground: 120 10% 95%;
+  --surface: 160 20% 10%;
+  --surface-2: 160 18% 12%;
+  --surface-3: 160 16% 16%;
   
   --card: 160 20% 10%;
   --card-foreground: 120 10% 95%;
@@ -96,10 +134,15 @@
   
   --muted: 160 15% 15%;
   --muted-foreground: 160 10% 70%;
+
+  --info: 210 80% 60%;
+  --success: 152 60% 48%;
   
   --destructive: 0 62% 30%;
   
   --border: 160 15% 20%;
+  --border-strong: 160 15% 30%;
+  --border-subtle: 160 15% 16%;
   --input: 160 15% 20%;
   --ring: 161 44% 58%;
 }
@@ -114,6 +157,7 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-montserrat), "Montserrat", sans-serif;
@@ -128,7 +172,7 @@
   }
   .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
@@ -156,6 +200,68 @@
   }
   .animate-softFade {
     animation: softFade 0.6s ease-out both;
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .surface-card {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border-subtle));
+  }
+  .surface-panel {
+    background: hsl(var(--surface-2));
+    border: 1px solid hsl(var(--border));
+  }
+  .surface-muted {
+    background: hsl(var(--surface-3));
+  }
+  .display-hero {
+    font-size: clamp(2.75rem, 4vw + 1rem, 5.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .display-1 {
+    font-size: clamp(2.25rem, 3vw + 1rem, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .heading-2 {
+    font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .heading-3 {
+    font-size: clamp(1.25rem, 1.2vw + 1rem, 1.75rem);
+    line-height: 1.3;
+  }
+  .body-lg {
+    font-size: clamp(1rem, 0.6vw + 0.9rem, 1.2rem);
+    line-height: 1.7;
+  }
+  .body-md {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .body-sm {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .grid-lines {
+    background-image: linear-gradient(120deg, rgba(0, 77, 50, 0.06) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(0, 77, 50, 0.04) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px;
   }
 }
 
@@ -200,5 +306,14 @@
   .dark .glass-panel {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

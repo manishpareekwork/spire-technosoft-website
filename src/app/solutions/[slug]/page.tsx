@@ -149,7 +149,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               <div className="space-y-10">
                 {solution.deliveryPlan.map((phase) => (
                   <div key={phase.phase} className="space-y-4">
-                    <p className="text-xs uppercase tracking-[0.3em] text-primary font-black">{phase.timeframe} — {phase.phase}</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-primary font-black">{phase.timeframe} - {phase.phase}</p>
                     <div className="grid gap-3">
                       {phase.items.map((item) => (
                         <div key={item} className="flex items-center gap-3 text-base text-muted-foreground font-semibold">

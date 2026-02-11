@@ -3,7 +3,9 @@ import { Montserrat, Open_Sans, Poppins, Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { FloatingCta } from "@/components/layout/floating-cta";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteContent } from "@/content/site";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -35,9 +37,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Spire Technosoft | Secure Digital Product Engineering",
-  description:
-    "Spire Technosoft builds secure, scalable web & mobile products with AI, cloud, and modern UX—end-to-end delivery for enterprises and startups.",
+  metadataBase: new URL("https://www.spiretechnosoft.com"),
+  title: siteContent.seo.baseTitle,
+  description: siteContent.seo.baseDescription,
   icons: {
     icon: [
       { url: "/images/logo/24x24.png", sizes: "24x24", type: "image/png" },
@@ -46,6 +48,17 @@ export const metadata: Metadata = {
     apple: [
       { url: "/images/logo/1080x1080.png", sizes: "180x180", type: "image/png" },
     ],
+  },
+  openGraph: {
+    title: siteContent.seo.baseTitle,
+    description: siteContent.seo.baseDescription,
+    images: [{ url: siteContent.seo.defaultOg }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteContent.seo.baseTitle,
+    description: siteContent.seo.baseDescription,
+    images: [siteContent.seo.defaultOg],
   },
 };
 
@@ -69,6 +82,7 @@ export default function RootLayout({
             <ParticleBackground />
             <Header />
             <main className="relative z-10 flex-1 bg-background/95">{children}</main>
+            <FloatingCta />
             <Footer />
           </div>
         </ThemeProvider>

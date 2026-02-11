@@ -7,6 +7,8 @@ export type PortfolioProject = {
   platform: string;
   region: string;
   description: string;
+  problem: string[];
+  constraints: string[];
   challenge: string[];
   solution: string[];
   approach: string[];
@@ -33,12 +35,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "enterprise-fitness-wellness-platform",
     title: "Enterprise Fitness & Wellness Platform",
     headline: "Mobile-first wellness ecosystem spanning onboarding, workouts, nutrition, and analytics.",
-    industry: "Health & Wellness • Consumer Tech",
+    industry: "Health & Wellness / Consumer Tech",
     domain: "Healthcare & Wellness",
     platform: "Mobile + Web",
     region: "Global",
     description:
-      "Mobile (iOS/Android) and web suite for a global wellness brand—covering onboarding, workouts, nutrition, analytics, and community modules.",
+      "Mobile (iOS/Android) and web suite for a global wellness brand-covering onboarding, workouts, nutrition, analytics, and community modules.",
+    problem: [
+      "Fragmented experiences across regional launches reduced member adoption.",
+      "Legacy content delivery could not personalize workouts, nutrition, or analytics.",
+    ],
+    constraints: [
+      "Multi-region rollout needed consistent UX with localized content.",
+      "Personalization at scale across mobile and web surfaces.",
+    ],
     challenge: [
       "Fragmented experiences across regional launches reduced member adoption.",
       "Legacy content delivery could not personalize workouts, nutrition, or analytics.",
@@ -88,12 +98,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "older-adults-caregivers-companion",
     title: "Companion App for Older Adults & Caregivers",
     headline: "Senior-friendly mobile companion with caregiver oversight and safety automations.",
-    industry: "HealthTech • Aging & Memory Support",
+    industry: "HealthTech / Aging & Memory Support",
     domain: "Healthcare & Wellness",
     platform: "Mobile + Portal",
     region: "India & US",
     description:
       "Senior-friendly mobile app with location safety, cognitive games, reminders, and messaging; caregiver web portal for oversight.",
+    problem: [
+      "Care teams needed a unified view of medication, appointments, and safety alerts.",
+      "Accessibility requirements demanded gesture-friendly, high-contrast UX.",
+    ],
+    constraints: [
+      "Privacy-safe handling of location and health data with explicit consent.",
+      "Low-friction workflows for older adults in variable connectivity conditions.",
+    ],
     challenge: [
       "Care teams needed a unified view of medication, appointments, and safety alerts.",
       "Accessibility requirements demanded gesture-friendly, high-contrast UX.",
@@ -143,12 +161,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "enterprise-audit-compliance-platform",
     title: "Enterprise Audit & Compliance Platform",
     headline: "Web + mobile tool digitizing inspections with offline mode, media uploads, certifications, and analytics dashboards.",
-    industry: "Manufacturing • Quality Assurance",
+    industry: "Manufacturing / Quality Assurance",
     domain: "Audit & Compliance",
     platform: "Web + Mobile",
     region: "Europe & APAC",
     description:
       "Digitized inspections with offline capture, guided workflows, certification packaging, and analytics dashboards for regulators and suppliers.",
+    problem: [
+      "Paper-heavy audit programs created compliance gaps across five countries.",
+      "Quality teams lacked real-time visibility into readiness, risks, and approvals.",
+    ],
+    constraints: [
+      "Offline-first inspections for remote facilities and low connectivity.",
+      "Multi-tenant governance with regulator and supplier access.",
+    ],
     challenge: [
       "Paper-heavy audit programs created compliance gaps across five countries.",
       "Quality teams lacked real-time visibility into readiness, risks, and approvals.",
@@ -198,12 +224,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "supply-chain-quality-system",
     title: "Supply-Chain Quality System",
     headline: "SaaS portal plus supplier mobile app for onboarding, product tests, and compliance heat maps across regions.",
-    industry: "Retail • FMCG",
+    industry: "Retail / FMCG",
     domain: "Supply Chain & Retail",
     platform: "Web + Mobile",
     region: "APAC",
     description:
       "SaaS portal plus supplier mobile app for onboarding, product tests, corrective actions, and compliance heat maps.",
+    problem: [
+      "Manual supplier onboarding and audits slowed seasonal launches.",
+      "Distributed quality data lived in spreadsheets and inboxes.",
+    ],
+    constraints: [
+      "ERP integrations and multi-region compliance requirements.",
+      "Supplier onboarding at scale with consistent evidence capture.",
+    ],
     challenge: [
       "Manual supplier onboarding and audits slowed seasonal launches.",
       "Distributed quality data lived in spreadsheets and inboxes.",
@@ -259,6 +293,14 @@ export const portfolioProjects: PortfolioProject[] = [
     region: "North America",
     description:
       "Real-time trading workspace featuring high-performance charts, streaming data, and configurable workbenches.",
+    problem: [
+      "Analysts juggled multiple dashboards without synchronized layouts.",
+      "Legacy tooling could not render real-time market depth at scale.",
+    ],
+    constraints: [
+      "Sub-120ms latency requirements under peak trading volumes.",
+      "Multi-monitor workspaces with strict access controls.",
+    ],
     challenge: [
       "Analysts juggled multiple dashboards without synchronized layouts.",
       "Legacy tooling could not render real-time market depth at scale.",
@@ -308,12 +350,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "industrial-operations-energy-dashboard",
     title: "Industrial Operations & Energy Dashboard",
     headline: "Web + tablet dashboards for grid monitoring, inspections, and predictive maintenance analytics tied to IoT data.",
-    industry: "Energy • Utilities",
+    industry: "Energy / Utilities",
     domain: "Energy & Infrastructure",
     platform: "Web + Tablet",
     region: "Middle East",
     description:
       "Web + tablet dashboards for grid monitoring, inspections, and predictive maintenance analytics tied to IoT data.",
+    problem: [
+      "Operations teams lacked a unified command view connecting OT telemetry and field inspections.",
+      "Need for offline-first tooling for remote substations.",
+    ],
+    constraints: [
+      "OT/IT segmentation with strict security controls.",
+      "Harsh field conditions requiring resilient offline workflows.",
+    ],
     challenge: [
       "Operations teams lacked a unified command view connecting OT telemetry and field inspections.",
       "Need for offline-first tooling for remote substations.",
@@ -363,12 +413,20 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "innovation-rd-knowledge-platform",
     title: "Innovation & R&D Knowledge Platform",
     headline: "Searchable CMS and analytics portal for technical publications and project data with semantic search.",
-    industry: "Research • Publishing",
+    industry: "Research / Publishing",
     domain: "Knowledge Management",
     platform: "Web",
     region: "Global",
     description:
       "Searchable CMS and analytics portal for technical publications and project data with semantic search.",
+    problem: [
+      "Research teams faced long discovery cycles due to scattered repositories.",
+      "Need to control granular access for different innovation cohorts.",
+    ],
+    constraints: [
+      "Editorial governance with audit trails and approvals.",
+      "Semantic search performance across large content volumes.",
+    ],
     challenge: [
       "Research teams faced long discovery cycles due to scattered repositories.",
       "Need to control granular access for different innovation cohorts.",

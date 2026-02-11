@@ -5,6 +5,7 @@ export type SolutionDetail = {
   intro: string;
   image: string;
   tags: string[];
+  outcomes: string[];
   typicalProblems: string[];
   deliveryPlan: {
     phase: string;
@@ -32,6 +33,11 @@ export const solutionDetails: SolutionDetail[] = [
       "Regulated programs need traceability, speed, and accuracy. We build audit ecosystems that replace paper processes and keep evidence audit-ready across regions.",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
     tags: ["Manufacturing", "ESG", "Quality", "Regulatory"],
+    outcomes: [
+      "Accelerated audit cycles with offline-first inspections.",
+      "Real-time readiness visibility across plants and vendors.",
+      "Automated CAPA workflows tied to compliance KPIs.",
+    ],
     typicalProblems: [
       "Paper-heavy inspections slowing closures and increasing audit risk.",
       "Inconsistent evidence capture across regions and vendors.",
@@ -107,6 +113,11 @@ export const solutionDetails: SolutionDetail[] = [
       "We build healthcare platforms that balance compassionate UX with HIPAA-grade security. From patient onboarding to remote monitoring, every workflow is designed for adherence and outcomes.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80",
     tags: ["Digital Health", "Wellness", "Care Teams", "Patient Experience"],
+    outcomes: [
+      "Improved adherence with personalized care journeys.",
+      "Unified caregiver and clinician visibility.",
+      "HIPAA-grade security with consent-led data flows.",
+    ],
     typicalProblems: [
       "Fragmented patient journeys across apps, clinics, and programs.",
       "Limited caregiver visibility into schedules, adherence, and alerts.",
@@ -183,6 +194,11 @@ export const solutionDetails: SolutionDetail[] = [
       "We help procurement and operations leaders build resilient supply chains with real-time visibility across suppliers, factories, and logistics partners.",
     image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
     tags: ["Retail", "FMCG", "Procurement", "Supplier Ops"],
+    outcomes: [
+      "Faster supplier onboarding and compliance readiness.",
+      "Predictive risk alerts with real-time dashboards.",
+      "Automated document and approval workflows.",
+    ],
     typicalProblems: [
       "Manual supplier onboarding and inspection workflows.",
       "Disconnected data across ERP, QA, and field teams.",
@@ -258,6 +274,11 @@ export const solutionDetails: SolutionDetail[] = [
       "Spire builds industrial intelligence platforms that fuse IoT telemetry with actionable workflows for reliability, safety, and energy efficiency.",
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
     tags: ["Energy", "Utilities", "Industrial Ops", "IoT"],
+    outcomes: [
+      "Reduced downtime with predictive maintenance models.",
+      "Unified telemetry across OT and field operations.",
+      "Offline-ready tooling for remote assets.",
+    ],
     typicalProblems: [
       "Telemetry scattered across SCADA, ERP, and manual field logs.",
       "Limited predictive insights for maintenance planning.",

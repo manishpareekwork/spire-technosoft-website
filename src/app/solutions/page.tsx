@@ -1,203 +1,174 @@
+import Image from "next/image";
 import Link from "next/link";
-import { 
-  ArrowRight, 
-  ClipboardCheck, 
-  Heart, 
-  Package, 
-  Cpu,
-  Factory,
-  Sparkles,
-  Building2,
-  TrendingUp,
-  CheckCircle2,
-  Layers,
-  Network
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SocialProofBand } from "@/components/sections/social-proof";
 import { ResourceDownloads } from "@/components/sections/resource-downloads";
-import { differentiators } from "@/data/differentiators";
-import { industryProfiles } from "@/data/industries";
+import { siteContent } from "@/content/site";
 import { solutionDetails } from "@/data/solutions";
-
-const solutionIcons = {
-  "audit": ClipboardCheck,
-  "healthcare": Heart,
-  "supply-chain": Package,
-  "industrial-iot": Cpu,
-};
-
-const industryIcons = {
-  "manufacturing": Factory,
-  "healthcare": Heart,
-  "retail-fmcg": Building2,
-  "energy": Sparkles,
-  "finance": TrendingUp,
-};
 
 export const metadata = {
   title: "Solutions | Spire Technosoft",
-  description: "Modular platforms built for regulated environments. Explore our expertise in audit, healthcare, supply chain, and industrial IoT.",
+  description:
+    "Modular platforms built for regulated environments. Explore our expertise in audit, healthcare, supply chain, and industrial IoT.",
+  openGraph: {
+    title: "Solutions | Spire Technosoft",
+    description:
+      "Modular platforms built for regulated environments. Explore our expertise in audit, healthcare, supply chain, and industrial IoT.",
+    images: [{ url: siteContent.seo.defaultOg }],
+  },
 };
 
 export default function SolutionsPage(): React.ReactElement {
+  const { solutions } = siteContent;
+
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="container animate-softFade py-20">
-        <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
-          <div className="relative z-10 space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
-              <Layers className="h-4 w-4 text-primary" />
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Expertise</p>
-            </div>
-            <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl leading-tight">
-              Modular platforms built for <span className="text-secondary">regulated industries</span>
-            </h1>
-            <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-2xl leading-relaxed">
-              Platform Pods, Experience Ops, and Intelligence Built-in sit at the core of every engagement. Each solution area delivers
-              secure, measurable outcomes.
-            </p>
+        <div className="section-shell w-full space-y-10 py-10 text-center">
+          <div className="relative z-10 space-y-6">
+            <Badge variant="soft">{solutions.hero.eyebrow}</Badge>
+            <h1 className="display-hero text-foreground">{solutions.hero.title}</h1>
+            <p className="mx-auto max-w-3xl body-lg text-muted-foreground">{solutions.hero.description}</p>
             <div className="flex flex-wrap justify-center gap-3 pt-4">
-              {differentiators.map((item) => (
-                <span 
-                  key={item.title} 
-                  className="rounded-full bg-white px-5 py-2 text-xs font-bold uppercase tracking-wider text-primary border border-primary/10 shadow-sm"
-                >
+              {siteContent.differentiators.map((item) => (
+                <Badge key={item.title} variant="outline" className="normal-case tracking-normal">
                   {item.title}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Solution Areas */}
-      <section className="container animate-softFade py-10">
-        <div className="space-y-24">
-          <div className="space-y-4 text-center">
-            <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Solution Portfolios</h2>
-            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">End-to-end platforms designed for enterprise complexity and regulatory rigor.</p>
-          </div>
-          
-          <div className="space-y-32">
-            {solutionDetails.map((solution, index) => {
-              const Icon = solutionIcons[solution.slug as keyof typeof solutionIcons] || Network;
-              const isEven = index % 2 === 0;
-              
-              return (
-                <div 
-                  key={solution.slug} 
-                  className="group relative"
-                >
-                  <div className={`grid gap-16 lg:grid-cols-2 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
-                    {/* Visual Section */}
-                    <div className={`${!isEven ? 'lg:order-2' : ''}`}>
-                      <div className="interactive-card relative aspect-video flex flex-col items-center justify-center gap-8 rounded-[2rem] bg-white p-12 overflow-hidden border-primary/5 shadow-2xl">
-                        <div className="absolute top-0 right-0 p-8 text-primary/5">
-                          <Network className="w-48 h-48 rotate-12" />
+      {/* Pillars */}
+      <section className="container py-16">
+        <div className="space-y-10">
+          <SectionHeader
+            eyebrow="Delivery Pillars"
+            title="Platform strategy that compounds"
+            description="Each pillar is designed to accelerate outcomes without compromising compliance." 
+          />
+          <Tabs defaultValue={solutions.pillars[0].key}>
+            <TabsList className="justify-center">
+              {solutions.pillars.map((pillar) => (
+                <TabsTrigger key={pillar.key} value={pillar.key}>
+                  {pillar.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {solutions.pillars.map((pillar) => (
+              <TabsContent key={pillar.key} value={pillar.key}>
+                <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+                  <div className="surface-card rounded-3xl p-8 shadow-soft text-left">
+                    <h3 className="heading-3 text-foreground">{pillar.title}</h3>
+                    <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                      {pillar.outcomes.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="surface-card rounded-3xl p-8 shadow-soft">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">How it works</p>
+                    <div className="mt-6 flex items-center justify-between gap-3">
+                      {pillar.steps.map((step, index) => (
+                        <div key={step} className="flex flex-1 flex-col items-center gap-3">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">
+                            0{index + 1}
+                          </div>
+                          <p className="text-xs text-muted-foreground text-center">{step}</p>
                         </div>
-                        
-                        <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary text-white shadow-xl group-hover:scale-110 transition-transform duration-500">
-                          <Icon className="h-10 w-10" />
-                        </div>
-                        
-                        <div className="relative z-10 grid sm:grid-cols-2 gap-4 w-full">
-                          {solution.successMetrics.slice(0, 4).map((metric, idx) => (
-                            <div key={idx} className="flex items-center gap-3 bg-primary/5 rounded-xl p-4 border border-primary/10">
-                              <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-                              <span className="text-sm font-bold text-foreground/80">{metric}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Content Section */}
-                    <div className={`space-y-8 ${!isEven ? 'lg:order-1' : ''} text-left`}>
-                      <div className="space-y-6">
-                        <div className="flex flex-wrap gap-2">
-                          {solution.tags.map((tag) => (
-                            <span 
-                              key={tag} 
-                              className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1 rounded-full"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <h3 className="text-4xl font-bold md:text-5xl group-hover:text-primary transition-colors duration-300">
-                          {solution.title}
-                        </h3>
-                        <p className="text-2xl font-semibold text-secondary leading-relaxed">
-                          {solution.summary}
-                        </p>
-                      </div>
-
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        {solution.intro}
-                      </p>
-
-                      <div className="pt-4">
-                        <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-10 text-lg font-bold group/btn border-none shadow-xl hover:bg-secondary">
-                          <Link href={`/solutions/${solution.slug}`} className="flex items-center">
-                            Explore Solution Portfolio
-                            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
-                          </Link>
-                        </Button>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
-      {/* Industry Specialization */}
-      <section className="container animate-softFade py-32">
-        <div className="space-y-16">
-          <div className="space-y-4 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-2 border border-primary/10">
-              <Building2 className="h-4 w-4 text-primary" />
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Cross-Industry</p>
-            </div>
-            <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Industry Nuance</h2>
-            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-              Regulatory context, mission-critical programs, and relevant proof points for executive stakeholders.
-            </p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {industryProfiles.map((industry) => {
-              const IndustryIcon = industryIcons[industry.slug as keyof typeof industryIcons] || Building2;
-              
-              return (
-                <Link
-                  key={industry.slug}
-                  href={`/industries/${industry.slug}`}
-                  className="interactive-card group block space-y-8 p-10 bg-white shadow-xl hover:shadow-2xl text-left"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                      <IndustryIcon className="h-8 w-8" />
-                    </div>
-                    <ArrowRight className="h-6 w-6 text-primary/40 group-hover:text-primary transition-all group-hover:translate-x-1" />
+      {/* Solution Portfolios */}
+      <section className="container py-20">
+        <div className="space-y-14">
+          <SectionHeader
+            eyebrow="Portfolios"
+            title={solutions.portfoliosIntro.title}
+            description={solutions.portfoliosIntro.description}
+          />
+          <div className="grid gap-8 lg:grid-cols-2">
+            {solutionDetails.map((solution) => (
+              <div key={solution.slug} className="surface-card rounded-3xl p-8 shadow-soft">
+                <div className="grid gap-6 sm:grid-cols-[1fr,1.1fr] items-center">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/60">
+                    <Image
+                      src={solution.image}
+                      alt={solution.title}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 35vw, 100vw"
+                      unoptimized={solution.image.startsWith("http")}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
                   </div>
-
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{industry.title}</h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">{industry.summary}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {solution.tags.map((tag) => (
+                        <Badge key={tag} variant="soft">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <h3 className="heading-3 text-foreground">{solution.title}</h3>
+                    <p className="text-sm font-semibold text-muted-foreground">{solution.summary}</p>
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {solution.successMetrics.map((metric) => (
+                    <span
+                      key={metric}
+                      className="rounded-full border border-border/60 bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground"
+                    >
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+
+                <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                  {solution.outcomes.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button asChild size="lg">
+                    <Link href={`/solutions/${solution.slug}`} className="flex items-center gap-2">
+                      Explore portfolio <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg">
+                    <Link href="/contact">Book discovery</Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container py-20 bg-primary/5 border-y border-primary/10">
+      <section className="container py-12">
         <SocialProofBand
           title="Enterprise credibility"
           description="Repeatable results across audit, healthcare, supply chain, and industrial programs."
@@ -206,10 +177,7 @@ export default function SolutionsPage(): React.ReactElement {
       </section>
 
       <section className="container py-20 pb-32">
-        <ResourceDownloads
-          title="Shareable sales assets"
-          description="Download the one-pager, Platform Pods overview, and Innovation Lab brochure to support internal alignment."
-        />
+        <ResourceDownloads title={solutions.assets.title} description={solutions.assets.description} />
       </section>
     </div>
   );
