@@ -17,11 +17,11 @@ export type RoleCard = {
   mode: string;
   experience: string;
   timeline: string;
-  responsibilities: string[];
+  responsibilities: readonly string[];
 };
 
 type RolesGridProps = {
-  roles: RoleCard[];
+  roles: ReadonlyArray<RoleCard>;
 };
 
 export function RolesGrid({ roles }: RolesGridProps) {
