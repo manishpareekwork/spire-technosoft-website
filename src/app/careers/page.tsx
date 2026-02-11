@@ -21,6 +21,11 @@ import {
   Quote
 } from "lucide-react";
 
+export const metadata = {
+  title: "Careers | Spire Technosoft",
+  description: "Work with innovators who engineer impact. Join our delivery pods and help scale digital systems for global enterprises.",
+};
+
 const cultureHighlights = [
   { text: "Hybrid work model with global collaboration rituals.", icon: Globe },
   { text: "Learning culture—mentorship, hackathons, and R&D sprints.", icon: GraduationCap },
@@ -81,43 +86,43 @@ const employeeStory = {
 
 export default function CareersPage(): React.ReactElement {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col bg-background">
       {/* Hero Section */}
-      <section className="snap-section container animate-softFade">
-        <div className="section-shell space-y-12 py-16 text-center">
-          <div className="relative">
-            {/* Background elements */}
-            <div className="absolute -top-20 left-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl opacity-60 pulse-glow" />
-            <div className="absolute top-0 right-1/4 h-56 w-56 rounded-full bg-secondary/15 blur-3xl opacity-50 pulse-glow" style={{ animationDelay: '2s' }} />
-            
-            <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
-                <Users className="h-4 w-4 text-primary" />
-                <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary font-[var(--font-poppins)]">
-                  Careers
-                </p>
-              </div>
-              <h1 className="text-4xl font-extrabold md:text-6xl lg:text-7xl leading-tight">
-                Work with innovators who <span className="text-gradient-elegant">engineer impact</span>
-              </h1>
-              <p className="mx-auto max-w-3xl text-lg text-muted-foreground md:text-xl leading-relaxed">
-                Innovation is collective. We believe in open dialogue, continuous learning, and empowering every team
-                member to shape technology that matters.
+      <section className="container animate-softFade py-20">
+        <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
+          <div className="relative z-10 space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
+              <Users className="h-4 w-4 text-primary" />
+              <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">
+                Careers
               </p>
+            </div>
+            <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl leading-tight text-foreground">
+              Engineering <span className="text-secondary">Impact Together</span>
+            </h1>
+            <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-2xl leading-relaxed font-medium">
+              Innovation is collective. We believe in open dialogue, continuous learning, and empowering every team
+              member to shape technology that matters for global enterprises.
+            </p>
+            <div className="flex justify-center pt-8">
+              <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
+                <Link href="#apply" className="flex items-center gap-3">
+                  Applied for a Role <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 pt-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 pt-12">
             {cultureHighlights.map((item, index) => (
               <div 
                 key={item.text} 
-                className="interactive-card bg-white/95 dark:bg-card/40 p-8 group transition-all"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="interactive-card p-10 group text-left shadow-xl"
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
                   <item.icon className="h-6 w-6" />
                 </div>
-                <p className="text-sm font-medium text-muted-foreground leading-relaxed">{item.text}</p>
+                <p className="text-lg font-bold text-muted-foreground leading-relaxed transition-colors group-hover:text-foreground">{item.text}</p>
               </div>
             ))}
           </div>
@@ -125,54 +130,55 @@ export default function CareersPage(): React.ReactElement {
       </section>
 
       {/* Open Roles Section */}
-      <section className="snap-section container animate-softFade">
-        <div className="section-shell space-y-12 py-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold md:text-5xl text-gradient-elegant inline-block">Global Opportunities</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl">
-                We're looking for specialists who think in systems and deliver with empathy.
-              </p>
+      <section className="container animate-softFade py-20">
+        <div className="space-y-16 text-left">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
+              <Sparkles className="h-4 w-4" />
+              <span className="text-[10px] font-black uppercase tracking-widest">Opportunities</span>
             </div>
+            <h2 className="text-4xl font-extrabold md:text-7xl text-secondary tracking-tight">Active Pod Roles</h2>
+            <p className="text-muted-foreground text-xl max-w-2xl font-medium leading-relaxed">
+              We're looking for specialists who think in systems and deliver with empathy across regulated industries.
+            </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {roles.map((role, index) => (
+          <div className="grid gap-10 md:grid-cols-2">
+            {roles.map((role) => (
               <div 
                 key={role.title} 
-                className="interactive-card bg-white/95 dark:bg-card/40 p-8 space-y-6 group"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="interactive-card p-10 space-y-8 group shadow-xl bg-white border border-primary/5"
               >
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex justify-between items-start">
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{role.title}</h3>
-                    <div className="h-10 w-10 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                      <ArrowRight className="h-5 w-5" />
+                    <h3 className="text-3xl font-extrabold text-foreground group-hover:text-primary transition-colors leading-tight">{role.title}</h3>
+                    <div className="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                      <ArrowRight className="h-6 w-6" />
                     </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{role.description}</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed font-semibold">{role.description}</p>
                 </div>
-                <div className="flex flex-wrap gap-4 pt-2">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground/60">
-                    <MapPin className="h-4 w-4 text-secondary" />
+                <div className="flex flex-wrap gap-6 pt-2">
+                  <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary/60">
+                    <MapPin className="h-4 w-4 text-primary" />
                     {role.location}
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground/60">
-                    <Briefcase className="h-4 w-4 text-accent" />
+                  <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary/60">
+                    <Briefcase className="h-4 w-4 text-primary" />
                     {role.experience}
                   </div>
                 </div>
               </div>
             ))}
-            <div className="interactive-card bg-slate-900 text-white p-8 flex flex-col justify-center items-center text-center space-y-6">
-              <div className="h-16 w-16 rounded-full bg-white/10 flex items-center justify-center">
-                <Coffee className="h-8 w-8 text-primary" />
+            <div className="interactive-card bg-primary p-12 flex flex-col justify-center items-center text-center space-y-8 rounded-[3rem] shadow-2xl">
+              <div className="h-20 w-20 rounded-full bg-white/10 flex items-center justify-center shadow-inner">
+                <Coffee className="h-10 w-10 text-white" />
               </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold">Don't see your role?</h3>
-                <p className="text-white/60 text-sm">Tell us how you can contribute. We're always looking for talent.</p>
+              <div className="space-y-4">
+                <h3 className="text-3xl font-extrabold text-white">Speculative Hire?</h3>
+                <p className="text-white/80 text-lg font-medium">Tell us how you can contribute. We're always looking for exceptional talent.</p>
               </div>
-              <Button asChild variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
+              <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-12 text-lg font-bold hover:bg-white/95 border-none shadow-xl">
                 <a href="mailto:careers@spiretechnosoft.com">Email Talent Pod</a>
               </Button>
             </div>
@@ -181,36 +187,33 @@ export default function CareersPage(): React.ReactElement {
       </section>
 
       {/* Hiring Process */}
-      <section className="snap-section container animate-softFade">
-        <div className="section-shell bg-slate-900 text-white rounded-[3rem] p-12 lg:p-20 space-y-16 overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 text-white/5 pointer-events-none">
-            <Workflow className="w-96 h-96" />
-          </div>
-          
-          <div className="relative z-10 text-center space-y-4">
-            <h2 className="text-3xl font-bold md:text-5xl">The Hiring Roadmap</h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+      <section className="container animate-softFade py-20">
+        <div className="bg-white border border-primary/5 rounded-[3rem] p-12 lg:p-24 space-y-20 overflow-hidden shadow-3xl text-center">
+          <div className="relative z-10 space-y-6">
+             <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
+              <Workflow className="h-4 w-4" />
+              <span className="text-[10px] font-black uppercase tracking-widest">Rhythm</span>
+            </div>
+            <h2 className="text-4xl font-extrabold md:text-7xl text-secondary">The Hiring Roadmap</h2>
+            <p className="text-muted-foreground text-xl max-w-2xl mx-auto font-medium">
               Our process is designed to be collaborative, transparent, and respectful of your time.
             </p>
           </div>
 
-          <div className="relative z-10 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative z-10 grid gap-12 md:grid-cols-2 lg:grid-cols-4 pt-10">
             {hiringProcess.map((step, index) => (
-              <div key={step.title} className="space-y-6 group">
+              <div key={step.title} className="space-y-8 group text-left">
                 <div className="relative">
-                  <div className="h-20 w-20 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
-                    <step.icon className="h-10 w-10 text-primary group-hover:text-white" />
+                  <div className="h-24 w-24 rounded-3xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                    <step.icon className="h-12 w-12" />
                   </div>
-                  {index < hiringProcess.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-24 w-full h-px border-t border-dashed border-white/20" />
-                  )}
+                  <div className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-white border border-primary/10 flex items-center justify-center font-black text-primary text-sm shadow-sm">
+                    0{index + 1}
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-black uppercase tracking-widest text-primary">0{index + 1}</span>
-                    <h3 className="text-xl font-bold">{step.title}</h3>
-                  </div>
-                  <p className="text-sm text-white/50 leading-relaxed">{step.text}</p>
+                <div className="space-y-3">
+                   <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
+                   <p className="text-base text-muted-foreground leading-relaxed font-semibold">{step.text}</p>
                 </div>
               </div>
             ))}
@@ -219,39 +222,39 @@ export default function CareersPage(): React.ReactElement {
       </section>
 
       {/* Benefits & Growth */}
-      <section className="snap-section container animate-softFade">
-        <div className="section-shell grid gap-12 lg:grid-cols-2 py-16">
-          <div className="space-y-10">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold md:text-5xl">Growth that fuels impact</h2>
-              <p className="text-muted-foreground text-lg">
+      <section className="container animate-softFade py-20">
+        <div className="grid gap-20 lg:grid-cols-2 items-center text-left">
+          <div className="space-y-12">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-extrabold md:text-7xl text-secondary">Fueling Impact</h2>
+              <p className="text-muted-foreground text-xl font-medium leading-relaxed max-w-xl">
                 We invest in your development as much as our products.
               </p>
             </div>
             <div className="grid gap-6">
               {benefits.map((benefit) => (
-                <div key={benefit.text} className="flex gap-4 p-6 rounded-[2rem] bg-background/50 border border-primary/5 hover:bg-white transition-colors group">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                    <benefit.icon className="h-6 w-6" />
+                <div key={benefit.text} className="flex gap-6 p-8 rounded-[2.5rem] bg-white border border-primary/5 hover:border-primary/20 hover:bg-primary group shadow-lg transition-all">
+                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-white group-hover:text-primary transition-all shadow-sm shrink-0">
+                    <benefit.icon className="h-7 w-7" />
                   </div>
-                  <p className="text-lg font-bold leading-tight self-center">{benefit.text}</p>
+                  <p className="text-xl font-bold leading-tight self-center text-foreground group-hover:text-white transition-colors">{benefit.text}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative">
-            <div className="glass-panel p-10 space-y-8 border-primary/10 h-full flex flex-col justify-center">
-              <div className="space-y-6">
-                <Quote className="h-12 w-12 text-primary opacity-20" />
-                <p className="text-2xl font-medium leading-relaxed italic text-foreground/80">
+            <div className="interactive-card p-12 space-y-10 shadow-3xl bg-white border border-primary/5 rounded-[3rem]">
+              <div className="space-y-8">
+                <Quote className="h-16 w-16 text-primary opacity-10" />
+                <p className="text-3xl font-medium leading-relaxed italic text-foreground/80">
                   "{employeeStory.quote}"
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary" />
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary shadow-md" />
                   <div>
-                    <p className="font-bold text-lg">{employeeStory.name}</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-widest font-bold">{employeeStory.area}</p>
+                    <p className="font-bold text-2xl text-foreground">{employeeStory.name}</p>
+                    <p className="text-[11px] font-black text-primary uppercase tracking-[0.3em]">{employeeStory.area}</p>
                   </div>
                 </div>
               </div>
@@ -261,42 +264,42 @@ export default function CareersPage(): React.ReactElement {
       </section>
 
       {/* Apply Form Section */}
-      <section id="apply" className="snap-section container animate-softFade">
-        <div className="section-shell grid gap-12 lg:grid-cols-[1.5fr,1fr] py-16 items-start">
-          <div className="interactive-card bg-white/95 dark:bg-card/40 p-10 space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold">Apply to Spire</h2>
-              <p className="text-muted-foreground">Join a pod and start building the future.</p>
+      <section id="apply" className="container animate-softFade py-20">
+        <div className="grid gap-16 lg:grid-cols-[1.5fr,1fr] items-start text-left">
+          <div className="interactive-card p-12 space-y-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] rounded-[3rem] bg-white border border-primary/5">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-extrabold text-secondary">Join the Pod</h2>
+              <p className="text-xl text-muted-foreground font-semibold">Ready to co-create high-stakes enterprise systems?</p>
             </div>
             <CareersForm roles={roles.map((role) => role.title)} />
           </div>
 
-          <div className="space-y-8">
-            <div className="interactive-card bg-gradient-to-br from-primary/5 to-secondary/10 p-8 space-y-6">
-              <h3 className="text-xl font-bold">What to include</h3>
-              <div className="space-y-4">
+          <div className="space-y-10">
+            <div className="interactive-card bg-primary/5 p-10 space-y-8 border border-primary/10 shadow-lg">
+              <h3 className="text-2xl font-bold text-foreground">Intake Readiness</h3>
+              <div className="space-y-6">
                 {[
                   "Portfolio link (PDF or URL)",
                   "LinkedIn / GitHub Profile",
                   "Location & Notice Period",
                   "Role & Experience Band"
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span className="font-medium text-foreground/80">{item}</span>
+                  <div key={item} className="flex items-center gap-4">
+                    <CheckCircle2 className="h-6 w-6 text-primary shrink-0 opacity-40" />
+                    <span className="text-lg font-semibold text-muted-foreground">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="glass-panel p-8 space-y-4 border-white/20">
-              <div className="flex items-center gap-3 text-primary">
-                <Mail className="h-5 w-5" />
-                <h3 className="font-bold">Prefer Email?</h3>
+            <div className="interactive-card p-10 space-y-6 bg-white shadow-xl border border-primary/5">
+              <div className="flex items-center gap-4 text-primary">
+                <Mail className="h-7 w-7" />
+                <h3 className="text-xl font-bold">Talent Pipeline</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed font-semibold">
                 Send your details directly to our talent pod at{' '}
-                <a href="mailto:careers@spiretechnosoft.com" className="font-black text-primary underline underline-offset-4">
+                <a href="mailto:careers@spiretechnosoft.com" className="font-black text-primary underline underline-offset-8">
                   careers@spiretechnosoft.com
                 </a>
               </p>
@@ -305,25 +308,22 @@ export default function CareersPage(): React.ReactElement {
         </div>
       </section>
 
-      {/* CTA Footer */}
-      <section className="snap-section container animate-softFade pb-20">
-        <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-r from-primary via-secondary to-accent px-8 py-20 text-center text-white shadow-2xl shadow-primary/20">
-          <div className="relative z-10 space-y-8 max-w-2xl mx-auto">
-            <h2 className="text-4xl font-extrabold md:text-6xl">Let's build something impactful together</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-12 h-14 text-lg font-bold group">
-                <a href="mailto:careers@spiretechnosoft.com?subject=Apply%20%40%20Spire" className="flex items-center gap-2">
-                  Apply Now <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+      {/* Final CTA */}
+      <section className="container animate-softFade pb-40">
+        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-2xl shadow-primary/20">
+          <div className="relative z-10 space-y-8 max-w-4xl mx-auto">
+            <h2 className="text-5xl font-extrabold md:text-7xl">Engineer Impact Together</h2>
+            <p className="text-2xl text-white/80 font-medium">We deliver across regulated programs with high-accountability delivery pods.</p>
+            <div className="flex justify-center pt-8">
+              <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
+                <a href="mailto:careers@spiretechnosoft.com?subject=Apply%20%40%20Spire" className="flex items-center gap-3">
+                  Start Your Journey <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
             </div>
           </div>
-          {/* Decorative Orbs */}
-          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-secondary/20 blur-3xl opacity-50" />
         </div>
       </section>
     </div>
   );
 }
-

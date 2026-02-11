@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Download, Target, Zap, Layout, Users, Activity, Clock, Globe } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Target, Zap, Layout, Users, Activity, Clock, Globe, CheckCircle2 } from "lucide-react";
 import { getPortfolioProject, portfolioProjects } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -39,10 +39,10 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
   }
 
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col bg-background">
       {/* Hero Section */}
-      <section className="snap-section container animate-softFade py-16">
-        <div className="section-shell space-y-12">
+      <section className="container animate-softFade py-12">
+        <div className="space-y-12">
             <div className="flex items-center gap-3">
               <Link href="/portfolio" className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary transition-colors">
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -50,44 +50,41 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
               </Link>
             </div>
 
-            <div className="relative overflow-hidden rounded-[40px] bg-slate-900 px-8 py-20 text-white md:px-16 lg:py-32 shadow-2xl">
-              {/* Atmospheric Background */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,_rgba(var(--primary),0.15),_transparent_60%),_radial-gradient(circle_at_80%_70%,_rgba(var(--secondary),0.20),_transparent_65%)] opacity-40" />
-              
+            <div className="relative overflow-hidden rounded-[3rem] bg-white border border-primary/5 px-8 py-16 md:px-16 lg:py-24 shadow-2xl">
               <div className="relative z-10 grid gap-16 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
-                <div className="space-y-8">
+                <div className="space-y-10 text-left">
                   <div className="space-y-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 backdrop-blur-md border border-white/20">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
                       <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">{project.industry}</p>
+                      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">{project.industry}</p>
                     </div>
-                    <h1 className="text-4xl font-extrabold md:text-6xl tracking-tight leading-[1.1]">
+                    <h1 className="text-5xl font-extrabold md:text-7xl tracking-tight leading-[1.1] text-foreground">
                       {project.title}
                     </h1>
-                    <p className="max-w-xl text-xl text-white/70 leading-relaxed">
+                    <p className="max-w-xl text-2xl text-muted-foreground leading-relaxed font-medium">
                       {project.headline}
                     </p>
-                    <div className="flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                      <span className="flex items-center gap-2"><Globe className="h-3 w-3" /> {project.region}</span>
-                      <span className="text-primary/40">•</span>
+                    <div className="flex flex-wrap gap-4 text-[11px] font-black uppercase tracking-[0.3em] text-primary/60">
+                      <span className="flex items-center gap-2 font-black"><Globe className="h-4 w-4" /> {project.region}</span>
+                      <span className="text-primary/20">•</span>
                       <span>{project.domain}</span>
-                      <span className="text-primary/40">•</span>
+                      <span className="text-primary/20">•</span>
                       <span>{project.platform}</span>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-4">
-                    <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-10 text-lg font-bold group shadow-2xl hover:bg-white/95">
-                      <a href={project.caseStudyPdf} download className="flex items-center gap-2">
+                    <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-10 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
+                      <a href={project.caseStudyPdf} download className="flex items-center gap-3">
                          Detailed Deck <Download className="h-5 w-5 transition-transform group-hover:translate-y-1" />
                       </a>
                     </Button>
-                     <Button asChild variant="outline" size="lg" className="h-16 rounded-full border-white/30 text-white px-10 text-lg font-bold hover:bg-white/10">
+                     <Button asChild variant="outline" size="lg" className="h-16 rounded-full border-primary/10 text-primary px-10 text-lg font-bold hover:bg-primary/5">
                       <Link href="/contact">Book Workshop</Link>
                     </Button>
                   </div>
                 </div>
 
-                <div className="relative group overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl transition-all duration-700 hover:border-primary/50">
+                <div className="relative group overflow-hidden rounded-[2.5rem] border border-primary/10 shadow-3xl transition-all duration-700 hover:border-primary/50">
                    <div className="relative aspect-[4/3] w-full">
                     <Image
                       src={project.image}
@@ -98,7 +95,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
                       priority
                       unoptimized={project.image.startsWith("http")}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                    </div>
                 </div>
               </div>
@@ -107,24 +104,23 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
       </section>
 
       {/* Impact Metrics */}
-      <section className="snap-section container animate-softFade py-10">
-        <div className="section-shell grid gap-6 md:grid-cols-3">
-          {project.metrics.map((metric, idx) => (
+      <section className="container animate-softFade py-10">
+        <div className="grid gap-8 md:grid-cols-3">
+          {project.metrics.map((metric) => (
             <div 
               key={`${project.slug}-${metric.label}`} 
-              className="interactive-card bg-white/95 dark:bg-card/40 p-8 text-center group"
-              style={{ animationDelay: `${idx * 100}ms` }}
+              className="interactive-card p-10 text-center group bg-white shadow-xl"
             >
-              <p className="text-4xl font-black text-primary group-hover:scale-110 transition-transform duration-500">{metric.value}</p>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60 group-hover:text-primary transition-colors">{metric.label}</p>
+              <p className="text-5xl font-extrabold text-primary mb-3 group-hover:scale-110 transition-transform duration-500">{metric.value}</p>
+              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground group-hover:text-primary transition-colors">{metric.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Content Grid */}
-      <section className="snap-section container animate-softFade py-20 text-left">
-        <div className="section-shell space-y-16">
+      <section className="container animate-softFade py-20 text-left">
+        <div className="space-y-20">
           <div className="grid gap-8 lg:grid-cols-3">
             <CaseSection title="The Challenge" items={project.challenge} icon={Target} color="primary" />
             <CaseSection title="Our Approach" items={project.approach} icon={Zap} color="secondary" />
@@ -138,28 +134,27 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
           </div>
 
           <div className="grid gap-8">
-            <div className="interactive-card bg-slate-900 text-white p-12 space-y-10 relative overflow-hidden group">
-               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(var(--primary),0.1),_transparent_40%)]" />
+            <div className="interactive-card bg-white border border-primary/10 p-12 space-y-12 relative overflow-hidden group shadow-2xl">
                <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div className="space-y-4">
-                    <h2 className="text-4xl font-extrabold uppercase tracking-tight">System Outcomes</h2>
-                    <div className="h-1 w-20 bg-primary/40 rounded-full group-hover:w-full transition-all duration-700" />
+                    <h2 className="text-4xl font-extrabold text-secondary tracking-tight">System Outcomes</h2>
+                    <div className="h-1 w-20 bg-primary/20 rounded-full group-hover:w-48 transition-all duration-700" />
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {project.techStack.map((tech) => (
-                      <span key={tech} className="rounded-full bg-white/10 border border-white/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">
+                      <span key={tech} className="rounded-full bg-primary/5 border border-primary/10 px-5 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
                         {tech}
                       </span>
                     ))}
                   </div>
                </div>
-               <div className="relative z-10 grid gap-6 md:grid-cols-2">
+               <div className="relative z-10 grid gap-10 md:grid-cols-2">
                  {project.outcomes.map((outcome) => (
-                    <div key={outcome} className="flex gap-4 group/item">
-                       <div className="mt-1 h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 group-hover/item:bg-primary transition-colors">
-                          <Activity className="h-3 w-3 text-primary group-hover/item:text-white" />
+                    <div key={outcome} className="flex gap-5 group/item">
+                       <div className="mt-1 h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover/item:bg-primary transition-colors">
+                          <CheckCircle2 className="h-4 w-4 text-primary group-hover/item:text-white" />
                        </div>
-                       <p className="text-lg text-white/60 group-hover/item:text-white leading-relaxed transition-colors font-medium">
+                       <p className="text-lg text-muted-foreground group-hover/item:text-foreground leading-relaxed transition-colors font-semibold">
                           {outcome}
                        </p>
                     </div>
@@ -171,23 +166,22 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="snap-section container animate-softFade pb-24">
-        <div className="relative overflow-hidden rounded-[40px] bg-white border border-slate-900/5 px-8 py-20 text-center shadow-2xl">
-           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
+      <section className="container animate-softFade pb-32">
+        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-2xl shadow-primary/20">
            <div className="relative z-10 max-w-4xl mx-auto space-y-12">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-primary border border-primary/20">
-                  <span className="text-[10px] font-black uppercase tracking-widest">Next Step</span>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white/80 border border-white/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest">Growth Path</span>
                 </div>
-                <h2 className="text-4xl font-extrabold md:text-6xl text-slate-900 tracking-tight">Need a Similar Initiative?</h2>
-                <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+                <h2 className="text-5xl font-extrabold md:text-7xl tracking-tight">Need a similar initiative?</h2>
+                <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
                   We align delivery pods across strategy, design, and engineering in under two weeks. Let's discuss your roadmap.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="h-16 rounded-full bg-slate-900 text-white px-12 text-lg font-bold group shadow-2xl hover:bg-slate-800">
-                  <Link href="/contact" className="flex items-center gap-2">
-                    Book Discovery Workshop <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <div className="flex justify-center pt-8">
+                <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
+                  <Link href="/contact" className="flex items-center gap-3">
+                    Book Discovery Workshop <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </div>
@@ -200,18 +194,18 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
 
 function CaseSection({ title, items, icon: Icon, color }: { title: string; items: string[]; icon: any; color: string }) {
   return (
-    <div className="interactive-card bg-white/95 dark:bg-card/40 p-10 space-y-8 group transition-all duration-300">
+    <div className="interactive-card p-10 space-y-8 group transition-all duration-300 bg-white shadow-xl">
       <div className="flex items-center gap-4">
-        <div className={`h-14 w-14 rounded-2xl bg-${color}/10 flex items-center justify-center text-${color} group-hover:bg-${color} group-hover:text-white transition-all shadow-lg`}>
+        <div className={`h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm`}>
           <Icon className="h-7 w-7" />
         </div>
-        <h2 className="text-2xl font-black uppercase tracking-tight leading-none pt-1">{title}</h2>
+        <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">{title}</h2>
       </div>
       <ul className="grid gap-4">
         {items.map((item) => (
           <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-            <span className={`mt-2 h-2 w-2 rounded-full bg-${color}/40 group-hover/item:bg-${color} transition-colors flex-shrink-0`} />
-            <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-medium">{item}</span>
+            <ArrowRight className="mt-1.5 h-4 w-4 text-primary/30 group-hover/item:text-primary transition-colors flex-shrink-0" />
+            <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
           </li>
         ))}
       </ul>
@@ -221,19 +215,19 @@ function CaseSection({ title, items, icon: Icon, color }: { title: string; items
 
 function TimelineCard({ timeline, icon: Icon }: { timeline: { phase: string; detail: string }[]; icon: any }) {
   return (
-     <div className="interactive-card bg-white/95 dark:bg-card/40 p-10 space-y-8 group">
-      <div className="flex items-center gap-4">
-        <div className="h-14 w-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all shadow-lg">
+     <div className="interactive-card p-10 space-y-8 group bg-white shadow-xl">
+      <div className="flex items-center gap-4 text-left">
+        <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
           <Icon className="h-7 w-7" />
         </div>
-        <h2 className="text-2xl font-black uppercase tracking-tight leading-none pt-1">The Timeline</h2>
+        <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Project Roadmap</h2>
       </div>
-      <div className="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-px before:bg-muted/20">
+      <div className="space-y-8 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-px before:bg-primary/10 text-left">
         {timeline.map((item) => (
-          <div key={item.phase} className="relative pl-10 space-y-1 group/phase">
-            <div className="absolute left-1.5 top-1.5 h-3 w-3 rounded-full bg-white border-2 border-secondary transition-all group-hover/phase:scale-125 group-hover/phase:bg-secondary" />
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">{item.phase}</p>
-            <p className="text-sm font-semibold text-muted-foreground group-hover/phase:text-foreground transition-colors leading-relaxed">{item.detail}</p>
+          <div key={item.phase} className="relative pl-12 space-y-2 group/phase">
+            <div className="absolute left-1.5 top-2.5 h-3 w-3 rounded-full bg-white border-2 border-primary transition-all group-hover/phase:scale-125 group-hover/phase:bg-primary" />
+            <p className="text-[11px] font-black uppercase tracking-widest text-primary">{item.phase}</p>
+            <p className="text-base font-bold text-muted-foreground group-hover/phase:text-foreground transition-colors leading-relaxed">{item.detail}</p>
           </div>
         ))}
       </div>

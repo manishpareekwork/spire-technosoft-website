@@ -13,7 +13,8 @@ import {
   Compass,
   Workflow,
   MousePointer2,
-  Cpu
+  Cpu,
+  CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -92,132 +93,106 @@ const heroClients = ["Regulated Finance", "Smart Energy", "Healthcare", "Retail 
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col bg-background">
       {/* Hero Section */}
-      <section className="snap-section container animate-softFade">
-        <div className="relative overflow-hidden rounded-[40px] bg-slate-900 px-8 py-20 text-white md:px-16 lg:py-32 shadow-2xl">
-          {/* Brand Mesh Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,_rgba(var(--primary),0.15),_transparent_60%),_radial-gradient(circle_at_80%_70%,_rgba(var(--secondary),0.20),_transparent_65%),_radial-gradient(circle_at_50%_90%,_rgba(var(--accent),0.12),_transparent_70%)] opacity-40" />
-          <div className="absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px] opacity-40 pulse-glow" />
-          <div className="absolute -bottom-40 -left-40 h-[600px] w-[600px] rounded-full bg-secondary/10 blur-[120px] opacity-40 pulse-glow" style={{ animationDelay: '2s' }} />
-
-          <div className="relative z-10 grid gap-16 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
-            <div className="space-y-10">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 backdrop-blur-md border border-white/20">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                  </span>
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80 font-[var(--font-poppins)]">
-                    Engineering Growth
-                  </p>
-                </div>
-                <h1 className="text-5xl font-extrabold leading-[1.1] md:text-7xl lg:text-8xl tracking-tight">
-                  Intelligent <span className="text-gradient-elegant">Digital Systems</span> for Business Scale
-                </h1>
-                <p className="max-w-2xl text-xl text-white/70 md:text-2xl leading-relaxed">
-                  We design, build, and scale enterprise platforms that combine elegant experiences, AI, and secure cloud architectures.
+      <section className="container animate-softFade py-20 lg:py-32">
+        <div className="section-shell w-full space-y-16 py-10 text-center border-none shadow-none bg-transparent">
+          <div className="relative z-10 space-y-10">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2 border border-primary/20 mx-auto">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">
+                  Engineering Growth
                 </p>
               </div>
-
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/solutions">
-                  <Button size="lg" className="h-16 rounded-full bg-white text-primary px-10 text-lg font-bold group shadow-2xl hover:bg-white/95">
-                    Explore Solutions
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button size="lg" variant="outline" className="h-16 rounded-full border-white/30 text-white px-10 text-lg font-bold hover:bg-white/10">
-                    Book Discovery Session
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Trusted in</p>
-                <div className="flex flex-wrap gap-3">
-                  {heroClients.map((client) => (
-                    <span key={client} className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[10px] font-bold tracking-wide text-white/70">
-                      {client}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <h1 className="text-5xl font-extrabold leading-[1.1] md:text-8xl lg:text-9xl tracking-tight text-foreground">
+                Intelligent <span className="text-secondary">Digital Systems</span> for Scale
+              </h1>
+              <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-3xl leading-relaxed font-medium">
+                We design, build, and scale enterprise platforms that combine elegant experiences, AI, and secure architectures.
+              </p>
             </div>
 
-            <div className="hidden lg:block relative">
-              <div className="glass-panel p-10 border-white/20 space-y-10 group transition-all duration-700 hover:border-primary/50">
-                <div className="space-y-4">
-                  <p className="text-xs font-black uppercase tracking-widest text-primary">Live Programs</p>
-                  <div className="space-y-4">
-                    {impactMetrics.map((metric, idx) => (
-                      <div key={metric.label} className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                        <span className="text-sm font-medium text-white/60">{metric.label}</span>
-                        <span className="text-2xl font-black">{metric.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="p-6 rounded-[2rem] bg-gradient-to-br from-primary/20 to-secondary/20 border border-white/10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
-                      <Zap className="h-5 w-5 text-primary" />
-                    </div>
-                    <p className="font-bold">Intelligence Built-in</p>
-                  </div>
-                  <p className="text-sm text-white/60 leading-relaxed">
-                    Strategy and delivery teams synchronize via modular Pods and accountability rituals.
-                  </p>
-                </div>
+            <div className="flex flex-col gap-6 sm:flex-row justify-center items-center">
+              <Button asChild size="lg" className="h-18 rounded-full bg-primary text-white hover:text-white px-12 text-xl font-bold group shadow-2xl hover:bg-secondary transition-all border-none">
+                <Link href="/solutions" className="flex items-center">
+                  Explore Solutions
+                  <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-18 rounded-full border-primary/10 text-primary px-12 text-xl font-bold hover:bg-primary/5">
+                <Link href="/contact">Book Discovery Workshop</Link>
+              </Button>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-8 pt-8">
+              <p className="text-[10px] font-black uppercase tracking-widest text-primary/40">Sectors We Transform</p>
+              <div className="flex flex-wrap gap-4">
+                {heroClients.map((client) => (
+                  <span key={client} className="rounded-full bg-primary/5 border border-primary/10 px-4 py-2 text-xs font-bold text-primary">
+                    {client}
+                  </span>
+                ))}
               </div>
-              {/* Decorative side element */}
-              <div className="absolute -left-10 top-1/2 -translate-y-1/2 h-64 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Banner - Compact */}
+      <section className="container py-10">
+         <div className="grid gap-6 md:grid-cols-4">
+            {impactMetrics.map((metric) => (
+              <div key={metric.label} className="interactive-card p-10 space-y-3 group text-left border-primary/5 shadow-xl">
+                <p className="text-5xl font-black text-foreground group-hover:text-primary transition-colors">{metric.value}</p>
+                <p className="text-sm font-bold uppercase tracking-[0.3em] text-muted-foreground">{metric.label}</p>
+                <div className="h-1 w-12 bg-primary/20 rounded-full group-hover:w-full transition-all duration-700" />
+              </div>
+            ))}
+          </div>
+      </section>
+
       {/* Outcome Teasers Section */}
-      <section className="snap-section container animate-softFade py-20">
-        <div className="section-shell space-y-16">
+      <section className="container animate-softFade py-32">
+        <div className="space-y-20">
           <div className="text-center space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-primary border border-primary/20">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
               <Sparkles className="h-4 w-4" />
-              <span className="text-[10px] font-black uppercase tracking-widest">Case Studies</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">Case Impacts</span>
             </div>
-            <h2 className="text-4xl font-extrabold md:text-6xl text-gradient-elegant inline-block">
-              Proven Enterprise Transformations
+            <h2 className="text-4xl font-extrabold md:text-7xl text-secondary">
+              Enterprise Transformations
             </h2>
-            <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="max-w-3xl mx-auto text-xl text-muted-foreground leading-relaxed">
               Every engagement is tied to measurable impact. Explore how we engineer growth across regulated industries.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {outcomeTeasers.map((teaser, index) => (
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {outcomeTeasers.map((teaser) => (
               <div 
                 key={teaser.title} 
-                className="interactive-card bg-white/95 dark:bg-card/40 p-8 group transition-all duration-500 hover:translate-y-[-8px]"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="interactive-card p-10 group text-left shadow-xl"
               >
-                <div className="mb-6 flex items-center justify-between">
-                  <div className={`h-14 w-14 rounded-2xl flex items-center justify-center transition-all bg-${teaser.color}/10 text-${teaser.color} group-hover:bg-${teaser.color} group-hover:text-white shadow-lg`}>
-                    <teaser.icon className="h-7 w-7" />
+                <div className="mb-8 flex items-center justify-between">
+                  <div className={`h-16 w-16 rounded-2xl flex items-center justify-center transition-all bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white shadow-sm`}>
+                    <teaser.icon className="h-8 w-8" />
                   </div>
-                  <MousePointer2 className="h-5 w-5 text-muted-foreground/20 group-hover:text-primary transition-colors" />
+                  <MousePointer2 className="h-5 w-5 text-primary/20 group-hover:text-primary transition-colors" />
                 </div>
-                <div className="space-y-4">
-                  <div className="space-y-1">
-                    <p className="text-xl font-black text-primary">{teaser.metric}</p>
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-2xl font-black text-primary">{teaser.metric}</p>
                     <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">{teaser.title}</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed font-medium">
                     {teaser.description}
                   </p>
-                  <Link href={teaser.link} className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary hover:text-secondary group/link transition-colors pt-4">
-                    Case Details <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  <Link href={teaser.link} className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary hover:text-secondary group/link transition-colors pt-6">
+                    Full Case <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -226,43 +201,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Engagement Roadmap */}
-      <section className="snap-section container animate-softFade">
-        <div className="section-shell bg-slate-900 text-white rounded-[40px] p-12 lg:p-24 space-y-20 overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 text-white/5 pointer-events-none">
-            <Workflow className="w-[500px] h-[500px]" />
-          </div>
-          
-          <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 text-primary border border-primary/30">
+      {/* Operating Rhythm Section */}
+      <section className="container animate-softFade py-24">
+        <div className="section-shell bg-white border border-primary/5 rounded-[3rem] p-12 lg:p-24 space-y-20 overflow-hidden shadow-3xl text-left">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-10">
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
                   <span className="text-[10px] font-black uppercase tracking-widest">Operating Rhythm</span>
                 </div>
-                <h2 className="text-4xl font-extrabold md:text-6xl leading-[1.1]">
-                  From Discovery to <span className="text-gradient-elegant">Day-2 Ops</span>
+                <h2 className="text-4xl font-extrabold md:text-7xl leading-[1.1] text-secondary">
+                  From Discovery to <span className="text-primary">Day-2 Ops</span>
                 </h2>
-                <p className="text-white/60 text-lg leading-relaxed">
+                <p className="text-muted-foreground text-xl leading-relaxed font-medium">
                   Our engagement model synchronizes strategy, design, and engineering into a single, high-accountability operating ritual.
                 </p>
               </div>
-              <Button asChild variant="outline" className="h-14 rounded-full border-white/20 text-white hover:bg-white/10 px-8">
+              <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-10 text-lg font-bold hover:bg-secondary border-none">
                 <Link href="/contact">Learn About Our Pods</Link>
               </Button>
             </div>
 
-            <div className="space-y-6">
-              {journeyPhases.map((phase, index) => (
-                <div key={phase.title} className="group flex gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                  <div className="h-14 w-14 rounded-2xl bg-white/10 flex items-center justify-center text-primary group-hover:scale-110 transition-all">
-                    <phase.icon className="h-7 w-7" />
+            <div className="space-y-8">
+              {journeyPhases.map((phase) => (
+                <div key={phase.title} className="group flex gap-8 p-10 rounded-3xl bg-white border border-primary/5 hover:border-primary/20 shadow-lg hover:shadow-xl transition-all">
+                  <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                    <phase.icon className="h-8 w-8" />
                   </div>
-                  <div className="flex-1 space-y-1">
+                  <div className="flex-1 space-y-3">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xl font-bold">{phase.title}</h3>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-white/30">{phase.duration}</span>
+                      <h3 className="text-2xl font-bold text-foreground">{phase.title}</h3>
+                      <span className="text-[11px] font-black uppercase tracking-widest text-primary/50">{phase.duration}</span>
                     </div>
-                    <p className="text-sm text-white/60 leading-relaxed font-medium">{phase.detail}</p>
+                    <p className="text-base text-muted-foreground leading-relaxed font-semibold">{phase.detail}</p>
                   </div>
                 </div>
               ))}
@@ -271,78 +242,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust & Security */}
-      <section className="snap-section container animate-softFade py-24">
-        <div className="section-shell grid lg:grid-cols-[1fr,1.5fr] gap-16 items-center">
-          <div className="space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-extrabold md:text-5xl">Trust frameworks for regulated industries</h2>
-              <p className="text-lg text-muted-foreground">
-                Security is not an afterthought. It's built into every architectural decision we make.
+      {/* Security & Compliance Banner */}
+      <section className="container animate-softFade py-24">
+        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-2xl shadow-primary/20">
+          <div className="relative z-10 max-w-4xl mx-auto space-y-12">
+            <div className="space-y-8">
+               <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-2 border border-white/20 mx-auto">
+                <ShieldCheck className="h-5 w-5" />
+                <p className="text-[10px] font-black uppercase tracking-[0.4em]">Audit-Ready Resiliency</p>
+              </div>
+              <h2 className="text-4xl font-extrabold md:text-7xl">Secure By Design</h2>
+              <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
+                Security is not an afterthought. It's built into every architectural decision, audit trail, and deployment pipeline.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-primary/5 border border-primary/10">
-                <Lock className="h-6 w-6 text-primary" />
-                <span className="font-bold text-sm">Privacy-First</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-secondary/5 border border-secondary/10">
-                <ShieldCheck className="h-6 w-6 text-secondary" />
-                <span className="font-bold text-sm">Audit-Ready</span>
-              </div>
+            <div className="flex flex-wrap justify-center gap-8">
+               <div className="flex items-center gap-4 bg-white/10 px-8 py-4 rounded-2xl border border-white/20">
+                  <Lock className="h-6 w-6" />
+                  <span className="text-lg font-bold">Privacy-First</span>
+               </div>
+               <div className="flex items-center gap-4 bg-white/10 px-8 py-4 rounded-2xl border border-white/20">
+                  <Activity className="h-6 w-6" />
+                  <span className="text-lg font-bold">Immutability</span>
+               </div>
             </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {impactMetrics.map((metric) => (
-              <div key={metric.label} className="interactive-card p-10 space-y-2 group">
-                <p className="text-5xl font-black text-foreground group-hover:text-primary transition-colors">{metric.value}</p>
-                <p className="text-sm font-bold uppercase tracking-[0.3em] text-muted-foreground">{metric.label}</p>
-                <div className="h-1 w-12 bg-primary/20 rounded-full group-hover:w-full transition-all duration-500" />
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Innovation CTA */}
-      <section className="snap-section container animate-softFade pb-20">
-        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-primary via-secondary to-accent px-8 py-20 text-center text-white shadow-2xl">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.1),_transparent_40%)]" />
-          <div className="relative z-10 max-w-4xl mx-auto space-y-10">
+      {/* Lab CTA */}
+      <section className="container animate-softFade py-24 pb-48">
+        <div className="relative overflow-hidden rounded-[3rem] bg-white border border-primary/10 px-8 py-24 text-center shadow-3xl">
+          <div className="relative z-10 max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 text-white/80 font-black tracking-[0.5em] text-xs uppercase bg-white/10 px-6 py-2 rounded-full border border-white/20">
-                <Sparkles className="h-4 w-4" />
+              <div className="inline-flex items-center gap-3 text-primary font-black tracking-[0.5em] text-xs uppercase bg-primary/5 px-8 py-3 rounded-full border border-primary/10 mx-auto">
+                <Sparkles className="h-5 w-5" />
                 Innovation Lab
-                <Sparkles className="h-4 w-4" />
+                <Sparkles className="h-5 w-5" />
               </div>
-              <h2 className="text-4xl font-extrabold md:text-6xl lg:text-7xl leading-tight">
-                From R&D to Production Ready Intelligence
+              <h2 className="text-4xl font-extrabold md:text-8xl text-secondary">
+                Future-Proof Your Roadmap
               </h2>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium">
                 Explore how we apply AI, predictive modeling, and immersive interfaces to high-stakes enterprise challenges.
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-6 pt-6">
               <Link href="/innovation">
-                <Button size="lg" className="h-16 rounded-full bg-white text-primary px-12 text-lg font-bold group shadow-2xl hover:bg-white/95">
+                <Button size="lg" className="h-18 rounded-full bg-primary text-white hover:text-white px-12 text-xl font-bold group shadow-2xl hover:bg-secondary transition-all border-none">
                   Enter the Lab
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="h-16 rounded-full border-white/30 text-white px-12 text-lg font-bold hover:bg-white/10">
+                <Button size="lg" variant="outline" className="h-18 rounded-full border-primary/10 text-primary px-12 text-xl font-bold hover:bg-primary/5">
                   Book Strategy Session
                 </Button>
               </Link>
             </div>
           </div>
-          {/* Decorative Orbs */}
-          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-secondary/20 blur-3xl opacity-50" />
         </div>
       </section>
     </div>
   );
 }
-
