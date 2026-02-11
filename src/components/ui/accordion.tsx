@@ -6,7 +6,7 @@ export function Accordion({ className, ...props }: React.HTMLAttributes<HTMLDivE
   return <div className={cn("space-y-4", className)} {...props} />;
 }
 
-type AccordionItemProps = React.HTMLAttributes<HTMLDetailsElement> & {
+type AccordionItemProps = Omit<React.HTMLAttributes<HTMLDetailsElement>, "open"> & {
   title: string;
   defaultOpen?: boolean;
 };
@@ -18,7 +18,7 @@ export function AccordionItem({ title, defaultOpen, className, children, ...prop
         "group rounded-2xl border border-border/60 bg-surface px-6 py-4 shadow-soft",
         className
       )}
-      defaultOpen={defaultOpen}
+      open={defaultOpen}
       {...props}
     >
       <summary className="cursor-pointer list-none text-base font-semibold text-foreground outline-none">
