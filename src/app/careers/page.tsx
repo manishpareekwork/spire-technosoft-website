@@ -196,8 +196,7 @@ export default function CareersPage(): React.ReactElement {
                 <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">Talent pipeline</h3>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
-                Send your details directly to our talent pod at{"
-                " "}
+                Send your details directly to our talent pod at{" "}
                 <a href="mailto:careers@spiretechnosoft.com" className="font-semibold text-primary underline underline-offset-4">
                   careers@spiretechnosoft.com
                 </a>
