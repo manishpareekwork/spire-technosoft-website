@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Target, 
@@ -17,7 +18,7 @@ import {
   Award,
   Sparkles
 } from "lucide-react";
-import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
