@@ -9,4 +9,4 @@ export type ResourceDownload = {
   meta: string;
 };
 
-export const resourceDownloads: ResourceDownload[] = siteContent.resources;
+export const resourceDownloads: ReadonlyArray<ResourceDownload> = siteContent.resources;
