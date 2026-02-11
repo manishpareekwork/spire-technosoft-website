@@ -38,13 +38,13 @@ export function ResourceDownloads({
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
                 <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
-                  <FileDown className="h-3 w-3" />
+                  <FileDown className="h-3 w-3 icon-accent" />
                   {resource.label}
                 </div>
               </div>
               <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 <span>{resource.meta}</span>
-                <ArrowDownRight className="h-4 w-4 text-primary" />
+                <ArrowDownRight className="h-4 w-4 icon-accent" />
               </div>
               <div className="space-y-2">
                 <p className="text-lg font-semibold text-foreground">{resource.title}</p>

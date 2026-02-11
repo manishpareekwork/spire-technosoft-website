@@ -59,7 +59,7 @@ export default function ContactPage() {
             <div className="flex justify-center pt-6">
               <Button asChild size="xl">
                 <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
-                  {contact.hero.cta.label} <Calendar className="h-5 w-5" />
+                  {contact.hero.cta.label} <Calendar className="h-5 w-5 icon-inverse" />
                 </a>
               </Button>
             </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
               <div key={step.title} className="surface-card rounded-3xl p-6 shadow-soft text-left">
                 <div className="flex items-center justify-between">
                   <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6 icon-accent" />
                   </div>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">Step 0{index + 1}</span>
                 </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                     className="surface-card flex items-center gap-6 rounded-2xl p-5 shadow-soft"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                      <point.icon className="h-6 w-6" />
+                      <point.icon className="h-6 w-6 icon-accent" />
                     </div>
                     <div>
                       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">{point.label}</p>
@@ -150,14 +150,14 @@ export default function ContactPage() {
                       className="h-12 w-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all border border-primary/10"
                       title={link.label}
                     >
-                      <link.icon className="h-5 w-5" />
+                      <link.icon className="h-5 w-5 icon-accent" />
                     </a>
                   ))}
                 </div>
               </div>
               <div className="pt-6 border-t border-border/60 mt-6 space-y-3">
                 <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-5 w-5 text-primary" />
+                  <ShieldCheck className="h-5 w-5 icon-accent" />
                   <p className="text-sm font-semibold">Secure intake process</p>
                 </div>
                 <p className="text-sm text-muted-foreground">

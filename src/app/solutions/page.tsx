@@ -155,7 +155,7 @@ export default function SolutionsPage(): React.ReactElement {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild size="lg">
                     <Link href={`/solutions/${solution.slug}`} className="flex items-center gap-2">
-                      Explore portfolio <ArrowRight className="h-4 w-4" />
+                      Explore portfolio <ArrowRight className="h-4 w-4 icon-inverse" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg">

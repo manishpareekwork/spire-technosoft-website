@@ -46,20 +46,20 @@ export function RolesGrid({ roles }: RolesGridProps) {
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"
                 aria-label={`View details for ${role.title}`}
               >
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-5 w-5 icon-accent" />
               </button>
             </div>
             <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary/60">
               <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" />
+                <MapPin className="h-4 w-4 icon-accent" />
                 {role.location}
               </span>
               <span className="flex items-center gap-2">
-                <Briefcase className="h-4 w-4 text-primary" />
+                <Briefcase className="h-4 w-4 icon-accent" />
                 {role.mode}
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
+                <Clock className="h-4 w-4 icon-accent" />
                 {role.experience}
               </span>
             </div>
@@ -88,15 +88,15 @@ export function RolesGrid({ roles }: RolesGridProps) {
           <div className="space-y-6">
             <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary/60">
               <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" />
+                <MapPin className="h-4 w-4 icon-accent" />
                 {activeRole.location}
               </span>
               <span className="flex items-center gap-2">
-                <Briefcase className="h-4 w-4 text-primary" />
+                <Briefcase className="h-4 w-4 icon-accent" />
                 {activeRole.mode}
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
+                <Clock className="h-4 w-4 icon-accent" />
                 {activeRole.experience}
               </span>
             </div>

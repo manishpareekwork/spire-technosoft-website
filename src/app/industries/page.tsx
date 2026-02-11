@@ -20,7 +20,7 @@ export default function IndustriesPage(): React.ReactElement {
           <div className="relative">
             <div className="relative z-10 space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
-                <Globe className="h-4 w-4 text-primary" />
+                <Globe className="h-4 w-4 icon-accent" />
                 <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">Industries We Serve</p>
               </div>
               <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl leading-tight">
@@ -45,7 +45,7 @@ export default function IndustriesPage(): React.ReactElement {
                 className="interactive-card p-8 group text-left"
               >
                 <div className="mb-4 flex items-center justify-center h-12 w-12 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                  <item.icon className="h-6 w-6" />
+                  <item.icon className="h-6 w-6 icon-accent group-hover:text-white" />
                 </div>
                 <div className="space-y-1">
                   <p className="text-lg font-bold text-foreground">{item.label}</p>
@@ -103,7 +103,7 @@ export default function IndustriesPage(): React.ReactElement {
                       <ul className="space-y-3">
                         {industry.focusAreas.slice(0, 3).map((item) => (
                           <li key={item} className="flex gap-3 text-sm font-medium text-muted-foreground group/item">
-                            <ArrowRight className="h-4 w-4 text-primary/40 mt-1 shrink-0" />
+                            <ArrowRight className="h-4 w-4 icon-muted mt-1 shrink-0 group-hover/item:text-primary" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -144,7 +144,7 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="section-shell bg-white border border-primary/10 rounded-[3rem] p-12 lg:p-20 space-y-16 overflow-hidden shadow-2xl">
           <div className="text-center space-y-6">
              <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
-                <Search className="h-4 w-4" />
+                <Search className="h-4 w-4 icon-accent" />
                 <span className="text-[10px] font-black uppercase tracking-widest">Industry Differentiation</span>
               </div>
             <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">
@@ -189,7 +189,7 @@ export default function IndustriesPage(): React.ReactElement {
             <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
               <Link href="/contact" className="flex items-center">
                 Discuss Your Industry Needs
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
               </Link>
             </Button>
           </div>

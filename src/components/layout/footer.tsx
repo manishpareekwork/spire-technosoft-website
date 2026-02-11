@@ -32,7 +32,7 @@ export function Footer(): React.ReactElement {
                 target="_blank"
                 className="h-11 w-11 rounded-2xl border border-border/60 bg-surface-2 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-5 w-5 icon-accent" />
               </Link>
             </div>
           </div>
@@ -49,7 +49,7 @@ export function Footer(): React.ReactElement {
                   className="flex items-center justify-between rounded-2xl border border-border/60 bg-surface-2 px-4 py-3 text-sm font-semibold text-foreground hover:border-primary/30"
                 >
                   <span>{resource.title}</span>
-                  <ArrowRight className="h-4 w-4 text-primary" />
+                <ArrowRight className="h-4 w-4 icon-accent" />
                 </a>
               ))}
             </div>
@@ -60,15 +60,15 @@ export function Footer(): React.ReactElement {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Connect</p>
             <div className="space-y-4 text-sm">
               <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-5 w-5 text-primary" />
+                <MapPin className="h-5 w-5 icon-accent" />
                 India | Global Delivery Presence
               </div>
               <Link href="mailto:contact@spiretechnosoft.com" className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="h-5 w-5 text-primary" />
+                <Mail className="h-5 w-5 icon-accent" />
                 contact@spiretechnosoft.com
               </Link>
               <Link href="tel:+919910070933" className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="h-5 w-5 text-primary" />
+                <Phone className="h-5 w-5 icon-accent" />
                 +91 99100 70933
               </Link>
             </div>

@@ -263,6 +263,15 @@
       linear-gradient(0deg, rgba(0, 77, 50, 0.04) 1px, transparent 1px);
     background-size: 120px 120px, 120px 120px;
   }
+  .icon-accent {
+    color: hsl(var(--primary));
+  }
+  .icon-muted {
+    color: hsl(var(--muted-foreground));
+  }
+  .icon-inverse {
+    color: hsl(var(--primary-foreground));
+  }
 }
 
 @keyframes softFade {

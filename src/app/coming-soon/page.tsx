@@ -33,9 +33,9 @@ export default function ComingSoonPage(): React.ReactElement {
           </div>
 
           <div className="flex items-center justify-center gap-3 text-white font-[var(--font-poppins)]">
-            <Sparkles className="h-6 w-6 icon-float text-primary" />
+            <Sparkles className="h-6 w-6 icon-float icon-accent" />
             <p className="text-sm font-bold uppercase tracking-[0.5em]">Coming Soon</p>
-            <Rocket className="h-6 w-6 icon-float text-secondary" />
+            <Rocket className="h-6 w-6 icon-float icon-accent" />
           </div>
 
           <div className="space-y-4">
@@ -52,13 +52,13 @@ export default function ComingSoonPage(): React.ReactElement {
             <Link href="/solutions">
               <Button size="lg" className="group w-full rounded-full bg-white text-primary shadow-lg transition-all duration-300 hover:bg-white/90 hover:shadow-xl hover:shadow-primary/30 sm:w-auto">
                 Explore Solutions
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 icon-accent" />
               </Button>
             </Link>
             <Link href="/portfolio">
               <Button size="lg" variant="outline" className="group w-full rounded-full border-2 border-white/40 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/15 sm:w-auto">
                 View Case Studies
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 icon-inverse" />
               </Button>
             </Link>
           </div>
@@ -66,7 +66,7 @@ export default function ComingSoonPage(): React.ReactElement {
           <div className="pt-4">
             <Link href="/contact" className="group inline-flex items-center text-sm font-semibold text-white/90 underline underline-offset-4 transition-colors hover:text-white">
               Book a discovery call
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 icon-inverse" />
             </Link>
           </div>
 

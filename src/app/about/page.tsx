@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className="surface-card rounded-3xl p-8 shadow-soft">
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                  <Target className="h-6 w-6" />
+                  <Target className="h-6 w-6 icon-accent" />
                 </div>
                 <h2 className="text-2xl font-semibold text-foreground">{about.mission.title}</h2>
               </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
             <div className="surface-card rounded-3xl p-8 shadow-soft">
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                  <Eye className="h-6 w-6" />
+                  <Eye className="h-6 w-6 icon-accent" />
                 </div>
                 <h2 className="text-2xl font-semibold text-foreground">{about.vision.title}</h2>
               </div>
@@ -84,7 +84,7 @@ export default function AboutPage() {
                 <div key={value.name} className="surface-card rounded-3xl p-6 shadow-soft">
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 icon-accent" />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground">{value.name}</h3>
                   </div>
@@ -125,7 +125,7 @@ export default function AboutPage() {
           </div>
 
           <div className="surface-card rounded-3xl p-8 shadow-float">
-            <Quote className="h-10 w-10 text-primary/20" />
+            <Quote className="h-10 w-10 icon-muted opacity-50" />
             <p className="mt-6 text-lg italic text-muted-foreground">"{about.testimonial.quote}"</p>
             <div className="mt-6 border-t border-border/60 pt-4">
               <p className="text-sm font-semibold text-foreground">{about.testimonial.role}</p>
@@ -147,7 +147,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <Link href={about.cta.primaryCta.href} className="flex items-center gap-2">
-                  {about.cta.primaryCta.label} <ArrowRight className="h-5 w-5" />
+                  {about.cta.primaryCta.label} <ArrowRight className="h-5 w-5 icon-accent" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="xl" className="border-white/40 text-white hover:bg-white/10">

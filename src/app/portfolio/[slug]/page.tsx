@@ -57,7 +57,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
             href="/portfolio"
             className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground hover:text-primary"
           >
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="h-4 w-4 icon-muted transition-transform group-hover:-translate-x-1" />
             Back to Portfolio
           </Link>
 
@@ -76,7 +76,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
               <div className="flex flex-wrap gap-3">
                 <Button asChild size="lg">
                   <a href={project.caseStudyPdf} download className="flex items-center gap-2">
-                    Detailed Deck <Download className="h-4 w-4" />
+                    Detailed Deck <Download className="h-4 w-4 icon-inverse" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg">
@@ -206,7 +206,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
               {project.timeline.map((item) => (
                 <div key={item.phase} className="flex items-start gap-4">
                   <div className="mt-1 h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4 icon-accent" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{item.phase}</p>
@@ -230,7 +230,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
             <div className="flex justify-center">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <Link href="/contact" className="flex items-center gap-2">
-                  Book discovery workshop <ArrowRight className="h-5 w-5" />
+                  Book discovery workshop <ArrowRight className="h-5 w-5 icon-accent" />
                 </Link>
               </Button>
             </div>

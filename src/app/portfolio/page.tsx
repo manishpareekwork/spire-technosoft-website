@@ -27,7 +27,7 @@ export default function PortfolioPage(): React.ReactElement {
         <div className="section-shell w-full space-y-10 py-10 text-center">
           <div className="relative z-10 space-y-6">
             <Badge variant="soft">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-4 w-4 icon-accent" />
               {portfolio.hero.eyebrow}
             </Badge>
             <h1 className="display-hero text-foreground">{portfolio.hero.title}</h1>
@@ -41,7 +41,7 @@ export default function PortfolioPage(): React.ReactElement {
         <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] border border-border/60 bg-surface p-8 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-              <ShieldCheck className="h-6 w-6" />
+              <ShieldCheck className="h-6 w-6 icon-accent" />
             </div>
             <h2 className="text-xl font-semibold text-foreground">Why some details are anonymized</h2>
           </div>
@@ -69,7 +69,7 @@ export default function PortfolioPage(): React.ReactElement {
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <Link href={portfolio.cta.primaryCta.href} className="flex items-center gap-2">
-                  {portfolio.cta.primaryCta.label} <ArrowRight className="h-5 w-5" />
+                  {portfolio.cta.primaryCta.label} <ArrowRight className="h-5 w-5 icon-accent" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="xl" className="border-white/40 text-white hover:bg-white/10">

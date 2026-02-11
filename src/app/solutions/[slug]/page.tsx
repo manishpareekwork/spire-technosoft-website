@@ -56,7 +56,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
       <section className="container animate-softFade py-12">
         <div className="space-y-12">
           <Link href="/solutions" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 icon-muted group-hover:text-primary" />
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Back to Solutions</span>
           </Link>
           
@@ -64,7 +64,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             <div className="relative z-10 max-w-4xl mx-auto space-y-10">
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
-                  <Sparkles className="h-4 w-4 text-primary" />
+                  <Sparkles className="h-4 w-4 icon-accent" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Solution Portfolio</p>
                 </div>
                 <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl tracking-tight leading-[1.1] text-foreground">
@@ -78,7 +78,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               <div className="flex flex-wrap justify-center gap-6 pt-4">
                 <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
                   <Link href="/contact" className="flex items-center gap-3">
-                    Book Discovery Call <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    Book Discovery Call <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-16 rounded-full border-primary/10 text-primary px-12 text-lg font-bold hover:bg-primary/5">
@@ -110,14 +110,14 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
             <div className="space-y-8">
               <h3 className="text-3xl font-bold flex items-center gap-4 text-foreground">
-                <Zap className="h-8 w-8 text-primary" />
+                <Zap className="h-8 w-8 icon-accent" />
                 Regulated Challenges Solved
               </h3>
               <div className="grid gap-6">
                 {solution.typicalProblems.map((problem) => (
                   <div key={problem} className="interactive-card bg-white p-6 shadow-lg flex items-start gap-5 group">
                     <div className="mt-1 h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                      <CheckCircle2 className="h-4 w-4" />
+                      <CheckCircle2 className="h-4 w-4 icon-accent group-hover:text-white" />
                     </div>
                     <p className="text-lg text-muted-foreground group-hover:text-foreground font-semibold leading-relaxed transition-colors">{problem}</p>
                   </div>
@@ -143,7 +143,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
             <div className="interactive-card bg-primary/5 p-10 space-y-8 border border-primary/10">
               <div className="flex items-center gap-4">
-                <Workflow className="h-7 w-7 text-primary" />
+                <Workflow className="h-7 w-7 icon-accent" />
                 <h3 className="text-2xl font-bold text-foreground">Velocity Delivery</h3>
               </div>
               <div className="space-y-10">
@@ -153,7 +153,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
                     <div className="grid gap-3">
                       {phase.items.map((item) => (
                         <div key={item} className="flex items-center gap-3 text-base text-muted-foreground font-semibold">
-                          <CheckCircle2 className="h-4 w-4 text-primary opacity-40 shrink-0" />
+                          <CheckCircle2 className="h-4 w-4 icon-muted shrink-0" />
                           {item}
                         </div>
                       ))}
@@ -171,7 +171,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
         <div className="section-shell space-y-16 py-24 bg-white border border-primary/5 shadow-3xl overflow-hidden rounded-[3rem] text-center">
           <div className="relative z-10 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-2 border border-primary/10">
-              <Layers className="h-4 w-4 text-primary" />
+              <Layers className="h-4 w-4 icon-accent" />
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Reference Architecture</p>
             </div>
             <h2 className="text-4xl font-extrabold md:text-7xl text-secondary tracking-tight">Engineered for Scale</h2>
@@ -213,7 +213,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             <div className="space-y-12">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white/80 border border-white/20">
-                  <ShieldCheck className="h-4 w-4" />
+                  <ShieldCheck className="h-4 w-4 icon-inverse" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Enterprise Resilient</span>
                 </div>
                 <h2 className="text-5xl font-extrabold md:text-7xl tracking-tight">Secure By Architecture</h2>
@@ -222,7 +222,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
                 {solution.security.map((item) => (
                   <div key={item} className="flex items-start gap-6 group">
                     <div className="mt-1 h-10 w-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white transition-all shadow-sm shrink-0">
-                      <Lock className="h-5 w-5 text-white group-hover:text-primary transition-colors" />
+                      <Lock className="h-5 w-5 icon-inverse group-hover:text-primary transition-colors" />
                     </div>
                     <p className="text-xl text-white/80 group-hover:text-white font-semibold leading-relaxed transition-colors">{item}</p>
                   </div>
@@ -231,7 +231,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             </div>
             <div className="relative aspect-video rounded-[2.5rem] bg-white text-primary p-12 flex flex-col items-center justify-center gap-8 shadow-2xl">
                 <div className="h-32 w-32 rounded-full bg-primary/10 flex items-center justify-center animate-pulse shadow-xl">
-                  <ShieldCheck className="w-16 h-16 text-primary" />
+                  <ShieldCheck className="w-16 h-16 icon-accent" />
                 </div>
                 <div className="space-y-2 text-center">
                   <p className="text-[11px] font-black uppercase tracking-[0.4em] text-primary/40">Regulatory Integrity</p>
@@ -254,7 +254,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             </div>
             <Button asChild size="lg" variant="outline" className="h-16 rounded-full border-primary/10 text-primary px-10 text-lg font-bold hover:bg-primary/5">
               <Link href="/portfolio" className="flex items-center gap-2">
-                All Portfolios <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                All Portfolios <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent" />
               </Link>
             </Button>
           </div>
@@ -268,10 +268,10 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               >
                 <div className="flex justify-between items-center">
                   <div className="h-16 w-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <Workflow className="h-8 w-8" />
+                    <Workflow className="h-8 w-8 icon-accent group-hover:text-white" />
                   </div>
                   <div className="h-12 w-12 rounded-full bg-primary/5 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <ArrowRight className="h-6 w-6" />
+                    <ArrowRight className="h-6 w-6 icon-accent group-hover:text-white" />
                   </div>
                 </div>
                 <h3 className="text-3xl font-extrabold text-foreground group-hover:text-primary transition-colors text-left">
@@ -306,7 +306,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             <div className="flex justify-center pt-4">
               <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
                 <Link href="/contact" className="flex items-center gap-3">
-                  Discuss Solution Roadmap <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+                  Discuss Solution Roadmap <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                 </Link>
               </Button>
             </div>

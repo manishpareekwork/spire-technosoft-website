@@ -49,7 +49,7 @@ export function SocialProofBand({
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div key={testimonial.name} className="surface-card rounded-3xl p-6 shadow-soft space-y-6">
-              <Quote className="h-8 w-8 text-primary/20" />
+              <Quote className="h-8 w-8 icon-muted opacity-50" />
               <p className="text-base text-muted-foreground italic leading-relaxed font-medium">&quot;{testimonial.quote}&quot;</p>
               <div className="pt-4 border-t border-primary/10">
                 <p className="text-sm font-black uppercase tracking-tight text-foreground">{testimonial.name}</p>

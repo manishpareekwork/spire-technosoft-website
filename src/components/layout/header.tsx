@@ -128,7 +128,7 @@ export function Header(): React.ReactElement {
             className="rounded-md border border-border p-2 text-foreground"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? <X className="h-5 w-5 icon-muted" /> : <Menu className="h-5 w-5 icon-muted" />}
           </button>
         </div>
       </div>

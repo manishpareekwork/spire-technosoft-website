@@ -113,7 +113,7 @@ export default function InnovationPage(): React.ReactElement {
           <div className="relative">
             <div className="relative z-10 space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
-                <Sparkles className="h-4 w-4 text-primary" />
+                <Sparkles className="h-4 w-4 icon-accent" />
                 <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">
                   Innovation Lab
                 </p>
@@ -136,7 +136,7 @@ export default function InnovationPage(): React.ReactElement {
               >
                 <div className="relative z-10 space-y-6 text-left">
                   <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <area.icon className="h-7 w-7" />
+                    <area.icon className="h-7 w-7 icon-accent" />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">{area.title}</h3>
@@ -160,7 +160,7 @@ export default function InnovationPage(): React.ReactElement {
               </p>
             </div>
             <Link href="/portfolio" className="text-primary font-bold flex items-center gap-2 group underline-offset-8 hover:underline">
-              Visit Full Portfolio <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              Visit Full Portfolio <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent" />
             </Link>
           </div>
           
@@ -171,14 +171,14 @@ export default function InnovationPage(): React.ReactElement {
                 className="interactive-card p-10 space-y-10 group text-left"
               >
                 <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <visual.icon className="h-10 w-10" />
+                  <visual.icon className="h-10 w-10 icon-accent" />
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{visual.title}</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-primary/20 pl-6">"{visual.caption}"</p>
                 </div>
                 <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary pt-4">
-                  <MonitorPlay className="h-5 w-5" /> Explore Interactive Blueprint
+                  <MonitorPlay className="h-5 w-5 icon-accent" /> Explore Interactive Blueprint
                 </div>
               </div>
             ))}
@@ -200,7 +200,7 @@ export default function InnovationPage(): React.ReactElement {
             {processSteps.map((step, index) => (
               <div key={step.title} className="interactive-card p-8 space-y-6 group text-left">
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <step.icon className="h-7 w-7" />
+                  <step.icon className="h-7 w-7 icon-accent" />
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
@@ -234,7 +234,7 @@ export default function InnovationPage(): React.ReactElement {
                     <Badge variant="outline" className="text-[10px] uppercase font-black tracking-[0.2em] text-primary border-primary/20 px-3 py-1">
                       {piece.label}
                     </Badge>
-                    <piece.icon className="h-6 w-6 text-muted-foreground/30 group-hover:text-primary transition-colors" />
+                    <piece.icon className="h-6 w-6 icon-muted group-hover:text-primary transition-colors" />
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">{piece.title}</h3>
@@ -243,7 +243,7 @@ export default function InnovationPage(): React.ReactElement {
                 </div>
                 <div className="pt-8 border-t border-muted/10">
                   <button className="w-full h-14 rounded-xl bg-primary/5 text-primary text-sm font-bold flex items-center justify-center gap-3 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    Access Playbook <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    Access Playbook <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent group-hover:text-white" />
                   </button>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function InnovationPage(): React.ReactElement {
             <div className="flex justify-center pt-4">
               <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
                 <a href="mailto:innovation@spiretechnosoft.com?subject=Lab%20Sprint%20Inquiry" className="flex items-center gap-3">
-                  Request Sprint Brochure <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+                  Request Sprint Brochure <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                 </a>
               </Button>
             </div>

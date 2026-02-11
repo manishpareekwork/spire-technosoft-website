@@ -44,7 +44,7 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
         <div className="space-y-12">
           <div className="flex items-center gap-3">
              <Link href="/industries" className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 icon-muted group-hover:text-primary" />
               Back to Industries
             </Link>
           </div>
@@ -66,7 +66,7 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
               <div className="flex justify-center">
                 <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
                   <Link href="/contact" className="flex items-center gap-3">
-                     Start Roadmap Strategy <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                     Start Roadmap Strategy <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
                   </Link>
                 </Button>
               </div>
@@ -82,14 +82,14 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
           <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
             <div className="flex items-center gap-4">
                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Target className="h-7 w-7" />
+                  <Target className="h-7 w-7 icon-accent group-hover:text-white" />
                </div>
                <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Core Focus Areas</h2>
             </div>
             <ul className="grid gap-5">
               {industry.focusAreas.map((item) => (
                 <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 text-primary/30 group-hover/item:text-primary transition-colors flex-shrink-0" />
+                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
                   <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
                 </li>
               ))}
@@ -100,14 +100,14 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
           <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
             <div className="flex items-center gap-4">
                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Zap className="h-7 w-7" />
+                  <Zap className="h-7 w-7 icon-accent group-hover:text-white" />
                </div>
                <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Typical Programs</h2>
             </div>
             <ul className="grid gap-5">
               {industry.typicalPrograms.map((item) => (
                 <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 text-primary/30 group-hover/item:text-primary transition-colors flex-shrink-0" />
+                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
                   <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
                 </li>
               ))}
@@ -118,14 +118,14 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
           <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
             <div className="flex items-center gap-4">
                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <ShieldCheck className="h-7 w-7" />
+                  <ShieldCheck className="h-7 w-7 icon-accent group-hover:text-white" />
                </div>
                <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Compliance & Rigor</h2>
             </div>
             <ul className="grid gap-5">
               {industry.compliance.map((item) => (
                 <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 text-primary/30 group-hover/item:text-primary transition-colors flex-shrink-0" />
+                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
                   <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
                 </li>
               ))}
@@ -136,14 +136,14 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
           <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
             <div className="flex items-center gap-4">
                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Activity className="h-7 w-7" />
+                  <Activity className="h-7 w-7 icon-accent group-hover:text-white" />
                </div>
                <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Impact Metrics</h2>
             </div>
             <ul className="grid gap-5">
               {industry.successMetrics.map((item) => (
                 <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 text-primary/30 group-hover/item:text-primary transition-colors flex-shrink-0" />
+                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
                   <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
                 </li>
               ))}
@@ -168,7 +168,7 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
                 >
                   <span className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{caseStudy.title}</span>
                   <div className="h-14 w-14 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent group-hover:text-white" />
                   </div>
                 </Link>
               ))}
@@ -190,7 +190,7 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
               <div className="flex justify-center pt-4">
                 <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
                   <Link href="/contact" className="flex items-center gap-3">
-                    Book Discovery Session <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+                    Book Discovery Session <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                   </Link>
                 </Button>
               </div>

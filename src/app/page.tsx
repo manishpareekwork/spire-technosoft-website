@@ -54,7 +54,7 @@ export default function Home() {
               <Button asChild size="xl" className="px-10">
                 <Link href={home.hero.primaryCta.href} className="flex items-center">
                   {home.hero.primaryCta.label}
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="xl" className="px-10">
@@ -98,7 +98,7 @@ export default function Home() {
               <div key={card.title} className="surface-card rounded-3xl p-6 shadow-soft transition-all hover:-translate-y-2">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    <Sparkles className="h-4 w-4" />
+                    <Sparkles className="h-4 w-4 icon-accent" />
                     {card.metric}
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function Home() {
                   href={card.href}
                   className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary"
                 >
-                  Full case <ArrowRight className="h-4 w-4" />
+                  Full case <ArrowRight className="h-4 w-4 icon-accent" />
                 </Link>
               </div>
             ))}
@@ -157,7 +157,7 @@ export default function Home() {
                 <div key={principle.title} className="surface-card rounded-3xl p-6 shadow-soft">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 icon-accent" />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground">{principle.title}</h3>
                   </div>
@@ -175,7 +175,7 @@ export default function Home() {
           <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-primary/10 blur-[80px]" />
           <div className="relative z-10 space-y-8">
             <div className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-primary/5 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-4 w-4 icon-accent" />
               {home.labCta.eyebrow}
             </div>
             <h2 className="display-1 text-secondary">{home.labCta.title}</h2>

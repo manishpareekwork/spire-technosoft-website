@@ -59,7 +59,7 @@ export default function CareersPage(): React.ReactElement {
             <div className="flex justify-center pt-6">
               <Button asChild size="xl">
                 <Link href={careers.hero.cta.href} className="flex items-center gap-3">
-                  {careers.hero.cta.label} <ArrowRight className="h-5 w-5" />
+                  {careers.hero.cta.label} <ArrowRight className="h-5 w-5 icon-inverse" />
                 </Link>
               </Button>
             </div>
@@ -71,7 +71,7 @@ export default function CareersPage(): React.ReactElement {
               return (
                 <div key={item.text} className="surface-card rounded-3xl p-6 shadow-soft">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6 icon-accent" />
                   </div>
                   <p className="text-sm font-semibold text-muted-foreground">{item.text}</p>
                 </div>
@@ -109,7 +109,7 @@ export default function CareersPage(): React.ReactElement {
                 <div key={step.title} className="space-y-4">
                   <div className="relative">
                     <div className="h-20 w-20 rounded-3xl bg-primary/5 flex items-center justify-center text-primary">
-                      <Icon className="h-10 w-10" />
+                      <Icon className="h-10 w-10 icon-accent" />
                     </div>
                     <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-white border border-border/60 flex items-center justify-center text-xs font-semibold text-primary">
                       0{index + 1}
@@ -141,7 +141,7 @@ export default function CareersPage(): React.ReactElement {
                 return (
                   <div key={benefit.text} className="surface-card rounded-2xl p-5 shadow-soft flex items-center gap-4">
                     <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 icon-accent" />
                     </div>
                     <p className="text-sm font-semibold text-foreground">{benefit.text}</p>
                   </div>
@@ -151,7 +151,7 @@ export default function CareersPage(): React.ReactElement {
           </div>
 
           <div className="surface-card rounded-3xl p-8 shadow-float">
-            <Quote className="h-10 w-10 text-primary/20" />
+            <Quote className="h-10 w-10 icon-muted opacity-50" />
             <p className="mt-6 text-lg italic text-muted-foreground">"{careers.employeeStory.quote}"</p>
             <div className="mt-6 flex items-center gap-4">
               <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary" />
@@ -192,7 +192,7 @@ export default function CareersPage(): React.ReactElement {
 
             <div className="surface-card rounded-3xl p-6 shadow-soft">
               <div className="flex items-center gap-3 text-primary">
-                <Mail className="h-6 w-6" />
+                <Mail className="h-6 w-6 icon-accent" />
                 <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">Talent pipeline</h3>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
@@ -215,7 +215,7 @@ export default function CareersPage(): React.ReactElement {
             <div className="flex justify-center pt-4">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <a href={careers.cta.href} className="flex items-center gap-3">
-                  {careers.cta.label} <ArrowRight className="h-5 w-5" />
+                  {careers.cta.label} <ArrowRight className="h-5 w-5 icon-accent" />
                 </a>
               </Button>
             </div>
