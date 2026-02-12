@@ -46,10 +46,10 @@ export default function Home() {
           <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-secondary/20 blur-[140px]" />
           <div className="absolute inset-0 dot-grid opacity-30" />
         </div>
-        <div className="container animate-softFade py-16 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr] items-center">
+        <div className="container animate-softFade py-12 lg:py-16">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-3 rounded-full bg-secondary/10 px-5 py-2 border border-secondary/20">
+              <div className="inline-flex items-center gap-3 rounded-full bg-secondary/10 px-5 py-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
@@ -62,7 +62,7 @@ export default function Home() {
               <p className="max-w-2xl body-lg text-muted-foreground">
                 {home.hero.description}
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button asChild size="xl" className="px-10">
                   <Link href={home.hero.primaryCta.href} className="flex items-center">
                     {home.hero.primaryCta.label}
@@ -72,6 +72,19 @@ export default function Home() {
                 <Button asChild variant="outline" size="xl" className="px-10">
                   <Link href={home.hero.secondaryCta.href}>{home.hero.secondaryCta.label}</Link>
                 </Button>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3 max-w-2xl">
+                {siteContent.differentiators.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl bg-surface-2 px-4 py-3 text-left shadow-soft"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground">{item.metric}</p>
+                  </div>
+                ))}
               </div>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Sectors we transform</p>
@@ -86,11 +99,11 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-surface shadow-float hero-mesh">
+              <div className="relative overflow-hidden rounded-[2.25rem] bg-surface shadow-float hero-mesh">
                 <div className="absolute inset-0 hero-lines opacity-40" />
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-secondary/20 blur-3xl float-slow" />
                 <div className="absolute -left-12 bottom-0 h-32 w-32 rounded-full bg-primary/15 blur-3xl float-slow" />
-                <div className="relative aspect-[4/3] w-full">
+                <div className="relative aspect-[5/4] w-full">
                   <svg
                     viewBox="0 0 640 420"
                     className="absolute inset-0 h-full w-full"

@@ -5,7 +5,7 @@ import { resourceDownloads } from "@/data/resources";
 
 export function Footer(): React.ReactElement {
   return (
-    <footer className="relative z-20 w-full bg-foreground text-white">
+    <footer className="relative z-20 w-full bg-[#0f172a] text-white">
       <div className="container py-20 space-y-12">
         <div className="grid gap-12 lg:grid-cols-[1.3fr,1fr,1fr,1fr]">
           {/* Brand */}
