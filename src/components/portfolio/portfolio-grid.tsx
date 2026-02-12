@@ -73,7 +73,7 @@ export function PortfolioGrid(): React.ReactElement {
   return (
     <div className="space-y-10">
       {/* Filter Panel */}
-      <div className="rounded-[2rem] border border-border/40 bg-surface p-6 shadow-soft">
+      <div className="rounded-[2rem] bg-surface p-6 shadow-soft">
         <div className="flex flex-col gap-6">
           <div className="relative">
             <Search className="absolute left-4 top-3.5 h-5 w-5 icon-muted" />
@@ -176,7 +176,7 @@ export function PortfolioGrid(): React.ReactElement {
 
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
-                    <span key={tech} className="rounded-full border border-border/40 bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground">
+                    <span key={tech} className="rounded-full bg-surface-2/80 px-3 py-1 text-xs font-semibold text-foreground">
                       {tech}
                     </span>
                   ))}
@@ -193,7 +193,7 @@ export function PortfolioGrid(): React.ReactElement {
                     href={project.caseStudyPdf}
                     download
                     title="Download PDF"
-                    className="inline-flex items-center justify-center rounded-full border border-border/40 px-4 py-3 text-sm font-semibold text-foreground"
+                    className="inline-flex items-center justify-center rounded-full bg-surface-2/80 px-4 py-3 text-sm font-semibold text-foreground"
                   >
                     <Download className="h-4 w-4 icon-accent" />
                   </a>

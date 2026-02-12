@@ -26,7 +26,7 @@ export function ResourceDownloads({
         {resourceDownloads.map((resource) => (
           <Card key={resource.title} className="bg-card">
             <CardContent className="flex h-full flex-col gap-5 px-6 py-5">
-              <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-surface-2">
+              <div className="relative overflow-hidden rounded-2xl bg-surface-2">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src={resource.cover}

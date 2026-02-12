@@ -38,7 +38,7 @@ export default function PortfolioPage(): React.ReactElement {
 
       {/* NDA Note */}
       <section className="container py-8">
-        <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] border border-border/40 bg-surface p-8 shadow-soft">
+        <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] bg-surface p-8 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
               <ShieldCheck className="h-6 w-6 icon-accent" />

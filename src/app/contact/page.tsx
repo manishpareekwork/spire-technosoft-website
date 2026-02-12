@@ -167,7 +167,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="surface-card rounded-[3rem] p-8 shadow-float border border-border/40">
+        <div className="surface-card rounded-[3rem] p-8 shadow-float">
             <div className="space-y-4">
               <Badge variant="soft">{contact.formIntro.eyebrow}</Badge>
               <h2 className="heading-2 text-secondary">{contact.formIntro.title}</h2>

@@ -19,7 +19,7 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
           <div className="relative">
             <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 border border-primary/20">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
                 <Globe className="h-4 w-4 icon-accent" />
                 <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">Industries We Serve</p>
               </div>
@@ -83,7 +83,7 @@ export default function IndustriesPage(): React.ReactElement {
                   />
                   <div className="absolute inset-0 bg-primary/60 mix-blend-multiply group-hover:bg-primary/50 transition-colors" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
-                    <div className="inline-block rounded-full bg-white/20 px-4 py-1.5 backdrop-blur-md border border-white/30 mb-4">
+                    <div className="inline-block rounded-full bg-white/20 px-4 py-1.5 backdrop-blur-md mb-4">
                       <p className="text-[10px] font-black uppercase tracking-[0.3em]">Vertical Focus</p>
                     </div>
                     <p className="text-4xl font-extrabold tracking-tight">{industry.title}</p>
@@ -115,7 +115,7 @@ export default function IndustriesPage(): React.ReactElement {
                       <p className="text-[10px] font-black uppercase tracking-widest text-secondary border-b border-secondary/10 pb-2">Impact Outcomes</p>
                       <div className="flex flex-wrap gap-2 pt-1">
                         {industry.successMetrics.slice(0, 2).map((metric) => (
-                          <span key={metric} className="rounded-full bg-primary/5 border border-primary/10 px-4 py-2 text-xs font-bold text-primary">
+                          <span key={metric} className="rounded-full bg-primary/5 px-4 py-2 text-xs font-bold text-primary">
                             {metric}
                           </span>
                         ))}
@@ -141,9 +141,9 @@ export default function IndustriesPage(): React.ReactElement {
 
       {/* Domain Strength Section */}
       <section className="container animate-softFade py-24">
-        <div className="section-shell bg-white border border-primary/10 rounded-[3rem] p-12 lg:p-20 space-y-16 overflow-hidden shadow-2xl">
+        <div className="section-shell bg-white rounded-[3rem] p-12 lg:p-20 space-y-16 overflow-hidden shadow-2xl">
           <div className="text-center space-y-6">
-             <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary border border-primary/10">
+             <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-primary">
                 <Search className="h-4 w-4 icon-accent" />
                 <span className="text-[10px] font-black uppercase tracking-widest">Industry Differentiation</span>
               </div>

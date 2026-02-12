@@ -60,10 +60,10 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Back to Solutions</span>
           </Link>
           
-          <div className="relative overflow-hidden rounded-[3rem] bg-white border border-primary/5 px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
+          <div className="relative overflow-hidden rounded-[3rem] bg-white px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
             <div className="relative z-10 max-w-4xl mx-auto space-y-10">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
                   <Sparkles className="h-4 w-4 icon-accent" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Solution Portfolio</p>
                 </div>
@@ -101,7 +101,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
                 {solution.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-2 rounded-full border border-primary/5">
+                  <span key={tag} className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-2 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -127,11 +127,11 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
           </div>
 
           <div className="space-y-12">
-            <div className="interactive-card bg-white p-10 space-y-10 shadow-2xl border border-primary/5">
+            <div className="interactive-card bg-white p-10 space-y-10 shadow-2xl">
               <h3 className="text-3xl font-extrabold text-secondary text-center tracking-tight">Impact Metrics</h3>
               <div className="grid gap-6">
                 {solution.successMetrics.map((metric, index) => (
-                  <div key={metric} className="flex items-center gap-8 p-6 rounded-2xl bg-primary/5 border border-primary/10 group hover:bg-primary transition-all">
+                  <div key={metric} className="flex items-center gap-8 p-6 rounded-2xl bg-primary/5 group hover:bg-primary transition-all">
                     <div className="h-14 w-14 rounded-2xl bg-white flex items-center justify-center text-primary text-xl font-black shadow-sm group-hover:scale-110 transition-transform">
                       {index + 1}
                     </div>
@@ -141,7 +141,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               </div>
             </div>
 
-            <div className="interactive-card bg-primary/5 p-10 space-y-8 border border-primary/10">
+            <div className="interactive-card bg-primary/5 p-10 space-y-8">
               <div className="flex items-center gap-4">
                 <Workflow className="h-7 w-7 icon-accent" />
                 <h3 className="text-2xl font-bold text-foreground">Velocity Delivery</h3>
@@ -168,9 +168,9 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
       {/* Architecture Section */}
       <section id="architecture" className="container animate-softFade py-24">
-        <div className="section-shell space-y-16 py-24 bg-white border border-primary/5 shadow-3xl overflow-hidden rounded-[3rem] text-center">
+        <div className="section-shell space-y-16 py-24 bg-white shadow-3xl overflow-hidden rounded-[3rem] text-center">
           <div className="relative z-10 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-2 border border-primary/10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-2">
               <Layers className="h-4 w-4 icon-accent" />
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Reference Architecture</p>
             </div>
@@ -181,7 +181,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             {solution.architecture.map((layer, index) => (
               <div 
                 key={layer.layer}
-                className="interactive-card bg-white p-10 shadow-xl border border-primary/5 transition-all hover:translate-x-8 group text-left"
+                className="interactive-card bg-white p-10 shadow-xl transition-all hover:translate-x-8 group text-left"
                 style={{ 
                   animationDelay: `${index * 150}ms`,
                   marginLeft: `${index * 3}rem`
@@ -195,7 +195,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
                     <h3 className="text-3xl font-extrabold text-foreground">{layer.layer}</h3>
                     <div className="flex flex-wrap gap-3">
                       {layer.items.map(item => (
-                        <span key={item} className="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/10">{item}</span>
+                        <span key={item} className="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full">{item}</span>
                       ))}
                     </div>
                   </div>

@@ -37,7 +37,7 @@ export function ParticleBackground() {
   const options: ISourceOptions = useMemo(() => {
     // Set particle color based on the current theme
     const particleColor =
-      resolvedTheme === "light" ? "rgba(0,77,50,0.22)" : "rgba(193,237,221,0.3)"; // Softer blend for background
+      resolvedTheme === "light" ? "rgba(15,58,125,0.18)" : "rgba(148,197,255,0.25)";
 
     return {
       background: {

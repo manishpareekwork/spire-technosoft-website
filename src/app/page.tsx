@@ -46,7 +46,7 @@ export default function Home() {
           <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-secondary/20 blur-[140px]" />
           <div className="absolute inset-0 dot-grid opacity-30" />
         </div>
-        <div className="container animate-softFade py-12 lg:py-16">
+        <div className="container animate-softFade py-6 lg:py-8">
           <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full bg-secondary/10 px-5 py-2">
@@ -73,19 +73,6 @@ export default function Home() {
                   <Link href={home.hero.secondaryCta.href}>{home.hero.secondaryCta.label}</Link>
                 </Button>
               </div>
-              <div className="grid gap-3 sm:grid-cols-3 max-w-2xl">
-                {siteContent.differentiators.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl bg-surface-2 px-4 py-3 text-left shadow-soft"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
-                      {item.title}
-                    </p>
-                    <p className="mt-2 text-sm text-muted-foreground">{item.metric}</p>
-                  </div>
-                ))}
-              </div>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Sectors we transform</p>
                 <div className="flex flex-wrap gap-3">
@@ -99,66 +86,35 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden rounded-[2.25rem] bg-surface shadow-float hero-mesh">
-                <div className="absolute inset-0 hero-lines opacity-40" />
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-secondary/20 blur-3xl float-slow" />
-                <div className="absolute -left-12 bottom-0 h-32 w-32 rounded-full bg-primary/15 blur-3xl float-slow" />
-                <div className="relative aspect-[5/4] w-full">
-                  <svg
-                    viewBox="0 0 640 420"
-                    className="absolute inset-0 h-full w-full"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path
-                      d="M40 340 C140 280 220 300 310 230 C400 160 490 150 600 90"
-                      fill="none"
-                      stroke="rgba(13,148,136,0.6)"
-                      strokeWidth="3"
-                      className="line-dash"
-                    />
-                    <path
-                      d="M60 360 C160 320 240 330 330 260 C420 190 520 170 610 120"
-                      fill="none"
-                      stroke="rgba(15,58,125,0.5)"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M30 300 C120 240 220 250 300 200 C380 150 470 120 590 80"
-                      fill="none"
-                      stroke="rgba(5,150,105,0.45)"
-                      strokeWidth="2"
-                    />
-                    <circle cx="310" cy="230" r="6" fill="rgba(13,148,136,0.9)" />
-                    <circle cx="490" cy="150" r="6" fill="rgba(15,58,125,0.9)" />
-                    <circle cx="590" cy="80" r="6" fill="rgba(5,150,105,0.9)" />
-                    <text x="325" y="215" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
-                      {home.stats[2]?.label}
-                    </text>
-                    <text x="505" y="135" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
-                      {home.stats[3]?.label}
-                    </text>
-                    <text x="545" y="65" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
-                      Outcomes
-                    </text>
-                  </svg>
-                  <div className="absolute left-6 top-6 rounded-2xl bg-white/80 px-4 py-3 shadow-soft backdrop-blur">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
-                      {home.stats[0]?.label}
-                    </p>
-                    <p className="text-lg font-bold text-foreground">{home.stats[0]?.value}</p>
-                  </div>
-                  <div className="absolute bottom-6 right-8 rounded-2xl bg-white/80 px-4 py-3 shadow-soft backdrop-blur">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
-                      {home.stats[1]?.label}
-                    </p>
-                    <p className="text-lg font-bold text-foreground">{home.stats[1]?.value}</p>
-                  </div>
-                </div>
+              <div className="relative min-h-[240px] sm:h-[300px] lg:h-[320px]">
+                <div className="absolute inset-0 rounded-[2.25rem] bg-surface shadow-float hero-mesh" />
+                <div className="absolute inset-0 rounded-[2.25rem] hero-lines opacity-40" />
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-secondary/20 blur-3xl float-slow" />
+                <div className="absolute -left-10 bottom-0 h-28 w-28 rounded-full bg-primary/15 blur-3xl float-slow" />
+
+                {siteContent.differentiators.map((item, index) => {
+                  const cardClasses = [
+                    "sm:absolute sm:top-4 sm:right-6",
+                    "sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:left-4",
+                    "sm:absolute sm:bottom-6 sm:right-10",
+                  ];
+                  const cardIcons = [Workflow, Users, Cpu];
+                  const Icon = cardIcons[index % cardIcons.length];
+                  return (
+                    <div
+                      key={item.title}
+                      className={`relative z-10 mt-3 sm:mt-0 w-full sm:w-[200px] rounded-2xl bg-white/90 backdrop-blur px-4 py-4 shadow-soft card-lift ${cardClasses[index]}`}
+                      style={{ animationDelay: `${index * 0.2}s` }}
+                    >
+                      <div className="flex items-center gap-2 text-secondary">
+                        <Icon className="h-4 w-4 icon-accent" />
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em]">{item.title}</p>
+                      </div>
+                      <p className="mt-2 text-sm text-muted-foreground">{item.metric}</p>
+                    </div>
+                  );
+                })}
               </div>
-              <p className="mt-4 text-xs uppercase tracking-[0.4em] text-muted-foreground text-center">
-                Data-led delivery visibility
-              </p>
             </div>
           </div>
         </div>

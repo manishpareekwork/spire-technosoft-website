@@ -97,7 +97,7 @@ export default function CareersPage(): React.ReactElement {
 
       {/* Hiring Process */}
       <section className="container py-20">
-        <div className="rounded-[3rem] border border-border/40 bg-surface p-10 shadow-float text-center">
+        <div className="rounded-[3rem] bg-surface p-10 shadow-float text-center">
           <SectionHeader
             eyebrow={careers.roadmap.eyebrow}
             title={careers.roadmap.title}
@@ -176,7 +176,7 @@ export default function CareersPage(): React.ReactElement {
             <div className="mt-8">
               <Suspense
                 fallback={
-                  <div className="rounded-2xl border border-border/40 bg-surface-2 p-6 text-sm text-muted-foreground">
+                  <div className="rounded-2xl bg-surface-2 p-6 text-sm text-muted-foreground">
                     Loading application form...
                   </div>
                 }

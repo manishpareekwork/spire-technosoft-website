@@ -108,7 +108,7 @@ export default function SolutionsPage(): React.ReactElement {
             {solutionDetails.map((solution) => (
               <div key={solution.slug} className="surface-card rounded-3xl p-8 shadow-soft">
                 <div className="grid gap-6 sm:grid-cols-[1fr,1.1fr] items-center">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/40">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                     <Image
                       src={solution.image}
                       alt={solution.title}
@@ -136,7 +136,7 @@ export default function SolutionsPage(): React.ReactElement {
                   {solution.successMetrics.map((metric) => (
                     <span
                       key={metric}
-                      className="rounded-full border border-border/40 bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground"
+                      className="rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground"
                     >
                       {metric}
                     </span>

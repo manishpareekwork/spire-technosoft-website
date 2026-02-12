@@ -15,7 +15,7 @@ export function AccordionItem({ title, defaultOpen, className, children, ...prop
   return (
     <details
       className={cn(
-        "group rounded-2xl border border-border/40 bg-surface px-6 py-4 shadow-soft",
+        "group rounded-2xl bg-surface px-6 py-4 shadow-soft",
         className
       )}
       open={defaultOpen}

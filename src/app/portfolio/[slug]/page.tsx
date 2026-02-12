@@ -61,7 +61,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
             Back to Portfolio
           </Link>
 
-          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-center rounded-[3rem] border border-border/40 bg-surface p-10 shadow-float">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-center rounded-[3rem] bg-surface p-10 shadow-float">
             <div className="space-y-6">
               <Badge variant="soft">{project.industry}</Badge>
               <h1 className="display-1 text-foreground">{project.title}</h1>
@@ -85,7 +85,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-border/40 shadow-soft">
+            <div className="relative overflow-hidden rounded-[2.5rem] shadow-soft">
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src={project.image}
@@ -172,7 +172,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
                 </li>
               ))}
             </ul>
-            <div className="rounded-2xl border border-border/40 bg-surface-2 p-6">
+            <div className="rounded-2xl bg-surface-2 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">KPI Table</p>
               <div className="mt-4 space-y-3">
                 {project.metrics.map((metric) => (
@@ -194,7 +194,7 @@ export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
             <SectionHeader align="left" eyebrow="Stack" title="Technology" />
             <div className="mt-4 flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <span key={tech} className="rounded-full border border-border/40 bg-surface-2 px-3 py-1 text-xs font-semibold">
+                <span key={tech} className="rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold">
                   {tech}
                 </span>
               ))}

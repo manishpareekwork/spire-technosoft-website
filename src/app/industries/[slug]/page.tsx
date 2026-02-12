@@ -49,10 +49,10 @@ export default function IndustryDetailPage({ params }: IndustryPageProps): React
             </Link>
           </div>
 
-          <div className="relative overflow-hidden rounded-[3rem] bg-white border border-primary/5 px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
+          <div className="relative overflow-hidden rounded-[3rem] bg-white px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
             <div className="relative z-10 max-w-4xl mx-auto space-y-10">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
                   <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Vertical Insight</p>
                 </div>
