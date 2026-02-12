@@ -27,7 +27,7 @@ export function SectionHeader({
         className
       )}
     >
-      {eyebrow ? <p className="eyebrow text-primary/70">{eyebrow}</p> : null}
+      {eyebrow ? <p className="eyebrow text-secondary/80">{eyebrow}</p> : null}
       <h2 className={cn(size === "lg" ? "display-1" : "heading-2", "text-foreground")}>{title}</h2>
       {description ? <p className="body-lg text-muted-foreground">{description}</p> : null}
     </div>

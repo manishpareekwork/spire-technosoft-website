@@ -9,6 +9,8 @@ import {
   Eye,
   Quote,
   ArrowRight,
+  TrendingUp,
+  Clock,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -30,6 +32,7 @@ export const metadata = {
 };
 
 const valueIcons = [ShieldCheck, Lightbulb, Users, Leaf, Trophy];
+const proofIcons = [TrendingUp, Users, Clock, ShieldCheck];
 
 export default function AboutPage() {
   const { about } = siteContent;
@@ -107,8 +110,13 @@ export default function AboutPage() {
               description={about.proof.description}
             />
             <div className="grid gap-4 sm:grid-cols-2">
-              {about.proof.metrics.map((metric) => (
-                <Stat key={metric.label} label={metric.label} value={metric.value} />
+              {about.proof.metrics.map((metric, index) => (
+                <Stat
+                  key={metric.label}
+                  label={metric.label}
+                  value={metric.value}
+                  icon={proofIcons[index % proofIcons.length]}
+                />
               ))}
             </div>
             <div className="surface-card rounded-3xl p-6 shadow-soft">
