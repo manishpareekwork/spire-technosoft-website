@@ -73,7 +73,7 @@ export function PortfolioGrid(): React.ReactElement {
   return (
     <div className="space-y-10">
       {/* Filter Panel */}
-      <div className="rounded-[2rem] border border-border/60 bg-surface p-6 shadow-soft">
+      <div className="rounded-[2rem] border border-border/40 bg-surface p-6 shadow-soft">
         <div className="flex flex-col gap-6">
           <div className="relative">
             <Search className="absolute left-4 top-3.5 h-5 w-5 icon-muted" />
@@ -99,7 +99,7 @@ export function PortfolioGrid(): React.ReactElement {
                       className={`rounded-full border px-3 py-1 text-xs font-semibold transition-all ${
                         filters[key] === option
                           ? "border-primary bg-primary/10 text-primary"
-                          : "border-border/60 text-muted-foreground hover:text-foreground"
+                          : "border-border/40 text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       {option === "All" ? `All ${filterLabels[key]}s` : option}
@@ -176,7 +176,7 @@ export function PortfolioGrid(): React.ReactElement {
 
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
-                    <span key={tech} className="rounded-full border border-border/60 bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground">
+                    <span key={tech} className="rounded-full border border-border/40 bg-surface-2 px-3 py-1 text-xs font-semibold text-foreground">
                       {tech}
                     </span>
                   ))}
@@ -193,7 +193,7 @@ export function PortfolioGrid(): React.ReactElement {
                     href={project.caseStudyPdf}
                     download
                     title="Download PDF"
-                    className="inline-flex items-center justify-center rounded-full border border-border/60 px-4 py-3 text-sm font-semibold text-foreground"
+                    className="inline-flex items-center justify-center rounded-full border border-border/40 px-4 py-3 text-sm font-semibold text-foreground"
                   >
                     <Download className="h-4 w-4 icon-accent" />
                   </a>
@@ -206,7 +206,7 @@ export function PortfolioGrid(): React.ReactElement {
 
       {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <div className="rounded-[2.5rem] border-2 border-dashed border-border/60 bg-surface p-16 text-center space-y-4">
+        <div className="rounded-[2.5rem] border-2 border-dashed border-border/40 bg-surface p-16 text-center space-y-4">
           <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
             <Filter className="h-8 w-8 icon-muted" />
           </div>

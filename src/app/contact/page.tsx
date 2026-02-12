@@ -155,7 +155,7 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
-              <div className="pt-6 border-t border-border/60 mt-6 space-y-3">
+              <div className="pt-6 border-t border-border/40 mt-6 space-y-3">
                 <div className="flex items-center gap-3">
                   <ShieldCheck className="h-5 w-5 icon-accent" />
                   <p className="text-sm font-semibold">Secure intake process</p>
@@ -167,7 +167,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="surface-card rounded-[3rem] p-8 shadow-float border border-border/60">
+          <div className="surface-card rounded-[3rem] p-8 shadow-float border border-border/40">
             <div className="space-y-4">
               <Badge variant="soft">{contact.formIntro.eyebrow}</Badge>
               <h2 className="heading-2 text-secondary">{contact.formIntro.title}</h2>
@@ -191,8 +191,8 @@ export default function ContactPage() {
 
       {/* CTA Footer */}
       <section className="container pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-float">
-          <div className="relative z-10 space-y-8 max-w-2xl mx-auto">
+        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+          <div className="cta-inner space-y-8 max-w-2xl mx-auto">
             <h2 className="display-1 text-white">{contact.fastRoute.title}</h2>
             <p className="body-lg text-white/80">{contact.fastRoute.description}</p>
             <div className="flex justify-center pt-4">

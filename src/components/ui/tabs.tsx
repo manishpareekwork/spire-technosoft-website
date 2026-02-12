@@ -40,7 +40,7 @@ export function TabsList({ className, ...props }: React.HTMLAttributes<HTMLDivEl
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center gap-2 rounded-full border border-border/60 bg-surface-2/80 p-2 shadow-soft",
+        "flex flex-wrap items-center gap-2 rounded-full border border-border/40 bg-surface-2/80 p-2 shadow-soft",
         className
       )}
       role="tablist"

@@ -197,7 +197,7 @@ export default function Home() {
             {home.transformations.cards.map((card) => (
               <div
                 key={card.title}
-                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift"
+                className="group relative overflow-hidden rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift"
               >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
@@ -244,7 +244,7 @@ export default function Home() {
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="group rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift text-left"
+                className="group rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift text-left"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-foreground">{industry.title}</h3>
@@ -273,7 +273,7 @@ export default function Home() {
 
       {/* Operating Rhythm */}
       <section className="container py-24">
-        <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] items-center rounded-[3rem] border border-border/60 bg-surface p-10 shadow-float">
+        <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] items-center rounded-[3rem] border border-border/40 bg-surface p-10 shadow-float">
           <div className="space-y-6">
             <SectionHeader
               eyebrow={home.operatingRhythm.eyebrow}
@@ -309,7 +309,7 @@ export default function Home() {
               return (
                 <div
                   key={principle.title}
-                  className="group rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift text-left"
+                  className="group rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift text-left"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary/10 text-secondary">
                     <Icon className="h-6 w-6 icon-accent transition-transform group-hover:scale-110" />
@@ -349,22 +349,21 @@ export default function Home() {
 
       {/* Innovation Lab CTA */}
       <section className="container pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] border border-border/60 bg-surface p-12 text-center shadow-float">
-          <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-primary/10 blur-[80px]" />
-          <div className="relative z-10 space-y-8">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-primary/5 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
-              <Sparkles className="h-4 w-4 icon-accent" />
+        <div className="cta-band rounded-[3rem] p-12 text-center shadow-float">
+          <div className="cta-inner space-y-8">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-white/80">
+              <Sparkles className="h-4 w-4 icon-inverse" />
               {home.labCta.eyebrow}
             </div>
-            <h2 className="display-1 text-secondary">{home.labCta.title}</h2>
-            <p className="mx-auto max-w-2xl body-lg text-muted-foreground">
+            <h2 className="display-1 text-white">{home.labCta.title}</h2>
+            <p className="mx-auto max-w-2xl body-lg text-white/80">
               {home.labCta.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="xl">
+              <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90">
                 <Link href={home.labCta.primaryCta.href}>{home.labCta.primaryCta.label}</Link>
               </Button>
-              <Button asChild variant="outline" size="xl">
+              <Button asChild variant="outline" size="xl" className="border-white/40 text-white hover:bg-white/10">
                 <Link href={home.labCta.secondaryCta.href}>{home.labCta.secondaryCta.label}</Link>
               </Button>
             </div>

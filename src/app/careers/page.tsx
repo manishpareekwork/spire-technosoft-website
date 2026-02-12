@@ -97,7 +97,7 @@ export default function CareersPage(): React.ReactElement {
 
       {/* Hiring Process */}
       <section className="container py-20">
-        <div className="rounded-[3rem] border border-border/60 bg-surface p-10 shadow-float text-center">
+        <div className="rounded-[3rem] border border-border/40 bg-surface p-10 shadow-float text-center">
           <SectionHeader
             eyebrow={careers.roadmap.eyebrow}
             title={careers.roadmap.title}
@@ -112,7 +112,7 @@ export default function CareersPage(): React.ReactElement {
                     <div className="h-20 w-20 rounded-3xl bg-primary/5 flex items-center justify-center text-primary">
                       <Icon className="h-10 w-10 icon-accent" />
                     </div>
-                    <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-white border border-border/60 flex items-center justify-center text-xs font-semibold text-primary">
+                    <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-white border border-border/40 flex items-center justify-center text-xs font-semibold text-primary">
                       0{index + 1}
                     </div>
                   </div>
@@ -176,7 +176,7 @@ export default function CareersPage(): React.ReactElement {
             <div className="mt-8">
               <Suspense
                 fallback={
-                  <div className="rounded-2xl border border-border/60 bg-surface-2 p-6 text-sm text-muted-foreground">
+                  <div className="rounded-2xl border border-border/40 bg-surface-2 p-6 text-sm text-muted-foreground">
                     Loading application form...
                   </div>
                 }
@@ -217,8 +217,8 @@ export default function CareersPage(): React.ReactElement {
 
       {/* Final CTA */}
       <section className="container pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-float">
-          <div className="relative z-10 space-y-8 max-w-3xl mx-auto">
+        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+          <div className="cta-inner space-y-8 max-w-3xl mx-auto">
             <h2 className="display-1 text-white">{careers.cta.title}</h2>
             <p className="body-lg text-white/80">{careers.cta.description}</p>
             <div className="flex justify-center pt-4">

@@ -47,7 +47,7 @@ export function Drawer({ open, onClose, side = "right", title, description, chil
       />
       <aside
         className={cn(
-          "absolute bg-surface shadow-float border border-border/60",
+          "absolute bg-surface shadow-float border border-border/40",
           sideClasses[side],
           side === "bottom" ? "p-6" : "p-8",
           className

@@ -38,7 +38,7 @@ export default function PortfolioPage(): React.ReactElement {
 
       {/* NDA Note */}
       <section className="container py-8">
-        <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] border border-border/60 bg-surface p-8 shadow-soft">
+        <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] border border-border/40 bg-surface p-8 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
               <ShieldCheck className="h-6 w-6 icon-accent" />
@@ -59,8 +59,8 @@ export default function PortfolioPage(): React.ReactElement {
 
       {/* CTA */}
       <section className="container pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-float">
-          <div className="relative z-10 space-y-8 max-w-3xl mx-auto">
+        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+          <div className="cta-inner space-y-8 max-w-3xl mx-auto">
             <div className="space-y-4">
               <p className="eyebrow text-white/60">{portfolio.cta.eyebrow}</p>
               <h2 className="display-1 text-white">{portfolio.cta.title}</h2>

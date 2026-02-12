@@ -14,7 +14,7 @@ export function Stat({ label, value, helper, icon: Icon, className }: StatProps)
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift",
+        "group relative overflow-hidden rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift",
         className
       )}
     >

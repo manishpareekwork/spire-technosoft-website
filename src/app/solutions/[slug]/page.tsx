@@ -208,8 +208,8 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
       {/* Security Section */}
       <section className="container animate-softFade py-20">
-        <div className="section-shell bg-primary px-8 py-24 rounded-[3rem] text-white shadow-2xl shadow-primary/20">
-          <div className="grid gap-16 lg:grid-cols-2 items-center text-left">
+        <div className="section-shell cta-band px-8 py-24 rounded-[3rem] text-white shadow-float">
+          <div className="cta-inner grid gap-16 lg:grid-cols-2 items-center text-left">
             <div className="space-y-12">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white/80 border border-white/20">
@@ -294,8 +294,8 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
       {/* Final CTA */}
       <section className="container animate-softFade pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-2xl shadow-primary/20">
-          <div className="relative z-10 max-w-4xl mx-auto space-y-12">
+        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+          <div className="cta-inner max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
               <p className="text-xs font-black uppercase tracking-[0.4em] text-white/50">Partnership Model</p>
               <h2 className="text-5xl font-extrabold md:text-7xl">Book a delivery workshop</h2>

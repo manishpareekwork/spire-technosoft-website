@@ -43,7 +43,7 @@ export function Modal({ open, onClose, title, description, children, footer, cla
       />
       <div
         className={cn(
-          "relative z-[1] w-full max-w-2xl rounded-3xl border border-border/60 bg-surface p-8 shadow-float",
+          "relative z-[1] w-full max-w-2xl rounded-3xl border border-border/40 bg-surface p-8 shadow-float",
           className
         )}
         role="dialog"

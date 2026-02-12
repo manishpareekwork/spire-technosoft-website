@@ -64,7 +64,7 @@ export function Header(): React.ReactElement {
       className={cn(
         "sticky top-0 z-50 w-full border-b transition-all duration-300",
         scrolled
-          ? "border-border/60 bg-background/90 shadow-soft backdrop-blur-xl"
+          ? "border-border/40 bg-background/90 shadow-soft backdrop-blur-xl"
           : "border-transparent bg-background/70"
       )}
     >

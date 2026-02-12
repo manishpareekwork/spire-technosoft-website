@@ -22,7 +22,7 @@ export function Stepper({ steps, className }: StepperProps) {
           <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-soft">
             <span className="text-xs font-black tracking-[0.2em]">0{index + 1}</span>
           </div>
-          <div className="flex-1 rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift">
+          <div className="flex-1 rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">Stage</p>

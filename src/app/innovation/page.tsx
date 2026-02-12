@@ -254,8 +254,8 @@ export default function InnovationPage(): React.ReactElement {
 
       {/* Final CTA */}
       <section className="container animate-softFade pb-32">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-24 text-center text-white shadow-2xl shadow-primary/20">
-          <div className="relative z-10 max-w-4xl mx-auto space-y-12">
+        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+          <div className="cta-inner max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
               <p className="text-xs font-black uppercase tracking-[0.5em] text-white/50">Rapid Validation</p>
               <h2 className="text-4xl font-extrabold md:text-7xl">Plan a 2-Week Lab Sprint</h2>

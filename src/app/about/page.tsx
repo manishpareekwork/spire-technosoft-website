@@ -135,7 +135,7 @@ export default function AboutPage() {
           <div className="surface-card rounded-3xl p-8 shadow-float">
             <Quote className="h-10 w-10 icon-muted opacity-50" />
             <p className="mt-6 text-lg italic text-muted-foreground">"{about.testimonial.quote}"</p>
-            <div className="mt-6 border-t border-border/60 pt-4">
+            <div className="mt-6 border-t border-border/40 pt-4">
               <p className="text-sm font-semibold text-foreground">{about.testimonial.role}</p>
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{about.testimonial.label}</p>
             </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
 
       {/* Final CTA */}
       <section className="container pb-24">
-        <div className="relative overflow-hidden rounded-[3rem] bg-primary px-8 py-20 text-center text-white shadow-float">
-          <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+        <div className="cta-band rounded-[3rem] px-8 py-20 text-center shadow-float">
+          <div className="cta-inner max-w-4xl mx-auto space-y-8">
             <div className="space-y-3">
               <p className="eyebrow text-white/60">{about.cta.eyebrow}</p>
               <h2 className="display-1 text-white">{about.cta.title}</h2>
