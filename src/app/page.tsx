@@ -183,7 +183,7 @@ export default function Home() {
             {home.transformations.cards.map((card) => (
               <div
                 key={card.title}
-                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-surface p-6 shadow-soft card-lift"
+                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift"
               >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
@@ -230,7 +230,7 @@ export default function Home() {
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="group rounded-3xl border border-border/60 bg-surface p-6 shadow-soft card-lift text-left"
+                className="group rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift text-left"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-foreground">{industry.title}</h3>
@@ -295,7 +295,7 @@ export default function Home() {
               return (
                 <div
                   key={principle.title}
-                  className="group rounded-3xl border border-border/60 bg-surface p-6 shadow-soft card-lift text-left"
+                  className="group rounded-3xl border border-border/60 bg-surface card-pad shadow-soft card-lift text-left"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary/10 text-secondary">
                     <Icon className="h-6 w-6 icon-accent transition-transform group-hover:scale-110" />

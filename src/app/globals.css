@@ -302,6 +302,9 @@
     box-shadow: var(--shadow-float);
     border-color: hsl(var(--secondary) / 0.3);
   }
+  .card-pad {
+    padding: 1.75rem;
+  }
 }
 
 @keyframes softFade {
