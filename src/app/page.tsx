@@ -46,8 +46,8 @@ export default function Home() {
           <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-secondary/20 blur-[140px]" />
           <div className="absolute inset-0 dot-grid opacity-30" />
         </div>
-        <div className="container animate-softFade py-24 lg:py-32">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-center">
+        <div className="container animate-softFade py-16 lg:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr] items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full bg-secondary/10 px-5 py-2 border border-secondary/20">
                 <span className="relative flex h-2 w-2">
@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-primary/10 bg-surface shadow-float hero-mesh">
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-surface shadow-float hero-mesh">
                 <div className="absolute inset-0 hero-lines opacity-40" />
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-secondary/20 blur-3xl float-slow" />
                 <div className="absolute -left-12 bottom-0 h-32 w-32 rounded-full bg-primary/15 blur-3xl float-slow" />
@@ -197,7 +197,7 @@ export default function Home() {
             {home.transformations.cards.map((card) => (
               <div
                 key={card.title}
-                className="group relative overflow-hidden rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift"
+                className="group relative overflow-hidden rounded-3xl bg-surface card-pad shadow-soft card-lift"
               >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
@@ -244,7 +244,7 @@ export default function Home() {
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="group rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift text-left"
+                className="group rounded-3xl bg-surface card-pad shadow-soft card-lift text-left"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-foreground">{industry.title}</h3>
@@ -273,7 +273,7 @@ export default function Home() {
 
       {/* Operating Rhythm */}
       <section className="container py-24">
-        <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] items-center rounded-[3rem] border border-border/40 bg-surface p-10 shadow-float">
+        <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] items-center rounded-[3rem] bg-surface p-10 shadow-float">
           <div className="space-y-6">
             <SectionHeader
               eyebrow={home.operatingRhythm.eyebrow}
@@ -309,7 +309,7 @@ export default function Home() {
               return (
                 <div
                   key={principle.title}
-                  className="group rounded-3xl border border-border/40 bg-surface card-pad shadow-soft card-lift text-left"
+                  className="group rounded-3xl bg-surface card-pad shadow-soft card-lift text-left"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary/10 text-secondary">
                     <Icon className="h-6 w-6 icon-accent transition-transform group-hover:scale-110" />
