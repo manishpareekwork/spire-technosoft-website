@@ -91,7 +91,12 @@ export default function Home() {
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-secondary/20 blur-3xl float-slow" />
                 <div className="absolute -left-12 bottom-0 h-32 w-32 rounded-full bg-primary/15 blur-3xl float-slow" />
                 <div className="relative aspect-[4/3] w-full">
-                  <svg viewBox="0 0 640 420" className="absolute inset-0 h-full w-full">
+                  <svg
+                    viewBox="0 0 640 420"
+                    className="absolute inset-0 h-full w-full"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
                     <path
                       d="M40 340 C140 280 220 300 310 230 C400 160 490 150 600 90"
                       fill="none"
@@ -114,6 +119,15 @@ export default function Home() {
                     <circle cx="310" cy="230" r="6" fill="rgba(13,148,136,0.9)" />
                     <circle cx="490" cy="150" r="6" fill="rgba(15,58,125,0.9)" />
                     <circle cx="590" cy="80" r="6" fill="rgba(5,150,105,0.9)" />
+                    <text x="325" y="215" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
+                      {home.stats[2]?.label}
+                    </text>
+                    <text x="505" y="135" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
+                      {home.stats[3]?.label}
+                    </text>
+                    <text x="545" y="65" fill="rgba(15,58,125,0.8)" fontSize="12" fontWeight="600">
+                      Outcomes
+                    </text>
                   </svg>
                   <div className="absolute left-6 top-6 rounded-2xl bg-white/80 px-4 py-3 shadow-soft backdrop-blur">
                     <p className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
