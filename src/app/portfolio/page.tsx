@@ -1,18 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
 import { siteContent } from "@/content/site";
 
 export const metadata = {
   title: "Portfolio | Spire Technosoft",
-  description: "Projects that combine design, data, and domain expertise across healthcare, finance, and industrial sectors.",
+  description:
+    "Selected work from Spire Technosoft across custom software, mobile products, dashboards, and internal tools.",
   openGraph: {
     title: "Portfolio | Spire Technosoft",
-    description: "Projects that combine design, data, and domain expertise across healthcare, finance, and industrial sectors.",
+    description:
+      "Selected work from Spire Technosoft across custom software, mobile products, dashboards, and internal tools.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };
@@ -22,45 +23,43 @@ export default function PortfolioPage(): React.ReactElement {
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell w-full space-y-10 py-10 text-center">
-          <div className="relative z-10 space-y-6">
-            <Badge variant="soft">
-              <Sparkles className="h-4 w-4 icon-accent" />
-              {portfolio.hero.eyebrow}
-            </Badge>
-            <h1 className="display-hero text-foreground">{portfolio.hero.title}</h1>
-            <p className="mx-auto max-w-3xl body-lg text-muted-foreground">{portfolio.hero.description}</p>
-          </div>
+      <section className="container animate-softFade py-16 sm:py-20">
+        <div className="max-w-4xl space-y-6">
+          <Badge variant="soft" className="w-fit">
+            <Sparkles className="h-4 w-4 icon-accent" />
+            {portfolio.hero.eyebrow}
+          </Badge>
+          <h1 className="display-1 text-foreground">{portfolio.hero.title}</h1>
+          <p className="max-w-3xl body-lg text-muted-foreground">{portfolio.hero.description}</p>
         </div>
       </section>
 
-      {/* NDA Note */}
-      <section className="container py-8">
-        <div className="grid gap-6 lg:grid-cols-[0.7fr,1.3fr] items-center rounded-[2.5rem] bg-surface p-8 shadow-soft">
+      <section className="container py-4">
+        <div className="grid gap-6 border-y border-border/55 py-6 lg:grid-cols-[0.3fr,0.7fr] lg:items-center">
           <div className="flex items-center gap-4">
-            <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-              <ShieldCheck className="h-6 w-6 icon-accent" />
-            </div>
-            <h2 className="text-xl font-semibold text-foreground">Why some details are anonymized</h2>
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
+              <ShieldCheck className="h-4 w-4 icon-accent" />
+            </span>
+            <h2 className="text-xl font-semibold text-foreground">NDA-safe presentation</h2>
           </div>
           <p className="text-sm text-muted-foreground">{portfolio.anonymization}</p>
         </div>
       </section>
 
-      {/* Portfolio Grid */}
-      <section className="container animate-softFade py-20">
-        <div className="space-y-10">
-          <SectionHeader title={portfolio.intro.title} description={portfolio.intro.description} />
+      <section className="container py-16">
+        <div className="grid gap-10 lg:grid-cols-[0.28fr,0.72fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Browse the work</p>
+            <h2 className="heading-2 text-foreground">{portfolio.intro.title}</h2>
+            <p className="body-md text-muted-foreground">{portfolio.intro.description}</p>
+          </div>
           <PortfolioGrid />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
-          <div className="cta-inner space-y-8 max-w-3xl mx-auto">
+      <section className="container pb-28 pt-8">
+        <div className="cta-band rounded-[2.7rem] px-8 py-16 text-center shadow-float">
+          <div className="cta-inner mx-auto max-w-3xl space-y-8">
             <div className="space-y-4">
               <p className="eyebrow text-white/60">{portfolio.cta.eyebrow}</p>
               <h2 className="display-1 text-white">{portfolio.cta.title}</h2>

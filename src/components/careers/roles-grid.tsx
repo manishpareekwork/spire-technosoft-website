@@ -32,48 +32,66 @@ export function RolesGrid({ roles }: RolesGridProps) {
 
   return (
     <>
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="space-y-2">
         {roles.map((role) => (
-          <div key={role.id} className="surface-card rounded-3xl p-6 shadow-soft">
-            <div className="flex items-start justify-between gap-4">
+          <article
+            key={role.id}
+            className="grid gap-6 border-t border-border/55 py-6 lg:grid-cols-[0.42fr,0.34fr,0.24fr]"
+          >
+            <div className="space-y-3">
               <div>
                 <h3 className="text-xl font-semibold text-foreground">{role.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground">{role.description}</p>
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveRole(role)}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"
-                aria-label={`View details for ${role.title}`}
-              >
-                <ArrowRight className="h-5 w-5 icon-accent" />
-              </button>
             </div>
-            <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary/60">
-              <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 icon-accent" />
-                {role.location}
-              </span>
-              <span className="flex items-center gap-2">
-                <Briefcase className="h-4 w-4 icon-accent" />
-                {role.mode}
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock className="h-4 w-4 icon-accent" />
-                {role.experience}
-              </span>
+
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary/60">
+                <span className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 icon-accent" />
+                  {role.location}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Briefcase className="h-4 w-4 icon-accent" />
+                  {role.mode}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 icon-accent" />
+                  {role.experience}
+                </span>
+              </div>
+              <div className="space-y-2">
+                {role.responsibilities.slice(0, 2).map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-4">
+
+            <div className="space-y-4 lg:justify-self-end">
               <Badge variant="soft">{role.timeline}</Badge>
+              <div className="flex flex-col gap-3">
+                <Button asChild size="lg">
+                  <Link href={`${basePath}?role=${encodeURIComponent(role.title)}#apply`}>
+                    Apply for this role
+                  </Link>
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setActiveRole(role)}
+                  className="justify-between"
+                  aria-label={`View details for ${role.title}`}
+                >
+                  See role details
+                  <ArrowRight className="h-4 w-4 icon-accent" />
+                </Button>
+              </div>
             </div>
-            <div className="mt-6">
-              <Button asChild size="lg">
-                <Link href={`${basePath}?role=${encodeURIComponent(role.title)}#apply`}>
-                  Apply for this role
-                </Link>
-              </Button>
-            </div>
-          </div>
+          </article>
         ))}
       </div>
 
@@ -118,7 +136,7 @@ export function RolesGrid({ roles }: RolesGridProps) {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="mailto:careers@spiretechnosoft.com">Email talent pod</a>
+                <a href="mailto:careers@spiretechnosoft.com">Email talent team</a>
               </Button>
             </div>
           </div>

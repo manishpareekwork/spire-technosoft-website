@@ -12,12 +12,12 @@ import { siteKeywords } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Insights on AI, Compliance, Healthcare, and Utility Platforms | Spire Technosoft",
+  title: "Insights on Software, AI, Healthcare, and Operations | Spire Technosoft",
   description:
-    "Practical articles on AI compliance systems, healthcare platform design, predictive maintenance dashboards, and digital product delivery for regulated industries.",
+    "Practical articles on software design, AI workflows, healthcare platforms, predictive maintenance dashboards, and modern product delivery.",
   keywords: [
     ...siteKeywords,
-    "AI compliance blog",
+    "AI software blog",
     "healthcare platform insights",
     "predictive maintenance articles",
   ],
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
     canonical: "/insights",
   },
   openGraph: {
-    title: "Insights on AI, Compliance, Healthcare, and Utility Platforms | Spire Technosoft",
+    title: "Insights on Software, AI, Healthcare, and Operations | Spire Technosoft",
     description:
-      "Practical articles on AI compliance systems, healthcare platform design, predictive maintenance dashboards, and digital product delivery for regulated industries.",
+      "Practical articles on software design, AI workflows, healthcare platforms, predictive maintenance dashboards, and modern product delivery.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Insights on AI, Compliance, Healthcare, and Utility Platforms | Spire Technosoft",
+    title: "Insights on Software, AI, Healthcare, and Operations | Spire Technosoft",
     description:
-      "Practical articles on AI compliance systems, healthcare platform design, predictive maintenance dashboards, and digital product delivery for regulated industries.",
+      "Practical articles on software design, AI workflows, healthcare platforms, predictive maintenance dashboards, and modern product delivery.",
     images: [siteContent.seo.defaultOg],
   },
 };
@@ -58,9 +58,7 @@ export default function InsightsPage() {
             <Badge variant="soft" className="w-fit">
               Resources & Insights
             </Badge>
-            <h1 className="display-1 text-foreground">
-              Insights on AI, compliance, healthcare, and operational platforms
-            </h1>
+            <h1 className="display-1 text-foreground">Insights on software, AI, healthcare, and operations</h1>
             <p className="body-lg text-muted-foreground">
               Articles and thought pieces built around the questions platform buyers actually ask
               before they commit to a roadmap.
@@ -126,7 +124,7 @@ export default function InsightsPage() {
                     Need a tailored point of view?
                   </p>
                   <h2 className="heading-2 text-white">
-                    Book a working session around your roadmap, controls, and delivery risks.
+                    Book a working session around your roadmap, scope, and delivery choices.
                   </h2>
                   <p className="text-sm text-white/74">
                     We can map the first release, the right architecture, and the operational

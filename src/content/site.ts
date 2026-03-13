@@ -1,20 +1,20 @@
 export const siteContent = {
   seo: {
     siteName: "Spire Technosoft",
-    baseTitle: "AI Product Engineering for Regulated Industries | Spire Technosoft",
+    baseTitle: "Custom Software & AI Product Studio | Spire Technosoft",
     baseDescription:
-      "Spire Technosoft designs AI-powered platforms for finance, healthcare, energy, and retail teams that need secure, scalable, compliance-ready digital products.",
+      "Spire Technosoft is a product studio that designs custom software, AI-assisted workflows, and modern digital platforms for ambitious businesses.",
     baseKeywords: [
-      "AI product engineering company",
-      "AI product engineering for healthcare",
-      "AI compliance solutions for finance",
-      "predictive maintenance dashboards for utilities",
-      "secure digital platforms for regulated industries",
-      "enterprise software development company India",
-      "healthcare platform development",
-      "audit and compliance platform development",
-      "IoT dashboard development company",
-      "retail supply chain software development",
+      "custom software development company",
+      "product studio India",
+      "AI software development company",
+      "web and mobile app development company",
+      "custom SaaS development company",
+      "product design and engineering studio",
+      "healthcare software development company",
+      "operations dashboard development",
+      "software modernization company",
+      "software development company India",
     ],
     defaultOg: "/images/logo/1080x1080.png",
   },
@@ -71,12 +71,12 @@ export const siteContent = {
   ],
   socialProof: {
     clientLogos: [
-      { name: "Global Audit Consortium", tagline: "Regulatory compliance" },
-      { name: "Smart Grid Transformation", tagline: "Energy & utilities" },
-      { name: "Digital Wellness Group", tagline: "Healthcare platforms" },
-      { name: "Retail Quality Network", tagline: "Supply chain ops" },
-      { name: "Capital Markets Studio", tagline: "Analytics & risk" },
-      { name: "Industrial Ops PMO", tagline: "IoT modernization" },
+      { name: "Global Audit Consortium", tagline: "Operations platform" },
+      { name: "Smart Grid Transformation", tagline: "Industrial dashboard" },
+      { name: "Digital Wellness Group", tagline: "Consumer health app" },
+      { name: "Retail Quality Network", tagline: "Supplier workflow" },
+      { name: "Capital Markets Studio", tagline: "Analytics product" },
+      { name: "Industrial Ops PMO", tagline: "Field visibility" },
     ],
     resultsCallouts: [
       {
@@ -93,51 +93,51 @@ export const siteContent = {
     testimonials: [
       {
         quote:
-          "Spire brought clarity to a complex regulatory rollout. Their cross-functional team blended product strategy and delivery so we could launch in weeks, not quarters.",
-        name: "VP, Compliance Platforms",
-        company: "Global Manufacturing Group (anonymised)",
+          "Spire helped us turn a fragmented brief into a product roadmap we could actually ship. Strategy, design, and delivery stayed in sync from week one.",
+        name: "Product Lead",
+        company: "Global consumer platform (anonymised)",
       },
       {
         quote:
-          "Their continuous improvement model tightened feedback loops across design, engineering, and governance. We saw measurable adoption gains within the first release train.",
-        name: "Director, Digital Health",
-        company: "Wellness & Care Network (anonymised)",
+          "Their team brought calm to a messy build. The decisions were sharper, the product felt more coherent, and the first release landed with less friction.",
+        name: "Digital Director",
+        company: "Care and wellness brand (anonymised)",
       },
       {
         quote:
-          "Intelligence Built-in made our operations data usable. The dashboards and AI guardrails elevated decision speed without compromising security.",
-        name: "Head of Operations Analytics",
-        company: "Energy Utility (anonymised)",
+          "They understood both the product layer and the workflow underneath it. That made the dashboards far more useful than a typical dev handoff.",
+        name: "Head of Operations",
+        company: "Industrial services team (anonymised)",
       },
     ],
   },
   home: {
     hero: {
-      eyebrow: "AI product engineering for regulated industries",
-      title: "AI-Powered Platforms for Regulated Industries",
-      highlight: "AI-Powered Platforms",
+      eyebrow: "Custom software, product design, and AI",
+      title: "Custom software that feels considered from day one",
+      highlight: "Custom software",
       description:
-        "We help finance, healthcare, energy, and retail teams build secure, scalable digital systems that simplify compliance, operations, and customer experience.",
+        "We help ambitious teams design and build web platforms, mobile apps, internal tools, and AI-assisted workflows with clarity, craft, and real delivery momentum.",
       primaryCta: { label: "Book Free Consultation", href: "/contact" },
-      secondaryCta: { label: "See Case Studies", href: "/portfolio" },
-      sectors: ["Regulated Finance", "Smart Energy", "Healthcare", "Retail & FMCG"],
+      secondaryCta: { label: "See Selected Work", href: "/portfolio" },
+      sectors: ["Web platforms", "Mobile apps", "Internal tools", "AI features"],
     },
     stats: [
-      { label: "Products Delivered", value: "25+", helper: "Across regulated programs" },
-      { label: "Users Reached", value: "100K+", helper: "Enterprise & consumer systems" },
+      { label: "Products Delivered", value: "25+", helper: "Across web, mobile, and operational software" },
+      { label: "Users Reached", value: "100K+", helper: "Consumer and business-facing products" },
       { label: "Interactions", value: "1M+", helper: "Monthly platform touchpoints" },
-      { label: "Delivery Success", value: "100%", helper: "On-time, governed releases" },
+      { label: "Delivery Success", value: "100%", helper: "Clear milestones and dependable launches" },
     ],
     transformations: {
       eyebrow: "Case studies",
       title: "Proof in measurable outcomes",
       description:
-        "Selected work across regulated industries, with clear metrics tied to compliance, reliability, and user adoption.",
+        "Selected product work with clearer workflows, stronger adoption, and measurable business outcomes.",
       cards: [
         {
-          title: "Regulatory Audit Cloud",
-          metric: "45% faster closures",
-          summary: "Multi-country inspection suite with offline capture and predictive readiness.",
+          title: "Quality Ops Platform",
+          metric: "45% faster reviews",
+          summary: "Web and mobile workflow for inspections, evidence capture, and readiness tracking.",
           href: "/portfolio/enterprise-audit-compliance-platform",
         },
         {
@@ -147,7 +147,7 @@ export const siteContent = {
           href: "/portfolio/enterprise-fitness-wellness-platform",
         },
         {
-          title: "Industrial Reliability Ops",
+          title: "Industrial Monitoring Hub",
           metric: "25% downtime reduction",
           summary: "IoT dashboards synchronizing OT telemetry, inspections, and maintenance.",
           href: "/portfolio/industrial-operations-energy-dashboard",
@@ -190,18 +190,18 @@ export const siteContent = {
       ],
     },
     securityPrinciples: {
-      eyebrow: "Security by design",
-      title: "Security, privacy, and reliability built in from day one",
+      eyebrow: "Built with care",
+      title: "Security, privacy, and reliability stay in the foundations",
       description:
-        "Security is not an add-on. It shapes the architecture, workflows, approvals, and release process from the start.",
+        "Useful software should feel calm in use and stable in production. We handle the essentials early so they do not become cleanup work later.",
       principles: [
         {
           title: "Privacy-first data models",
           detail: "Purpose-limited data flows, consent-led access, and PHI/PII segregation.",
         },
         {
-          title: "Immutable audit trails",
-          detail: "Evidence versioning, signed actions, and tamper-resistant logs.",
+          title: "Traceable change history",
+          detail: "Versioned records, signed actions, and clear accountability across key workflows.",
         },
         {
           title: "Least-privilege access",
@@ -212,8 +212,8 @@ export const siteContent = {
           detail: "Backups, redundancy, and automated incident response playbooks.",
         },
         {
-          title: "Compliance-ready delivery",
-          detail: "SOC2/ISO-aligned controls, security reviews, and release governance.",
+          title: "Release discipline",
+          detail: "Security reviews, staging workflows, and change control where the product needs it.",
         },
       ],
     },
@@ -221,27 +221,27 @@ export const siteContent = {
       eyebrow: "Innovation Lab",
       title: "Validate bold ideas before you commit to full-scale build",
       description:
-        "Prototype AI copilots, predictive dashboards, and operational workflows in a focused sprint designed for high-stakes teams.",
+        "Prototype AI copilots, predictive dashboards, and new product directions in a focused sprint before you commit to a larger build.",
       primaryCta: { label: "Explore Innovation Lab", href: "/innovation" },
       secondaryCta: { label: "Book Strategy Session", href: "/contact" },
     },
   },
   about: {
     hero: {
-      eyebrow: "Who We Are",
-      title: "Product partners for measurable impact",
+      eyebrow: "About Spire",
+      title: "A product studio built around clarity and execution",
       description:
-        "Spire Technosoft is a global digital engineering company helping regulated enterprises scale with intelligence, speed, and security.",
+        "We work across product strategy, design, and engineering to help teams launch custom software that feels useful, stable, and well made.",
     },
     mission: {
       title: "Our Mission",
       description:
-        "Engineer digital systems that deliver tangible business growth through innovation, intelligence, and collaboration.",
+        "Build software people enjoy using and teams can keep improving with confidence.",
     },
     vision: {
       title: "Our Vision",
       description:
-        "Become the trusted global partner for enterprise transformation by connecting people, data, and purpose into resilient platforms.",
+        "Be the product studio teams call when they need calm thinking, clean execution, and a credible partner from idea to launch.",
     },
     valuesIntro: {
       title: "Values that guide our delivery",
@@ -272,41 +272,41 @@ export const siteContent = {
     proof: {
       title: "Why partners choose Spire",
       description:
-        "A disciplined delivery model that blends governance, velocity, and measurable outcomes.",
+        "A lean delivery model built around clarity, speed, and dependable execution.",
       metrics: [
-        { value: "25+", label: "Enterprise programs delivered" },
+        { value: "25+", label: "Products delivered" },
         { value: "40%", label: "Faster release cycles" },
-        { value: "2 weeks", label: "Team setup to launch" },
-        { value: "100%", label: "On-time delivery" },
+        { value: "2 weeks", label: "Typical team setup" },
+        { value: "100%", label: "Milestone visibility" },
       ],
       capabilities: [
         "Cross-functional teams combining product, design, and engineering.",
-        "Outcome governance mapped to business KPIs.",
-        "Security-by-design and audit-ready delivery.",
-        "Global delivery rituals with executive visibility.",
+        "Product decisions tied to business goals and real user needs.",
+        "Security and reliability handled early, not as afterthoughts.",
+        "Clear rituals, visibility, and accountability across delivery.",
       ],
     },
     testimonial: {
       quote:
-        "Spire moved us from a fragmented roadmap to a unified platform release. Their pods brought structure, and governance kept every stakeholder aligned.",
-      role: "CPO, Global Retail Program",
-      label: "Enterprise Transformation Partner",
+        "Spire moved us from a fragmented roadmap to a product release we were genuinely proud to ship. The process felt focused from the start.",
+      role: "Founder, Multi-brand Commerce Platform",
+      label: "Product Studio Partner",
     },
     cta: {
       eyebrow: "Partner with Us",
-      title: "Ready to start your transformation?",
+      title: "Ready to build something useful?",
       description:
-        "Bring your business challenges and we will align the right team, roadmap, and success metrics.",
-      primaryCta: { label: "Book a Strategy Session", href: "/contact" },
-      secondaryCta: { label: "Explore Solutions", href: "/solutions" },
+        "Bring the problem, rough brief, or half-shaped roadmap. We will help turn it into a product plan and a credible first release.",
+      primaryCta: { label: "Book Free Consultation", href: "/contact" },
+      secondaryCta: { label: "See Selected Work", href: "/portfolio" },
     },
   },
   solutions: {
     hero: {
-      eyebrow: "Expertise",
-      title: "Modular platforms built for regulated industries",
+      eyebrow: "Solutions",
+      title: "Custom software shaped around the way your business actually works",
       description:
-        "Cross-functional delivery teams, continuous improvement, and built-in intelligence form the core of every engagement, designed for secure, measurable outcomes.",
+        "From customer-facing products to internal dashboards and AI-assisted workflows, we scope and build software around real teams, real constraints, and clear outcomes.",
     },
     pillars: [
       {
@@ -334,7 +334,7 @@ export const siteContent = {
       {
         key: "intelligence-built-in",
         label: "Intelligence Built-in",
-        title: "AI and automation embedded for regulated workflows",
+        title: "AI and automation embedded where they add real value",
         outcomes: [
           "Telemetry-led decisioning and automation.",
           "Governed AI with guardrails and auditability.",
@@ -345,32 +345,32 @@ export const siteContent = {
     ],
     portfoliosIntro: {
       title: "Solution portfolios",
-      description: "End-to-end platforms designed for enterprise complexity and regulatory rigor.",
+      description: "A focused set of solution areas we frequently help teams design, ship, and improve.",
     },
     assets: {
       title: "Shareable sales assets",
-      description: "Download the one-pager, delivery team overview, and Innovation Lab brochure for stakeholder alignment.",
+      description: "Download the one-pager, delivery model overview, and Innovation Lab brochure for stakeholder alignment.",
     },
   },
   portfolio: {
     hero: {
       eyebrow: "Portfolio",
-      title: "Impact-led digital systems",
+      title: "Selected work with measurable outcomes",
       description:
-        "Outcome-led programs across audit, healthcare, finance, supply chain, and industrial operations.",
+        "A mix of web platforms, mobile apps, dashboards, and internal tools shaped around product goals, user needs, and practical delivery.",
     },
     anonymization:
-      "Client names and select metrics are anonymized to honor NDA obligations while sharing core challenges, architecture, and measurable outcomes.",
+      "Some names and numbers are softened where NDAs apply, but the product challenges, approach, and outcomes are real.",
     intro: {
       title: "Proven track record",
       description: "Filter by industry, platform, or region to discover work aligned to your roadmap.",
     },
     cta: {
       eyebrow: "Next Project",
-      title: "Let's build your success story",
+      title: "Have a product idea in motion?",
       description:
-        "Whether you are scaling an existing platform or launching a new initiative, we bring proven expertise and measurable results.",
-      primaryCta: { label: "Start a Conversation", href: "/contact" },
+        "Whether you are refining a new concept or upgrading existing software, we can shape the next milestone with you.",
+      primaryCta: { label: "Book Free Consultation", href: "/contact" },
       secondaryCta: { label: "Explore Solutions", href: "/solutions" },
     },
   },
@@ -379,33 +379,33 @@ export const siteContent = {
       eyebrow: "Careers",
       title: "Engineering impact together",
       description:
-        "Innovation is collective. We believe in open dialogue, continuous learning, and empowering every team member to shape technology that matters.",
+        "We believe good software comes from thoughtful teams, clear feedback, and people who care about the craft as much as the outcome.",
       cta: { label: "Apply for a Role", href: "#apply" },
     },
     rolesIntro: {
       eyebrow: "Opportunities",
-      title: "Active pod roles",
-      description: "We are looking for specialists who think in systems and deliver with empathy.",
+      title: "Open roles",
+      description: "We are looking for thoughtful builders across design, engineering, and product.",
     },
     cultureHighlights: [
-      { text: "Hybrid work model with global collaboration rituals.", icon: "Globe" },
-      { text: "Learning culture - mentorship, hackathons, and R&D sprints.", icon: "GraduationCap" },
-      { text: "Equal opportunity hiring with inclusive leadership.", icon: "Users" },
-      { text: "Focus on well-being and flexible schedules.", icon: "Heart" },
+      { text: "Hybrid teams with focused collaboration time.", icon: "Globe" },
+      { text: "Learning culture with mentorship and R&D sprints.", icon: "GraduationCap" },
+      { text: "Supportive teams with direct feedback and ownership.", icon: "Users" },
+      { text: "Flexible schedules and respect for deep work.", icon: "Heart" },
     ],
     roles: [
       {
         id: "full-stack-react-node",
         title: "Full Stack Developer (React + Node)",
-        description: "Ship enterprise-grade web platforms with TypeScript, GraphQL, and CI/CD automation.",
+        description: "Build modern web products with TypeScript, APIs, and reliable delivery practices.",
         location: "Gurugram/Pune",
         mode: "Hybrid",
         experience: "3-6 years",
         timeline: "Rolling hiring",
         responsibilities: [
-          "Build secure, scalable interfaces and API layers.",
-          "Collaborate with product and design on governed workflows.",
-          "Maintain quality gates, testing, and observability standards.",
+          "Build thoughtful interfaces and dependable API layers.",
+          "Collaborate with product and design on complex workflows.",
+          "Maintain testing, release quality, and observability standards.",
         ],
       },
       {
@@ -432,21 +432,21 @@ export const siteContent = {
         timeline: "Hiring for next cohort",
         responsibilities: [
           "Lead discovery, journey mapping, and UX architecture.",
-          "Design systems aligned to regulated workflows.",
+          "Design systems aligned to complex workflows.",
           "Collaborate with engineering to ship at quality.",
         ],
       },
       {
         id: "devops-aws-cicd",
         title: "DevOps Engineer (AWS, CI/CD)",
-        description: "Build resilient cloud infrastructure, IaC pipelines, and observability practices.",
+        description: "Build reliable cloud infrastructure, IaC pipelines, and observability practices.",
         location: "India",
         mode: "Remote/Hybrid",
         experience: "4-7 years",
         timeline: "Rolling hiring",
         responsibilities: [
           "Own CI/CD pipelines, security controls, and monitoring.",
-          "Scale environments with IaC and governance automation.",
+          "Scale environments with IaC and release automation.",
           "Partner on reliability and incident response playbooks.",
         ],
       },
@@ -490,7 +490,7 @@ export const siteContent = {
       { text: "Transparent growth tracks with quarterly coaching.", icon: "Briefcase" },
       { text: "Learning stipend for courses and conferences.", icon: "GraduationCap" },
       { text: "Wellness allowance plus hybrid flexibility.", icon: "Heart" },
-      { text: "Work across healthcare, energy, and finance.", icon: "Sparkles" },
+      { text: "Work across health, commerce, and operations products.", icon: "Sparkles" },
     ],
     employeeStory: {
       quote:
@@ -500,7 +500,7 @@ export const siteContent = {
     },
     applyIntro: {
       title: "Join the team",
-      description: "Ready to co-create high-stakes enterprise systems?",
+      description: "Ready to build thoughtful software with us?",
     },
     applyChecklist: [
       "Portfolio link (PDF or URL)",
@@ -510,7 +510,7 @@ export const siteContent = {
     ],
     cta: {
       title: "Engineer impact together",
-      description: "We deliver across regulated programs with high-accountability cross-functional teams.",
+      description: "Small teams, serious craft, and room to grow.",
       label: "Start your journey",
       href: "mailto:careers@spiretechnosoft.com?subject=Apply%20%40%20Spire",
     },
@@ -518,9 +518,9 @@ export const siteContent = {
   contact: {
     hero: {
       eyebrow: "Connect",
-      title: "Let's engineer growth together",
+      title: "Let's shape the right product path",
       description:
-        "Cross-functional delivery and continuous improvement keep every engagement outcome-led. Share your roadmap and we will respond with a practical plan.",
+        "Share the product idea, workflow problem, or software gap you want to solve. We will reply with a practical next step.",
       cta: { label: "Book Free Consultation", href: "https://calendly.com/spire-technosoft/discovery" },
     },
     routing: {

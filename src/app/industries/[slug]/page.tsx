@@ -142,7 +142,7 @@ export default async function IndustryDetailPage({
           <div className="grid gap-6 lg:grid-cols-[0.72fr,1.28fr] lg:items-start">
             <div className="space-y-3">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Compliance
+                Security and governance
               </p>
               <h2 className="heading-2 text-foreground">Controls that matter in this sector</h2>
             </div>
@@ -190,8 +190,8 @@ export default async function IndustryDetailPage({
             </p>
             <h2 className="display-1 text-white">Define your sector strategy</h2>
             <p className="body-lg text-white/78">
-              Discuss an industry-specific roadmap with our delivery team and align on compliance
-              and impact milestones.
+              Discuss an industry-specific roadmap with our delivery team and align on priorities,
+              delivery shape, and impact milestones.
             </p>
             <Link
               href="/contact"

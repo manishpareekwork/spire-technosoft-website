@@ -39,14 +39,14 @@ export function Footer(): React.ReactElement {
                   Spire Technosoft
                 </p>
                 <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
-                  AI-powered platforms for regulated industries
+                  Custom software and AI product studio
                 </p>
               </div>
             </Link>
 
             <p className="max-w-md text-sm text-muted-foreground">
-              We design and deliver secure digital platforms for finance, healthcare,
-              energy, and retail teams that need clearer operations and stronger compliance.
+              We design custom software, mobile products, dashboards, and AI-assisted workflows
+              for teams that want clear product thinking and dependable delivery.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">

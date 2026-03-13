@@ -72,7 +72,7 @@ export function PortfolioGrid(): React.ReactElement {
 
   return (
     <div className="space-y-10">
-      <div className="surface-card rounded-[2rem] p-6">
+      <div className="rounded-[2rem] border border-border/45 bg-white/55 p-6 backdrop-blur dark:bg-surface/72">
         <div className="flex flex-col gap-6">
           <div className="relative">
             <Search className="absolute left-4 top-3.5 h-5 w-5 icon-muted" />
@@ -126,51 +126,50 @@ export function PortfolioGrid(): React.ReactElement {
         </div>
       </div>
 
-      {/* Portfolio Grid */}
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="space-y-2">
         {filteredProjects.map((project) => {
           const metricHighlight = project.metrics[0];
+
           return (
-            <div key={project.slug} className="surface-card overflow-hidden rounded-[2rem]">
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <article
+              key={project.slug}
+              className="grid gap-6 border-t border-border/55 py-6 lg:grid-cols-[220px,1fr] lg:items-center"
+            >
+              <Link
+                href={`/portfolio/${project.slug}`}
+                className="group relative min-h-[170px] overflow-hidden rounded-[1.8rem] bg-surface-2"
+              >
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
-                  className="object-cover"
-                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  sizes="220px"
                   unoptimized={project.image.startsWith("http")}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/35 via-transparent to-transparent" />
-                <div className="absolute left-4 top-4 flex flex-col gap-2">
+              </Link>
+
+              <div className="space-y-5">
+                <div className="flex flex-wrap items-center gap-3">
                   <Badge variant="soft" className="normal-case tracking-normal">
                     {project.industry}
                   </Badge>
-                  <span className="rounded-full bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white">
-                    NDA-safe preview
+                  <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    {project.domain} / {project.platform} / {project.region}
                   </span>
                 </div>
-              </div>
 
-              <div className="p-6 space-y-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{project.headline}</p>
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <h3 className="text-2xl font-semibold text-foreground">{project.title}</h3>
+                    {metricHighlight ? (
+                      <div className="rounded-full bg-primary/10 px-3 py-2 text-xs font-semibold text-primary">
+                        {metricHighlight.value} {metricHighlight.label}
+                      </div>
+                    ) : null}
                   </div>
-                  {metricHighlight && (
-                    <div className="rounded-[1rem] bg-primary/10 px-3 py-2 text-xs font-semibold text-primary">
-                      {metricHighlight.value} {metricHighlight.label}
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-wrap gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  <span>{project.domain}</span>
-                  <span>/</span>
-                  <span>{project.platform}</span>
-                  <span>/</span>
-                  <span>{project.region}</span>
+                  <p className="text-sm text-muted-foreground">{project.headline}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -184,31 +183,30 @@ export function PortfolioGrid(): React.ReactElement {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3 pt-4">
+                <div className="flex flex-wrap gap-3 pt-1">
                   <Link
                     href={`/portfolio/${project.slug}`}
-                    className="inline-flex flex-1 items-center justify-center rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white shadow-soft"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
                   >
-                    View transformation case <ArrowRight className="ml-2 h-4 w-4 icon-inverse" />
+                    View case study <ArrowRight className="h-4 w-4 icon-accent" />
                   </Link>
                   <a
                     href={project.caseStudyPdf}
                     download
                     title="Download PDF"
-                    className="inline-flex items-center justify-center rounded-full bg-white/70 px-4 py-3 text-sm font-semibold text-foreground shadow-sm dark:bg-surface-2/80"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    <Download className="h-4 w-4 icon-accent" />
+                    Download PDF <Download className="h-4 w-4 icon-accent" />
                   </a>
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>
 
-      {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <div className="surface-card rounded-[2rem] p-16 text-center space-y-4">
+        <div className="rounded-[2rem] border border-border/45 bg-white/55 p-16 text-center backdrop-blur dark:bg-surface/72">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
             <Filter className="h-8 w-8 icon-muted" />
           </div>

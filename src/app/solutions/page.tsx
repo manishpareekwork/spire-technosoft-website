@@ -15,11 +15,11 @@ import { cn } from "@/lib/utils";
 export const metadata = {
   title: "Solutions | Spire Technosoft",
   description:
-    "Explore Spire Technosoft solutions for AI compliance systems, healthcare platforms, supply chain operations, and industrial IoT dashboards.",
+    "Explore Spire Technosoft solution areas across product platforms, healthcare apps, supply chain tools, and industrial dashboards.",
   openGraph: {
     title: "Solutions | Spire Technosoft",
     description:
-      "Explore Spire Technosoft solutions for AI compliance systems, healthcare platforms, supply chain operations, and industrial IoT dashboards.",
+      "Explore Spire Technosoft solution areas across product platforms, healthcare apps, supply chain tools, and industrial dashboards.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };
@@ -106,7 +106,7 @@ export default function SolutionsPage(): React.ReactElement {
             <SectionHeader
               align="left"
               eyebrow="Solution library"
-              title="Core solution suites for regulated operations"
+              title="Core solution areas for modern teams"
               description="Explore the problems each solution addresses, the outcomes it targets, and the fastest route into a working first release."
             />
 

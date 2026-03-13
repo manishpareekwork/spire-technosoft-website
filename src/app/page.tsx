@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  AppWindow,
   ArrowRight,
+  BrainCircuit,
   CheckCircle2,
-  Cpu,
-  Lock,
   Quote,
-  ShieldCheck,
+  Smartphone,
   Sparkles,
   Workflow,
 } from "lucide-react";
@@ -15,8 +15,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CountUpText } from "@/components/ui/count-up-text";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { siteContent } from "@/content/site";
 import { industryProfiles } from "@/data/industries";
 import { insightArticles } from "@/data/insights";
@@ -26,29 +26,29 @@ import { absoluteUrl, siteKeywords } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "AI-Powered Platforms for Regulated Industries | Spire Technosoft",
+  title: "Custom Software & AI Product Studio | Spire Technosoft",
   description:
-    "Spire Technosoft helps finance, healthcare, energy, and retail teams build secure AI-powered platforms for compliance, operations, and customer experience.",
+    "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
   keywords: [
     ...siteKeywords,
-    "AI-powered platforms for regulated industries",
-    "secure digital product engineering",
-    "enterprise case studies for regulated industries",
+    "custom software product studio",
+    "AI product studio",
+    "web and mobile product development",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AI-Powered Platforms for Regulated Industries | Spire Technosoft",
+    title: "Custom Software & AI Product Studio | Spire Technosoft",
     description:
-      "Spire Technosoft helps finance, healthcare, energy, and retail teams build secure AI-powered platforms for compliance, operations, and customer experience.",
+      "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI-Powered Platforms for Regulated Industries | Spire Technosoft",
+    title: "Custom Software & AI Product Studio | Spire Technosoft",
     description:
-      "Spire Technosoft helps finance, healthcare, energy, and retail teams build secure AI-powered platforms for compliance, operations, and customer experience.",
+      "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
     images: [siteContent.seo.defaultOg],
   },
 };
@@ -58,7 +58,7 @@ const featuredIndustries = industryProfiles.filter((industry) =>
 );
 
 const featuredSolutions = solutionDetails.filter((solution) =>
-  ["audit", "healthcare", "industrial-iot", "supply-chain"].includes(solution.slug)
+  ["healthcare", "supply-chain", "industrial-iot", "audit"].includes(solution.slug)
 );
 
 const featuredProjects = siteContent.home.transformations.cards
@@ -84,29 +84,30 @@ const faqItems = [
   {
     question: "What does Spire Technosoft build?",
     answer:
-      "We design and ship secure digital platforms for regulated industries, including audit systems, healthcare ecosystems, supplier operations tools, and industrial dashboards.",
+      "We design and build custom software, including web platforms, mobile apps, internal tools, dashboards, and AI-assisted workflows.",
   },
   {
-    question: "How quickly can a first release go live?",
+    question: "How do engagements usually start?",
     answer:
-      "Most engagements start with discovery and a pilot scope, then move into a focused first release over 6 to 12 weeks depending on the workflow and integrations involved.",
+      "Most projects begin with a short discovery phase that sharpens the scope, priorities, and first release before the full build starts.",
   },
   {
-    question: "How do you handle privacy and compliance?",
+    question: "Where does AI fit into the work?",
     answer:
-      "We build around privacy-first data models, role-based access, audit trails, and release governance so security and compliance are part of the foundation.",
+      "We use AI where it genuinely improves a workflow, such as search, summarization, predictions, or decision support. We do not force it into products that do not need it.",
   },
 ];
 
 export default function Home() {
   const { home, socialProof } = siteContent;
+  const previewProjects = featuredProjects.slice(0, 3);
   const leadTestimonial = socialProof.testimonials[0];
 
   const structuredData = [
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "AI-Powered Platforms for Regulated Industries",
+      name: "Custom Software & AI Product Studio",
       description: metadata.description,
       url: absoluteUrl("/"),
     },
@@ -132,11 +133,11 @@ export default function Home() {
       />
 
       <section className="relative isolate overflow-hidden pb-20 pt-8 sm:pt-12 lg:min-h-[calc(100vh-4rem)] lg:pb-24">
-        <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_top_left,rgba(233,177,103,0.16),transparent_24rem),linear-gradient(180deg,rgba(248,243,237,0.92),rgba(248,243,237,1))]" />
-        <div className="absolute inset-0 -z-20 hero-lines opacity-15" />
+        <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_top_left,rgba(233,177,103,0.14),transparent_24rem),linear-gradient(180deg,rgba(248,243,237,0.92),rgba(248,243,237,1))]" />
+        <div className="absolute inset-0 -z-20 hero-lines opacity-12" />
         <ParticleBackground />
 
-        <div className="container relative z-10 grid gap-14 lg:grid-cols-[0.9fr,1.1fr] lg:items-center">
+        <div className="container relative z-10 grid gap-14 lg:grid-cols-[0.88fr,1.12fr] lg:items-center">
           <div className="space-y-8">
             <Badge variant="soft" className="w-fit">
               <Sparkles className="h-3.5 w-3.5 icon-accent" />
@@ -172,54 +173,110 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="grid gap-6 border-y border-border/55 py-6 sm:grid-cols-4">
+            <div className="grid gap-6 border-y border-border/55 py-6 sm:grid-cols-2 xl:grid-cols-4">
               {home.stats.map((metric) => (
                 <div key={metric.label} className="space-y-2">
                   <CountUpText value={metric.value} className="text-3xl font-semibold text-foreground" />
                   <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
                     {metric.label}
                   </p>
+                  <p className="text-sm text-muted-foreground">{metric.helper}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative min-h-[420px] overflow-hidden rounded-[2.8rem] border border-border/40 bg-slate-950 shadow-[0_34px_90px_-42px_rgba(12,18,23,0.48)]">
-              <Image
-                src="/images/manufacturing-dashboard.png"
-                alt="Spire dashboard preview"
-                fill
-                className="object-cover opacity-90"
-                sizes="(min-width: 1024px) 52vw, 100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-950/18 via-transparent to-slate-950/55" />
-              <div className="absolute left-5 top-5 rounded-[1.2rem] bg-white/90 px-4 py-3 shadow-soft backdrop-blur">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  Compliance platform
-                </p>
-                <p className="mt-2 text-sm font-semibold text-foreground">Audit workflows, evidence capture, analytics</p>
-              </div>
-              <div className="absolute bottom-5 left-5 right-5 grid gap-3 sm:grid-cols-2">
-                {socialProof.resultsCallouts.map((callout) => (
-                  <div key={callout.metric} className="rounded-[1.4rem] bg-slate-950/72 px-4 py-4 text-white backdrop-blur">
-                    <p className="text-lg font-semibold text-white">{callout.metric}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-white/68">{callout.detail}</p>
-                  </div>
+          <div className="section-contrast rounded-[2.7rem] p-4 sm:p-5">
+            <div className="grid gap-3 sm:grid-cols-[1.1fr,0.9fr]">
+              <Link
+                href={`/portfolio/${previewProjects[0]?.project.slug ?? ""}`}
+                className="group relative min-h-[320px] overflow-hidden rounded-[2rem] bg-surface-2"
+              >
+                {previewProjects[0] ? (
+                  <>
+                    <Image
+                      src={previewProjects[0].project.image}
+                      alt={previewProjects[0].project.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      sizes="(min-width: 640px) 32vw, 100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-slate-950/6 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 rounded-[1.2rem] bg-white/84 px-4 py-3 shadow-soft backdrop-blur dark:bg-surface/82">
+                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                        Featured build
+                      </p>
+                      <p className="mt-2 text-base font-semibold text-foreground">{previewProjects[0].title}</p>
+                    </div>
+                  </>
+                ) : null}
+              </Link>
+
+              <div className="grid gap-3">
+                {previewProjects.slice(1).map(({ project, title, metric }) => (
+                  <Link
+                    key={project.slug}
+                    href={`/portfolio/${project.slug}`}
+                    className="group relative min-h-[154px] overflow-hidden rounded-[1.8rem] bg-surface-2"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      sizes="(min-width: 640px) 24vw, 100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/58 via-slate-950/10 to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 rounded-[1rem] bg-black/34 px-3 py-2 backdrop-blur">
+                      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/68">
+                        {metric}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-white">{title}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {[
+                {
+                  title: "Web products",
+                  detail: "Platforms, portals, and dashboards shaped around actual workflows.",
+                  icon: AppWindow,
+                },
+                {
+                  title: "Mobile apps",
+                  detail: "Consumer and operational apps designed for clarity and retention.",
+                  icon: Smartphone,
+                },
+                {
+                  title: "AI features",
+                  detail: "Useful AI layers only where they improve speed or decision-making.",
+                  icon: BrainCircuit,
+                },
+              ].map((item) => (
+                <div key={item.title} className="compact-tile rounded-[1.5rem] px-4 py-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                      <item.icon className="h-4 w-4 icon-accent" />
+                    </span>
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{item.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       <section className="container py-8">
-        <div className="border-y border-border/55 py-6">
-          <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Trusted across regulated programs
-          </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div className="border-y border-border/55 py-5">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Selected client contexts
+            </p>
             {socialProof.clientLogos.map((client) => (
               <div key={client.name} className="flex items-center gap-3">
                 <span className="text-sm font-semibold text-foreground">{client.name}</span>
@@ -233,35 +290,42 @@ export default function Home() {
       </section>
 
       <section className="container py-20">
-        <div className="grid gap-12 lg:grid-cols-[0.38fr,0.62fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
           <div className="space-y-4">
-            <p className="eyebrow">Core solutions</p>
-            <h2 className="heading-2 text-foreground">Secure platform delivery across high-stakes workflows</h2>
+            <p className="eyebrow">What we build</p>
+            <h2 className="heading-2 text-foreground">Clear product directions, then focused delivery</h2>
             <p className="body-md text-muted-foreground">
-              From audits and patient journeys to industrial operations and supplier governance, we
-              focus on digital systems that have to be dependable under scrutiny.
+              We help teams shape the right scope, map the messy workflow underneath it, and ship
+              a first release that is actually usable.
             </p>
           </div>
 
-          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+          <div className="space-y-1">
             {featuredSolutions.map((solution, index) => {
-              const Icon = [ShieldCheck, Workflow, Cpu, Lock][index % 4];
+              const Icon = [Workflow, BrainCircuit, AppWindow, Smartphone][index % 4];
 
               return (
                 <Link
                   key={solution.slug}
                   href={`/solutions/${solution.slug}`}
-                  className="group border-l border-border/60 pl-5"
+                  className="group grid gap-5 border-t border-border/55 py-5 sm:grid-cols-[0.08fr,0.52fr,0.4fr] sm:items-start"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="h-5 w-5 icon-accent" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-semibold text-foreground">{solution.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{solution.summary}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                    Explore solution
-                    <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
+                    <Icon className="h-4 w-4 icon-accent" />
                   </span>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-foreground">{solution.title}</h3>
+                    <p className="text-sm text-muted-foreground">{solution.summary}</p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      {solution.outcomes.slice(0, 1).join("")}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                      Explore solution
+                      <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               );
             })}
@@ -270,20 +334,28 @@ export default function Home() {
       </section>
 
       <section className="container py-20">
-        <div className="space-y-6">
+        <div className="space-y-5">
           <p className="eyebrow">Selected work</p>
-          <h2 className="heading-2 text-foreground">Measured outcomes across audit, care, and industrial operations</h2>
+          <h2 className="heading-2 text-foreground">Measured outcomes without the usual case-study clutter</h2>
         </div>
 
-        <div className="mt-12 space-y-16">
-          {featuredProjects.map(({ project, title, summary, metric, href }, index) => (
+        <div className="mt-8 space-y-3">
+          {featuredProjects.map(({ project, title, summary, metric, href }) => (
             <article
               key={project.slug}
-              className={cn(
-                "grid gap-10 border-t border-border/55 pt-10 lg:grid-cols-[0.44fr,0.56fr] lg:items-center",
-                index % 2 === 1 && "lg:[&>*:first-child]:order-2"
-              )}
+              className="grid gap-6 border-t border-border/55 py-8 lg:grid-cols-[240px,1fr] lg:items-center"
             >
+              <Link href={href} className="group relative min-h-[180px] overflow-hidden rounded-[1.8rem] bg-surface-2">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  sizes="240px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/42 via-transparent to-transparent" />
+              </Link>
+
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge variant="soft">{metric}</Badge>
@@ -291,11 +363,11 @@ export default function Home() {
                     {project.domain}
                   </span>
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-3xl font-semibold text-foreground">{title}</h3>
-                  <p className="text-base text-muted-foreground">{summary}</p>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
+                  <p className="text-sm text-muted-foreground">{summary}</p>
                 </div>
-                <div className="grid gap-3">
+                <div className="grid gap-3 sm:grid-cols-2">
                   {project.outcomes.slice(0, 2).map((outcome) => (
                     <div key={outcome} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
@@ -303,7 +375,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-5 border-y border-border/55 py-4">
+                <div className="flex flex-wrap gap-6">
                   {project.metrics.slice(0, 3).map((item) => (
                     <div key={item.label}>
                       <p className="text-2xl font-semibold text-foreground">{item.value}</p>
@@ -318,30 +390,19 @@ export default function Home() {
                   <ArrowRight className="h-4 w-4 icon-accent" />
                 </Link>
               </div>
-
-              <div className="relative min-h-[320px] overflow-hidden rounded-[2.4rem]">
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
-              </div>
             </article>
           ))}
         </div>
       </section>
 
       <section className="container py-20">
-        <div className="grid gap-10 lg:grid-cols-[0.36fr,0.64fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
           <div className="space-y-4">
-            <p className="eyebrow">Industries</p>
-            <h2 className="heading-2 text-foreground">Built around the realities of regulated teams</h2>
+            <p className="eyebrow">Where we help</p>
+            <h2 className="heading-2 text-foreground">Different industries, same standard of product thinking</h2>
             <p className="body-md text-muted-foreground">
-              We shape the platform, workflow, and governance model around sector-specific pressure
-              points rather than forcing a generic enterprise template.
+              The workflows change from one team to another. The job is still the same: understand
+              the context, simplify the experience, and ship something people can rely on.
             </p>
           </div>
 
@@ -356,66 +417,64 @@ export default function Home() {
 
             {featuredIndustries.map((industry) => (
               <TabsContent key={industry.slug} value={industry.slug}>
-                <div className="relative overflow-hidden rounded-[2.6rem] border border-border/45">
-                  <div className="absolute inset-0">
+                <div className="grid gap-6 border-t border-border/55 pt-6 lg:grid-cols-[260px,1fr] lg:items-start">
+                  <div className="relative min-h-[190px] overflow-hidden rounded-[1.8rem] bg-surface-2">
                     <Image
                       src={industry.image}
-                      alt={`${industry.title} background`}
+                      alt={`${industry.title} preview`}
                       fill
                       className="object-cover"
-                      sizes="(min-width: 1024px) 60vw, 100vw"
+                      sizes="260px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/86 via-slate-950/62 to-slate-950/28" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/42 via-transparent to-transparent" />
                   </div>
 
-                  <div className="relative grid gap-10 px-6 py-8 text-white sm:px-8 sm:py-10 lg:grid-cols-[0.48fr,0.52fr]">
-                    <div className="space-y-5">
-                      <p className="text-[0.72rem] uppercase tracking-[0.18em] text-white/58">{industry.title}</p>
-                      <h3 className="heading-2 text-white">{industry.summary}</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {industry.successMetrics.map((metric) => (
-                          <span
-                            key={metric}
-                            className="rounded-full border border-white/12 bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur"
-                          >
-                            {metric}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="space-y-5">
+                    <div className="space-y-2">
+                      <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">{industry.title}</p>
+                      <h3 className="text-2xl font-semibold text-foreground">{industry.summary}</h3>
                     </div>
 
-                    <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="grid gap-5 sm:grid-cols-2">
                       <div className="space-y-3">
-                        <p className="text-sm font-semibold text-white">Key challenges</p>
+                        <p className="text-sm font-semibold text-foreground">What teams usually need</p>
                         {industry.focusAreas.slice(0, 3).map((item) => (
                           <div key={item} className="flex items-start gap-3">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 text-white/78" />
-                            <p className="text-sm text-white/70">{item}</p>
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                            <p className="text-sm text-muted-foreground">{item}</p>
                           </div>
                         ))}
                       </div>
+
                       <div className="space-y-3">
-                        <p className="text-sm font-semibold text-white">Controls and compliance</p>
-                        {industry.compliance.slice(0, 3).map((item) => (
+                        <p className="text-sm font-semibold text-foreground">What we often build</p>
+                        {industry.typicalPrograms.slice(0, 3).map((item) => (
                           <div key={item} className="flex items-start gap-3">
-                            <Lock className="mt-0.5 h-4 w-4 text-white/78" />
-                            <p className="text-sm text-white/70">{item}</p>
+                            <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
+                            <p className="text-sm text-muted-foreground">{item}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="lg:col-span-2">
-                      <Link
-                        href={`/industries/${industry.slug}`}
-                        className={cn(
-                          buttonVariants({ size: "lg" }),
-                          "bg-white text-slate-900 hover:bg-white/92"
-                        )}
-                      >
-                        Explore industry page
-                      </Link>
+                    <div className="flex flex-wrap gap-2">
+                      {industry.successMetrics.map((metric) => (
+                        <span
+                          key={metric}
+                          className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
+                        >
+                          {metric}
+                        </span>
+                      ))}
                     </div>
+
+                    <Link
+                      href={`/industries/${industry.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+                    >
+                      Explore industry page
+                      <ArrowRight className="h-4 w-4 icon-accent" />
+                    </Link>
                   </div>
                 </div>
               </TabsContent>
@@ -425,7 +484,7 @@ export default function Home() {
       </section>
 
       <section className="container py-20">
-        <div className="grid gap-12 border-y border-border/55 py-14 lg:grid-cols-[0.44fr,0.56fr] lg:items-start">
+        <div className="grid gap-12 border-y border-border/55 py-14 lg:grid-cols-[0.42fr,0.58fr] lg:items-start">
           <blockquote className="space-y-5">
             <Quote className="h-9 w-9 icon-accent opacity-60" />
             <p className="text-3xl font-semibold leading-tight text-foreground">
@@ -440,11 +499,14 @@ export default function Home() {
           </blockquote>
 
           <div className="space-y-6">
-            <p className="eyebrow">Delivery model</p>
-            <h2 className="heading-2 text-foreground">From first workshop to stable release</h2>
+            <p className="eyebrow">How we work</p>
+            <h2 className="heading-2 text-foreground">A lean delivery rhythm from idea to first release</h2>
             <div className="space-y-6">
               {home.operatingRhythm.steps.map((step, index) => (
-                <div key={step.title} className="grid gap-4 border-t border-border/55 pt-5 sm:grid-cols-[0.14fr,0.3fr,0.56fr]">
+                <div
+                  key={step.title}
+                  className="grid gap-4 border-t border-border/55 pt-5 sm:grid-cols-[0.12fr,0.3fr,0.58fr]"
+                >
                   <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                     0{index + 1}
                   </span>
@@ -461,13 +523,13 @@ export default function Home() {
       </section>
 
       <section className="container py-20">
-        <div className="grid gap-12 lg:grid-cols-[0.4fr,0.6fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">Insights</p>
-            <h2 className="heading-2 text-foreground">Practical thinking on AI, compliance, and operations</h2>
+            <h2 className="heading-2 text-foreground">Useful thinking on software, AI, and product delivery</h2>
             <p className="body-md text-muted-foreground">
-              Articles and playbooks for teams evaluating the next platform, workflow, or
-              modernization program.
+              Articles and playbooks for teams exploring a new product, modernizing an existing
+              system, or figuring out where AI actually fits.
             </p>
           </div>
 
@@ -493,7 +555,7 @@ export default function Home() {
       </section>
 
       <section className="container py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">FAQ</p>
             <h2 className="heading-2 text-foreground">Questions teams ask before the first call</h2>
@@ -517,18 +579,15 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5 text-white" />
               Start the conversation
             </Badge>
-            <h2 className="display-1 text-white">Ready to transform compliance and operations?</h2>
-            <p className="body-lg text-white/78">
-              Bring the workflow, the constraint, and the target outcome. We will map the fastest
-              path to a secure first release.
+            <h2 className="display-1 text-white">Need help shaping the next product milestone?</h2>
+            <p className="body-lg text-white/80">
+              Share the rough brief, the workflow issue, or the software you want to improve. We
+              will help you find a credible starting point.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className={cn(
-                  buttonVariants({ size: "xl" }),
-                  "bg-white text-slate-900 hover:bg-white/92"
-                )}
+                className={cn(buttonVariants({ size: "xl" }), "bg-white text-slate-900 hover:bg-white/92")}
               >
                 Book Free Consultation
               </Link>
@@ -539,7 +598,8 @@ export default function Home() {
                   "border-white/25 bg-white/8 text-white hover:bg-white/14 hover:text-white"
                 )}
               >
-                See Case Studies
+                See Selected Work
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

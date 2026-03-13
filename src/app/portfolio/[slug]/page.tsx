@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Download, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Download } from "lucide-react";
 
-import { getPortfolioProject, portfolioProjects } from "@/data/portfolio";
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { getPortfolioProject, portfolioProjects } from "@/data/portfolio";
 import { siteContent } from "@/content/site";
 
 type PortfolioCaseProps = {
@@ -23,6 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PortfolioCaseProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getPortfolioProject(slug);
+
   if (!project) {
     return {
       title: "Case Study | Spire Technosoft",
@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: PortfolioCaseProps): Promise<
       },
     };
   }
+
   return {
     title: `${project.title} | Spire Technosoft Case Study`,
     description: project.headline,
@@ -52,8 +53,7 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero */}
-      <section className="container animate-softFade py-12">
+      <section className="container animate-softFade py-12 sm:py-16">
         <div className="space-y-8">
           <Link
             href="/portfolio"
@@ -63,124 +63,151 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
             Back to Portfolio
           </Link>
 
-          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-center rounded-[3rem] bg-surface p-10 shadow-float">
+          <div className="grid gap-10 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
             <div className="space-y-6">
               <Badge variant="soft">{project.industry}</Badge>
               <h1 className="display-1 text-foreground">{project.title}</h1>
-              <p className="text-lg text-muted-foreground">{project.headline}</p>
-              <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                <span>{project.region}</span>
-                <span>/</span>
+              <p className="body-lg text-muted-foreground">{project.headline}</p>
+
+              <div className="flex flex-wrap gap-3 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
                 <span>{project.domain}</span>
-                <span>/</span>
                 <span>{project.platform}</span>
+                <span>{project.region}</span>
               </div>
+
+              <div className="grid gap-5 sm:grid-cols-3">
+                {project.metrics.map((metric) => (
+                  <div key={metric.label} className="border-t border-border/55 pt-4">
+                    <p className="text-2xl font-semibold text-foreground">{metric.value}</p>
+                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
               <div className="flex flex-wrap gap-3">
                 <Button asChild size="lg">
                   <a href={project.caseStudyPdf} download className="flex items-center gap-2">
-                    Detailed Deck <Download className="h-4 w-4 icon-inverse" />
+                    Download case study <Download className="h-4 w-4 icon-inverse" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Book Workshop</Link>
+                  <Link href="/contact">Book Free Consultation</Link>
                 </Button>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-soft">
-              <div className="relative aspect-[4/3] w-full">
+            <div className="rounded-[2.2rem] border border-border/45 bg-white/55 p-4 shadow-soft backdrop-blur dark:bg-surface/72 lg:sticky lg:top-28">
+              <div className="relative min-h-[320px] overflow-hidden rounded-[1.8rem] bg-surface-2">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 1024px) 34vw, 100vw"
                   priority
                   unoptimized={project.image.startsWith("http")}
                 />
-                <div className="absolute inset-0 bg-primary/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/32 via-transparent to-transparent" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem + Constraints */}
-      <section className="container py-16">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Problem" title="What we needed to solve" />
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+      <section className="container py-14">
+        <div className="grid gap-10 border-y border-border/55 py-10 lg:grid-cols-2">
+          <div className="space-y-5">
+            <p className="eyebrow">Challenge</p>
+            <h2 className="heading-2 text-foreground">What needed to change</h2>
+            <div className="space-y-3">
               {project.problem.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
+                <div key={item} className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Constraints" title="Non-negotiables" />
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {project.constraints.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
+
+          <div className="space-y-5">
+            <p className="eyebrow">Solution</p>
+            <h2 className="heading-2 text-foreground">What we built</h2>
+            <div className="space-y-3">
+              {project.solution.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Approach + Architecture */}
-      <section className="container py-16">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Approach" title="How we delivered" />
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {project.approach.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Architecture" title="Reference stack" />
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {project.architecture.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <section className="container py-14">
+        <div className="grid gap-10 lg:grid-cols-[0.56fr,0.44fr]">
+          <div className="space-y-8">
+            <div className="space-y-5">
+              <p className="eyebrow">Approach</p>
+              <div className="space-y-3">
+                {project.approach.map((item) => (
+                  <div key={item} className="flex items-start gap-3 border-t border-border/55 pt-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-      {/* Outcomes + KPI Table */}
-      <section className="container py-16">
-        <div className="surface-card rounded-[3rem] p-10 shadow-float">
-          <SectionHeader align="left" eyebrow="Outcomes" title="Measured impact" />
-          <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {project.outcomes.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="rounded-2xl bg-surface-2 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">KPI Table</p>
+            <div className="space-y-5">
+              <p className="eyebrow">Impact</p>
+              <div className="space-y-3">
+                {project.outcomes.map((item) => (
+                  <div key={item} className="flex items-start gap-3 border-t border-border/55 pt-4">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+              <p className="eyebrow">Stack</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/80"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+              <p className="eyebrow">Architecture</p>
               <div className="mt-4 space-y-3">
-                {project.metrics.map((metric) => (
-                  <div key={metric.label} className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">{metric.label}</span>
-                    <span className="font-semibold text-foreground">{metric.value}</span>
+                {project.architecture.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+              <p className="eyebrow">Spire's role</p>
+              <div className="mt-4 space-y-3">
+                {project.role.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
                   </div>
                 ))}
               </div>
@@ -189,31 +216,34 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
         </div>
       </section>
 
-      {/* Stack + Timeline */}
-      <section className="container py-16">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr,1.1fr]">
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Stack" title="Technology" />
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold">
-                  {tech}
-                </span>
+      <section className="container py-14">
+        <div className="grid gap-10 border-y border-border/55 py-10 lg:grid-cols-[0.46fr,0.54fr]">
+          <div className="space-y-5">
+            <p className="eyebrow">Timeline</p>
+            <div className="space-y-4">
+              {project.timeline.map((item) => (
+                <div key={item.phase} className="grid gap-4 sm:grid-cols-[0.28fr,0.72fr]">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                      <Calendar className="h-4 w-4 icon-accent" />
+                    </span>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {item.phase}
+                    </p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{item.detail}</p>
+                </div>
               ))}
             </div>
           </div>
-          <div className="surface-card rounded-3xl p-8 shadow-soft">
-            <SectionHeader align="left" eyebrow="Delivery timeline" title="Release cadence" />
-            <div className="mt-4 space-y-4">
-              {project.timeline.map((item) => (
-                <div key={item.phase} className="flex items-start gap-4">
-                  <div className="mt-1 h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                    <Calendar className="h-4 w-4 icon-accent" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{item.phase}</p>
-                    <p className="text-sm text-muted-foreground">{item.detail}</p>
-                  </div>
+
+          <div className="space-y-5">
+            <p className="eyebrow">Team</p>
+            <div className="space-y-3">
+              {project.team.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
@@ -221,18 +251,18 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
-          <div className="cta-inner max-w-3xl mx-auto space-y-8">
-            <h2 className="display-1 text-white">Need a similar initiative?</h2>
+      <section className="container pb-28 pt-8">
+        <div className="cta-band rounded-[2.7rem] px-8 py-16 text-center shadow-float">
+          <div className="cta-inner mx-auto max-w-3xl space-y-8">
+            <h2 className="display-1 text-white">Need something in a similar direction?</h2>
             <p className="body-lg text-white/80">
-              We align strategy, design, and engineering in under two weeks. Let's discuss your roadmap.
+              If you are shaping a new product or modernizing an existing one, we can help define
+              the right first release.
             </p>
             <div className="flex justify-center">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <Link href="/contact" className="flex items-center gap-2">
-                  Book free consultation <ArrowRight className="h-5 w-5 icon-accent" />
+                  Book Free Consultation <ArrowRight className="h-5 w-5 icon-accent" />
                 </Link>
               </Button>
             </div>

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export const metadata = {
   title: "Industries | Spire Technosoft",
   description:
-    "Industry expertise for regulated programs across finance, healthcare, energy, manufacturing, and retail with secure digital platforms and measurable outcomes.",
+    "Industry experience across finance, healthcare, energy, manufacturing, and retail with custom software built around real workflows and measurable outcomes.",
 };
 
 export default function IndustriesPage(): React.ReactElement {
@@ -24,8 +24,8 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="container">
           <SectionHeader
             eyebrow="Industries"
-            title="Digital platforms built for the realities of regulated industries"
-            description="From finance and healthcare to energy, manufacturing, and retail, we shape delivery around sector-specific workflows, controls, and operating pressure."
+            title="Digital products shaped around real industry workflows"
+            description="From finance and healthcare to energy, manufacturing, and retail, we shape delivery around the way each team actually works."
             className="max-w-4xl"
           />
         </div>
@@ -123,8 +123,8 @@ export default function IndustriesPage(): React.ReactElement {
 
       <section className="container pb-28 pt-10">
         <SocialProofBand
-          title="Enterprise credibility"
-          description="Outcome-led partnerships across finance, healthcare, manufacturing, energy, and retail."
+          title="A few of the spaces we know well"
+          description="Product work across finance, healthcare, manufacturing, energy, and retail."
           variant="compact"
         />
       </section>
