@@ -34,9 +34,9 @@ export function SocialProofBand({
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 border-y border-border/55 py-8 md:grid-cols-2">
         {resultsCallouts.map((callout) => (
-          <div key={callout.metric} className="surface-card rounded-[2rem] p-7 space-y-4">
+          <div key={callout.metric} className="space-y-4">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Business impact
             </p>
@@ -46,15 +46,10 @@ export function SocialProofBand({
         ))}
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {clientLogos.map((client) => (
-          <div
-            key={client.name}
-            className="rounded-full border border-border/65 bg-white/60 px-5 py-3 text-center shadow-sm backdrop-blur dark:bg-surface/70"
-          >
-            <span className="block text-sm font-medium tracking-tight text-foreground">
-              {client.name}
-            </span>
+          <div key={client.name} className="text-center">
+            <span className="block text-sm font-medium tracking-tight text-foreground">{client.name}</span>
             <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted-foreground">
               {client.tagline}
             </span>
@@ -63,12 +58,9 @@ export function SocialProofBand({
       </div>
 
       {showTestimonials && (
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 border-t border-border/55 pt-8 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.name}
-              className="surface-card rounded-[2rem] p-6 space-y-5"
-            >
+            <div key={testimonial.name} className="space-y-5">
               <Quote className="h-8 w-8 icon-muted opacity-40" />
               <p className="text-sm italic leading-relaxed text-muted-foreground">
                 &quot;{testimonial.quote}&quot;

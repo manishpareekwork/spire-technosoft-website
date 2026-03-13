@@ -37,15 +37,15 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
 
   return (
     <div className={cn("space-y-5", className)}>
-      <div className="section-contrast rounded-[2.4rem] p-4 sm:p-5">
-        <div className="grid gap-6 lg:grid-cols-[1.08fr,0.92fr] lg:items-center">
-          <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] bg-surface-2">
+      <div className="grid gap-8 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+        <div className="space-y-4">
+          <div className="relative min-h-[300px] overflow-hidden rounded-[2rem] bg-surface-2 sm:min-h-[360px]">
             <Image
               src={activeItem.image}
               alt={activeItem.imageAlt}
               fill
               className="object-cover"
-              sizes="(min-width: 1024px) 56vw, 100vw"
+              sizes="(min-width: 1024px) 42vw, 100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/52 via-slate-900/12 to-transparent" />
             <div className="absolute left-4 top-4">
@@ -57,62 +57,61 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
             </div>
           </div>
 
-          <div className="space-y-5 px-2 sm:px-3">
-            <div className="space-y-3">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Active concept
-              </p>
-              <h3 className="heading-2 text-foreground">{activeItem.title}</h3>
-              <p className="body-md text-muted-foreground">{activeItem.caption}</p>
-              <p className="text-sm text-muted-foreground">{activeItem.detail}</p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {activeItem.metrics.map((metric) => (
-                <span
-                  key={metric}
-                  className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
-                >
-                  {metric}
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {activeItem.metrics.map((metric) => (
+              <span
+                key={metric}
+                className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
+              >
+                {metric}
+              </span>
+            ))}
           </div>
         </div>
-      </div>
 
-      <div className="grid gap-3 sm:grid-cols-3">
-        {items.map((item, index) => (
-          <button
-            key={item.title}
-            type="button"
-            onClick={() => setActiveIndex(index)}
-            className={cn(
-              "compact-tile rounded-[1.6rem] p-3 text-left transition-all",
-              index === activeIndex
-                ? "ring-1 ring-primary/35 shadow-soft"
-                : "hover:-translate-y-0.5 hover:shadow-soft"
-            )}
-          >
-            <div className="flex items-center gap-3">
-              <div className="relative h-14 w-20 overflow-hidden rounded-[1rem] bg-surface-2">
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="120px"
-                />
-              </div>
-              <div className="space-y-1">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {item.category}
-                </p>
-                <p className="text-sm font-semibold text-foreground">{item.title}</p>
-              </div>
-            </div>
-          </button>
-        ))}
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Active concept
+            </p>
+            <h3 className="heading-2 text-foreground">{activeItem.title}</h3>
+            <p className="body-md text-muted-foreground">{activeItem.caption}</p>
+            <p className="text-sm text-muted-foreground">{activeItem.detail}</p>
+          </div>
+
+          <div className="space-y-2">
+            {items.map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={cn(
+                  "grid w-full gap-4 border-t border-border/55 py-4 text-left transition-colors",
+                  index === activeIndex ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative h-14 w-20 overflow-hidden rounded-[1rem] bg-surface-2">
+                    <Image
+                      src={item.image}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      sizes="120px"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {item.category}
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  </div>
+                </div>
+                <p className="text-sm">{item.caption}</p>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

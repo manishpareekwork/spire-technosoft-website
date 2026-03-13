@@ -58,25 +58,25 @@ export function InsightFeed({ articles }: InsightFeedProps) {
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className="group block overflow-hidden rounded-[2rem] section-contrast p-4 sm:p-5"
+            className="group block border-t border-border/55 py-5"
           >
-            <div className="grid gap-5 md:grid-cols-[0.34fr,0.66fr] md:items-center">
-              <div className="relative min-h-[180px] overflow-hidden rounded-[1.5rem] bg-surface-2">
+            <div className="grid gap-5 md:grid-cols-[120px,1fr,auto] md:items-center">
+              <div className="relative min-h-[90px] overflow-hidden rounded-[1.1rem] bg-surface-2">
                 <Image
                   src={article.image}
                   alt={article.imageAlt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="(min-width: 768px) 24vw, 100vw"
+                  sizes="120px"
                 />
               </div>
 
-              <div className="space-y-4 px-2">
+              <div className="space-y-3 px-1">
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                   {article.category}
                 </p>
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-semibold text-foreground">{article.title}</h2>
+                  <h2 className="text-xl font-semibold text-foreground">{article.title}</h2>
                   <p className="text-sm text-muted-foreground">{article.description}</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -89,11 +89,12 @@ export function InsightFeed({ articles }: InsightFeedProps) {
                     {article.readTime}
                   </span>
                 </div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                  Read article
-                  <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
-                </span>
               </div>
+
+              <span className="inline-flex items-center gap-2 self-start text-sm font-semibold text-foreground">
+                Read article
+                <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
+              </span>
             </div>
           </Link>
         ))}

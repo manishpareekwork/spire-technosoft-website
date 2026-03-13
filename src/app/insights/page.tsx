@@ -53,102 +53,96 @@ export default function InsightsPage() {
         <div className="absolute inset-0 -z-10 hero-mesh opacity-80" />
         <div className="absolute inset-0 -z-10 hero-lines opacity-20" />
 
-        <div className="container space-y-10">
-          <div className="max-w-4xl space-y-5">
+        <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="space-y-5">
             <Badge variant="soft" className="w-fit">
               Resources & Insights
             </Badge>
-            <h1 className="display-1 text-foreground">Insights on software, AI, healthcare, and operations</h1>
-            <p className="body-lg text-muted-foreground">
-              Articles and thought pieces built around the questions platform buyers actually ask
-              before they commit to a roadmap.
+            <h1 className="display-1 text-foreground">Writing that supports better product decisions</h1>
+            <p className="max-w-3xl body-lg text-muted-foreground">
+              Notes, articles, and practical thinking for teams planning new software, improving
+              operations, or figuring out where AI fits without the noise.
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.06fr,0.94fr]">
-            <Link
-              href={`/insights/${featuredArticle.slug}`}
-              className="group overflow-hidden rounded-[2.4rem] section-contrast p-4 sm:p-5"
-            >
-              <div className="relative min-h-[340px] overflow-hidden rounded-[1.9rem] bg-surface-2">
-                <Image
-                  src={featuredArticle.image}
-                  alt={featuredArticle.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="(min-width: 1024px) 54vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
-                <div className="absolute left-5 top-5">
-                  <Badge variant="soft">{featuredArticle.category}</Badge>
-                </div>
-              </div>
-
-              <div className="space-y-4 p-2 pt-6">
-                <h2 className="heading-2 text-foreground">{featuredArticle.title}</h2>
-                <p className="body-md max-w-2xl text-muted-foreground">{featuredArticle.description}</p>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                  <span className="inline-flex items-center gap-2">
-                    <CalendarDays className="h-4 w-4 icon-accent" />
-                    {formatDate(featuredArticle.publishedAt)}
-                  </span>
-                  <span className="inline-flex items-center gap-2">
-                    <Clock3 className="h-4 w-4 icon-accent" />
-                    {featuredArticle.readTime}
-                  </span>
-                </div>
-              </div>
-            </Link>
-
+          <div className="space-y-4 rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              What you will find here
+            </p>
             <div className="space-y-4">
-              <div className="rounded-[2rem] section-contrast px-6 py-6">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  Why this matters
-                </p>
-                <div className="mt-4 space-y-3">
-                  {[
-                    "Build search visibility around long-tail buying questions.",
-                    "Support solution pages with educational, indexable content.",
-                    "Give prospects something useful before the first call.",
-                  ].map((item) => (
-                    <div key={item} className="compact-tile rounded-[1.4rem] px-4 py-4">
-                      <p className="text-sm text-muted-foreground">{item}</p>
-                    </div>
-                  ))}
+              {[
+                "Long-tail answers to questions buyers actually search for",
+                "Operational perspectives from product, design, and engineering work",
+                "Pieces that help a team make sense of the next release or roadmap move",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 border-t border-border/45 pt-4 first:border-t-0 first:pt-0">
+                  <ArrowRight className="mt-0.5 h-4 w-4 icon-accent" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
-              </div>
-
-              <div className="rounded-[2rem] cta-band px-6 py-7">
-                <div className="cta-inner space-y-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
-                    Need a tailored point of view?
-                  </p>
-                  <h2 className="heading-2 text-white">
-                    Book a working session around your roadmap, scope, and delivery choices.
-                  </h2>
-                  <p className="text-sm text-white/74">
-                    We can map the first release, the right architecture, and the operational
-                    metrics worth tracking before build starts.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className={cn(
-                      buttonVariants({ size: "lg" }),
-                      "w-full bg-white text-slate-900 hover:bg-white/92"
-                    )}
-                  >
-                    Book Free Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container pb-28 pt-6">
+      <section className="container py-14">
+        <div className="grid gap-8 border-y border-border/55 py-8 lg:grid-cols-[280px,1fr] lg:items-start">
+          <Link
+            href={`/insights/${featuredArticle.slug}`}
+            className="group relative min-h-[220px] overflow-hidden rounded-[1.8rem] bg-surface-2"
+          >
+            <Image
+              src={featuredArticle.image}
+              alt={featuredArticle.imageAlt}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              sizes="280px"
+            />
+          </Link>
+
+          <div className="space-y-5">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge variant="soft">{featuredArticle.category}</Badge>
+              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <CalendarDays className="h-4 w-4 icon-accent" />
+                {formatDate(featuredArticle.publishedAt)}
+              </span>
+              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <Clock3 className="h-4 w-4 icon-accent" />
+                {featuredArticle.readTime}
+              </span>
+            </div>
+            <div className="space-y-3">
+              <h2 className="heading-2 text-foreground">{featuredArticle.title}</h2>
+              <p className="body-md text-muted-foreground">{featuredArticle.description}</p>
+            </div>
+            <Link href={`/insights/${featuredArticle.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+              Read featured article
+              <ArrowRight className="h-4 w-4 icon-accent" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-6">
         <InsightFeed articles={insightArticles} />
+      </section>
+
+      <section className="container pb-28 pt-12">
+        <div className="grid gap-8 border-t border-border/55 pt-8 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Need a point of view?</p>
+            <h2 className="heading-2 text-foreground">Bring the roadmap question behind the search term</h2>
+            <p className="body-md text-muted-foreground">
+              If a topic here connects to a real product decision you are making, we can turn it
+              into a working conversation.
+            </p>
+          </div>
+
+          <Link href="/contact" className={cn(buttonVariants({ size: "xl" }), "w-fit")}>
+            Book Free Consultation
+          </Link>
+        </div>
       </section>
     </div>
   );

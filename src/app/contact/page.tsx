@@ -4,25 +4,23 @@ import {
   Mail,
   MapPin,
   Phone,
-  ShieldCheck,
   Twitter,
   Youtube,
 } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
 import { siteContent } from "@/content/site";
 
 export const metadata = {
   title: "Contact | Spire Technosoft",
   description:
-    "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
+    "Talk to Spire Technosoft about custom software, product design, mobile apps, and AI-assisted workflows. Book a free consultation or send a brief.",
   openGraph: {
     title: "Contact | Spire Technosoft",
     description:
-      "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
+      "Talk to Spire Technosoft about custom software, product design, mobile apps, and AI-assisted workflows. Book a free consultation or send a brief.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };
@@ -48,15 +46,13 @@ export default function ContactPage() {
         <div className="absolute inset-0 -z-10 hero-mesh opacity-75" />
         <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
-        <div className="container space-y-8 text-center">
-          <Badge variant="soft" className="mx-auto w-fit">
-            {contact.hero.eyebrow}
-          </Badge>
-          <div className="mx-auto max-w-4xl space-y-5">
+        <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="space-y-6">
+            <Badge variant="soft" className="w-fit">
+              {contact.hero.eyebrow}
+            </Badge>
             <h1 className="display-1 text-foreground">{contact.hero.title}</h1>
-            <p className="body-lg text-muted-foreground">{contact.hero.description}</p>
-          </div>
-          <div className="flex justify-center">
+            <p className="max-w-3xl body-lg text-muted-foreground">{contact.hero.description}</p>
             <Button asChild size="xl" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
                 {contact.hero.cta.label}
@@ -64,99 +60,113 @@ export default function ContactPage() {
               </a>
             </Button>
           </div>
+
+          <div className="space-y-4 rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Before we talk
+            </p>
+            <div className="space-y-4">
+              {[
+                "What are you trying to build or improve?",
+                "Who needs to use it every day?",
+                "What needs to be true after the first release?",
+              ].map((item) => (
+                <div key={item} className="border-t border-border/45 pt-4 first:border-t-0 first:pt-0">
+                  <p className="text-sm text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="inquiry" className="container pb-20 pt-4">
-        <div className="grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-start">
-          <div className="rounded-[2.4rem] section-contrast px-6 py-6 sm:px-8 sm:py-8">
+        <div className="grid gap-10 lg:grid-cols-[0.64fr,0.36fr] lg:items-start">
+          <div className="rounded-[2.4rem] border border-border/45 bg-white/60 px-6 py-7 shadow-soft backdrop-blur dark:bg-surface/72">
             <div className="space-y-4">
               <Badge variant="soft" className="w-fit">
                 {contact.formIntro.eyebrow}
               </Badge>
-              <SectionHeader
-                align="left"
-                title={contact.formIntro.title}
-                description={contact.formIntro.description}
-                className="max-w-none"
-              />
+              <div className="space-y-2">
+                <h2 className="heading-2 text-foreground">{contact.formIntro.title}</h2>
+                <p className="text-sm text-muted-foreground">{contact.formIntro.description}</p>
+              </div>
             </div>
             <div className="mt-8">
               <ContactForm />
             </div>
           </div>
 
-          <div className="space-y-5 lg:sticky lg:top-28">
-            <div className="rounded-[2rem] cta-band px-6 py-7">
-              <div className="cta-inner space-y-5">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
-                  Free consultation
-                </p>
-                <h2 className="heading-2 text-white">Want the fastest route to a working conversation?</h2>
-                <p className="text-sm text-white/74">
-                  Skip the form and book directly with our team if you already know the problem,
-                  urgency, and stakeholders involved.
-                </p>
-                <Button asChild size="lg" className="w-full bg-white text-slate-900 hover:bg-white/92">
-                  <a href={contact.fastRoute.cta.href} target="_blank" rel="noreferrer">
-                    {contact.fastRoute.cta.label}
-                  </a>
-                </Button>
-              </div>
+          <div className="space-y-8 lg:sticky lg:top-28">
+            <div className="space-y-4 border-t border-border/55 pt-5">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Fastest route
+              </p>
+              <h2 className="text-2xl font-semibold text-foreground">{contact.fastRoute.title}</h2>
+              <p className="text-sm text-muted-foreground">{contact.fastRoute.description}</p>
+              <Button asChild size="lg">
+                <a href={contact.fastRoute.cta.href} target="_blank" rel="noreferrer">
+                  {contact.fastRoute.cta.label}
+                </a>
+              </Button>
             </div>
 
-            <div className="rounded-[2rem] section-contrast px-4 py-4">
-              <div className="overflow-hidden rounded-[1.6rem] bg-surface-2">
-                <iframe
-                  title="Spire Technosoft location"
-                  src="https://www.google.com/maps?q=Gurugram%2C%20India&z=10&output=embed"
-                  className="h-[250px] w-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <div className="mt-4 space-y-3 px-2">
-                {contactPoints.map((point) => (
-                  <a key={point.label} href={point.href} className="flex items-start gap-4 compact-tile rounded-[1.4rem] px-4 py-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
-                      <point.icon className="h-4 w-4 icon-accent" />
-                    </div>
+            <div className="space-y-3 border-t border-border/55 pt-5">
+              {contactPoints.map((point) => (
+                <a key={point.label} href={point.href} className="grid gap-2 sm:grid-cols-[0.18fr,0.82fr]">
+                  <div className="flex items-center gap-3">
+                    <point.icon className="h-4 w-4 icon-accent" />
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {point.label}
+                    </p>
+                  </div>
+                  <p className="text-sm font-semibold text-foreground">{point.value}</p>
+                </a>
+              ))}
+            </div>
+
+            <div className="space-y-4 border-t border-border/55 pt-5">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                What happens next
+              </p>
+              <div className="space-y-4">
+                {contact.nextSteps.steps.map((step, index) => (
+                  <div key={step.title} className="grid gap-3 sm:grid-cols-[0.14fr,0.86fr]">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      0{index + 1}
+                    </p>
                     <div>
-                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                        {point.label}
-                      </p>
-                      <p className="mt-1 text-sm font-semibold text-foreground">{point.value}</p>
+                      <p className="text-sm font-semibold text-foreground">{step.title}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{step.detail}</p>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[2rem] section-contrast px-6 py-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-5 w-5 icon-accent" />
-                  <p className="text-sm font-semibold text-foreground">Secure intake process</p>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Your roadmap, constraints, and technical details are handled under strict
-                  confidentiality from the first interaction.
-                </p>
-                <div className="flex gap-3">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/65 shadow-sm transition-colors hover:bg-primary hover:text-white dark:bg-surface/75"
-                      title={link.label}
-                    >
-                      <link.icon className="h-4 w-4" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="overflow-hidden rounded-[1.6rem] border border-border/45 bg-surface-2">
+              <iframe
+                title="Spire Technosoft location"
+                src="https://www.google.com/maps?q=Gurugram%2C%20India&z=10&output=embed"
+                className="h-[200px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            <div className="flex gap-3 border-t border-border/55 pt-5">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/65 shadow-sm transition-colors hover:bg-primary hover:text-white dark:bg-surface/75"
+                  title={link.label}
+                >
+                  <link.icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

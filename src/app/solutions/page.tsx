@@ -1,13 +1,18 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, Play, ShieldCheck, Workflow } from "lucide-react";
+import {
+  AppWindow,
+  ArrowRight,
+  BrainCircuit,
+  ShieldCheck,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { SectionHeader } from "@/components/ui/section-header";
-import { SocialProofBand } from "@/components/sections/social-proof";
 import { ResourceDownloads } from "@/components/sections/resource-downloads";
+import { SocialProofBand } from "@/components/sections/social-proof";
 import { siteContent } from "@/content/site";
 import { solutionDetails } from "@/data/solutions";
 import { cn } from "@/lib/utils";
@@ -24,11 +29,11 @@ export const metadata = {
   },
 };
 
-const flowSteps = [
-  "Discovery and KPI alignment",
-  "Workflow and system design",
-  "Secure release build",
-  "Measure and improve",
+const capabilityIcons = [Workflow, ShieldCheck, AppWindow, BrainCircuit];
+const productModes = [
+  { title: "Scope the right release", detail: "Sharper product framing before code starts." },
+  { title: "Design around messy workflows", detail: "Systems that fit the actual day-to-day reality." },
+  { title: "Ship with confidence", detail: "A cleaner path from prototype to dependable release." },
 ];
 
 export default function SolutionsPage(): React.ReactElement {
@@ -40,7 +45,7 @@ export default function SolutionsPage(): React.ReactElement {
         <div className="absolute inset-0 -z-10 hero-mesh opacity-85" />
         <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
-        <div className="container grid gap-10 lg:grid-cols-[0.84fr,1.16fr] lg:items-center">
+        <div className="container grid gap-12 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
           <div className="space-y-7">
             <Badge variant="soft" className="w-fit">
               {solutions.hero.eyebrow}
@@ -59,190 +64,197 @@ export default function SolutionsPage(): React.ReactElement {
                 </span>
               ))}
             </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className={cn(buttonVariants({ size: "xl" }))}>
+                Book Free Consultation
+              </Link>
+              <Link href="/portfolio" className={cn(buttonVariants({ variant: "outline", size: "xl" }))}>
+                See Selected Work
+              </Link>
+            </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2.6rem] section-contrast p-4 sm:p-5">
-            <div className="grid gap-5 lg:grid-cols-[1.08fr,0.92fr] lg:items-end">
-              <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] bg-surface-2">
-                <Image
-                  src="/images/finance-dashboard.png"
-                  alt="Explainer preview for Spire solutions"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/48 via-slate-900/10 to-transparent" />
-                <div className="absolute left-4 top-4 rounded-full bg-white/88 px-4 py-2 shadow-soft backdrop-blur">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                    <Play className="h-4 w-4 icon-accent" />
-                    Solution explainer
-                  </span>
-                </div>
+          <div className="rounded-[2.4rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                  <Sparkles className="h-4 w-4 icon-accent" />
+                </span>
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                  Delivery blueprint
+                </p>
               </div>
 
-              <div className="space-y-4 px-2 sm:px-3">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  How engagements move
-                </p>
-                <div className="space-y-3">
-                  {flowSteps.map((step, index) => (
-                    <div key={step} className="flex items-center gap-3 compact-tile rounded-[1.4rem] px-4 py-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                        {index + 1}
-                      </span>
-                      <span className="text-sm font-medium text-foreground">{step}</span>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    title: "Discover",
+                    items: ["Problem framing", "Workflow mapping", "Priority alignment"],
+                  },
+                  {
+                    title: "Design",
+                    items: ["UX direction", "System shape", "Release plan"],
+                  },
+                  {
+                    title: "Ship",
+                    items: ["Build increments", "Instrumentation", "Continuous improvement"],
+                  },
+                ].map((column) => (
+                  <div key={column.title} className="space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{column.title}</p>
+                    <div className="space-y-3 border-t border-border/45 pt-3">
+                      {column.items.map((item) => (
+                        <p key={item} className="text-sm text-muted-foreground">
+                          {item}
+                        </p>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid gap-4 border-t border-border/45 pt-5 sm:grid-cols-3">
+                {productModes.map((item) => (
+                  <div key={item.title} className="space-y-2">
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                    <p className="text-sm text-muted-foreground">{item.detail}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-shell pt-6">
-        <div className="container grid gap-10 lg:grid-cols-[1.2fr,0.8fr] lg:items-start">
-          <div className="space-y-8">
-            <SectionHeader
-              align="left"
-              eyebrow="Solution library"
-              title="Core solution areas for modern teams"
-              description="Explore the problems each solution addresses, the outcomes it targets, and the fastest route into a working first release."
-            />
-
-            <Accordion>
-              {solutionDetails.map((solution, index) => (
-                <AccordionItem
-                  key={solution.slug}
-                  title={solution.title}
-                  meta={`Solution 0${index + 1}`}
-                  defaultOpen={index === 0}
-                >
-                  <div className="grid gap-6 lg:grid-cols-[0.54fr,0.46fr]">
-                    <div className="space-y-4">
-                      <p className="text-sm text-muted-foreground">{solution.intro}</p>
-                      <div className="space-y-3">
-                        <p className="text-sm font-semibold text-foreground">Where it helps</p>
-                        {solution.typicalProblems.slice(0, 3).map((item) => (
-                          <div key={item} className="flex items-start gap-3">
-                            <ShieldCheck className="mt-0.5 h-4 w-4 icon-accent" />
-                            <p className="text-sm text-muted-foreground">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {solution.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="space-y-3">
-                        <p className="text-sm font-semibold text-foreground">Expected outcomes</p>
-                        {solution.outcomes.slice(0, 3).map((item) => (
-                          <div key={item} className="flex items-start gap-3">
-                            <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
-                            <p className="text-sm text-muted-foreground">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {solution.successMetrics.map((metric) => (
-                          <span
-                            key={metric}
-                            className="rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary"
-                          >
-                            {metric}
-                          </span>
-                        ))}
-                      </div>
-                      <Link
-                        href={`/solutions/${solution.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
-                      >
-                        Explore solution
-                        <ArrowRight className="h-4 w-4 icon-accent" />
-                      </Link>
-                    </div>
-                  </div>
-                </AccordionItem>
-              ))}
-            </Accordion>
+      <section className="container py-16">
+        <div className="grid gap-10 lg:grid-cols-[0.28fr,0.72fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Capability map</p>
+            <h2 className="heading-2 text-foreground">A tighter view of what we can step into</h2>
+            <p className="body-md text-muted-foreground">
+              These are common product and workflow areas where we help teams scope, design, and
+              ship faster.
+            </p>
           </div>
 
-          <aside className="space-y-5 lg:sticky lg:top-28">
-            <div className="rounded-[2rem] cta-band px-6 py-7">
-              <div className="cta-inner space-y-5">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
-                  Talk to us
-                </p>
-                <h2 className="heading-2 text-white">Need help picking the right solution path?</h2>
-                <p className="text-sm text-white/74">
-                  Bring the use case, delivery constraint, and target outcome. We will suggest the
-                  best first release and the architecture to support it.
-                </p>
-                <Link
-                  href="/contact"
-                  className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "w-full bg-white text-slate-900 hover:bg-white/92"
-                  )}
-                >
-                  Book Free Consultation
-                </Link>
-              </div>
-            </div>
+          <div className="space-y-2">
+            {solutionDetails.map((solution, index) => {
+              const Icon = capabilityIcons[index % capabilityIcons.length];
 
-            <div className="section-contrast rounded-[2rem] px-6 py-6">
-              <div className="space-y-4">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  Delivery infographic
-                </p>
-                <div className="space-y-3">
-                  {[
-                    {
-                      title: "Business workflow",
-                      detail: "Capture the actual approvals, handoffs, and bottlenecks.",
-                      icon: Workflow,
-                    },
-                    {
-                      title: "Data and intelligence",
-                      detail: "Map the events, decisions, dashboards, and AI support layers.",
-                      icon: BrainCircuit,
-                    },
-                    {
-                      title: "Controls and release",
-                      detail: "Bake in access rules, audit trails, and phased rollout discipline.",
-                      icon: ShieldCheck,
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4 compact-tile rounded-[1.4rem] px-4 py-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
-                        <item.icon className="h-4 w-4 icon-accent" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                        <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
-                      </div>
+              return (
+                <Link
+                  key={solution.slug}
+                  href={`/solutions/${solution.slug}`}
+                  className="group grid gap-5 border-t border-border/55 py-6 lg:grid-cols-[0.08fr,0.42fr,0.32fr,0.18fr]"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
+                    <Icon className="h-4 w-4 icon-accent" />
+                  </span>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-foreground">{solution.title}</h3>
+                    <p className="text-sm text-muted-foreground">{solution.summary}</p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">{solution.outcomes[0]}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {solution.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface/72"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  <span className="inline-flex items-center gap-2 self-start text-sm font-semibold text-foreground">
+                    Explore
+                    <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-16">
+        <div className="grid gap-10 border-y border-border/55 py-10 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Inside the work</p>
+            <h2 className="heading-2 text-foreground">What usually sits inside each solution area</h2>
+            <p className="body-md text-muted-foreground">
+              Use this as a working map of problems, outcomes, and delivery layers before you jump
+              into a deeper conversation.
+            </p>
+          </div>
+
+          <Accordion>
+            {solutionDetails.map((solution, index) => (
+              <AccordionItem
+                key={solution.slug}
+                title={solution.title}
+                meta={`Solution 0${index + 1}`}
+                defaultOpen={index === 0}
+              >
+                <div className="grid gap-8 lg:grid-cols-[0.52fr,0.48fr]">
+                  <div className="space-y-5">
+                    <p className="text-sm text-muted-foreground">{solution.intro}</p>
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground">Typical problems</p>
+                      {solution.typicalProblems.slice(0, 3).map((item) => (
+                        <div key={item} className="flex items-start gap-3">
+                          <ShieldCheck className="mt-0.5 h-4 w-4 icon-accent" />
+                          <p className="text-sm text-muted-foreground">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground">Expected outcomes</p>
+                      {solution.outcomes.slice(0, 3).map((item) => (
+                        <div key={item} className="flex items-start gap-3">
+                          <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
+                          <p className="text-sm text-muted-foreground">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {solution.successMetrics.map((metric) => (
+                        <span
+                          key={metric}
+                          className="rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary"
+                        >
+                          {metric}
+                        </span>
+                      ))}
+                    </div>
+
+                    <Link
+                      href={`/solutions/${solution.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+                    >
+                      Explore solution page
+                      <ArrowRight className="h-4 w-4 icon-accent" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </aside>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
       <section className="container py-12">
         <SocialProofBand
-          title="Enterprise credibility"
-          description="Repeatable results across audit, healthcare, supply chain, and industrial programs."
+          title="Selected results"
+          description="A few measurable outcomes from the kinds of systems and workflows we help teams improve."
           variant="compact"
         />
       </section>
