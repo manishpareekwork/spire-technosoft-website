@@ -97,6 +97,23 @@ const faqItems = [
   },
 ];
 
+const operatingRhythmIcons = [Sparkles, AppWindow, Workflow, BrainCircuit];
+
+const operatingRhythmPositions = [
+  "md:col-start-1 md:row-start-1 md:mr-8 md:mt-5",
+  "md:col-start-3 md:row-start-1 md:ml-8",
+  "md:col-start-1 md:row-start-3 md:mr-10 md:self-end",
+  "md:col-start-3 md:row-start-3 md:ml-6 md:self-end md:translate-y-6",
+];
+
+const deliverySignals = [
+  "Shared scope before build starts",
+  "Design and engineering move together",
+  "Usage and quality tracked from v1",
+];
+
+const releaseReadiness = ["Priorities aligned", "Usable workflows", "Telemetry wired"];
+
 export default function Home() {
   const { home, socialProof } = siteContent;
   const previewProjects = featuredProjects.slice(0, 3);
@@ -469,39 +486,136 @@ export default function Home() {
       </section>
 
       <section className="container py-16">
-        <div className="grid gap-12 border-y border-border/55 py-14 lg:grid-cols-[0.42fr,0.58fr] lg:items-start">
-          <blockquote className="space-y-5">
-            <Quote className="h-9 w-9 icon-accent opacity-60" />
-            <p className="text-3xl font-semibold leading-tight text-foreground">
-              &quot;{leadTestimonial.quote}&quot;
-            </p>
-            <div>
-              <p className="text-sm font-semibold text-foreground">{leadTestimonial.name}</p>
-              <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
-                {leadTestimonial.company}
-              </p>
-            </div>
-          </blockquote>
-
+        <div className="grid gap-10 border-y border-border/55 py-14 lg:grid-cols-[0.34fr,0.66fr] lg:items-center">
           <div className="space-y-6">
-            <p className="eyebrow">How we work</p>
-            <h2 className="heading-2 text-foreground">A lean delivery rhythm from idea to first release</h2>
-            <div className="space-y-6">
-              {home.operatingRhythm.steps.map((step, index) => (
-                <div
-                  key={step.title}
-                  className="grid gap-4 border-t border-border/55 pt-5 sm:grid-cols-[0.12fr,0.3fr,0.58fr]"
-                >
-                  <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    0{index + 1}
-                  </span>
-                  <div>
-                    <p className="text-base font-semibold text-foreground">{step.title}</p>
-                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-primary">{step.duration}</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{step.detail}</p>
-                </div>
+            <div className="space-y-4">
+              <p className="eyebrow">{home.operatingRhythm.eyebrow}</p>
+              <h2 className="heading-2 text-foreground">A lean delivery rhythm from idea to first release</h2>
+              <p className="body-md text-muted-foreground">{home.operatingRhythm.description}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {["Idea", "Scope", "Build", "Launch"].map((item) => (
+                <Badge key={item} variant="soft">
+                  {item}
+                </Badge>
               ))}
+            </div>
+
+            <Link href={home.operatingRhythm.cta.href} className={cn(buttonVariants({ size: "lg" }))}>
+              {home.operatingRhythm.cta.label}
+              <ArrowRight className="h-4 w-4 icon-inverse" />
+            </Link>
+
+            <div className="rounded-[1.9rem] border border-border/45 bg-white/68 p-5 shadow-soft backdrop-blur dark:bg-surface/76">
+              <div className="flex items-start gap-4">
+                <Quote className="mt-1 h-6 w-6 shrink-0 icon-accent opacity-70" />
+                <div className="space-y-3">
+                  <p className="text-base font-semibold leading-relaxed text-foreground">
+                    &quot;{leadTestimonial.quote}&quot;
+                  </p>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{leadTestimonial.name}</p>
+                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                      {leadTestimonial.company}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flow-stage rounded-[2.8rem] px-5 py-6 sm:px-7 sm:py-7">
+            <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.15]" />
+
+            <div className="relative z-10 space-y-6">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    Process flow
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    From rough brief to a first release that is usable, measurable, and ready to grow.
+                  </p>
+                </div>
+
+                <div className="inline-flex items-center gap-2 rounded-full border border-border/40 bg-white/78 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground shadow-soft backdrop-blur dark:bg-surface/76">
+                  <span className="h-2.5 w-2.5 rounded-full bg-accent [animation:flowPulse_2.8s_ease-in-out_infinite]" />
+                  Weekly decisions, visible progress
+                </div>
+              </div>
+
+              <div className="flow-orbit grid gap-4 md:min-h-[34rem] md:grid-cols-[minmax(0,1fr)_minmax(240px,0.82fr)_minmax(0,1fr)] md:grid-rows-[auto_1fr_auto]">
+                <div className="pointer-events-none absolute inset-0 hidden md:block">
+                  <div className="absolute inset-x-[18%] top-[23%] h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+                  <div className="absolute inset-x-[18%] bottom-[21%] h-px bg-gradient-to-r from-transparent via-accent/35 to-transparent" />
+                  <div className="absolute left-1/2 top-[23%] h-[56%] w-px -translate-x-1/2 bg-gradient-to-b from-primary/30 via-accent/35 to-transparent" />
+                  <div className="flow-trace" />
+                </div>
+
+                {home.operatingRhythm.steps.map((step, index) => {
+                  const Icon = operatingRhythmIcons[index % operatingRhythmIcons.length];
+
+                  return (
+                    <article
+                      key={step.title}
+                      className={cn(
+                        "flow-node rounded-[1.8rem] p-5 animate-softFade",
+                        operatingRhythmPositions[index]
+                      )}
+                      style={{ animationDelay: `${index * 140}ms` }}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
+                          <Icon className="h-4 w-4 icon-accent" />
+                        </span>
+                        <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                          0{index + 1}
+                        </span>
+                      </div>
+
+                      <div className="mt-4 space-y-2">
+                        <p className="text-[0.68rem] uppercase tracking-[0.18em] text-primary">
+                          {step.duration}
+                        </p>
+                        <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground">{step.detail}</p>
+                      </div>
+                    </article>
+                  );
+                })}
+
+                <div className="flow-chip relative rounded-[2rem] px-5 py-6 md:col-start-2 md:row-start-2 md:self-center">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    First useful release
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold text-foreground">
+                    Shipped with enough clarity to learn fast, not just launch once.
+                  </h3>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {releaseReadiness.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-border/40 bg-white/70 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground dark:bg-surface/72"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {deliverySignals.map((signal) => (
+                  <div
+                    key={signal}
+                    className="rounded-[1.2rem] border border-border/40 bg-white/62 px-4 py-3 text-sm text-muted-foreground shadow-soft backdrop-blur dark:bg-surface/72"
+                  >
+                    {signal}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

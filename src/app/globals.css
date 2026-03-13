@@ -231,6 +231,32 @@
   }
 }
 
+@keyframes flowPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes flowTrail {
+  0% {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+  18% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(112%);
+  }
+}
+
 @layer utilities {
   .display-hero {
     font-size: clamp(3.2rem, 6vw + 0.8rem, 6.7rem);
@@ -487,5 +513,112 @@
     bottom: 0;
     width: 1px;
     background: linear-gradient(180deg, hsla(var(--primary), 0.3), hsla(var(--border), 0.35));
+  }
+
+  .flow-stage {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid hsla(var(--border), 0.42);
+    background:
+      radial-gradient(circle at top left, hsla(var(--accent), 0.12), transparent 18rem),
+      radial-gradient(circle at bottom right, hsla(var(--primary), 0.12), transparent 20rem),
+      linear-gradient(180deg, hsla(var(--surface), 0.82) 0%, hsla(var(--surface-2), 0.68) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .flow-stage::before {
+    content: "";
+    position: absolute;
+    inset: auto auto -18% -10%;
+    height: 14rem;
+    width: 14rem;
+    border-radius: 999px;
+    background: hsla(var(--primary), 0.11);
+    filter: blur(54px);
+    animation: driftGlow 12s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  .flow-orbit {
+    position: relative;
+  }
+
+  .flow-orbit::before {
+    content: "";
+    position: absolute;
+    inset: 14% 12%;
+    border: 1px dashed hsla(var(--primary), 0.12);
+    border-radius: 2.2rem;
+    opacity: 0.55;
+  }
+
+  .flow-node {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsla(var(--border), 0.42);
+    background:
+      linear-gradient(180deg, hsla(var(--surface), 0.94) 0%, hsla(var(--surface-2), 0.76) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .flow-node::before {
+    content: "";
+    position: absolute;
+    inset: auto -8% -20% auto;
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 999px;
+    background: hsla(var(--accent), 0.12);
+    filter: blur(24px);
+    opacity: 0.75;
+  }
+
+  .flow-chip {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsla(var(--border), 0.34);
+    background:
+      radial-gradient(circle at top right, hsla(var(--accent), 0.14), transparent 12rem),
+      linear-gradient(180deg, hsla(var(--surface), 0.96) 0%, hsla(var(--surface-2), 0.82) 100%);
+    box-shadow: var(--shadow-float);
+  }
+
+  .flow-chip::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 999px;
+    background: hsl(var(--accent));
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 0 hsla(var(--accent), 0.32);
+    animation: flowPulse 2.8s ease-in-out infinite;
+  }
+
+  .flow-trace {
+    position: absolute;
+    left: 19%;
+    right: 19%;
+    top: calc(50% - 1px);
+    height: 2px;
+    overflow: hidden;
+  }
+
+  .flow-trace::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 7rem;
+    background: linear-gradient(90deg, transparent, hsla(var(--accent), 0.85), hsla(var(--primary), 0.65), transparent);
+    filter: blur(1px);
+    animation: flowTrail 4s linear infinite;
   }
 }
