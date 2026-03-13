@@ -101,7 +101,13 @@ const faqItems = [
 export default function Home() {
   const { home, socialProof } = siteContent;
   const previewProjects = featuredProjects.slice(0, 3);
+  const heroPrimary = previewProjects[0];
+  const heroSecondary = previewProjects[1];
+  const heroTertiary = previewProjects[2];
   const leadTestimonial = socialProof.testimonials[0];
+  const heroRecentProjects = [heroSecondary, heroTertiary].filter(
+    (item): item is NonNullable<typeof item> => Boolean(item)
+  );
 
   const structuredData = [
     {
@@ -186,86 +192,71 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="section-contrast rounded-[2.7rem] p-4 sm:p-5">
-            <div className="grid gap-3 sm:grid-cols-[1.1fr,0.9fr]">
-              <Link
-                href={`/portfolio/${previewProjects[0]?.project.slug ?? ""}`}
-                className="group relative min-h-[320px] overflow-hidden rounded-[2rem] bg-surface-2"
-              >
-                {previewProjects[0] ? (
-                  <>
-                    <Image
-                      src={previewProjects[0].project.image}
-                      alt={previewProjects[0].project.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      sizes="(min-width: 640px) 32vw, 100vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-slate-950/6 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 rounded-[1.2rem] bg-white/84 px-4 py-3 shadow-soft backdrop-blur dark:bg-surface/82">
+          <div className="section-contrast rounded-[2.9rem] p-4 sm:p-6">
+            <div className="space-y-4">
+              {heroPrimary ? (
+                <Link
+                  href={`/portfolio/${heroPrimary.project.slug}`}
+                  className="group relative block min-h-[320px] overflow-hidden rounded-[2.3rem] bg-surface-2 sm:min-h-[420px]"
+                >
+                  <Image
+                    src={heroPrimary.project.image}
+                    alt={heroPrimary.project.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    sizes="(min-width: 1024px) 48vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-slate-950/10 to-transparent" />
+                  <div className="absolute inset-x-4 bottom-4 rounded-[1.4rem] bg-white/84 px-5 py-4 shadow-soft backdrop-blur dark:bg-surface/82">
+                    <div className="flex flex-wrap items-center gap-3">
                       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
                         Featured build
                       </p>
-                      <p className="mt-2 text-base font-semibold text-foreground">{previewProjects[0].title}</p>
+                      <span className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                        {heroPrimary.metric}
+                      </span>
                     </div>
-                  </>
-                ) : null}
-              </Link>
-
-              <div className="grid gap-3">
-                {previewProjects.slice(1).map(({ project, title, metric }) => (
-                  <Link
-                    key={project.slug}
-                    href={`/portfolio/${project.slug}`}
-                    className="group relative min-h-[154px] overflow-hidden rounded-[1.8rem] bg-surface-2"
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      sizes="(min-width: 640px) 24vw, 100vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/58 via-slate-950/10 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 rounded-[1rem] bg-black/34 px-3 py-2 backdrop-blur">
-                      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/68">
-                        {metric}
-                      </p>
-                      <p className="mt-1 text-sm font-semibold text-white">{title}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {[
-                {
-                  title: "Web products",
-                  detail: "Platforms, portals, and dashboards shaped around actual workflows.",
-                  icon: AppWindow,
-                },
-                {
-                  title: "Mobile apps",
-                  detail: "Consumer and operational apps designed for clarity and retention.",
-                  icon: Smartphone,
-                },
-                {
-                  title: "AI features",
-                  detail: "Useful AI layers only where they improve speed or decision-making.",
-                  icon: BrainCircuit,
-                },
-              ].map((item) => (
-                <div key={item.title} className="compact-tile rounded-[1.5rem] px-4 py-4">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
-                      <item.icon className="h-4 w-4 icon-accent" />
-                    </span>
-                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                    <p className="mt-2 text-lg font-semibold text-foreground">{heroPrimary.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{heroPrimary.summary}</p>
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{item.detail}</p>
+                </Link>
+              ) : null}
+
+              <div className="grid gap-4 lg:grid-cols-[0.64fr,0.36fr]">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {socialProof.resultsCallouts.map((callout) => (
+                    <div key={callout.metric} className="compact-tile rounded-[1.5rem] px-4 py-4">
+                      <p className="text-lg font-semibold text-foreground">{callout.metric}</p>
+                      <p className="mt-2 text-sm text-muted-foreground">{callout.detail}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+
+                <div className="rounded-[1.8rem] border border-border/40 bg-white/72 px-5 py-5 shadow-soft backdrop-blur dark:bg-surface/76">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    Recent work
+                  </p>
+                  <div className="mt-4 space-y-4">
+                    {heroRecentProjects.map((item) => (
+                      <Link
+                        key={item.project.slug}
+                        href={`/portfolio/${item.project.slug}`}
+                        className="group block border-t border-border/45 pt-4 first:border-t-0 first:pt-0"
+                      >
+                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                          {item.metric}
+                        </p>
+                        <p className="mt-1 text-sm font-semibold text-foreground">{item.title}</p>
+                        <p className="mt-1 text-sm text-muted-foreground">{item.summary}</p>
+                        <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                          View case study
+                          <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -336,38 +327,43 @@ export default function Home() {
       <section className="container py-20">
         <div className="space-y-5">
           <p className="eyebrow">Selected work</p>
-          <h2 className="heading-2 text-foreground">Measured outcomes without the usual case-study clutter</h2>
+          <h2 className="heading-2 text-foreground">A few recent builds with clear outcomes</h2>
         </div>
 
-        <div className="mt-8 space-y-3">
-          {featuredProjects.map(({ project, title, summary, metric, href }) => (
-            <article
-              key={project.slug}
-              className="grid gap-6 border-t border-border/55 py-8 lg:grid-cols-[240px,1fr] lg:items-center"
-            >
-              <Link href={href} className="group relative min-h-[180px] overflow-hidden rounded-[1.8rem] bg-surface-2">
+        <div className="mt-8 grid gap-10 lg:grid-cols-3">
+          {featuredProjects.map(({ project, title, summary, metric, href }, index) => (
+            <article key={project.slug} className="space-y-5">
+              <Link
+                href={href}
+                className={cn(
+                  "group relative block overflow-hidden rounded-[2rem] bg-surface-2",
+                  index === 0 ? "aspect-[4/3]" : "aspect-[16/11]"
+                )}
+              >
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="240px"
+                  sizes="(min-width: 1024px) 28vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/42 via-transparent to-transparent" />
               </Link>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge variant="soft">{metric}</Badge>
                   <span className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
                     {project.domain}
                   </span>
                 </div>
+
                 <div className="space-y-2">
                   <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
                   <p className="text-sm text-muted-foreground">{summary}</p>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-2">
+
+                <div className="space-y-3 border-t border-border/55 pt-4">
                   {project.outcomes.slice(0, 2).map((outcome) => (
                     <div key={outcome} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
@@ -375,8 +371,9 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-6">
-                  {project.metrics.slice(0, 3).map((item) => (
+
+                <div className="flex flex-wrap gap-6 border-t border-border/55 pt-4">
+                  {project.metrics.slice(0, 2).map((item) => (
                     <div key={item.label}>
                       <p className="text-2xl font-semibold text-foreground">{item.value}</p>
                       <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
@@ -385,6 +382,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
+
                 <Link href={href} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
                   View case study
                   <ArrowRight className="h-4 w-4 icon-accent" />
@@ -417,14 +415,14 @@ export default function Home() {
 
             {featuredIndustries.map((industry) => (
               <TabsContent key={industry.slug} value={industry.slug}>
-                <div className="grid gap-6 border-t border-border/55 pt-6 lg:grid-cols-[260px,1fr] lg:items-start">
-                  <div className="relative min-h-[190px] overflow-hidden rounded-[1.8rem] bg-surface-2">
+                <div className="grid gap-6 border-t border-border/55 pt-6 lg:grid-cols-[320px,1fr] lg:items-start">
+                  <div className="relative min-h-[240px] overflow-hidden rounded-[1.9rem] bg-surface-2 lg:min-h-[320px]">
                     <Image
                       src={industry.image}
                       alt={`${industry.title} preview`}
                       fill
                       className="object-cover"
-                      sizes="260px"
+                      sizes="320px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/42 via-transparent to-transparent" />
                   </div>
