@@ -16,7 +16,6 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CountUpText } from "@/components/ui/count-up-text";
 import { ParticleBackground } from "@/components/ui/particle-background";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { siteContent } from "@/content/site";
 import { industryProfiles } from "@/data/industries";
 import { insightArticles } from "@/data/insights";
@@ -280,7 +279,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-20">
+      <section className="container py-16">
         <div className="grid gap-12 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">What we build</p>
@@ -324,7 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-20">
+      <section className="container pb-12 pt-16">
         <div className="space-y-5">
           <p className="eyebrow">Selected work</p>
           <h2 className="heading-2 text-foreground">A few recent builds with clear outcomes</h2>
@@ -393,95 +392,64 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-20">
-        <div className="grid gap-10 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
+      <section className="container py-16">
+        <div className="grid gap-10 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">Where we help</p>
-            <h2 className="heading-2 text-foreground">Different industries, same standard of product thinking</h2>
+            <h2 className="heading-2 text-foreground">Different industries, different pressure points</h2>
             <p className="body-md text-muted-foreground">
-              The workflows change from one team to another. The job is still the same: understand
-              the context, simplify the experience, and ship something people can rely on.
+              Instead of hiding this behind tabs, here is a quicker read on the kinds of teams and
+              workflows we often step into.
             </p>
           </div>
 
-          <Tabs defaultValue={featuredIndustries[0].slug}>
-            <TabsList>
-              {featuredIndustries.map((industry) => (
-                <TabsTrigger key={industry.slug} value={industry.slug}>
-                  {industry.title.split(" & ")[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {featuredIndustries.map((industry) => (
-              <TabsContent key={industry.slug} value={industry.slug}>
-                <div className="grid gap-6 border-t border-border/55 pt-6 lg:grid-cols-[320px,1fr] lg:items-start">
-                  <div className="relative min-h-[240px] overflow-hidden rounded-[1.9rem] bg-surface-2 lg:min-h-[320px]">
-                    <Image
-                      src={industry.image}
-                      alt={`${industry.title} preview`}
-                      fill
-                      className="object-cover"
-                      sizes="320px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/42 via-transparent to-transparent" />
-                  </div>
-
-                  <div className="space-y-5">
-                    <div className="space-y-2">
-                      <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">{industry.title}</p>
-                      <h3 className="text-2xl font-semibold text-foreground">{industry.summary}</h3>
-                    </div>
-
-                    <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-3">
-                        <p className="text-sm font-semibold text-foreground">What teams usually need</p>
-                        {industry.focusAreas.slice(0, 3).map((item) => (
-                          <div key={item} className="flex items-start gap-3">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
-                            <p className="text-sm text-muted-foreground">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="space-y-3">
-                        <p className="text-sm font-semibold text-foreground">What we often build</p>
-                        {industry.typicalPrograms.slice(0, 3).map((item) => (
-                          <div key={item} className="flex items-start gap-3">
-                            <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
-                            <p className="text-sm text-muted-foreground">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {industry.successMetrics.map((metric) => (
-                        <span
-                          key={metric}
-                          className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
-                        >
-                          {metric}
-                        </span>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={`/industries/${industry.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
-                    >
-                      Explore industry page
-                      <ArrowRight className="h-4 w-4 icon-accent" />
-                    </Link>
-                  </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {featuredIndustries.map((industry, index) => (
+              <article
+                key={industry.slug}
+                className={cn(
+                  "space-y-4 border-t border-border/55 pt-5",
+                  index % 2 === 1 && "md:translate-y-8"
+                )}
+              >
+                <div className="relative aspect-[4/3] max-w-[320px] overflow-hidden rounded-[1.8rem] bg-surface-2">
+                  <Image
+                    src={industry.image}
+                    alt={`${industry.title} preview`}
+                    fill
+                    className="object-cover"
+                    sizes="320px"
+                  />
                 </div>
-              </TabsContent>
+
+                <div className="space-y-3">
+                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">{industry.title}</p>
+                  <h3 className="text-xl font-semibold text-foreground">{industry.summary}</h3>
+                </div>
+
+                <div className="grid gap-4">
+                  {industry.focusAreas.slice(0, 2).map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                      <p className="text-sm text-muted-foreground">{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href={`/industries/${industry.slug}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+                >
+                  Explore industry page
+                  <ArrowRight className="h-4 w-4 icon-accent" />
+                </Link>
+              </article>
             ))}
-          </Tabs>
+          </div>
         </div>
       </section>
 
-      <section className="container py-20">
+      <section className="container py-16">
         <div className="grid gap-12 border-y border-border/55 py-14 lg:grid-cols-[0.42fr,0.58fr] lg:items-start">
           <blockquote className="space-y-5">
             <Quote className="h-9 w-9 icon-accent opacity-60" />
@@ -520,48 +488,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-20">
-        <div className="grid gap-12 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
-          <div className="space-y-4">
+      <section className="container py-16">
+        <div className="grid gap-14 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
+          <div className="space-y-5">
             <p className="eyebrow">Insights</p>
             <h2 className="heading-2 text-foreground">Useful thinking on software, AI, and product delivery</h2>
-            <p className="body-md text-muted-foreground">
-              Articles and playbooks for teams exploring a new product, modernizing an existing
-              system, or figuring out where AI actually fits.
-            </p>
-          </div>
-
-          <div className="space-y-5">
-            {featuredInsights.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/insights/${article.slug}`}
-                className="group block border-t border-border/55 py-5"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="space-y-2">
-                    <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">{article.category}</p>
-                    <h3 className="text-xl font-semibold text-foreground">{article.title}</h3>
-                    <p className="text-sm text-muted-foreground">{article.excerpt}</p>
+            <div className="space-y-5">
+              {featuredInsights.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/insights/${article.slug}`}
+                  className="group block border-t border-border/55 py-5"
+                >
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="space-y-2">
+                      <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">{article.category}</p>
+                      <h3 className="text-xl font-semibold text-foreground">{article.title}</h3>
+                      <p className="text-sm text-muted-foreground">{article.excerpt}</p>
+                    </div>
+                    <ArrowRight className="h-5 w-5 shrink-0 icon-accent transition-transform group-hover:translate-x-1" />
                   </div>
-                  <ArrowRight className="h-5 w-5 shrink-0 icon-accent transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container py-20">
-        <div className="grid gap-10 lg:grid-cols-[0.34fr,0.66fr] lg:items-start">
-          <div className="space-y-4">
-            <p className="eyebrow">FAQ</p>
-            <h2 className="heading-2 text-foreground">Questions teams ask before the first call</h2>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-5 rounded-[2rem] border border-border/45 bg-white/65 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/72">
+            <div className="space-y-2">
+              <p className="eyebrow">FAQ</p>
+              <h2 className="text-2xl font-semibold text-foreground">Questions teams ask before the first call</h2>
+            </div>
             {faqItems.map((item) => (
-              <div key={item.question} className="border-t border-border/55 py-5">
+              <div key={item.question} className="border-t border-border/45 pt-4">
                 <h3 className="text-lg font-semibold text-foreground">{item.question}</h3>
                 <p className="mt-3 text-sm text-muted-foreground">{item.answer}</p>
               </div>
