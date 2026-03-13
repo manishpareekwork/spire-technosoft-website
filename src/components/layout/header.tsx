@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { Drawer } from "@/components/ui/drawer";
 import { siteContent } from "@/content/site";
 
@@ -62,16 +63,16 @@ export function Header(): React.ReactElement {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        "sticky top-0 z-50 w-full border-b transition-all duration-500",
         scrolled
-          ? "border-border/40 bg-background/90 shadow-soft backdrop-blur-xl"
-          : "border-transparent bg-background/70"
+          ? "border-border/40 bg-background/70 shadow-soft backdrop-blur-2xl"
+          : "border-transparent bg-transparent"
       )}
     >
       <div
         className={cn(
-          "container flex items-center justify-between transition-all duration-300",
-          scrolled ? "h-14" : "h-16"
+          "container flex items-center justify-between transition-all duration-500",
+          scrolled ? "h-16" : "h-20"
         )}
       >
         {/* Logo and Company Name */}
@@ -80,19 +81,19 @@ export function Header(): React.ReactElement {
           className="group mr-6 flex items-center gap-3"
           aria-label="Spire Technosoft Home"
         >
-          <div className="flex items-center gap-3 rounded-xl bg-white p-2 shadow-md ring-1 ring-primary/10 transition-all duration-300 group-hover:shadow-lg group-hover:ring-primary/30 dark:bg-card dark:ring-primary/20">
+          <div className="flex items-center gap-3 transition-all duration-500">
             <Image
               src="/images/logo/24x24.png"
               alt="Spire Technosoft logo"
-              width={40}
-              height={40}
-              className="rounded-lg"
+              width={34}
+              height={34}
+              className="rounded-lg transform transition-transform group-hover:scale-105"
             />
-            <div className="flex flex-col leading-none">
-              <span className="font-bold uppercase tracking-wide text-foreground">
+            <div className="flex flex-col leading-tight pr-2">
+              <span className="font-extrabold uppercase tracking-widest text-foreground text-sm drop-shadow-sm">
                 Spire Technosoft
               </span>
-              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground/80">
                 Product Engineering Studio
               </span>
             </div>
@@ -100,35 +101,39 @@ export function Header(): React.ReactElement {
         </Link>
 
         {/* Main Navigation */}
-        <nav className="hidden flex-1 items-center justify-end gap-6 text-sm font-semibold md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "relative text-sm transition-all duration-200 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full",
-                isActive(link.href)
-                  ? "text-primary after:w-full"
-                  : "text-foreground/70"
-              )}
-              aria-current={isActive(link.href) ? "page" : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button asChild size="sm" className="ml-2 px-5">
-            <Link href={siteContent.nav.ctaHref}>{siteContent.nav.ctaLabel}</Link>
-          </Button>
-          <ThemeToggle />
+        <nav className="hidden flex-1 items-center justify-end gap-1 md:flex">
+          <div className="flex items-center gap-6 mr-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative py-2 text-[13px] font-bold tracking-widest uppercase transition-all duration-300",
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                )}
+                aria-current={isActive(link.href) ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <Link href={siteContent.nav.ctaHref} className={cn(buttonVariants({ size: "sm" }), "ml-2 px-6")}>
+            {siteContent.nav.ctaLabel}
+          </Link>
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
         </nav>
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
             aria-label="Toggle navigation"
-            className="rounded-md border border-border p-2 text-foreground"
+            className="p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {mobileOpen ? <X className="h-5 w-5 icon-muted" /> : <Menu className="h-5 w-5 icon-muted" />}
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -138,29 +143,27 @@ export function Header(): React.ReactElement {
         side="right"
         title="Navigate"
         description="Explore Spire Technosoft"
-        className="md:hidden"
+        className="md:hidden glass-effect border-l border-border/40"
       >
-        <nav className="flex flex-col gap-3 text-base font-semibold">
+        <nav className="flex flex-col gap-3 text-base font-bold mt-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-xl px-4 py-3 transition-colors",
+                "py-4 text-xl border-b border-border/30 transition-all duration-300 tracking-widest uppercase",
                 isActive(link.href)
-                  ? "bg-primary/10 text-primary"
-                  : "text-foreground/80 hover:bg-muted/60"
+                  ? "text-primary"
+                  : "text-foreground/80 hover:text-foreground"
               )}
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <Button asChild size="lg" className="mt-4 w-full">
-            <Link href={siteContent.nav.ctaHref} onClick={() => setMobileOpen(false)}>
-              {siteContent.nav.mobileCtaLabel}
-            </Link>
-          </Button>
+          <Link href={siteContent.nav.ctaHref} onClick={() => setMobileOpen(false)} className={cn(buttonVariants({ size: "lg" }), "mt-8 w-full h-14 text-lg")}>
+            {siteContent.nav.mobileCtaLabel}
+          </Link>
         </nav>
       </Drawer>
     </header>

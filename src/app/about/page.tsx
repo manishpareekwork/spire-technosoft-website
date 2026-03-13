@@ -124,7 +124,7 @@ export default function AboutPage() {
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 {about.proof.capabilities.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                    <span className="mt-1 h-2 w-2 rounded-sm bg-primary" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -145,7 +145,7 @@ export default function AboutPage() {
 
       {/* Final CTA */}
       <section className="container pb-24">
-        <div className="cta-band rounded-[3rem] px-8 py-20 text-center shadow-float">
+        <div className="cta-band rounded-3xl px-8 py-16 text-center shadow-float">
           <div className="cta-inner max-w-4xl mx-auto space-y-8">
             <div className="space-y-3">
               <p className="eyebrow text-white/60">{about.cta.eyebrow}</p>

@@ -98,8 +98,8 @@ export function PortfolioGrid(): React.ReactElement {
                       onClick={() => updateFilter(key, option)}
                       className={`rounded-full border px-3 py-1 text-xs font-semibold transition-all ${
                         filters[key] === option
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border/40 text-muted-foreground hover:text-foreground"
+                          ? "border-transparent bg-gradient-to-r from-primary/10 to-secondary/10 text-primary shadow-sm"
+                          : "border-transparent bg-surface-2/50 text-muted-foreground hover:text-foreground hover:bg-surface-2"
                       }`}
                     >
                       {option === "All" ? `All ${filterLabels[key]}s` : option}
@@ -116,7 +116,7 @@ export function PortfolioGrid(): React.ReactElement {
             {hasActiveFilters && (
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-semibold text-primary"
+                className="inline-flex items-center gap-2 rounded-full border-transparent bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 text-xs font-semibold text-primary shadow-sm hover:shadow-md transition-shadow"
                 onClick={clearFilters}
               >
                 <Filter className="h-4 w-4 icon-accent" />

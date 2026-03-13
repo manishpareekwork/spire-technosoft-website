@@ -18,7 +18,7 @@ export const industryProfiles: IndustryProfile[] = [
     slug: "finance",
     title: "Finance & Capital Markets",
     summary: "Analytics platforms, risk dashboards, and secure digital workbenches for fast-moving markets.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/finance-dashboard.png",
     focusAreas: [
       "Real-time market analytics and data visualization",
       "Regulatory reporting and audit readiness",
@@ -39,7 +39,7 @@ export const industryProfiles: IndustryProfile[] = [
     slug: "healthcare",
     title: "Healthcare & Wellness",
     summary: "Patient-first digital ecosystems with HIPAA-aligned security and caregiver workflows.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/healthcare-dashboard.png",
     focusAreas: [
       "Patient engagement and adherence programs",
       "Care-team coordination and scheduling",
@@ -61,7 +61,7 @@ export const industryProfiles: IndustryProfile[] = [
     slug: "manufacturing",
     title: "Manufacturing & Quality",
     summary: "Audit, inspection, and quality platforms that connect plants, suppliers, and regulators.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/manufacturing-dashboard.png",
     focusAreas: [
       "Inspection workflows and evidence capture",
       "Supplier quality programs and CAPA automation",
@@ -83,7 +83,7 @@ export const industryProfiles: IndustryProfile[] = [
     slug: "energy",
     title: "Energy & Utilities",
     summary: "IoT-powered dashboards and predictive maintenance for grid and asset operations.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/energy-dashboard.png",
     focusAreas: [
       "Operational intelligence for field and control-room teams",
       "Predictive maintenance and asset reliability",
@@ -104,7 +104,7 @@ export const industryProfiles: IndustryProfile[] = [
     slug: "retail-fmcg",
     title: "Retail & FMCG",
     summary: "Supplier onboarding, compliance, and quality workflows across global retail networks.",
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/retail-dashboard.png",
     focusAreas: [
       "Supplier onboarding and compliance",
       "Quality inspection and product testing",

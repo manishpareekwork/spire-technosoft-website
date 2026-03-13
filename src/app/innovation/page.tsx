@@ -112,7 +112,7 @@ export default function InnovationPage(): React.ReactElement {
         <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
           <div className="relative">
             <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
+              <div className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2">
                 <Sparkles className="h-4 w-4 icon-accent" />
                 <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">
                   Innovation Lab
@@ -151,7 +151,7 @@ export default function InnovationPage(): React.ReactElement {
 
       {/* Demo Section */}
       <section className="container animate-softFade py-20">
-        <div className="space-y-16">
+        <div className="space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 px-4">
             <div className="space-y-4 text-left">
               <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Lab Artifacts</h2>
@@ -170,12 +170,12 @@ export default function InnovationPage(): React.ReactElement {
                 key={visual.title} 
                 className="interactive-card p-10 space-y-10 group text-left"
               >
-                <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                <div className="h-20 w-20 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
                   <visual.icon className="h-10 w-10 icon-accent" />
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{visual.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-primary/20 pl-6">"{visual.caption}"</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-transparent bg-gradient-to-b from-primary/20 to-secondary/10 bg-no-repeat bg-[length:4px_100%] pl-6">"{visual.caption}"</p>
                 </div>
                 <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary pt-4">
                   <MonitorPlay className="h-5 w-5 icon-accent" /> Explore Interactive Blueprint
@@ -187,8 +187,8 @@ export default function InnovationPage(): React.ReactElement {
       </section>
 
       {/* Collaboration Roadmap */}
-      <section className="container animate-softFade py-24">
-        <div className="section-shell bg-white rounded-[3rem] p-12 lg:p-24 space-y-20 overflow-hidden text-center shadow-2xl">
+      <section className="container animate-softFade py-20">
+        <div className="section-shell bg-surface-2 rounded-3xl p-10 lg:p-16 space-y-16 overflow-hidden text-center shadow-2xl">
           <div className="relative z-10 space-y-8">
             <h2 className="text-4xl font-extrabold md:text-7xl text-secondary">Moving Ideas to Production</h2>
             <p className="max-w-3xl mx-auto text-xl text-muted-foreground leading-relaxed">
@@ -217,7 +217,7 @@ export default function InnovationPage(): React.ReactElement {
 
       {/* Thinking Pieces */}
       <section className="container animate-softFade py-32">
-        <div className="space-y-16">
+        <div className="space-y-12">
           <div className="space-y-4 px-4 text-left">
             <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Lab Insights</h2>
             <p className="text-muted-foreground text-xl leading-relaxed">Thinking and playbooks to guide your digital transformation.</p>
@@ -231,7 +231,7 @@ export default function InnovationPage(): React.ReactElement {
               >
                 <div className="space-y-8">
                   <div className="flex items-center justify-between">
-                    <Badge variant="outline" className="text-[10px] uppercase font-black tracking-[0.2em] text-primary border-primary/20 px-3 py-1">
+                    <Badge variant="outline" className="text-[10px] uppercase font-black tracking-[0.2em] text-primary border-transparent bg-gradient-to-r from-primary/10 to-secondary/10 px-3 py-1 shadow-sm">
                       {piece.label}
                     </Badge>
                     <piece.icon className="h-6 w-6 icon-muted group-hover:text-primary transition-colors" />
@@ -253,8 +253,8 @@ export default function InnovationPage(): React.ReactElement {
       </section>
 
       {/* Final CTA */}
-      <section className="container animate-softFade pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+      <section className="container animate-softFade pb-24">
+        <div className="cta-band rounded-3xl px-8 py-16 text-center shadow-float">
           <div className="cta-inner max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
               <p className="text-xs font-black uppercase tracking-[0.5em] text-white/50">Rapid Validation</p>
@@ -264,7 +264,7 @@ export default function InnovationPage(): React.ReactElement {
               </p>
             </div>
             <div className="flex justify-center pt-4">
-              <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
+              <Button asChild size="lg" className="h-14 rounded-xl bg-white text-primary px-12 text-lg font-bold group shadow-xl hover:bg-white/95 border-none">
                 <a href="mailto:innovation@spiretechnosoft.com?subject=Lab%20Sprint%20Inquiry" className="flex items-center gap-3">
                   Request Sprint Brochure <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                 </a>

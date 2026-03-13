@@ -99,7 +99,7 @@ export default function ContactPage() {
             return (
               <div key={step.title} className="surface-card rounded-3xl p-6 shadow-soft text-left">
                 <div className="flex items-center justify-between">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary flex items-center justify-center shadow-sm">
                     <Icon className="h-6 w-6 icon-accent" />
                   </div>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">Step 0{index + 1}</span>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     href={point.href}
                     className="surface-card flex items-center gap-6 rounded-2xl p-5 shadow-soft"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 flex items-center justify-center text-primary shadow-sm">
                       <point.icon className="h-6 w-6 icon-accent" />
                     </div>
                     <div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="h-12 w-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all border border-primary/10"
+                      className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 text-primary flex items-center justify-center hover:from-primary hover:to-secondary hover:text-white transition-all border-transparent shadow-sm hover:shadow-md"
                       title={link.label}
                     >
                       <link.icon className="h-5 w-5 icon-accent" />

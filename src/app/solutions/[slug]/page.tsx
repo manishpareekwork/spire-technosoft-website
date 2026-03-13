@@ -29,8 +29,9 @@ export function generateStaticParams() {
   return solutionDetails.map((solution) => ({ slug: solution.slug }));
 }
 
-export function generateMetadata({ params }: SolutionPageProps): Metadata {
-  const solution = getSolutionDetail(params.slug);
+export async function generateMetadata({ params }: SolutionPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const solution = getSolutionDetail(slug);
   if (!solution) {
     return {
       title: "Solution | Spire Technosoft",
@@ -43,8 +44,9 @@ export function generateMetadata({ params }: SolutionPageProps): Metadata {
   };
 }
 
-export default function SolutionDetailPage({ params }: SolutionPageProps): React.ReactElement {
-  const solution = getSolutionDetail(params.slug);
+export default async function SolutionDetailPage({ params }: SolutionPageProps) {
+  const { slug } = await params;
+  const solution = getSolutionDetail(slug);
 
   if (!solution) {
     notFound();
@@ -60,10 +62,10 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Back to Solutions</span>
           </Link>
           
-          <div className="relative overflow-hidden rounded-[3rem] bg-white px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
+          <div className="relative overflow-hidden rounded-3xl bg-surface-2 px-8 py-16 text-center md:px-16 shadow-2xl border border-border/40">
             <div className="relative z-10 max-w-4xl mx-auto space-y-10">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
+                <div className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-1.5">
                   <Sparkles className="h-4 w-4 icon-accent" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Solution Portfolio</p>
                 </div>
@@ -76,12 +78,12 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               </div>
 
               <div className="flex flex-wrap justify-center gap-6 pt-4">
-                <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
+                <Button asChild size="lg" className="h-14 rounded-xl bg-primary text-white hover:text-white px-10 text-lg font-bold group shadow-xl hover:bg-secondary border-none">
                   <Link href="/contact" className="flex items-center gap-3">
                     Book Discovery Call <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="h-16 rounded-full border-primary/10 text-primary px-12 text-lg font-bold hover:bg-primary/5">
+                <Button asChild size="lg" variant="outline" className="h-14 rounded-xl border-border-strong bg-surface/50 text-foreground px-10 text-lg font-bold hover:shadow-md hover:bg-surface-2 transition-all">
                   <a href="#architecture">View Architecture</a>
                 </Button>
               </div>
@@ -92,8 +94,8 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
 
       {/* Intro & Problems Section */}
       <section className="container animate-softFade py-20">
-        <div className="grid gap-16 lg:grid-cols-[1.2fr,1fr] text-left">
-          <div className="space-y-16">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr,1fr] text-left">
+          <div className="space-y-12">
             <div className="space-y-8">
               <h2 className="text-4xl font-extrabold text-secondary tracking-tight">Platform Narrative</h2>
               <p className="text-xl text-muted-foreground leading-relaxed font-medium">
@@ -101,7 +103,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
                 {solution.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-2 rounded-full">
+                  <span key={tag} className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-2 rounded-lg">
                     {tag}
                   </span>
                 ))}
@@ -127,7 +129,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
           </div>
 
           <div className="space-y-12">
-            <div className="interactive-card bg-white p-10 space-y-10 shadow-2xl">
+            <div className="interactive-card p-10 space-y-10 shadow-float border-accent/20">
               <h3 className="text-3xl font-extrabold text-secondary text-center tracking-tight">Impact Metrics</h3>
               <div className="grid gap-6">
                 {solution.successMetrics.map((metric, index) => (
@@ -167,10 +169,10 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
       </section>
 
       {/* Architecture Section */}
-      <section id="architecture" className="container animate-softFade py-24">
-        <div className="section-shell space-y-16 py-24 bg-white shadow-3xl overflow-hidden rounded-[3rem] text-center">
+      <section id="architecture" className="container animate-softFade py-16">
+        <div className="section-shell space-y-12 py-16 bg-surface-2 shadow-2xl overflow-hidden rounded-3xl text-center border border-border/40">
           <div className="relative z-10 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-2">
+            <div className="inline-flex items-center gap-2 rounded-lg bg-primary/5 px-4 py-2">
               <Layers className="h-4 w-4 icon-accent" />
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Reference Architecture</p>
             </div>
@@ -207,12 +209,12 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
       </section>
 
       {/* Security Section */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell cta-band px-8 py-24 rounded-[3rem] text-white shadow-float">
-          <div className="cta-inner grid gap-16 lg:grid-cols-2 items-center text-left">
+      <section className="container animate-softFade py-16">
+        <div className="section-shell cta-band px-8 py-16 rounded-3xl text-white shadow-float">
+          <div className="cta-inner grid gap-12 lg:grid-cols-2 items-center text-left">
             <div className="space-y-12">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white/80 border border-white/20">
+                <div className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-1.5 text-white/80 border border-white/20">
                   <ShieldCheck className="h-4 w-4 icon-inverse" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Enterprise Resilient</span>
                 </div>
@@ -243,8 +245,8 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
       </section>
 
       {/* Related Case Studies */}
-      <section className="container animate-softFade py-24">
-        <div className="space-y-16">
+      <section className="container animate-softFade py-16">
+        <div className="space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left px-4">
             <div className="space-y-4">
               <h2 className="text-4xl font-extrabold text-secondary tracking-tight">Active Case Portfolios</h2>
@@ -252,7 +254,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
                 Cross-industry transformations using similar architecture patterns and delivery models.
               </p>
             </div>
-            <Button asChild size="lg" variant="outline" className="h-16 rounded-full border-primary/10 text-primary px-10 text-lg font-bold hover:bg-primary/5">
+            <Button asChild size="lg" variant="outline" className="h-14 rounded-xl border-border-strong bg-surface/50 text-foreground px-8 text-lg font-bold hover:shadow-md hover:bg-surface-2 transition-all">
               <Link href="/portfolio" className="flex items-center gap-2">
                 All Portfolios <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent" />
               </Link>
@@ -293,8 +295,8 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
       </section>
 
       {/* Final CTA */}
-      <section className="container animate-softFade pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
+      <section className="container animate-softFade pb-24">
+        <div className="cta-band rounded-3xl px-8 py-16 text-center shadow-float">
           <div className="cta-inner max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
               <p className="text-xs font-black uppercase tracking-[0.4em] text-white/50">Partnership Model</p>
@@ -304,7 +306,7 @@ export default function SolutionDetailPage({ params }: SolutionPageProps): React
               </p>
             </div>
             <div className="flex justify-center pt-4">
-              <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
+              <Button asChild size="lg" className="h-14 rounded-xl bg-white text-primary px-12 text-lg font-bold group shadow-xl hover:bg-white/95 border-none">
                 <Link href="/contact" className="flex items-center gap-3">
                   Discuss Solution Roadmap <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                 </Link>

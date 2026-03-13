@@ -216,8 +216,8 @@ export const portfolioProjects: PortfolioProject[] = [
       { label: "Accuracy", value: "98%" },
     ],
     techStack: ["React", "Node.js", "PostgreSQL", "Azure", "Power BI"],
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Audit and compliance dashboard with inspection interface",
+    image: "/images/manufacturing-dashboard.png",
+    imageAlt: "Enterprise audit & compliance dashboard",
     caseStudyPdf: "/downloads/case-studies/enterprise-audit-compliance-platform.pdf",
   },
   {
@@ -342,8 +342,8 @@ export const portfolioProjects: PortfolioProject[] = [
       { label: "Analysts onboarded", value: "800+" },
     ],
     techStack: ["React", "WebSockets", "D3.js", ".NET"],
-    image: "https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Dual-monitor trading analytics workspace",
+    image: "/images/finance-dashboard.png",
+    imageAlt: "Advanced financial trading analytics UI",
     caseStudyPdf: "/downloads/case-studies/financial-visualization-analytics.pdf",
   },
   {
@@ -405,8 +405,8 @@ export const portfolioProjects: PortfolioProject[] = [
       { label: "Inspection forms digitized", value: "2,800+" },
     ],
     techStack: ["React", "Node.js", "Azure IoT", "Power BI"],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Field engineer using tablet with energy dashboard",
+    image: "/images/energy-dashboard.png",
+    imageAlt: "Smart grid monitoring UI and telemetry charts",
     caseStudyPdf: "/downloads/case-studies/industrial-operations-energy-dashboard.pdf",
   },
   {
@@ -468,8 +468,8 @@ export const portfolioProjects: PortfolioProject[] = [
       { label: "Publishing cadence", value: "+40%" },
     ],
     techStack: ["Next.js", "Node.js", "Elasticsearch", "PostgreSQL"],
-    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Knowledge platform interface in modern workspace",
+    image: "/images/healthcare-dashboard.png",
+    imageAlt: "R&D and knowledge analytics insights UI",
     caseStudyPdf: "/downloads/case-studies/innovation-rd-knowledge-platform.pdf",
   },
 ];

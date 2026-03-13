@@ -51,7 +51,7 @@ export function SocialProofBand({
             <div key={testimonial.name} className="surface-card rounded-3xl p-6 shadow-soft space-y-6">
               <Quote className="h-8 w-8 icon-muted opacity-50" />
               <p className="text-base text-muted-foreground italic leading-relaxed font-medium">&quot;{testimonial.quote}&quot;</p>
-              <div className="pt-4 border-t border-primary/10">
+              <div className="pt-4 border-t border-transparent bg-gradient-to-r from-primary/10 to-transparent bg-no-repeat bg-[length:100%_1px]">
                 <p className="text-sm font-black uppercase tracking-tight text-foreground">{testimonial.name}</p>
                 <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60">{testimonial.company}</p>
               </div>

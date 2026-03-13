@@ -9,10 +9,10 @@ export type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 const variantClasses: Record<AlertVariant, string> = {
-  info: "border-primary/20 bg-primary/5 text-foreground",
-  success: "border-emerald-500/20 bg-emerald-500/10 text-foreground",
-  warning: "border-amber-500/20 bg-amber-500/10 text-foreground",
-  error: "border-destructive/30 bg-destructive/10 text-foreground",
+  info: "border-transparent bg-gradient-to-r from-info/10 to-primary/10 text-foreground shadow-sm backdrop-blur-sm",
+  success: "border-transparent bg-gradient-to-r from-success/10 to-emerald-500/10 text-foreground shadow-sm backdrop-blur-sm",
+  warning: "border-transparent bg-gradient-to-r from-warning/10 to-amber-500/10 text-foreground shadow-sm backdrop-blur-sm",
+  error: "border-transparent bg-gradient-to-r from-destructive/10 to-red-500/10 text-foreground shadow-sm backdrop-blur-sm",
 };
 
 export function Alert({ variant = "info", className, ...props }: AlertProps) {
