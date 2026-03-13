@@ -27,28 +27,40 @@ export function SectionHeader({
         "space-y-5 animate-slideUp",
         align === "center" ? "text-center mx-auto" : "text-left",
         align === "center" && "max-w-3xl",
+        align === "left" && "max-w-2xl",
         className
       )}
     >
       {eyebrow ? (
         badge ? (
-           <div className={cn(
-             "inline-flex items-center gap-2 rounded-full border border-border/50 bg-surface-2/80 backdrop-blur px-5 py-2 shadow-sm",
-             align === "center" && "mx-auto"
-           )}>
-             <span className="relative flex h-2 w-2">
-               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-             </span>
-             <p className="text-xs font-extrabold uppercase tracking-[0.25em] text-foreground/80">{eyebrow}</p>
-           </div>
+          <div
+            className={cn(
+              "inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/55 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary shadow-sm backdrop-blur-md dark:bg-surface/70",
+              align === "center" && "mx-auto"
+            )}
+          >
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            <p>{eyebrow}</p>
+          </div>
         ) : (
-          <p className="eyebrow text-accent font-extrabold tracking-[0.25em]">{eyebrow}</p>
+          <p className="eyebrow">{eyebrow}</p>
         )
       ) : null}
-      <h2 className={cn(size === "lg" ? "display-1" : "heading-2", "text-foreground font-black drop-shadow-sm")}>{title}</h2>
+      <h2
+        className={cn(
+          size === "lg" ? "display-1" : "heading-2",
+          "text-foreground"
+        )}
+      >
+        {title}
+      </h2>
       {description ? (
-        <p className={cn("body-lg text-muted-foreground/90 font-medium", align === "center" && "mx-auto")}>
+        <p
+          className={cn(
+            "body-lg text-muted-foreground",
+            align === "center" && "mx-auto"
+          )}
+        >
           {description}
         </p>
       ) : null}

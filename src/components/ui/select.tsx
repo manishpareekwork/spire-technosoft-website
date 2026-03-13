@@ -20,7 +20,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         ref={ref}
         data-invalid={props["aria-invalid"] === true ? "true" : undefined}
         className={cn(
-          "flex h-11 w-full appearance-none rounded-xl border border-input bg-background px-3 pr-10 text-sm font-medium text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-ring/60 focus:ring-offset-2 focus:ring-offset-background data-[invalid=true]:border-destructive data-[invalid=true]:focus:ring-destructive/40",
+          "flex h-12 w-full appearance-none rounded-2xl border border-border/65 bg-white/60 px-4 pr-10 text-sm text-foreground shadow-sm backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring/60 focus:ring-offset-2 focus:ring-offset-background data-[invalid=true]:border-destructive data-[invalid=true]:focus:ring-destructive/40 dark:bg-surface/70",
           className
         )}
         {...props}

@@ -1,135 +1,154 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+
 import { resourceDownloads } from "@/data/resources";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
+
+const navLinks = [
+  { href: "/about", label: "About" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/industries", label: "Industries" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/innovation", label: "Innovation Lab" },
+  { href: "/contact", label: "Contact" },
+];
 
 export function Footer(): React.ReactElement {
   return (
-    <footer className="relative z-20 w-full bg-slate-950 text-white overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute top-0 left-1/4 h-px w-1/2 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-      <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      
-      <div className="container relative py-24 space-y-16">
-        <div className="grid gap-16 lg:grid-cols-[1.5fr,1fr,1fr,1.2fr]">
-          {/* Brand */}
-          <div className="space-y-8">
-            <Link href="/" className="inline-flex items-center gap-4 group">
-              <div className="p-2.5 bg-white/5 rounded-2xl border border-white/10 group-hover:border-accent/40 group-hover:bg-white/10 transition-all duration-300">
+    <footer className="relative z-20 mt-20 overflow-hidden border-t border-border/60 bg-[linear-gradient(180deg,transparent,rgba(28,42,45,0.04))]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      <div className="container py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr,0.8fr,1fr]">
+          <div className="space-y-6">
+            <Link href="/" className="inline-flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-sm dark:bg-surface/90">
                 <Image
                   src="/images/logo/24x24.png"
-                  alt="Spire logo"
-                  width={44}
-                  height={44}
-                  className="rounded-lg"
+                  alt="Spire Technosoft logo"
+                  width={34}
+                  height={34}
+                  className="rounded-full"
                 />
               </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-xl font-black uppercase tracking-widest text-white drop-shadow-sm">Spire</span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-accent">
-                  Technosoft
-                </span>
+              <div className="space-y-1">
+                <p className="text-lg font-semibold tracking-tight text-foreground">
+                  Spire Technosoft
+                </p>
+                <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+                  Intelligent digital systems for scale
+                </p>
               </div>
             </Link>
-            <p className="text-base text-white/60 max-w-sm leading-relaxed font-medium">
-              Engineering intelligent digital systems for business scale. Product engineering partner
-              for regulated enterprise transformation.
+
+            <p className="max-w-md text-sm text-muted-foreground">
+              We design and deliver enterprise platforms that connect product strategy,
+              premium UX, applied AI, and secure-by-design engineering.
             </p>
-            <div className="flex items-center gap-4 pt-2">
-              <Link
-                href="https://linkedin.com/in/manishpareek"
-                target="_blank"
-                className="h-12 w-12 rounded-full border-transparent bg-white/5 flex items-center justify-center text-white/80 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-glow"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Link>
-            </div>
-          </div>
 
-          {/* Resources */}
-          <div className="space-y-6">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-white/40">Resources</p>
-            <div className="flex flex-col gap-4">
-              {resourceDownloads.map((resource) => (
-                <a
-                  key={resource.title}
-                  href={resource.href}
-                  download
-                  className="group flex items-center justify-between py-2 text-sm font-semibold text-white/70 hover:text-white transition-colors"
-                >
-                  <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 group-hover:after:w-full">{resource.title}</span>
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-accent" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Connect */}
-          <div className="space-y-6">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-white/40">Connect</p>
-            <div className="flex flex-col gap-5 text-sm font-medium text-white/70">
-              <div className="flex items-center gap-4 group">
-                <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 group-hover:text-accent transition-colors">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                India | Global Delivery Presence
-              </div>
+            <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm dark:bg-surface/70">
+                <MapPin className="h-4 w-4 icon-accent" />
+                India | Global delivery
+              </span>
               <Link
                 href="mailto:contact@spiretechnosoft.com"
-                className="flex items-center gap-4 group hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm transition-colors hover:text-foreground dark:bg-surface/70"
               >
-                <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 group-hover:text-accent transition-colors">
-                  <Mail className="h-4 w-4" />
-                </div>
+                <Mail className="h-4 w-4 icon-accent" />
                 contact@spiretechnosoft.com
               </Link>
               <Link
                 href="tel:+919910070933"
-                className="flex items-center gap-4 group hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm transition-colors hover:text-foreground dark:bg-surface/70"
               >
-                <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 group-hover:text-accent transition-colors">
-                  <Phone className="h-4 w-4" />
-                </div>
+                <Phone className="h-4 w-4 icon-accent" />
                 +91 99100 70933
               </Link>
             </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="space-y-6">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-white/40">Newsletter</p>
-            <p className="text-sm font-medium text-white/70 leading-relaxed">
-              Stay updated with thought leadership and new case studies.
-            </p>
-            <form className="space-y-4 pt-2">
-              <div className="flex flex-col gap-3 relative">
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  placeholder="you@company.com"
-                  className="h-14 w-full rounded-2xl border border-white/10 bg-white/5 pl-5 pr-32 text-sm font-medium text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent transition-all"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="absolute right-1.5 top-1.5 bottom-1.5 rounded-xl bg-white px-5 text-sm font-bold text-[#0c0d12] hover:bg-accent hover:text-white transition-colors shadow-sm"
-                >
-                  Subscribe
-                </button>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="space-y-4">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Explore
+              </p>
+              <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
-              <p className="text-[11px] font-medium text-white/40">No spam. Unsubscribe anytime.</p>
-            </form>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Resources
+              </p>
+              <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+                {resourceDownloads.map((resource) => (
+                  <a
+                    key={resource.title}
+                    href={resource.href}
+                    download
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {resource.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="surface-card rounded-[2rem] p-6 sm:p-8">
+            <div className="space-y-4">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Start a conversation
+              </p>
+              <h3 className="text-2xl font-semibold text-foreground">
+                Bring the roadmap. We will shape the pod, priorities, and first milestone.
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Discovery sessions are structured around your goals, delivery constraints, and
+                the operating model needed to ship with confidence.
+              </p>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className={cn(buttonVariants({ size: "lg" }), "px-6")}
+              >
+                Book a discovery call
+                <ArrowRight className="h-4 w-4 icon-inverse" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/spire-technosoft"
+                target="_blank"
+                className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-6")}
+              >
+                <Linkedin className="h-4 w-4 icon-accent" />
+                LinkedIn
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 mt-8 text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 md:flex-row">
-          <p>Copyright {new Date().getFullYear()} Spire Technosoft Private Limited. All rights reserved.</p>
-          <div className="flex items-center gap-8">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
+        <div className="mt-12 flex flex-col gap-4 border-t border-border/60 pt-6 text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <p>Copyright {new Date().getFullYear()} Spire Technosoft. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="transition-colors hover:text-foreground">
+              Privacy
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
+            <Link href="/terms" className="transition-colors hover:text-foreground">
+              Terms
             </Link>
           </div>
         </div>

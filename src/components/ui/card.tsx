@@ -11,7 +11,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "surface-card rounded-3xl bg-surface/50 backdrop-blur border border-border/50 text-card-foreground shadow-soft transition-all duration-300 hover:shadow-glow hover:border-accent/40",
+      "surface-card rounded-[2rem] text-card-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-float hover:border-primary/20",
       className
     )}
     {...props}
@@ -25,7 +25,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-2 p-8 pb-6", className)}
+    className={cn("flex flex-col space-y-3 p-7 pb-5", className)}
     {...props}
   />
 ));
@@ -35,13 +35,13 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "text-2xl lg:text-3xl font-black leading-tight tracking-tight drop-shadow-sm",
-      className
-    )}
-    {...props}
+    <h3
+      ref={ref}
+      className={cn(
+        "text-xl lg:text-2xl font-semibold leading-tight tracking-tight",
+        className
+      )}
+      {...props}
   />
 ));
 CardTitle.displayName = "CardTitle";
@@ -52,7 +52,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-base font-medium text-muted-foreground/90", className)}
+    className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -62,7 +62,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-8 pt-0", className)} {...props} />
+  <div ref={ref} className={cn("p-7 pt-0", className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
@@ -72,7 +72,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-8 pt-0 mt-auto", className)}
+    className={cn("mt-auto flex items-center p-7 pt-0", className)}
     {...props}
   />
 ));

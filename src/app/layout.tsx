@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Open_Sans, Poppins, Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import dynamic from "next/dynamic";
-const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(mod => mod.ParticleBackground));
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { FloatingCta } from "@/components/layout/floating-cta";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteContent } from "@/content/site";
@@ -76,13 +75,13 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem={false}
+          enableSystem
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
-            <ParticleBackground />
+            <ScrollProgress />
             <Header />
-            <main className="relative z-10 flex-1 bg-background/95">{children}</main>
+            <main className="relative z-10 flex-1">{children}</main>
             <FloatingCta />
             <Footer />
           </div>

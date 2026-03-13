@@ -7,9 +7,9 @@ export const siteContent = {
     defaultOg: "/images/logo/1080x1080.png",
   },
   nav: {
-    ctaLabel: "Book a Session",
+    ctaLabel: "Book Discovery Call",
     ctaHref: "/contact",
-    mobileCtaLabel: "Book a Session",
+    mobileCtaLabel: "Book Discovery Call",
   },
   differentiators: [
     {
@@ -107,7 +107,7 @@ export const siteContent = {
       description:
         "We design, build, and scale enterprise platforms that unite premium UX, applied AI, and secure-by-design architecture.",
       primaryCta: { label: "Explore Solutions", href: "/solutions" },
-      secondaryCta: { label: "Book Discovery Workshop", href: "/contact" },
+      secondaryCta: { label: "Book Discovery Call", href: "/contact" },
       sectors: ["Regulated Finance", "Smart Energy", "Healthcare", "Retail & FMCG"],
     },
     stats: [
