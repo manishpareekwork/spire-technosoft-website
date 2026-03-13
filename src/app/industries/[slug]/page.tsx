@@ -67,8 +67,8 @@ export default async function IndustryDetailPage({
               <div className="space-y-4">
                 <h1 className="display-1 text-foreground">{industry.summary}</h1>
                 <p className="body-lg text-muted-foreground">
-                  We shape delivery, controls, and platform decisions around the reality of this
-                  market instead of forcing the same generic process onto every vertical.
+                  We shape delivery, controls, and platform decisions around the realities of this
+                  market so the product fits the way teams actually operate.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">

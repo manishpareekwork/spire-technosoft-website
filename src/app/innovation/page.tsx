@@ -28,7 +28,7 @@ const showcaseItems = [
     category: "Industrial Intelligence",
     caption: "Live telemetry, route status, and asset health in one operational stage.",
     detail:
-      "Built to connect control-room decisions with field workflows, alerts, and asset context instead of leaving teams inside disconnected monitoring tools.",
+      "Built to connect control-room decisions with field workflows, alerts, and asset context in a single operational view.",
     image: "/images/energy-dashboard.png",
     imageAlt: "Operations control room concept",
     metrics: ["4,500+ assets tracked", "Alert workflows", "Field-ready visibility"],
@@ -103,8 +103,8 @@ export default function InnovationPage(): React.ReactElement {
             </Badge>
             <h1 className="display-hero text-white">Prototype bold ideas before they become expensive bets</h1>
             <p className="body-lg max-w-3xl text-white/74">
-              This page now behaves more like a showcase than a brochure: animated stage, concept
-              carousel, lighter content blocks, and clearer routes into the lab.
+              Validate AI copilots, predictive dashboards, immersive workflows, and operational
+              intelligence concepts before committing to full product delivery.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
@@ -165,7 +165,7 @@ export default function InnovationPage(): React.ReactElement {
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
               Lab insights
             </p>
-            <h2 className="heading-2 text-foreground">Editorial downloads, not giant promo cards</h2>
+            <h2 className="heading-2 text-foreground">Playbooks and downloads for innovation teams</h2>
             <p className="body-md text-muted-foreground">
               These resources act as supporting material for lab conversations and concept reviews.
             </p>

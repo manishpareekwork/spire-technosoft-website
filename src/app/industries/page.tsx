@@ -24,8 +24,8 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="container">
           <SectionHeader
             eyebrow="Industries"
-            title="The same company should not look identical to every sector it serves"
-            description="This page shifts to contextual storytelling: industry challenge on one side, Spire’s response on the other, supported by visual cues and measurable outcomes."
+            title="Digital platforms built for the realities of regulated industries"
+            description="From finance and healthcare to energy, manufacturing, and retail, we shape delivery around sector-specific workflows, controls, and operating pressure."
             className="max-w-4xl"
           />
         </div>

@@ -23,6 +23,7 @@ import { siteContent } from "@/content/site";
  * @property {string} label - The display text for the link.
  */
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
   { href: "/portfolio", label: "Case Studies" },

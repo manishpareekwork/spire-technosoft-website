@@ -106,8 +106,8 @@ export default function SolutionsPage(): React.ReactElement {
             <SectionHeader
               align="left"
               eyebrow="Solution library"
-              title="Accordion-style clarity instead of another grid of oversized cards"
-              description="Each solution expands into problems, outcomes, metrics, and a next step without repeating the same boxed layout."
+              title="Core solution suites for regulated operations"
+              description="Explore the problems each solution addresses, the outcomes it targets, and the fastest route into a working first release."
             />
 
             <Accordion>

@@ -59,12 +59,11 @@ export default function InsightsPage() {
               Resources & Insights
             </Badge>
             <h1 className="display-1 text-foreground">
-              A more editorial feed for AI, compliance, and operational platform thinking
+              Insights on AI, compliance, healthcare, and operational platforms
             </h1>
             <p className="body-lg text-muted-foreground">
-              Instead of oversized cards, this page now works like a compact insight hub: featured
-              story at the top, filterable article rows below, and clear paths into deeper
-              conversations.
+              Articles and thought pieces built around the questions platform buyers actually ask
+              before they commit to a roadmap.
             </p>
           </div>
 
