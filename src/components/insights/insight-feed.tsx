@@ -53,45 +53,42 @@ export function InsightFeed({ articles }: InsightFeedProps) {
         ))}
       </div>
 
-      <div className="space-y-4">
-        {filteredArticles.map((article) => (
+      <div className="grid gap-8 md:grid-cols-2">
+        {filteredArticles.map((article, index) => (
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className="group block border-t border-border/55 py-5"
+            className={cn("group block space-y-4 border-t border-border/55 pt-5", index % 2 === 1 && "md:translate-y-10")}
           >
-            <div className="grid gap-5 md:grid-cols-[120px,1fr,auto] md:items-center">
-              <div className="relative min-h-[90px] overflow-hidden rounded-[1.1rem] bg-surface-2">
-                <Image
-                  src={article.image}
-                  alt={article.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="120px"
-                />
-              </div>
+            <div className="relative aspect-[16/11] max-w-[340px] overflow-hidden rounded-[1.5rem] bg-surface-2">
+              <Image
+                src={article.image}
+                alt={article.imageAlt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                sizes="(min-width: 768px) 24vw, 100vw"
+              />
+            </div>
 
-              <div className="space-y-3 px-1">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {article.category}
-                </p>
-                <div className="space-y-2">
-                  <h2 className="text-xl font-semibold text-foreground">{article.title}</h2>
-                  <p className="text-sm text-muted-foreground">{article.description}</p>
-                </div>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                  <span className="inline-flex items-center gap-2">
-                    <CalendarDays className="h-4 w-4 icon-accent" />
-                    {formatDate(article.publishedAt)}
-                  </span>
-                  <span className="inline-flex items-center gap-2">
-                    <Clock3 className="h-4 w-4 icon-accent" />
-                    {article.readTime}
-                  </span>
-                </div>
+            <div className="space-y-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                {article.category}
+              </p>
+              <div className="space-y-2">
+                <h2 className="text-xl font-semibold text-foreground">{article.title}</h2>
+                <p className="text-sm text-muted-foreground">{article.description}</p>
               </div>
-
-              <span className="inline-flex items-center gap-2 self-start text-sm font-semibold text-foreground">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2">
+                  <CalendarDays className="h-4 w-4 icon-accent" />
+                  {formatDate(article.publishedAt)}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Clock3 className="h-4 w-4 icon-accent" />
+                  {article.readTime}
+                </span>
+              </div>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
                 Read article
                 <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
               </span>

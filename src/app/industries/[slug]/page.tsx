@@ -99,8 +99,8 @@ export default async function IndustryDetailPage({
         </div>
       </section>
 
-      <section className="section-shell pt-6">
-        <div className="container grid gap-10 lg:grid-cols-[1fr,1fr]">
+      <section className="container py-14">
+        <div className="grid gap-10 lg:grid-cols-[0.46fr,0.54fr] lg:items-start">
           <div className="space-y-6">
             <div className="space-y-3">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -110,7 +110,7 @@ export default async function IndustryDetailPage({
             </div>
             <div className="space-y-3">
               {industry.focusAreas.map((item) => (
-                <div key={item} className="flex items-start gap-4 compact-tile rounded-[1.5rem] px-5 py-4">
+                <div key={item} className="flex items-start gap-4 border-t border-border/55 pt-4">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
                   <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
@@ -118,7 +118,7 @@ export default async function IndustryDetailPage({
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
             <div className="space-y-3">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                 Solutions
@@ -127,7 +127,7 @@ export default async function IndustryDetailPage({
             </div>
             <div className="space-y-3">
               {industry.typicalPrograms.map((item) => (
-                <div key={item} className="flex items-start gap-4 compact-tile rounded-[1.5rem] px-5 py-4">
+                <div key={item} className="flex items-start gap-4 border-t border-border/45 pt-4">
                   <ArrowRight className="mt-0.5 h-4 w-4 icon-accent" />
                   <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
@@ -137,29 +137,30 @@ export default async function IndustryDetailPage({
         </div>
       </section>
 
-      <section className="container py-6">
-        <div className="rounded-[2.2rem] section-contrast px-6 py-6">
-          <div className="grid gap-6 lg:grid-cols-[0.72fr,1.28fr] lg:items-start">
-            <div className="space-y-3">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Security and governance
-              </p>
-              <h2 className="heading-2 text-foreground">Controls that matter in this sector</h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {industry.compliance.map((item) => (
-                <div key={item} className="compact-tile rounded-[1.4rem] px-4 py-4">
-                  <Lock className="h-4 w-4 icon-accent" />
-                  <p className="mt-3 text-sm text-muted-foreground">{item}</p>
-                </div>
-              ))}
-            </div>
+      <section className="container py-8">
+        <div className="grid gap-8 border-y border-border/55 py-8 lg:grid-cols-[0.32fr,0.68fr] lg:items-start">
+          <div className="space-y-3">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Security and governance
+            </p>
+            <h2 className="heading-2 text-foreground">Controls that matter in this sector</h2>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {industry.compliance.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-2 rounded-full bg-white/65 px-4 py-2 text-sm text-muted-foreground shadow-sm dark:bg-surface/72"
+              >
+                <Lock className="h-4 w-4 icon-accent" />
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell pt-8">
-        <div className="container grid gap-8 lg:grid-cols-[0.7fr,1.3fr]">
+      <section className="container py-10">
+        <div className="grid gap-8 lg:grid-cols-[0.7fr,1.3fr]">
           <div className="space-y-3">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
               Case studies
@@ -167,12 +168,12 @@ export default async function IndustryDetailPage({
             <h2 className="heading-2 text-foreground">Proof from relevant delivery programs</h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-2">
             {industry.caseStudies.map((caseStudy) => (
               <Link
                 key={caseStudy.href}
                 href={caseStudy.href}
-                className="group flex items-center justify-between rounded-[2rem] section-contrast px-5 py-5"
+                className="group flex items-center justify-between border-t border-border/55 py-5"
               >
                 <span className="text-lg font-semibold text-foreground">{caseStudy.title}</span>
                 <ArrowRight className="h-5 w-5 icon-accent transition-transform group-hover:translate-x-1" />

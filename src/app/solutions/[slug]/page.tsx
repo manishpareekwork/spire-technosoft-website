@@ -127,56 +127,62 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
         </div>
       </section>
 
-      <section className="section-shell pt-6">
-        <div className="container grid gap-10 lg:grid-cols-[1.06fr,0.94fr] lg:items-start">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                What this solves
-              </p>
-              <div className="space-y-3">
-                {solution.typicalProblems.map((problem) => (
-                  <div key={problem} className="flex items-start gap-4 compact-tile rounded-[1.5rem] px-5 py-4">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 icon-accent" />
-                    <p className="text-sm text-muted-foreground">{problem}</p>
-                  </div>
-                ))}
-              </div>
+      <section className="container py-14">
+        <div className="grid gap-10 lg:grid-cols-[0.44fr,0.56fr] lg:items-start">
+          <div className="space-y-5">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              What this solves
+            </p>
+            <div className="space-y-3">
+              {solution.typicalProblems.map((problem) => (
+                <div key={problem} className="flex items-start gap-4 border-t border-border/55 pt-4">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 icon-accent" />
+                  <p className="text-sm text-muted-foreground">{problem}</p>
+                </div>
+              ))}
             </div>
 
-            <div className="section-contrast rounded-[2rem] px-6 py-6">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Architecture flow
-              </p>
-              <div className="mt-5 grid gap-3">
-                {solution.architecture.map((layer, index) => (
-                  <div
-                    key={layer.layer}
-                    className="grid gap-3 rounded-[1.4rem] compact-tile px-4 py-4 sm:grid-cols-[0.28fr,0.72fr]"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                        {index + 1}
-                      </span>
-                      <p className="text-sm font-semibold text-foreground">{layer.layer}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {layer.items.map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="grid gap-3 border-t border-border/55 pt-5 sm:grid-cols-2">
+              {solution.successMetrics.map((metric) => (
+                <span
+                  key={metric}
+                  className="rounded-full bg-white/65 px-3 py-2 text-sm font-medium text-muted-foreground shadow-sm dark:bg-surface/72"
+                >
+                  {metric}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Architecture flow
+            </p>
+            <div className="mt-5 space-y-4">
+              {solution.architecture.map((layer, index) => (
+                <div key={layer.layer} className="grid gap-3 border-t border-border/45 pt-4 sm:grid-cols-[0.26fr,0.74fr]">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                      {index + 1}
+                    </span>
+                    <p className="text-sm font-semibold text-foreground">{layer.layer}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {layer.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-8 lg:col-span-2">
             <Accordion>
               <AccordionItem title="Delivery phases" meta="How we ship" defaultOpen>
                 <div className="space-y-5">
@@ -221,7 +227,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
               </AccordionItem>
             </Accordion>
 
-            <div className="section-contrast rounded-[2rem] px-6 py-6">
+            <div className="rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                 Related case studies
               </p>
@@ -230,7 +236,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
                   <Link
                     key={study.href}
                     href={study.href}
-                    className="group flex items-center justify-between rounded-[1.4rem] compact-tile px-4 py-4"
+                    className="group flex items-center justify-between border-t border-border/45 py-4"
                   >
                     <span className="text-sm font-semibold text-foreground">{study.title}</span>
                     <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />

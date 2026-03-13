@@ -290,28 +290,47 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-1">
+          <div className="grid gap-4 lg:grid-cols-2 lg:auto-rows-[minmax(180px,auto)]">
             {featuredSolutions.map((solution, index) => {
               const Icon = [Workflow, BrainCircuit, AppWindow, Smartphone][index % 4];
+              const isPrimary = index === 0;
+              const isWide = index === featuredSolutions.length - 1;
 
               return (
                 <Link
                   key={solution.slug}
                   href={`/solutions/${solution.slug}`}
-                  className="group grid gap-5 border-t border-border/55 py-5 sm:grid-cols-[0.08fr,0.52fr,0.4fr] sm:items-start"
+                  className={cn(
+                    "group rounded-[2rem] bg-white/70 p-6 shadow-soft backdrop-blur transition-transform hover:-translate-y-1 dark:bg-surface/76",
+                    isPrimary && "lg:row-span-2",
+                    isWide && "lg:col-span-2"
+                  )}
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="h-4 w-4 icon-accent" />
-                  </span>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-foreground">{solution.title}</h3>
-                    <p className="text-sm text-muted-foreground">{solution.summary}</p>
-                  </div>
-                  <div className="space-y-3">
-                    <p className="text-sm text-muted-foreground">
-                      {solution.outcomes.slice(0, 1).join("")}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <div className="flex h-full flex-col gap-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
+                        <Icon className="h-4 w-4 icon-accent" />
+                      </span>
+                      <span className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                        {solution.tags.slice(0, 2).join(" / ")}
+                      </span>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-semibold text-foreground">{solution.title}</h3>
+                      <p className="text-sm text-muted-foreground">{solution.summary}</p>
+                    </div>
+
+                    <div className={cn("space-y-3", isWide && "grid gap-4 sm:grid-cols-2")}>
+                      {solution.outcomes.slice(0, isWide ? 2 : 1).map((item) => (
+                        <div key={item} className="flex items-start gap-3">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                          <p className="text-sm text-muted-foreground">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-foreground">
                       Explore solution
                       <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
                     </span>
