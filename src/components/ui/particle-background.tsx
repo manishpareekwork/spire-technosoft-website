@@ -7,11 +7,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type ISourceOptions } from "@tsparticles/engine";
 // Import the slim version of tsparticles, which is smaller and sufficient for our needs.
 import { loadSlim } from "@tsparticles/slim";
+
+import { useTheme } from "@/components/theme-provider";
 
 /**
  * A client component that renders an animated particle background.

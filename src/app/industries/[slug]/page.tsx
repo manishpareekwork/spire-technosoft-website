@@ -7,17 +7,18 @@ import { Button } from "@/components/ui/button";
 import { industryProfiles, getIndustryProfile } from "@/data/industries";
 
 type IndustryPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return industryProfiles.map((industry) => ({ slug: industry.slug }));
 }
 
-export function generateMetadata({ params }: IndustryPageProps): Metadata {
-  const industry = getIndustryProfile(params.slug);
+export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const industry = getIndustryProfile(slug);
   if (!industry) {
     return {
       title: "Industry | Spire Technosoft",
@@ -30,8 +31,11 @@ export function generateMetadata({ params }: IndustryPageProps): Metadata {
   };
 }
 
-export default function IndustryDetailPage({ params }: IndustryPageProps): React.ReactElement {
-  const industry = getIndustryProfile(params.slug);
+export default async function IndustryDetailPage({
+  params,
+}: IndustryPageProps): Promise<React.ReactElement> {
+  const { slug } = await params;
+  const industry = getIndustryProfile(slug);
 
   if (!industry) {
     notFound();

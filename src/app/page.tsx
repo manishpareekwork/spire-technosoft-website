@@ -80,9 +80,11 @@ export default function Home() {
             <div className="pt-12 flex flex-col items-center gap-6 w-full animate-softFade" style={{ animationDelay: '0.4s' }}>
               <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground/60">Delivering impact across</p>
               <div className="flex flex-wrap justify-center gap-4">
-                  <div key={client} className="px-5 py-2 border border-border bg-surface text-sm text-foreground/70">
-                    {client}
+                {home.hero.sectors.map((sector) => (
+                  <div key={sector} className="px-5 py-2 border border-border bg-surface text-sm text-foreground/70">
+                    {sector}
                   </div>
+                ))}
               </div>
             </div>
           </div>

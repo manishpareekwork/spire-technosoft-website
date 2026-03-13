@@ -11,17 +11,18 @@ import { Badge } from "@/components/ui/badge";
 import { siteContent } from "@/content/site";
 
 type PortfolioCaseProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return portfolioProjects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }: PortfolioCaseProps): Metadata {
-  const project = getPortfolioProject(params.slug);
+export async function generateMetadata({ params }: PortfolioCaseProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getPortfolioProject(slug);
   if (!project) {
     return {
       title: "Case Study | Spire Technosoft",
@@ -41,8 +42,9 @@ export function generateMetadata({ params }: PortfolioCaseProps): Metadata {
   };
 }
 
-export default function PortfolioCasePage({ params }: PortfolioCaseProps) {
-  const project = getPortfolioProject(params.slug);
+export default async function PortfolioCasePage({ params }: PortfolioCaseProps) {
+  const { slug } = await params;
+  const project = getPortfolioProject(slug);
 
   if (!project) {
     notFound();

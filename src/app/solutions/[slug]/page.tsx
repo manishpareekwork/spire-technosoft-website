@@ -20,9 +20,9 @@ import { Button } from "@/components/ui/button";
 import { SocialProofBand } from "@/components/sections/social-proof";
 
 type SolutionPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
