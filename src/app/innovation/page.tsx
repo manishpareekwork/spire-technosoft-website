@@ -1,15 +1,23 @@
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, Eye, Rocket, Sparkles, Workflow } from "lucide-react";
+import {
+  ArrowRight,
+  BrainCircuit,
+  Eye,
+  Layers3,
+  Rocket,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 
+import { InnovationShowcase } from "@/components/innovation/innovation-showcase";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { InnovationShowcase } from "@/components/innovation/innovation-showcase";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Innovation Lab | Spire Technosoft",
   description:
-    "Prototype AI copilots, predictive dashboards, immersive workflows, and operational intelligence in Spire Technosoft's Innovation Lab.",
+    "Prototype AI copilots, predictive dashboards, product experiments, and operational workflows in Spire Technosoft's Innovation Lab.",
 };
 
 const showcaseItems = [
@@ -22,6 +30,13 @@ const showcaseItems = [
     image: "/images/manufacturing-dashboard.png",
     imageAlt: "Predictive audit assistant concept",
     metrics: ["45% faster closures", "Review summaries", "Traceable actions"],
+    fit: [
+      "When a workflow is slow but the team does not trust full automation yet",
+      "When reviewers need decision support instead of another dashboard",
+      "When leadership wants a proof before committing to a broader AI rollout",
+    ],
+    output:
+      "A clickable concept, prompt strategy, workflow map, and a clearer recommendation on whether the idea should move into product delivery.",
   },
   {
     title: "Operations Control Room",
@@ -32,6 +47,13 @@ const showcaseItems = [
     image: "/images/energy-dashboard.png",
     imageAlt: "Operations control room concept",
     metrics: ["4,500+ assets tracked", "Alert workflows", "Field visibility"],
+    fit: [
+      "When operations data exists but teams still act from disconnected systems",
+      "When a control room needs a clearer shared picture across functions",
+      "When stakeholders need to see the interface before approving integrations",
+    ],
+    output:
+      "A working dashboard direction, priority use cases, data requirements, and a sharper release path for the first build.",
   },
   {
     title: "Care Journey Personalization Engine",
@@ -42,36 +64,90 @@ const showcaseItems = [
     image: "/images/healthcare-dashboard.png",
     imageAlt: "Healthcare personalization concept",
     metrics: ["Consent-aware design", "+50% engagement", "Human in loop"],
+    fit: [
+      "When personalization is attractive but the trust model still feels unclear",
+      "When product teams need to balance empathy, privacy, and measurable outcomes",
+      "When there is a strong idea but too many assumptions sitting inside it",
+    ],
+    output:
+      "An interaction model, privacy-aware product concept, and a recommendation on what to validate first in a live pilot.",
   },
 ];
 
 const processSteps = [
   {
     title: "Discover",
-    description: "Align the problem, users, and success signal worth testing first.",
+    description: "Frame the problem, user, and proof signal worth testing first.",
     icon: Eye,
   },
   {
     title: "Prototype",
-    description: "Shape the interaction, proof asset, and feasibility slice quickly.",
+    description: "Shape the concept, interaction model, and technical feasibility slice.",
     icon: Sparkles,
   },
   {
     title: "Validate",
-    description: "Put it in front of buyers, operators, or internal stakeholders early.",
+    description: "Show the right people something concrete before effort expands.",
     icon: BrainCircuit,
   },
   {
-    title: "Scale",
-    description: "Turn the validated concept into a credible product roadmap.",
+    title: "Decide",
+    description: "Turn what worked into a roadmap, or stop the idea early with confidence.",
     icon: Rocket,
   },
+];
+
+const sprintOutputs = [
+  {
+    title: "Clickable prototype",
+    detail: "Enough fidelity for product, operations, or buyer feedback to be useful.",
+  },
+  {
+    title: "Workflow map",
+    detail: "A clearer view of the actions, approvals, and data moving underneath the interface.",
+  },
+  {
+    title: "Feasibility notes",
+    detail: "A practical read on what is simple, risky, or expensive before full build starts.",
+  },
+  {
+    title: "Go / no-go recommendation",
+    detail: "A decision-ready point of view, not just another presentation deck.",
+  },
+];
+
+const experimentFormats = [
+  {
+    title: "AI feature exploration",
+    detail:
+      "Use the lab to test copilots, assisted search, summaries, predictions, and human-in-loop decisions before shipping them into a live product.",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Workflow redesign",
+    detail:
+      "When a business process is too messy to explain in slides, we prototype the actual flow and pressure-test it with the people who live inside it.",
+    icon: Workflow,
+  },
+  {
+    title: "New product direction",
+    detail:
+      "For teams deciding between multiple ideas, the lab helps compare which concept deserves the first serious release.",
+    icon: Layers3,
+  },
+];
+
+const useCases = [
+  "A founder has a strong product idea but wants a sharper first release.",
+  "A product team needs to validate where AI actually helps instead of forcing it in.",
+  "An operations-heavy workflow needs a better interface before engineering ramps up.",
+  "Leadership wants a concrete direction before approving a larger roadmap.",
 ];
 
 const labInsights = [
   {
     title: "Designing Responsible Copilots",
-    description: "Principles and guardrails for AI copilots that still feel usable and trustworthy.",
+    description: "Principles and guardrails for AI copilots that still feel useful and trustworthy.",
     href: "/downloads/thinking/responsible-copilots.pdf",
     label: "Whitepaper",
   },
@@ -90,29 +166,35 @@ const labInsights = [
 ];
 
 export default function InnovationPage(): React.ReactElement {
+  const primaryFormat = experimentFormats[0];
+  const secondaryFormats = experimentFormats.slice(1);
+
   return (
     <div className="flex flex-1 flex-col bg-background">
       <section className="relative overflow-hidden pb-16 pt-10 sm:pt-14">
         <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(10,20,23,0.96),rgba(18,36,39,0.9))]" />
         <div className="absolute inset-0 -z-10 lab-grid opacity-70" />
 
-        <div className="container grid gap-12 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
+        <div className="container grid gap-12 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
           <div className="space-y-6 text-white">
             <Badge variant="soft" className="w-fit border-white/15 bg-white/10 text-white">
               <Sparkles className="h-3.5 w-3.5 text-white" />
               Innovation Lab
             </Badge>
-            <h1 className="display-hero text-white">A place to test strong ideas before they become expensive commitments</h1>
+            <h1 className="display-hero text-white">
+              A focused space for testing product ideas before they become expensive assumptions
+            </h1>
             <p className="max-w-3xl body-lg text-white/74">
-              We use the lab to prototype AI workflows, new dashboard directions, and product
-              concepts that need to be seen, used, and challenged before full delivery begins.
+              The lab helps founders, product teams, and operators turn early ideas into something
+              concrete enough to challenge. We use it for AI experiments, new product directions,
+              and workflow-heavy concepts that need more than a deck.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className={cn(buttonVariants({ size: "xl" }), "bg-white text-slate-900 hover:bg-white/92")}
               >
-                Explore Our Lab
+                Book an Innovation Session
               </Link>
               <a
                 href="mailto:innovation@spiretechnosoft.com?subject=Innovation%20Lab%20Inquiry"
@@ -126,19 +208,76 @@ export default function InnovationPage(): React.ReactElement {
             </div>
           </div>
 
-          <div className="space-y-4 rounded-[2rem] border border-white/10 bg-white/6 px-6 py-6 backdrop-blur">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
-              What usually comes into the lab
+          <div className="grid gap-4">
+            <div className="rounded-[2rem] border border-white/10 bg-white/6 px-6 py-6 backdrop-blur">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
+                Best used when
+              </p>
+              <div className="mt-4 space-y-4">
+                {useCases.slice(0, 3).map((item) => (
+                  <div key={item} className="flex items-start gap-3 border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
+                    <Workflow className="mt-0.5 h-4 w-4 text-white/74" />
+                    <p className="text-sm text-white/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[1.7rem] border border-white/10 bg-white/6 px-5 py-5 backdrop-blur">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
+                  Sprint length
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-white">2 weeks</p>
+                <p className="mt-2 text-sm text-white/68">Tight enough to stay focused, long enough to produce evidence.</p>
+              </div>
+              <div className="rounded-[1.7rem] border border-white/10 bg-white/6 px-5 py-5 backdrop-blur">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
+                  Core output
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-white">Decision clarity</p>
+                <p className="mt-2 text-sm text-white/68">A sharper go / no-go call before the larger roadmap begins.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-14">
+        <div className="grid gap-10 lg:grid-cols-[0.28fr,0.72fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Experiment formats</p>
+            <h2 className="heading-2 text-foreground">Three common ways teams use the lab</h2>
+            <p className="body-md text-muted-foreground">
+              The lab is not a single template. We shape the sprint around the kind of uncertainty
+              the team needs to reduce.
             </p>
-            <div className="space-y-4">
-              {[
-                "A product idea that feels promising but still fuzzy",
-                "An AI concept that needs a safer, more practical use case",
-                "A workflow that is too complex to validate with slides alone",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3 border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
-                  <Workflow className="mt-0.5 h-4 w-4 text-white/74" />
-                  <p className="text-sm text-white/70">{item}</p>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-[1.08fr,0.92fr]">
+            <div className="rounded-[2.2rem] bg-white/70 p-6 shadow-soft backdrop-blur dark:bg-surface/76">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                  <primaryFormat.icon className="h-4 w-4 icon-accent" />
+                </span>
+                <p className="text-lg font-semibold text-foreground">{primaryFormat.title}</p>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">{primaryFormat.detail}</p>
+            </div>
+
+            <div className="grid gap-4">
+              {secondaryFormats.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[1.8rem] border border-border/45 bg-white/60 px-5 py-5 shadow-soft backdrop-blur dark:bg-surface/72"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                      <item.icon className="h-4 w-4 icon-accent" />
+                    </span>
+                    <p className="text-base font-semibold text-foreground">{item.title}</p>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{item.detail}</p>
                 </div>
               ))}
             </div>
@@ -147,32 +286,71 @@ export default function InnovationPage(): React.ReactElement {
       </section>
 
       <section className="container py-14">
-        <InnovationShowcase items={showcaseItems} />
+        <div className="space-y-5">
+          <p className="eyebrow">Selected concepts</p>
+          <h2 className="heading-2 text-foreground">A few directions we prototype in the lab</h2>
+        </div>
+        <div className="mt-8">
+          <InnovationShowcase items={showcaseItems} />
+        </div>
       </section>
 
       <section className="container py-14">
         <div className="grid gap-10 border-y border-border/55 py-10 lg:grid-cols-[0.28fr,0.72fr] lg:items-start">
           <div className="space-y-4">
-            <p className="eyebrow">How the lab moves</p>
-            <h2 className="heading-2 text-foreground">A fast loop from rough idea to usable signal</h2>
+            <p className="eyebrow">How the sprint runs</p>
+            <h2 className="heading-2 text-foreground">Fast enough to move, structured enough to decide</h2>
           </div>
 
-          <div className="space-y-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {processSteps.map((step, index) => (
               <div
                 key={step.title}
-                className="grid gap-4 border-t border-border/55 py-5 sm:grid-cols-[0.12fr,0.28fr,0.6fr]"
+                className={cn(
+                  "rounded-[1.9rem] border border-border/45 bg-white/60 p-5 shadow-soft backdrop-blur dark:bg-surface/72",
+                  index % 2 === 1 && "sm:translate-y-10"
+                )}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <step.icon className="h-4 w-4 icon-accent" />
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                    <step.icon className="h-4 w-4 icon-accent" />
+                  </span>
+                  <div>
+                    <p className="text-base font-semibold text-foreground">{step.title}</p>
+                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-primary">
+                      Phase 0{index + 1}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-base font-semibold text-foreground">{step.title}</p>
-                  <p className="mt-1 text-[0.68rem] uppercase tracking-[0.18em] text-primary">
-                    Phase 0{index + 1}
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
+                <p className="mt-4 text-sm text-muted-foreground">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-14">
+        <div className="grid gap-10 lg:grid-cols-[0.36fr,0.64fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">What comes out</p>
+            <h2 className="heading-2 text-foreground">You leave with more than a concept deck</h2>
+            <p className="body-md text-muted-foreground">
+              The lab should sharpen a decision, not decorate an idea. These are the outputs we
+              typically hand back at the end of a sprint.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {sprintOutputs.map((item, index) => (
+              <div
+                key={item.title}
+                className={cn(
+                  "rounded-[1.9rem] bg-white/70 p-5 shadow-soft backdrop-blur dark:bg-surface/76",
+                  index === 0 && "sm:col-span-2"
+                )}
+              >
+                <p className="text-lg font-semibold text-foreground">{item.title}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -219,14 +397,14 @@ export default function InnovationPage(): React.ReactElement {
             </p>
             <h2 className="display-1 text-white">Plan a 2-week lab sprint</h2>
             <p className="body-lg text-white/78">
-              Use the lab when a concept needs evidence, not more internal debate.
+              Use the lab when an idea needs evidence, direction, and a credible next move.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className={cn(buttonVariants({ size: "xl" }), "bg-white text-slate-900 hover:bg-white/92")}
               >
-                Explore Our Lab
+                Book an Innovation Session
               </Link>
               <Link
                 href="/portfolio"
