@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ShieldCheck, Zap, Activity, Globe, Compass, Target, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { industryProfiles, getIndustryProfile } from "@/data/industries";
+import { ArrowLeft, ArrowRight, CheckCircle2, Lock } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui/button-variants";
+import { getIndustryProfile, industryProfiles } from "@/data/industries";
+import { cn } from "@/lib/utils";
 
 type IndustryPageProps = {
   params: Promise<{
@@ -19,6 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
   const { slug } = await params;
   const industry = getIndustryProfile(slug);
+
   if (!industry) {
     return {
       title: "Industry | Spire Technosoft",
@@ -43,162 +46,163 @@ export default async function IndustryDetailPage({
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero Section */}
-      <section className="container animate-softFade py-12">
-        <div className="space-y-12">
-          <div className="flex items-center gap-3">
-             <Link href="/industries" className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 icon-muted group-hover:text-primary" />
-              Back to Industries
+      <section className="relative overflow-hidden pb-12 pt-10 sm:pt-14">
+        <div className="absolute inset-0 -z-10 hero-mesh opacity-80" />
+        <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
+
+        <div className="container space-y-8">
+          <Link
+            href="/industries"
+            className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            Back to industries
+          </Link>
+
+          <div className="grid gap-8 lg:grid-cols-[0.82fr,1.18fr] lg:items-center">
+            <div className="space-y-6">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                {industry.title}
+              </p>
+              <div className="space-y-4">
+                <h1 className="display-1 text-foreground">{industry.summary}</h1>
+                <p className="body-lg text-muted-foreground">
+                  We shape delivery, controls, and platform decisions around the reality of this
+                  market instead of forcing the same generic process onto every vertical.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {industry.successMetrics.map((metric) => (
+                  <span
+                    key={metric}
+                    className="rounded-full bg-white/58 px-4 py-2 text-sm text-muted-foreground shadow-sm backdrop-blur dark:bg-surface/72"
+                  >
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[2.5rem] section-contrast p-4 sm:p-5">
+              <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-surface-2">
+                <Image
+                  src={industry.image}
+                  alt={`${industry.title} background`}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/46 via-slate-900/12 to-transparent" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell pt-6">
+        <div className="container grid gap-10 lg:grid-cols-[1fr,1fr]">
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Challenges
+              </p>
+              <h2 className="heading-2 text-foreground">What teams in this industry are trying to fix</h2>
+            </div>
+            <div className="space-y-3">
+              {industry.focusAreas.map((item) => (
+                <div key={item} className="flex items-start gap-4 compact-tile rounded-[1.5rem] px-5 py-4">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Solutions
+              </p>
+              <h2 className="heading-2 text-foreground">How Spire responds in this context</h2>
+            </div>
+            <div className="space-y-3">
+              {industry.typicalPrograms.map((item) => (
+                <div key={item} className="flex items-start gap-4 compact-tile rounded-[1.5rem] px-5 py-4">
+                  <ArrowRight className="mt-0.5 h-4 w-4 icon-accent" />
+                  <p className="text-sm text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-6">
+        <div className="rounded-[2.2rem] section-contrast px-6 py-6">
+          <div className="grid gap-6 lg:grid-cols-[0.72fr,1.28fr] lg:items-start">
+            <div className="space-y-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Compliance
+              </p>
+              <h2 className="heading-2 text-foreground">Controls that matter in this sector</h2>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {industry.compliance.map((item) => (
+                <div key={item} className="compact-tile rounded-[1.4rem] px-4 py-4">
+                  <Lock className="h-4 w-4 icon-accent" />
+                  <p className="mt-3 text-sm text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell pt-8">
+        <div className="container grid gap-8 lg:grid-cols-[0.7fr,1.3fr]">
+          <div className="space-y-3">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Case studies
+            </p>
+            <h2 className="heading-2 text-foreground">Proof from relevant delivery programs</h2>
+          </div>
+
+          <div className="space-y-4">
+            {industry.caseStudies.map((caseStudy) => (
+              <Link
+                key={caseStudy.href}
+                href={caseStudy.href}
+                className="group flex items-center justify-between rounded-[2rem] section-contrast px-5 py-5"
+              >
+                <span className="text-lg font-semibold text-foreground">{caseStudy.title}</span>
+                <ArrowRight className="h-5 w-5 icon-accent transition-transform group-hover:translate-x-1" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container pb-28 pt-8">
+        <div className="cta-band rounded-[2.6rem] px-8 py-16 text-center sm:px-10 sm:py-20">
+          <div className="cta-inner mx-auto max-w-3xl space-y-7">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/60">
+              Consulting partnership
+            </p>
+            <h2 className="display-1 text-white">Define your sector strategy</h2>
+            <p className="body-lg text-white/78">
+              Discuss an industry-specific roadmap with our delivery team and align on compliance
+              and impact milestones.
+            </p>
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants({ size: "xl" }),
+                "bg-white text-slate-900 hover:bg-white/92"
+              )}
+            >
+              Book Free Consultation
             </Link>
           </div>
-
-          <div className="relative overflow-hidden rounded-[3rem] bg-white px-8 py-20 text-center md:px-16 lg:py-28 shadow-2xl">
-            <div className="relative z-10 max-w-4xl mx-auto space-y-10">
-              <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
-                  <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Vertical Insight</p>
-                </div>
-                <h1 className="text-5xl font-extrabold md:text-7xl tracking-tight leading-[1.1] text-foreground">
-                  {industry.title}
-                </h1>
-                <p className="max-w-2xl mx-auto text-xl text-muted-foreground font-medium leading-relaxed">
-                  {industry.summary}
-                </p>
-              </div>
-              <div className="flex justify-center">
-                <Button asChild size="lg" className="h-16 rounded-full bg-primary text-white hover:text-white px-12 text-lg font-bold group shadow-2xl hover:bg-secondary border-none">
-                  <Link href="/contact" className="flex items-center gap-3">
-                     Start Roadmap Strategy <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Details Grid */}
-      <section className="container animate-softFade py-10">
-        <div className="grid gap-8 md:grid-cols-2">
-          {/* Focus Areas Card */}
-          <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
-            <div className="flex items-center gap-4">
-               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Target className="h-7 w-7 icon-accent group-hover:text-white" />
-               </div>
-               <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Core Focus Areas</h2>
-            </div>
-            <ul className="grid gap-5">
-              {industry.focusAreas.map((item) => (
-                <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
-                  <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Programs Card */}
-          <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
-            <div className="flex items-center gap-4">
-               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Zap className="h-7 w-7 icon-accent group-hover:text-white" />
-               </div>
-               <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Typical Programs</h2>
-            </div>
-            <ul className="grid gap-5">
-              {industry.typicalPrograms.map((item) => (
-                <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
-                  <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Compliance Card */}
-          <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
-            <div className="flex items-center gap-4">
-               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <ShieldCheck className="h-7 w-7 icon-accent group-hover:text-white" />
-               </div>
-               <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Compliance & Rigor</h2>
-            </div>
-            <ul className="grid gap-5">
-              {industry.compliance.map((item) => (
-                <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
-                  <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Success Metrics Card */}
-          <div className="interactive-card p-10 space-y-8 group text-left bg-white shadow-xl">
-            <div className="flex items-center gap-4">
-               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <Activity className="h-7 w-7 icon-accent group-hover:text-white" />
-               </div>
-               <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Impact Metrics</h2>
-            </div>
-            <ul className="grid gap-5">
-              {industry.successMetrics.map((item) => (
-                <li key={item} className="flex gap-4 text-base text-muted-foreground group/item">
-                  <ArrowRight className="mt-1.5 h-4 w-4 icon-muted group-hover/item:text-primary transition-colors flex-shrink-0" />
-                  <span className="group-hover/item:text-foreground transition-colors leading-relaxed font-semibold">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Relevant Cases */}
-      <section className="container animate-softFade py-20 pb-32">
-        <div className="space-y-12 text-left">
-           <div className="space-y-4">
-              <h2 className="text-4xl font-extrabold text-secondary tracking-tight">Relevant Case Portfolios</h2>
-              <div className="h-1 w-20 bg-primary/20 rounded-full" />
-           </div>
-           <div className="grid gap-6">
-              {industry.caseStudies.map((caseStudy) => (
-                <Link 
-                  key={caseStudy.href} 
-                  href={caseStudy.href} 
-                  className="interactive-card p-10 flex items-center justify-between group bg-white shadow-lg transition-all hover:pl-12"
-                >
-                  <span className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{caseStudy.title}</span>
-                  <div className="h-14 w-14 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent group-hover:text-white" />
-                  </div>
-                </Link>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="container animate-softFade pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
-           <div className="cta-inner max-w-4xl mx-auto space-y-12">
-              <div className="space-y-6">
-                <p className="text-xs font-black uppercase tracking-[0.5em] text-white/50">Consulting Partnership</p>
-                <h2 className="text-4xl font-extrabold md:text-7xl tracking-tight">Define Your Sector Strategy</h2>
-                <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
-                   Discuss an industry-specific roadmap with our delivery team and align on compliance and impact milestones.
-                </p>
-              </div>
-              <div className="flex justify-center pt-4">
-                <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
-                  <Link href="/contact" className="flex items-center gap-3">
-                    Book Free Consultation <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
-                  </Link>
-                </Button>
-              </div>
-           </div>
         </div>
       </section>
     </div>

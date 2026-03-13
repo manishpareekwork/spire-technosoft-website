@@ -1,31 +1,28 @@
-import Link from "next/link";
 import {
-  Mail,
-  Phone,
-  MapPin,
+  Calendar,
   Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  ShieldCheck,
   Twitter,
   Youtube,
-  ShieldCheck,
-  Calendar,
-  Sparkles,
-  Layers,
-  Zap,
 } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
-import { SocialProofBand } from "@/components/sections/social-proof";
 import { siteContent } from "@/content/site";
 
 export const metadata = {
   title: "Contact | Spire Technosoft",
-  description: "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
+  description:
+    "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
   openGraph: {
     title: "Contact | Spire Technosoft",
-    description: "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
+    description:
+      "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };
@@ -39,107 +36,112 @@ const socialLinks = [
 const contactPoints = [
   { label: "Email", value: "contact@spiretechnosoft.com", href: "mailto:contact@spiretechnosoft.com", icon: Mail },
   { label: "Phone", value: "+91 99100 70933", href: "tel:+919910070933", icon: Phone },
-  { label: "Headquarters", value: "India | Global Delivery Presence", href: "#", icon: MapPin },
+  { label: "Location", value: "India | Global delivery", href: "https://maps.google.com/?q=Gurugram,India", icon: MapPin },
 ];
-
-const nextStepIcons = [Sparkles, Zap, Layers];
 
 export default function ContactPage() {
   const { contact } = siteContent;
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell w-full space-y-12 py-10 text-center">
-          <div className="relative z-10 space-y-6">
-            <Badge variant="soft">{contact.hero.eyebrow}</Badge>
-            <h1 className="display-hero text-foreground">{contact.hero.title}</h1>
-            <p className="mx-auto max-w-3xl body-lg text-muted-foreground">{contact.hero.description}</p>
-            <div className="flex justify-center pt-6">
-              <Button asChild size="xl">
-                <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
-                  {contact.hero.cta.label} <Calendar className="h-5 w-5 icon-inverse" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative overflow-hidden pb-14 pt-10 sm:pt-14">
+        <div className="absolute inset-0 -z-10 hero-mesh opacity-75" />
+        <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
-      {/* Routing */}
-      <section className="container py-10">
-        <SectionHeader title={contact.routing.title} description={contact.routing.description} />
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="surface-card rounded-3xl p-8 shadow-soft text-left">
-            <h3 className="heading-3 text-foreground">{contact.routing.sessionCard.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">{contact.routing.sessionCard.description}</p>
-            <Button asChild size="lg" className="mt-6">
-              <a href={contact.routing.sessionCard.cta.href} target="_blank" rel="noreferrer">
-                {contact.routing.sessionCard.cta.label}
+        <div className="container space-y-8 text-center">
+          <Badge variant="soft" className="mx-auto w-fit">
+            {contact.hero.eyebrow}
+          </Badge>
+          <div className="mx-auto max-w-4xl space-y-5">
+            <h1 className="display-1 text-foreground">{contact.hero.title}</h1>
+            <p className="body-lg text-muted-foreground">{contact.hero.description}</p>
+          </div>
+          <div className="flex justify-center">
+            <Button asChild size="xl" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
+                {contact.hero.cta.label}
+                <Calendar className="h-5 w-5" />
               </a>
             </Button>
           </div>
-          <div className="surface-card rounded-3xl p-8 shadow-soft text-left">
-            <h3 className="heading-3 text-foreground">{contact.routing.inquiryCard.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">{contact.routing.inquiryCard.description}</p>
-            <Button asChild variant="outline" size="lg" className="mt-6">
-              <Link href={contact.routing.inquiryCard.cta.href}>{contact.routing.inquiryCard.cta.label}</Link>
-            </Button>
+        </div>
+      </section>
+
+      <section id="inquiry" className="container pb-20 pt-4">
+        <div className="grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-start">
+          <div className="rounded-[2.4rem] section-contrast px-6 py-6 sm:px-8 sm:py-8">
+            <div className="space-y-4">
+              <Badge variant="soft" className="w-fit">
+                {contact.formIntro.eyebrow}
+              </Badge>
+              <SectionHeader
+                align="left"
+                title={contact.formIntro.title}
+                description={contact.formIntro.description}
+                className="max-w-none"
+              />
+            </div>
+            <div className="mt-8">
+              <ContactForm />
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Next Steps */}
-      <section className="container py-20">
-        <SectionHeader title={contact.nextSteps.title} description="" />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {contact.nextSteps.steps.map((step, index) => {
-            const Icon = nextStepIcons[index % nextStepIcons.length];
-            return (
-              <div key={step.title} className="surface-card rounded-3xl p-6 shadow-soft text-left">
-                <div className="flex items-center justify-between">
-                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary flex items-center justify-center shadow-sm">
-                    <Icon className="h-6 w-6 icon-accent" />
-                  </div>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">Step 0{index + 1}</span>
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{step.detail}</p>
+          <div className="space-y-5 lg:sticky lg:top-28">
+            <div className="rounded-[2rem] cta-band px-6 py-7">
+              <div className="cta-inner space-y-5">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/64">
+                  Free consultation
+                </p>
+                <h2 className="heading-2 text-white">Want the fastest route to a working conversation?</h2>
+                <p className="text-sm text-white/74">
+                  Skip the form and book directly with our team if you already know the problem,
+                  urgency, and stakeholders involved.
+                </p>
+                <Button asChild size="lg" className="w-full bg-white text-slate-900 hover:bg-white/92">
+                  <a href={contact.fastRoute.cta.href} target="_blank" rel="noreferrer">
+                    {contact.fastRoute.cta.label}
+                  </a>
+                </Button>
               </div>
-            );
-          })}
-        </div>
-      </section>
+            </div>
 
-      {/* Contact + Form */}
-      <section id="inquiry" className="container animate-softFade py-20">
-        <div className="grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start text-left">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <SectionHeader align="left" title="Direct access" description="Reach the core delivery team in a single step." />
-              <div className="grid gap-6">
+            <div className="rounded-[2rem] section-contrast px-4 py-4">
+              <div className="overflow-hidden rounded-[1.6rem] bg-surface-2">
+                <iframe
+                  title="Spire Technosoft location"
+                  src="https://www.google.com/maps?q=Gurugram%2C%20India&z=10&output=embed"
+                  className="h-[250px] w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="mt-4 space-y-3 px-2">
                 {contactPoints.map((point) => (
-                  <a
-                    key={point.label}
-                    href={point.href}
-                    className="surface-card flex items-center gap-6 rounded-2xl p-5 shadow-soft"
-                  >
-                    <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 flex items-center justify-center text-primary shadow-sm">
-                      <point.icon className="h-6 w-6 icon-accent" />
+                  <a key={point.label} href={point.href} className="flex items-start gap-4 compact-tile rounded-[1.4rem] px-4 py-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                      <point.icon className="h-4 w-4 icon-accent" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">{point.label}</p>
-                      <p className="text-lg font-semibold text-foreground">{point.value}</p>
+                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                        {point.label}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-foreground">{point.value}</p>
                     </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="surface-card rounded-3xl p-6 shadow-soft">
+            <div className="rounded-[2rem] section-contrast px-6 py-6">
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">Global presence</h3>
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-5 w-5 icon-accent" />
+                  <p className="text-sm font-semibold text-foreground">Secure intake process</p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Your roadmap, constraints, and technical details are handled under strict
+                  confidentiality from the first interaction.
+                </p>
                 <div className="flex gap-3">
                   {socialLinks.map((link) => (
                     <a
@@ -147,60 +149,14 @@ export default function ContactPage() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 text-primary flex items-center justify-center hover:from-primary hover:to-secondary hover:text-white transition-all border-transparent shadow-sm hover:shadow-md"
+                      className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/65 shadow-sm transition-colors hover:bg-primary hover:text-white dark:bg-surface/75"
                       title={link.label}
                     >
-                      <link.icon className="h-5 w-5 icon-accent" />
+                      <link.icon className="h-4 w-4" />
                     </a>
                   ))}
                 </div>
               </div>
-              <div className="pt-6 border-t border-border/40 mt-6 space-y-3">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-5 w-5 icon-accent" />
-                  <p className="text-sm font-semibold">Secure intake process</p>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Your roadmap and technical details are handled under strict confidentiality from the first interaction.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        <div className="surface-card rounded-[3rem] p-8 shadow-float">
-            <div className="space-y-4">
-              <Badge variant="soft">{contact.formIntro.eyebrow}</Badge>
-              <h2 className="heading-2 text-secondary">{contact.formIntro.title}</h2>
-              <p className="text-sm text-muted-foreground">{contact.formIntro.description}</p>
-            </div>
-            <div className="mt-8">
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="container py-20">
-        <SocialProofBand
-          title="Trusted partners"
-          description="Proof of outcomes across regulated programs, global delivery teams, and innovation sprints."
-          variant="compact"
-        />
-      </section>
-
-      {/* CTA Footer */}
-      <section className="container pb-32">
-        <div className="cta-band rounded-[3rem] px-8 py-24 text-center shadow-float">
-          <div className="cta-inner space-y-8 max-w-2xl mx-auto">
-            <h2 className="display-1 text-white">{contact.fastRoute.title}</h2>
-            <p className="body-lg text-white/80">{contact.fastRoute.description}</p>
-            <div className="flex justify-center pt-4">
-              <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
-                <a href={contact.fastRoute.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
-                  {contact.fastRoute.cta.label}
-                </a>
-              </Button>
             </div>
           </div>
         </div>

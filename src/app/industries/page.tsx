@@ -1,203 +1,127 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Shield, TrendingUp, Users, Zap, Search, Activity, Globe, Scale, Heart } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui/button-variants";
+import { SectionHeader } from "@/components/ui/section-header";
 import { SocialProofBand } from "@/components/sections/social-proof";
 import { industryProfiles } from "@/data/industries";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Industries | Spire Technosoft",
-  description: "Industry expertise for regulated programs across finance, healthcare, energy, manufacturing, and retail with secure digital platforms and measurable outcomes.",
+  description:
+    "Industry expertise for regulated programs across finance, healthcare, energy, manufacturing, and retail with secure digital platforms and measurable outcomes.",
 };
 
 export default function IndustriesPage(): React.ReactElement {
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero Section */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
-          <div className="relative">
-            <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-xl bg-primary/10 px-4 py-2">
-                <Globe className="h-4 w-4 icon-accent" />
-                <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">Industries We Serve</p>
-              </div>
-              <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl leading-tight">
-                Expertise for <span className="text-secondary">High-Stakes Programs</span>
-              </h1>
-              <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-2xl leading-relaxed">
-                We bring platform engineering, continuous improvement, and intelligence-led workflows to the industries 
-                that demand trust, scale, and measurable outcomes.
-              </p>
-            </div>
-          </div>
+      <section className="relative overflow-hidden pb-16 pt-10 sm:pt-14">
+        <div className="absolute inset-0 -z-10 hero-mesh opacity-80" />
+        <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 pt-8">
-            {[
-              { icon: Shield, label: "Compliance-ready", desc: "Built-in regulatory controls" },
-              { icon: TrendingUp, label: "Measurable ROI", desc: "KPI-driven outcomes" },
-              { icon: Scale, label: "Enterprise Scale", desc: "1000s of users supported" },
-              { icon: Zap, label: "Rapid Delivery", desc: "Cross-functional team model" }
-            ].map((item) => (
-              <div 
-                key={item.label} 
-                className="interactive-card p-8 group text-left"
-              >
-                <div className="mb-4 flex items-center justify-center h-12 w-12 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                  <item.icon className="h-6 w-6 icon-accent group-hover:text-white" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-lg font-bold text-foreground">{item.label}</p>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="container">
+          <SectionHeader
+            eyebrow="Industries"
+            title="The same company should not look identical to every sector it serves"
+            description="This page shifts to contextual storytelling: industry challenge on one side, Spire’s response on the other, supported by visual cues and measurable outcomes."
+            className="max-w-4xl"
+          />
         </div>
       </section>
 
-      {/* Industries Grid */}
-      <section className="container animate-softFade py-20 bg-gradient-to-b from-transparent via-primary/5 to-transparent border-none">
-        <div className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Sectors We Transform</h2>
-            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-              Every vertical we serve has unique constraints. Our teams speak your industry language to deliver impact.
-            </p>
-          </div>
+      <section className="container pb-12">
+        <div className="space-y-10">
+          {industryProfiles.map((industry, index) => {
+            const reverse = index % 2 === 1;
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {industryProfiles.map((industry) => (
-              <div 
-                key={industry.slug} 
-                className="interactive-card flex flex-col overflow-hidden p-0 group"
+            return (
+              <div
+                key={industry.slug}
+                className={cn(
+                  "grid gap-6 rounded-[2.5rem] section-contrast p-4 sm:p-5 lg:grid-cols-2 lg:items-stretch",
+                  reverse && "lg:[&>*:first-child]:order-2"
+                )}
               >
-                {/* Image Header */}
-                <div className="relative h-72 w-full overflow-hidden">
-                  <Image 
-                    src={industry.image} 
-                    alt={industry.title}
+                <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] bg-surface-2">
+                  <Image
+                    src={industry.image}
+                    alt={`${industry.title} preview`}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 44vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-primary/60 mix-blend-multiply group-hover:bg-primary/50 transition-colors" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
-                    <div className="inline-block rounded-lg bg-white/20 px-4 py-1.5 backdrop-blur-md mb-4">
-                      <p className="text-[10px] font-black uppercase tracking-[0.3em]">Vertical Focus</p>
-                    </div>
-                    <p className="text-4xl font-extrabold tracking-tight">{industry.title}</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/42 via-slate-900/10 to-transparent" />
                 </div>
 
-                <div className="p-10 flex flex-col flex-1 space-y-8">
-                  <div className="space-y-4 text-left">
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{industry.summary}</h3>
-                    <div className="h-1 w-12 bg-primary/30 rounded-full group-hover:w-24 transition-all duration-700" />
+                <div className="space-y-6 px-2 py-2 sm:px-3">
+                  <div className="space-y-3">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {industry.title}
+                    </p>
+                    <h2 className="heading-2 text-foreground">{industry.summary}</h2>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-8 flex-1 text-left">
-                    {/* Focus Areas */}
-                    <div className="space-y-4">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-primary border-b border-transparent bg-gradient-to-r from-primary/10 to-transparent bg-[length:100%_1px] bg-no-repeat bg-bottom pb-2">Key Areas</p>
-                      <ul className="space-y-3">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground">Industry challenges</p>
+                      <div className="space-y-3">
                         {industry.focusAreas.slice(0, 3).map((item) => (
-                          <li key={item} className="flex gap-3 text-sm font-medium text-muted-foreground group/item">
-                            <ArrowRight className="h-4 w-4 icon-muted mt-1 shrink-0 group-hover/item:text-primary" />
-                            <span>{item}</span>
-                          </li>
+                          <div key={item} className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                            <p className="text-sm text-muted-foreground">{item}</p>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
 
-                    {/* Success Metrics */}
-                    <div className="space-y-4">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-secondary border-b border-secondary/10 pb-2">Impact Outcomes</p>
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {industry.successMetrics.slice(0, 2).map((metric) => (
-                          <span key={metric} className="rounded-lg bg-primary/5 px-4 py-2 text-xs font-bold text-primary">
-                            {metric}
-                          </span>
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground">Spire’s response</p>
+                      <div className="space-y-3">
+                        {industry.typicalPrograms.slice(0, 3).map((item) => (
+                          <div key={item} className="flex items-start gap-3">
+                            <ShieldCheck className="mt-0.5 h-4 w-4 icon-accent" />
+                            <p className="text-sm text-muted-foreground">{item}</p>
+                          </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <div className="pt-6 border-t border-muted/10 text-left">
+                  <div className="flex flex-wrap gap-2">
+                    {industry.successMetrics.map((metric) => (
+                      <span
+                        key={metric}
+                        className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface-2/75"
+                      >
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="editorial-rule" />
+
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <Link href={`/industries/${industry.slug}`} className={cn(buttonVariants({ size: "lg" }))}>
+                      Explore industry page
+                    </Link>
                     <Link
-                      href={`/industries/${industry.slug}`}
-                      className="group/link inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors"
+                      href={industry.caseStudies[0]?.href ?? "/portfolio"}
+                      className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
                     >
-                      Case Strategy <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-1" />
+                      View case study
+                      <ArrowRight className="h-4 w-4 icon-accent" />
                     </Link>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Domain Strength Section */}
-      <section className="container animate-softFade py-24">
-        <div className="section-shell bg-surface-2 rounded-3xl p-10 lg:p-16 space-y-12 overflow-hidden shadow-2xl">
-          <div className="text-center space-y-6">
-             <div className="inline-flex items-center gap-2 rounded-lg bg-primary/5 px-4 py-1.5 text-primary">
-                <Search className="h-4 w-4 icon-accent" />
-                <span className="text-[10px] font-black uppercase tracking-widest">Industry Differentiation</span>
-              </div>
-            <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">
-              Strategic Domain Expertise
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3 text-left">
-            {[
-              {
-                title: "Deep Domain Knowledge",
-                description: "Our teams have decades of hands-on experience in the specific workflows, regulations, and pain points of your vertical.",
-                stat: "10+ Years"
-              },
-              {
-                title: "Zero-Trust Compliance",
-                description: "Privacy-first architecture, immutable audit trails, and automated regulatory reporting designed into every sprint.",
-                stat: "100%"
-              },
-              {
-                title: "Tangible ROI Focus",
-                description: "Every deployment is measured against board-level KPIs: speed to audit, user retention, and operational efficiency.",
-                stat: "25+"
-              }
-            ].map((item) => (
-              <div 
-                key={item.title}
-                className="interactive-card p-10 space-y-6 group"
-              >
-                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <p className="text-lg font-black">{item.stat}</p>
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{item.title}</h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center pt-8">
-            <Button asChild size="lg" className="h-14 rounded-xl bg-primary text-white hover:text-white px-10 text-lg font-bold group shadow-xl hover:bg-secondary border-none">
-              <Link href="/contact" className="flex items-center">
-                Discuss Your Industry Needs
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="container py-20">
+      <section className="container pb-28 pt-10">
         <SocialProofBand
           title="Enterprise credibility"
           description="Outcome-led partnerships across finance, healthcare, manufacturing, energy, and retail."

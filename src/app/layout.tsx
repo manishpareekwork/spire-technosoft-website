@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { FloatingCta } from "@/components/layout/floating-cta";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { siteContent } from "@/content/site";
 import {
   organizationJsonLd,
@@ -114,6 +115,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <GoogleAnalytics />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

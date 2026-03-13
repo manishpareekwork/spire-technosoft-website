@@ -219,6 +219,18 @@
   }
 }
 
+@keyframes pulseGrid {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
 @layer utilities {
   .display-hero {
     font-size: clamp(3.2rem, 6vw + 0.8rem, 6.7rem);
@@ -331,6 +343,15 @@
     mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), transparent 75%);
     -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), transparent 75%);
   }
+
+  .lab-grid {
+    background-image:
+      linear-gradient(to right, hsla(var(--primary), 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(var(--accent), 0.09) 1px, transparent 1px),
+      radial-gradient(circle at center, hsla(var(--primary), 0.12), transparent 55%);
+    background-size: 72px 72px, 72px 72px, auto;
+    animation: pulseGrid 14s ease-in-out infinite;
+  }
 }
 
 @layer components {
@@ -423,5 +444,48 @@
   .cta-inner {
     position: relative;
     z-index: 1;
+  }
+
+  .section-contrast {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsla(var(--border), 0.32);
+    background:
+      radial-gradient(circle at top left, hsla(var(--accent), 0.08), transparent 18rem),
+      linear-gradient(180deg, hsla(var(--surface), 0.72) 0%, hsla(var(--surface-2), 0.5) 100%);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .compact-tile {
+    border: 1px solid hsla(var(--border), 0.46);
+    background: hsla(var(--surface), 0.48);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .editorial-rule {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(var(--border), 0.9) 16%,
+      hsla(var(--border), 0.9) 84%,
+      transparent 100%
+    );
+  }
+
+  .timeline-rail {
+    position: relative;
+  }
+
+  .timeline-rail::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, hsla(var(--primary), 0.3), hsla(var(--border), 0.35));
   }
 }

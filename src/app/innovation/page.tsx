@@ -1,274 +1,226 @@
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { ArrowRight, BrainCircuit, Eye, Rocket, Sparkles, Workflow } from "lucide-react";
+
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { 
-  Sparkles, 
-  Cpu, 
-  BrainCircuit, 
-  Layers, 
-  Eye, 
-  ArrowRight, 
-  FileText, 
-  BookOpen, 
-  CheckCircle2,
-  Workflow,
-  Zap,
-  Globe,
-  MonitorPlay,
-  Rocket,
-  ShieldCheck
-} from "lucide-react";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { InnovationShowcase } from "@/components/innovation/innovation-showcase";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Innovation Lab | Spire Technosoft",
-  description: "Where ideas evolve into intelligent products. We prototype AI, AR/VR, IoT, and generative technologies for business impact.",
+  description:
+    "Prototype AI copilots, predictive dashboards, immersive workflows, and operational intelligence in Spire Technosoft's Innovation Lab.",
 };
 
-const focusAreas = [
-  {
-    title: "Intelligence & Data Science",
-    icon: BrainCircuit,
-    description: "Predictive analytics and recommendation engines deployed responsibly for scale.",
-    color: "primary"
-  },
-  {
-    title: "Spatial Computing",
-    icon: Eye,
-    description: "Immersive training and decision aides combining telemetry with spatial computing.",
-    color: "secondary"
-  },
-  {
-    title: "Edge & IoT Systems",
-    icon: Cpu,
-    description: "Low-latency edge processing and data visualization for smart infrastructure.",
-    color: "accent"
-  },
-  {
-    title: "Intelligent Automation",
-    icon: Sparkles,
-    description: "Human-in-the-loop automation for documentation and high-stakes workflows.",
-    color: "info"
-  },
-];
-
-const demoVisuals = [
+const showcaseItems = [
   {
     title: "Predictive Audit Assistant",
-    caption: "Risk scoring and evidence capture with predictive readiness nudges.",
-    icon: ShieldCheck
+    category: "AI Compliance",
+    caption: "Risk scoring, evidence prompts, and review summaries for audit-heavy programs.",
+    detail:
+      "Designed for teams that need faster audit cycles without losing traceability, reviewer control, or evidentiary rigor.",
+    image: "/images/manufacturing-dashboard.png",
+    imageAlt: "Predictive audit assistant concept",
+    metrics: ["45% faster closures", "Audit-ready logs", "Reviewer summaries"],
   },
   {
     title: "Operations Control Room",
-    caption: "Live telemetry panels and GIS overlays for distributed field crews.",
-    icon: Workflow
+    category: "Industrial Intelligence",
+    caption: "Live telemetry, route status, and asset health in one operational stage.",
+    detail:
+      "Built to connect control-room decisions with field workflows, alerts, and asset context instead of leaving teams inside disconnected monitoring tools.",
+    image: "/images/energy-dashboard.png",
+    imageAlt: "Operations control room concept",
+    metrics: ["4,500+ assets tracked", "Alert workflows", "Field-ready visibility"],
   },
   {
-    title: "Personalization Engine",
-    caption: "Dynamic journeys blending biometric signals and engagement triggers.",
-    icon: Zap
+    title: "Care Journey Personalization Engine",
+    category: "Healthcare Product",
+    caption: "Engagement signals, adherence nudges, and clinician-aware support flows.",
+    detail:
+      "A concept for healthcare and wellness teams that need privacy-aware personalization without turning the product into a black box.",
+    image: "/images/healthcare-dashboard.png",
+    imageAlt: "Healthcare personalization concept",
+    metrics: ["Consent-aware design", "+50% engagement", "Human-in-loop"],
   },
 ];
 
 const processSteps = [
-  { title: "Discover", description: "Identify pain points and define success metrics.", icon: Eye },
-  { title: "Prototype", description: "Build proof-of-concepts using our accelerator kits.", icon: Layers },
-  { title: "Validate", description: "Measure outcomes with pilot users and calibrate.", icon: CheckCircle2 },
-  { title: "Scale", description: "Transition to production with security playbooks.", icon: Rocket },
+  {
+    title: "Discover",
+    description: "Align the problem, users, operational constraints, and success metrics.",
+    icon: Eye,
+  },
+  {
+    title: "Prototype",
+    description: "Create the interaction model, proof asset, and technical feasibility slice.",
+    icon: Sparkles,
+  },
+  {
+    title: "Validate",
+    description: "Test with buyers, operators, and stakeholders before scaling effort.",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Scale",
+    description: "Translate validated concepts into an implementation roadmap and release plan.",
+    icon: Rocket,
+  },
 ];
 
-const thinkingPieces = [
+const labInsights = [
   {
     title: "Designing Responsible Copilots",
-    label: "Thought Leadership",
     description: "Principles and guardrails for compliant enterprise AI copilots.",
-    icon: BookOpen
+    href: "/downloads/thinking/responsible-copilots.pdf",
+    label: "Whitepaper",
   },
   {
-    title: "Field Telemetry Playbook",
-    label: "Strategy",
-    description: "A 12-week sprint guide for industrial IoT reliability programs.",
-    icon: FileText
-  },
-  {
-    title: "AR/VR Readiness Checklist",
+    title: "Predictive Dashboards Playbook",
+    description: "A practical guide to turning telemetry into decisions, not just visual noise.",
+    href: "/downloads/thinking/predictive-dashboards-playbook.pdf",
     label: "Guide",
-    description: "Use-case selection and prototype scope for industrial operators.",
-    icon: CheckCircle2
+  },
+  {
+    title: "AR/VR POC Checklist",
+    description: "How to scope a spatial prototype without overcommitting to the wrong use case.",
+    href: "/downloads/thinking/ar-vr-poc-checklist.pdf",
+    label: "Checklist",
   },
 ];
 
 export default function InnovationPage(): React.ReactElement {
   return (
     <div className="flex flex-1 flex-col bg-background">
-      {/* Hero Section */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell w-full space-y-12 py-10 text-center border-none shadow-none bg-transparent">
-          <div className="relative">
-            <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2">
-                <Sparkles className="h-4 w-4 icon-accent" />
-                <p className="text-sm font-bold uppercase tracking-[0.4em] text-primary">
-                  Innovation Lab
-                </p>
-              </div>
-              <h1 className="text-5xl font-extrabold md:text-7xl lg:text-8xl leading-tight">
-                Where ideas evolve into <span className="text-secondary">intelligent products</span>
-              </h1>
-              <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-2xl leading-relaxed">
-                We prototype high-stakes technologies for business impact. From initial proof-of-concept to production-grade 
-                intelligence, we co-build the future with your teams.
-              </p>
+      <section className="relative overflow-hidden pb-16 pt-10 sm:pt-14">
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(10,20,23,0.94),rgba(18,36,39,0.9))]" />
+        <div className="absolute inset-0 -z-10 lab-grid opacity-70" />
+        <div className="container space-y-10 text-white">
+          <div className="max-w-4xl space-y-6">
+            <Badge variant="soft" className="w-fit border-white/15 bg-white/10 text-white">
+              <Sparkles className="h-3.5 w-3.5 text-white" />
+              Innovation Lab
+            </Badge>
+            <h1 className="display-hero text-white">Prototype bold ideas before they become expensive bets</h1>
+            <p className="body-lg max-w-3xl text-white/74">
+              This page now behaves more like a showcase than a brochure: animated stage, concept
+              carousel, lighter content blocks, and clearer routes into the lab.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ size: "xl" }),
+                  "bg-white text-slate-900 hover:bg-white/92"
+                )}
+              >
+                Explore Our Lab
+              </Link>
+              <a
+                href="mailto:innovation@spiretechnosoft.com?subject=Innovation%20Lab%20Inquiry"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "xl" }),
+                  "border-white/25 bg-white/8 text-white hover:bg-white/14 hover:text-white"
+                )}
+              >
+                Request Sprint Brochure
+              </a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 pt-8">
-            {focusAreas.map((area) => (
-              <div 
-                key={area.title} 
-                className="interactive-card p-10 group overflow-hidden"
-              >
-                <div className="relative z-10 space-y-6 text-left">
-                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <area.icon className="h-7 w-7 icon-accent" />
+      <section className="container -mt-6 pb-12">
+        <InnovationShowcase items={showcaseItems} />
+      </section>
+
+      <section className="section-shell pt-4">
+        <div className="container">
+          <div className="rounded-[2.4rem] section-contrast px-6 py-7">
+            <div className="grid gap-4 lg:grid-cols-4">
+              {processSteps.map((step, index) => (
+                <div key={step.title} className="space-y-4 px-2 py-2">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/12">
+                      <step.icon className="h-4 w-4 icon-accent" />
+                    </span>
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Phase 0{index + 1}
+                    </span>
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">{area.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{area.description}</p>
+                    <p className="text-lg font-semibold text-foreground">{step.title}</p>
+                    <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Demo Section */}
-      <section className="container animate-softFade py-20">
-        <div className="space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 px-4">
-            <div className="space-y-4 text-left">
-              <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Lab Artifacts</h2>
-              <p className="text-muted-foreground text-xl max-w-2xl leading-relaxed">
-                Visual proof points and high-fidelity artifacts from our latest research engagements.
-              </p>
+              ))}
             </div>
-            <Link href="/portfolio" className="text-primary font-bold flex items-center gap-2 group underline-offset-8 hover:underline">
-              Visit Full Portfolio <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent" />
-            </Link>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-3">
-            {demoVisuals.map((visual) => (
-              <div 
-                key={visual.title} 
-                className="interactive-card p-10 space-y-10 group text-left"
-              >
-                <div className="h-20 w-20 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <visual.icon className="h-10 w-10 icon-accent" />
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">{visual.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-transparent bg-gradient-to-b from-primary/20 to-secondary/10 bg-no-repeat bg-[length:4px_100%] pl-6">"{visual.caption}"</p>
-                </div>
-                <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-primary pt-4">
-                  <MonitorPlay className="h-5 w-5 icon-accent" /> Explore Interactive Blueprint
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Collaboration Roadmap */}
-      <section className="container animate-softFade py-20">
-        <div className="section-shell bg-surface-2 rounded-3xl p-10 lg:p-16 space-y-16 overflow-hidden text-center shadow-2xl">
-          <div className="relative z-10 space-y-8">
-            <h2 className="text-4xl font-extrabold md:text-7xl text-secondary">Moving Ideas to Production</h2>
-            <p className="max-w-3xl mx-auto text-xl text-muted-foreground leading-relaxed">
-              Our lab operating model handles the complexity of validation so your teams can focus on adoption.
+      <section className="section-shell pt-8">
+        <div className="container grid gap-8 lg:grid-cols-[0.7fr,1.3fr]">
+          <div className="space-y-4">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              Lab insights
+            </p>
+            <h2 className="heading-2 text-foreground">Editorial downloads, not giant promo cards</h2>
+            <p className="body-md text-muted-foreground">
+              These resources act as supporting material for lab conversations and concept reviews.
             </p>
           </div>
 
-          <div className="relative z-10 grid gap-8 md:grid-cols-2 lg:grid-cols-4 pt-10">
-            {processSteps.map((step, index) => (
-              <div key={step.title} className="interactive-card p-8 space-y-6 group text-left">
-                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <step.icon className="h-7 w-7 icon-accent" />
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-primary">Phase 0{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-medium">{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Thinking Pieces */}
-      <section className="container animate-softFade py-32">
-        <div className="space-y-12">
-          <div className="space-y-4 px-4 text-left">
-            <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Lab Insights</h2>
-            <p className="text-muted-foreground text-xl leading-relaxed">Thinking and playbooks to guide your digital transformation.</p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-3">
-            {thinkingPieces.map((piece) => (
-              <div 
-                key={piece.title} 
-                className="interactive-card p-10 space-y-10 flex flex-col justify-between group text-left"
+          <div className="space-y-4">
+            {labInsights.map((piece) => (
+              <a
+                key={piece.title}
+                href={piece.href}
+                download
+                className="group flex items-center justify-between rounded-[2rem] section-contrast px-5 py-5"
               >
-                <div className="space-y-8">
-                  <div className="flex items-center justify-between">
-                    <Badge variant="outline" className="text-[10px] uppercase font-black tracking-[0.2em] text-primary border-transparent bg-gradient-to-r from-primary/10 to-secondary/10 px-3 py-1 shadow-sm">
-                      {piece.label}
-                    </Badge>
-                    <piece.icon className="h-6 w-6 icon-muted group-hover:text-primary transition-colors" />
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">{piece.title}</h3>
-                    <p className="text-base text-muted-foreground leading-relaxed">{piece.description}</p>
-                  </div>
+                <div className="space-y-2">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    {piece.label}
+                  </p>
+                  <h3 className="text-xl font-semibold text-foreground">{piece.title}</h3>
+                  <p className="text-sm text-muted-foreground">{piece.description}</p>
                 </div>
-                <div className="pt-8 border-t border-muted/10">
-                  <button className="w-full h-14 rounded-xl bg-primary/5 text-primary text-sm font-bold flex items-center justify-center gap-3 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    Access Playbook <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-accent group-hover:text-white" />
-                  </button>
-                </div>
-              </div>
+                <ArrowRight className="h-5 w-5 shrink-0 icon-accent transition-transform group-hover:translate-x-1" />
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="container animate-softFade pb-24">
-        <div className="cta-band rounded-3xl px-8 py-16 text-center shadow-float">
-          <div className="cta-inner max-w-4xl mx-auto space-y-12">
-            <div className="space-y-6">
-              <p className="text-xs font-black uppercase tracking-[0.5em] text-white/50">Rapid Validation</p>
-              <h2 className="text-4xl font-extrabold md:text-7xl">Plan a 2-Week Lab Sprint</h2>
-              <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-                Validate your high-stakes idea with a dedicated innovation pod, artifacts, and a clear production roadmap.
-              </p>
-            </div>
-            <div className="flex justify-center pt-4">
-              <Button asChild size="lg" className="h-14 rounded-xl bg-white text-primary px-12 text-lg font-bold group shadow-xl hover:bg-white/95 border-none">
-                <a href="mailto:innovation@spiretechnosoft.com?subject=Lab%20Sprint%20Inquiry" className="flex items-center gap-3">
-                  Request Sprint Brochure <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
-                </a>
-              </Button>
+      <section className="container pb-28 pt-10">
+        <div className="cta-band rounded-[2.6rem] px-8 py-16 text-center sm:px-10 sm:py-20">
+          <div className="cta-inner mx-auto max-w-3xl space-y-8">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/60">
+              Rapid validation
+            </p>
+            <h2 className="display-1 text-white">Plan a 2-week lab sprint</h2>
+            <p className="body-lg text-white/78">
+              Validate an AI workflow, dashboard concept, or immersive prototype before you commit
+              to full-scale product delivery.
+            </p>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ size: "xl" }),
+                  "bg-white text-slate-900 hover:bg-white/92"
+                )}
+              >
+                Explore Our Lab
+              </Link>
+              <Link
+                href="/portfolio"
+                className={cn(buttonVariants({ variant: "outline", size: "xl" }), "border-white/25 bg-white/8 text-white hover:bg-white/14 hover:text-white")}
+              >
+                View Related Work
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
