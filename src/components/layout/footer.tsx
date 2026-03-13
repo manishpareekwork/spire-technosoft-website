@@ -10,8 +10,9 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Case Studies" },
   { href: "/innovation", label: "Innovation Lab" },
+  { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -38,14 +39,14 @@ export function Footer(): React.ReactElement {
                   Spire Technosoft
                 </p>
                 <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
-                  Intelligent digital systems for scale
+                  AI-powered platforms for regulated industries
                 </p>
               </div>
             </Link>
 
             <p className="max-w-md text-sm text-muted-foreground">
-              We design and deliver enterprise platforms that connect product strategy,
-              premium UX, applied AI, and secure-by-design engineering.
+              We design and deliver secure digital platforms for finance, healthcare,
+              energy, and retail teams that need clearer operations and stronger compliance.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
@@ -113,11 +114,11 @@ export function Footer(): React.ReactElement {
                 Start a conversation
               </p>
               <h3 className="text-2xl font-semibold text-foreground">
-                Bring the roadmap. We will shape the pod, priorities, and first milestone.
+                Bring the roadmap. We will shape the team, priorities, and first milestone.
               </h3>
               <p className="text-sm text-muted-foreground">
-                Discovery sessions are structured around your goals, delivery constraints, and
-                the operating model needed to ship with confidence.
+                Consultation sessions are structured around your goals, delivery constraints,
+                and the first release needed to prove value quickly.
               </p>
             </div>
 
@@ -126,7 +127,7 @@ export function Footer(): React.ReactElement {
                 href="/contact"
                 className={cn(buttonVariants({ size: "lg" }), "px-6")}
               >
-                Book a discovery call
+                Book Free Consultation
                 <ArrowRight className="h-4 w-4 icon-inverse" />
               </Link>
               <Link

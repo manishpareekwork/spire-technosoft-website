@@ -80,7 +80,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
               <div className="flex flex-wrap justify-center gap-6 pt-4">
                 <Button asChild size="lg" className="h-14 rounded-xl bg-primary text-white hover:text-white px-10 text-lg font-bold group shadow-xl hover:bg-secondary border-none">
                   <Link href="/contact" className="flex items-center gap-3">
-                    Book Discovery Call <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
+                    Book Free Consultation <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 icon-inverse" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-14 rounded-xl border-border-strong bg-surface/50 text-foreground px-10 text-lg font-bold hover:shadow-md hover:bg-surface-2 transition-all">
@@ -97,7 +97,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
         <div className="grid gap-12 lg:grid-cols-[1.2fr,1fr] text-left">
           <div className="space-y-12">
             <div className="space-y-8">
-              <h2 className="text-4xl font-extrabold text-secondary tracking-tight">Platform Narrative</h2>
+              <h2 className="text-4xl font-extrabold text-secondary tracking-tight">Solution overview</h2>
               <p className="text-xl text-muted-foreground leading-relaxed font-medium">
                 {solution.intro}
               </p>
@@ -146,7 +146,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
             <div className="interactive-card bg-primary/5 p-10 space-y-8">
               <div className="flex items-center gap-4">
                 <Workflow className="h-7 w-7 icon-accent" />
-                <h3 className="text-2xl font-bold text-foreground">Velocity Delivery</h3>
+                <h3 className="text-2xl font-bold text-foreground">Delivery plan</h3>
               </div>
               <div className="space-y-10">
                 {solution.deliveryPlan.map((phase) => (
@@ -302,7 +302,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
               <p className="text-xs font-black uppercase tracking-[0.4em] text-white/50">Partnership Model</p>
               <h2 className="text-5xl font-extrabold md:text-7xl">Book a delivery workshop</h2>
               <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
-                We align pods across strategy, design, and engineering within two weeks to scope your engagement.
+                We align product, design, and engineering within two weeks to scope your engagement.
               </p>
             </div>
             <div className="flex justify-center pt-4">

@@ -188,13 +188,13 @@ export default async function IndustryDetailPage({
                 <p className="text-xs font-black uppercase tracking-[0.5em] text-white/50">Consulting Partnership</p>
                 <h2 className="text-4xl font-extrabold md:text-7xl tracking-tight">Define Your Sector Strategy</h2>
                 <p className="text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
-                   Discuss an industry-specific roadmap with our delivery pods and align on compliance and impact milestones.
+                   Discuss an industry-specific roadmap with our delivery team and align on compliance and impact milestones.
                 </p>
               </div>
               <div className="flex justify-center pt-4">
                 <Button asChild size="lg" className="h-16 rounded-full bg-white text-primary px-16 text-xl font-bold group shadow-2xl hover:bg-white/95 border-none">
                   <Link href="/contact" className="flex items-center gap-3">
-                    Book Discovery Session <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
+                    Book Free Consultation <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 icon-accent" />
                   </Link>
                 </Button>
               </div>

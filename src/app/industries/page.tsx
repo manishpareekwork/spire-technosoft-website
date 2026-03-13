@@ -8,7 +8,7 @@ import { industryProfiles } from "@/data/industries";
 
 export const metadata = {
   title: "Industries | Spire Technosoft",
-  description: "Industry expertise for regulated, high-impact programs. We bring platform engineering and intelligence to finance, healthcare, and energy.",
+  description: "Industry expertise for regulated programs across finance, healthcare, energy, manufacturing, and retail with secure digital platforms and measurable outcomes.",
 };
 
 export default function IndustriesPage(): React.ReactElement {
@@ -27,7 +27,7 @@ export default function IndustriesPage(): React.ReactElement {
                 Expertise for <span className="text-secondary">High-Stakes Programs</span>
               </h1>
               <p className="mx-auto max-w-3xl text-xl text-muted-foreground md:text-2xl leading-relaxed">
-                We bring platform engineering, Experience Ops, and intelligence-led workflows to the industries 
+                We bring platform engineering, continuous improvement, and intelligence-led workflows to the industries 
                 that demand trust, scale, and measurable outcomes.
               </p>
             </div>
@@ -38,7 +38,7 @@ export default function IndustriesPage(): React.ReactElement {
               { icon: Shield, label: "Compliance-ready", desc: "Built-in regulatory controls" },
               { icon: TrendingUp, label: "Measurable ROI", desc: "KPI-driven outcomes" },
               { icon: Scale, label: "Enterprise Scale", desc: "1000s of users supported" },
-              { icon: Zap, label: "Rapid Delivery", desc: "Platform pods method" }
+              { icon: Zap, label: "Rapid Delivery", desc: "Cross-functional team model" }
             ].map((item) => (
               <div 
                 key={item.label} 
@@ -63,7 +63,7 @@ export default function IndustriesPage(): React.ReactElement {
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-extrabold md:text-6xl text-secondary">Sectors We Transform</h2>
             <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-              Every vertical we serve has unique constraints. Our pods speak your industry language to deliver impact.
+              Every vertical we serve has unique constraints. Our teams speak your industry language to deliver impact.
             </p>
           </div>
 

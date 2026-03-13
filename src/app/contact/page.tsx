@@ -22,10 +22,10 @@ import { siteContent } from "@/content/site";
 
 export const metadata = {
   title: "Contact | Spire Technosoft",
-  description: "Let's discuss how we can engineer growth together. Book a discovery call or send us a brief.",
+  description: "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
   openGraph: {
     title: "Contact | Spire Technosoft",
-    description: "Let's discuss how we can engineer growth together. Book a discovery call or send us a brief.",
+    description: "Talk to Spire Technosoft about AI-powered platforms for finance, healthcare, energy, and retail. Book a free consultation or send us a brief.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };
@@ -117,7 +117,7 @@ export default function ContactPage() {
         <div className="grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start text-left">
           <div className="space-y-12">
             <div className="space-y-6">
-              <SectionHeader align="left" title="Direct access" description="Reach the core delivery pod in a single step." />
+              <SectionHeader align="left" title="Direct access" description="Reach the core delivery team in a single step." />
               <div className="grid gap-6">
                 {contactPoints.map((point) => (
                   <a
@@ -184,7 +184,7 @@ export default function ContactPage() {
       <section className="container py-20">
         <SocialProofBand
           title="Trusted partners"
-          description="Proof of outcomes across regulated programs, global delivery pods, and innovation sprints."
+          description="Proof of outcomes across regulated programs, global delivery teams, and innovation sprints."
           variant="compact"
         />
       </section>

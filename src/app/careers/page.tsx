@@ -25,10 +25,10 @@ import { siteContent } from "@/content/site";
 
 export const metadata = {
   title: "Careers | Spire Technosoft",
-  description: "Work with innovators who engineer impact. Join our delivery pods and help scale digital systems for global enterprises.",
+  description: "Work with innovators who engineer impact. Join cross-functional teams building secure digital systems for global enterprises.",
   openGraph: {
     title: "Careers | Spire Technosoft",
-    description: "Work with innovators who engineer impact. Join our delivery pods and help scale digital systems for global enterprises.",
+    description: "Work with innovators who engineer impact. Join cross-functional teams building secure digital systems for global enterprises.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
 };

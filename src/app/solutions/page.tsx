@@ -159,7 +159,7 @@ export default function SolutionsPage(): React.ReactElement {
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg">
-                    <Link href="/contact">Book discovery</Link>
+                    <Link href="/contact">Book free consultation</Link>
                   </Button>
                 </div>
               </div>

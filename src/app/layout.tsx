@@ -6,6 +6,13 @@ import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { FloatingCta } from "@/components/layout/floating-cta";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteContent } from "@/content/site";
+import {
+  organizationJsonLd,
+  siteKeywords,
+  siteName,
+  siteUrl,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -37,9 +44,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.spiretechnosoft.com"),
+  metadataBase: new URL(siteUrl),
   title: siteContent.seo.baseTitle,
   description: siteContent.seo.baseDescription,
+  keywords: [...siteKeywords],
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/images/logo/24x24.png", sizes: "24x24", type: "image/png" },
@@ -50,6 +82,10 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName,
+    locale: "en_IN",
     title: siteContent.seo.baseTitle,
     description: siteContent.seo.baseDescription,
     images: [{ url: siteContent.seo.defaultOg }],
@@ -78,6 +114,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          />
           <div className="relative flex min-h-screen flex-col">
             <ScrollProgress />
             <Header />

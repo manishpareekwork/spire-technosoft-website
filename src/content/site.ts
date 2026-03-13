@@ -1,56 +1,68 @@
 export const siteContent = {
   seo: {
     siteName: "Spire Technosoft",
-    baseTitle: "Spire Technosoft | Secure Digital Product Engineering",
+    baseTitle: "AI Product Engineering for Regulated Industries | Spire Technosoft",
     baseDescription:
-      "Spire Technosoft engineers secure, scalable digital products for regulated enterprises - combining UX, AI, and resilient architecture.",
+      "Spire Technosoft designs AI-powered platforms for finance, healthcare, energy, and retail teams that need secure, scalable, compliance-ready digital products.",
+    baseKeywords: [
+      "AI product engineering company",
+      "AI product engineering for healthcare",
+      "AI compliance solutions for finance",
+      "predictive maintenance dashboards for utilities",
+      "secure digital platforms for regulated industries",
+      "enterprise software development company India",
+      "healthcare platform development",
+      "audit and compliance platform development",
+      "IoT dashboard development company",
+      "retail supply chain software development",
+    ],
     defaultOg: "/images/logo/1080x1080.png",
   },
   nav: {
-    ctaLabel: "Book Discovery Call",
+    ctaLabel: "Book Free Consultation",
     ctaHref: "/contact",
-    mobileCtaLabel: "Book Discovery Call",
+    mobileCtaLabel: "Book Free Consultation",
   },
   differentiators: [
     {
-      title: "Platform Pods",
-      metric: "Cross-functional delivery",
+      title: "Cross-functional delivery teams",
+      metric: "Strategy, design, and engineering together",
       description:
-        "Pods combine strategy, product, design, and engineering to ship outcome-led increments on predictable trains.",
+        "Small senior teams align product strategy, design, and engineering so momentum does not get lost in handoffs.",
     },
     {
-      title: "Experience Ops",
-      metric: "Design + DevOps",
+      title: "Continuous improvement and support",
+      metric: "Design systems, DevOps, and operations",
       description:
-        "Design systems, CI/CD, and SRE playbooks keep quality and velocity aligned through Day-2 operations.",
+        "We keep shipping after launch with release discipline, observability, and iterative UX improvements.",
     },
     {
-      title: "Intelligence Built-in",
-      metric: "AI + telemetry",
+      title: "AI built into real workflows",
+      metric: "Automation, analytics, and telemetry",
       description:
-        "Telemetry, automation, and governed AI are embedded into every workflow for regulated environments.",
+        "AI, analytics, and workflow automation are built into the product where they improve speed, accuracy, and decision-making.",
     },
   ],
   resources: [
     {
       title: "Company one-pager",
-      description: "Snapshot of services, outcomes, and delivery model for stakeholder alignment.",
+      description: "A concise overview of our services, industries, outcomes, and delivery approach.",
       href: "/downloads/company-one-pager.pdf",
       label: "PDF",
       cover: "/images/about/mission-hero.png",
       meta: "6 pages | 2.1 MB",
     },
     {
-      title: "Platform Pods overview",
-      description: "How cross-functional pods accelerate release trains, governance, and KPIs.",
+      title: "Delivery team model overview",
+      description: "How cross-functional teams improve delivery speed, governance, and accountability.",
       href: "/downloads/platform-pods-overview.pdf",
       label: "PDF",
       cover: "/images/img1.png",
       meta: "8 pages | 3.4 MB",
     },
     {
-      title: "Innovation Lab sprint brochure",
-      description: "Two-week sprint structure, artifacts, and handoff checklist for R&D programs.",
+      title: "Innovation lab sprint guide",
+      description: "A short guide to our two-week sprint for validating AI ideas, dashboards, and new product bets.",
       href: "/downloads/innovation-lab-sprint-brochure.pdf",
       label: "PDF",
       cover: "/images/supply-chain-quality-system.png",
@@ -81,13 +93,13 @@ export const siteContent = {
     testimonials: [
       {
         quote:
-          "Spire brought clarity to a complex regulatory rollout. Their Platform Pods blended product strategy and delivery so we could launch in weeks, not quarters.",
+          "Spire brought clarity to a complex regulatory rollout. Their cross-functional team blended product strategy and delivery so we could launch in weeks, not quarters.",
         name: "VP, Compliance Platforms",
         company: "Global Manufacturing Group (anonymised)",
       },
       {
         quote:
-          "The Experience Ops model tightened feedback loops across design, engineering, and governance. We saw measurable adoption gains within the first release train.",
+          "Their continuous improvement model tightened feedback loops across design, engineering, and governance. We saw measurable adoption gains within the first release train.",
         name: "Director, Digital Health",
         company: "Wellness & Care Network (anonymised)",
       },
@@ -101,13 +113,13 @@ export const siteContent = {
   },
   home: {
     hero: {
-      eyebrow: "Engineering Growth",
-      title: "Intelligent Digital Systems for Scale",
-      highlight: "Digital Systems",
+      eyebrow: "AI product engineering for regulated industries",
+      title: "AI-Powered Platforms for Regulated Industries",
+      highlight: "AI-Powered Platforms",
       description:
-        "We design, build, and scale enterprise platforms that unite premium UX, applied AI, and secure-by-design architecture.",
-      primaryCta: { label: "Explore Solutions", href: "/solutions" },
-      secondaryCta: { label: "Book Discovery Call", href: "/contact" },
+        "We help finance, healthcare, energy, and retail teams build secure, scalable digital systems that simplify compliance, operations, and customer experience.",
+      primaryCta: { label: "Book Free Consultation", href: "/contact" },
+      secondaryCta: { label: "See Case Studies", href: "/portfolio" },
       sectors: ["Regulated Finance", "Smart Energy", "Healthcare", "Retail & FMCG"],
     },
     stats: [
@@ -117,10 +129,10 @@ export const siteContent = {
       { label: "Delivery Success", value: "100%", helper: "On-time, governed releases" },
     ],
     transformations: {
-      eyebrow: "Case Impacts",
-      title: "Enterprise Transformations",
+      eyebrow: "Case studies",
+      title: "Proof in measurable outcomes",
       description:
-        "Outcome-led programs across regulated industries, anchored to measurable KPIs and audit-ready delivery.",
+        "Selected work across regulated industries, with clear metrics tied to compliance, reliability, and user adoption.",
       cards: [
         {
           title: "Regulatory Audit Cloud",
@@ -149,11 +161,11 @@ export const siteContent = {
       ],
     },
     operatingRhythm: {
-      eyebrow: "Operating Rhythm",
-      title: "From Discovery to Day-2 Ops",
+      eyebrow: "How we work",
+      title: "Clear delivery from discovery to launch",
       description:
-        "A disciplined cadence that synchronizes strategy, design, and engineering into one accountable operating system.",
-      cta: { label: "Learn About Our Pods", href: "/contact" },
+        "We structure every engagement around shared goals, visible milestones, and a practical first release that teams can trust.",
+      cta: { label: "Plan your first milestone", href: "/contact" },
       steps: [
         {
           title: "Discovery",
@@ -168,20 +180,20 @@ export const siteContent = {
         {
           title: "Build Increments",
           duration: "Weeks 3-10",
-          detail: "Platform Pods ship release trains with telemetry and quality gates.",
+          detail: "Cross-functional teams ship release increments with telemetry and quality gates.",
         },
         {
           title: "Day-2 Ops",
           duration: "Ongoing",
-          detail: "Experience Ops, SRE playbooks, and adoption analytics keep value compounding.",
+          detail: "Continuous improvement, SRE playbooks, and adoption analytics keep value compounding.",
         },
       ],
     },
     securityPrinciples: {
-      eyebrow: "Secure by Design",
-      title: "Security Principles Built In",
+      eyebrow: "Security by design",
+      title: "Security, privacy, and reliability built in from day one",
       description:
-        "Security is embedded in every architectural decision, audit trail, and deployment pipeline.",
+        "Security is not an add-on. It shapes the architecture, workflows, approvals, and release process from the start.",
       principles: [
         {
           title: "Privacy-first data models",
@@ -207,10 +219,10 @@ export const siteContent = {
     },
     labCta: {
       eyebrow: "Innovation Lab",
-      title: "Future-Proof Your Roadmap",
+      title: "Validate bold ideas before you commit to full-scale build",
       description:
-        "Explore how we apply AI, predictive modeling, and immersive interfaces to high-stakes enterprise challenges.",
-      primaryCta: { label: "Enter the Lab", href: "/innovation" },
+        "Prototype AI copilots, predictive dashboards, and operational workflows in a focused sprint designed for high-stakes teams.",
+      primaryCta: { label: "Explore Innovation Lab", href: "/innovation" },
       secondaryCta: { label: "Book Strategy Session", href: "/contact" },
     },
   },
@@ -264,11 +276,11 @@ export const siteContent = {
       metrics: [
         { value: "25+", label: "Enterprise programs delivered" },
         { value: "40%", label: "Faster release cycles" },
-        { value: "2 weeks", label: "Pods to launch" },
+        { value: "2 weeks", label: "Team setup to launch" },
         { value: "100%", label: "On-time delivery" },
       ],
       capabilities: [
-        "Platform Pods combining product, design, and engineering.",
+        "Cross-functional teams combining product, design, and engineering.",
         "Outcome governance mapped to business KPIs.",
         "Security-by-design and audit-ready delivery.",
         "Global delivery rituals with executive visibility.",
@@ -284,7 +296,7 @@ export const siteContent = {
       eyebrow: "Partner with Us",
       title: "Ready to start your transformation?",
       description:
-        "Bring your business challenges and we will align the right pod, roadmap, and success metrics.",
+        "Bring your business challenges and we will align the right team, roadmap, and success metrics.",
       primaryCta: { label: "Book a Strategy Session", href: "/contact" },
       secondaryCta: { label: "Explore Solutions", href: "/solutions" },
     },
@@ -294,13 +306,13 @@ export const siteContent = {
       eyebrow: "Expertise",
       title: "Modular platforms built for regulated industries",
       description:
-        "Platform Pods, Experience Ops, and Intelligence Built-in form the core of every engagement - designed for secure, measurable outcomes.",
+        "Cross-functional delivery teams, continuous improvement, and built-in intelligence form the core of every engagement, designed for secure, measurable outcomes.",
     },
     pillars: [
       {
         key: "platform-pods",
-        label: "Platform Pods",
-        title: "Cross-functional pods that move in weeks, not quarters",
+        label: "Cross-functional teams",
+        title: "Small senior teams that move in weeks, not quarters",
         outcomes: [
           "Dedicated squads aligned to a single outcome map.",
           "Release trains with quality gates and clear ownership.",
@@ -310,8 +322,8 @@ export const siteContent = {
       },
       {
         key: "experience-ops",
-        label: "Experience Ops",
-        title: "Design + DevOps keeps quality and velocity aligned",
+        label: "Continuous improvement",
+        title: "Design, DevOps, and operations stay aligned after launch",
         outcomes: [
           "Design systems and UX governance at scale.",
           "CI/CD, observability, and SRE playbooks.",
@@ -337,7 +349,7 @@ export const siteContent = {
     },
     assets: {
       title: "Shareable sales assets",
-      description: "Download the one-pager, Platform Pods overview, and Innovation Lab brochure for stakeholder alignment.",
+      description: "Download the one-pager, delivery team overview, and Innovation Lab brochure for stakeholder alignment.",
     },
   },
   portfolio: {
@@ -487,7 +499,7 @@ export const siteContent = {
       area: "Wellness Programs",
     },
     applyIntro: {
-      title: "Join the pod",
+      title: "Join the team",
       description: "Ready to co-create high-stakes enterprise systems?",
     },
     applyChecklist: [
@@ -498,7 +510,7 @@ export const siteContent = {
     ],
     cta: {
       title: "Engineer impact together",
-      description: "We deliver across regulated programs with high-accountability delivery pods.",
+      description: "We deliver across regulated programs with high-accountability cross-functional teams.",
       label: "Start your journey",
       href: "mailto:careers@spiretechnosoft.com?subject=Apply%20%40%20Spire",
     },
@@ -508,15 +520,15 @@ export const siteContent = {
       eyebrow: "Connect",
       title: "Let's engineer growth together",
       description:
-        "Platform Pods and Experience Ops keep every engagement outcome-led. Share your roadmap and we will respond with a strategic plan.",
-      cta: { label: "Book Discovery Session", href: "https://calendly.com/spire-technosoft/discovery" },
+        "Cross-functional delivery and continuous improvement keep every engagement outcome-led. Share your roadmap and we will respond with a practical plan.",
+      cta: { label: "Book Free Consultation", href: "https://calendly.com/spire-technosoft/discovery" },
     },
     routing: {
       title: "Choose your fastest path",
       description: "Book a strategy session for immediate alignment or submit an inquiry for scoped requests.",
       sessionCard: {
         title: "Strategy session",
-        description: "30-minute discovery with solution architects to map outcomes and timelines.",
+        description: "A 30-minute consultation with solution architects to map outcomes and timelines.",
         cta: { label: "Book on Calendly", href: "https://calendly.com/spire-technosoft/discovery" },
       },
       inquiryCard: {
@@ -537,19 +549,19 @@ export const siteContent = {
           detail: "Co-create outcomes, delivery plan, and success metric baseline.",
         },
         {
-          title: "Pod kickoff",
-          detail: "Finalize scope and launch a Platform Pod within two weeks.",
+          title: "Team kickoff",
+          detail: "Finalize scope and launch a focused delivery team within two weeks.",
         },
       ],
     },
     formIntro: {
       eyebrow: "Global Intake",
       title: "Initiate a workshop",
-      description: "Select an inquiry type to route your request to the right pod.",
+      description: "Select an inquiry type to route your request to the right team.",
     },
     fastRoute: {
       title: "Prefer a faster route?",
-      description: "Skip the form and jump straight into a discovery session with our architects.",
+      description: "Skip the form and jump straight into a consultation with our architects.",
       cta: { label: "Book on Calendly", href: "https://calendly.com/spire-technosoft/discovery" },
     },
   },

@@ -23,14 +23,17 @@ import { siteContent } from "@/content/site";
  * @property {string} label - The display text for the link.
  */
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
+  { href: "/portfolio", label: "Case Studies" },
   { href: "/innovation", label: "Innovation Lab" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/careers", label: "Careers" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+const mobileUtilityLinks = [
+  { href: "/insights", label: "Insights" },
+  { href: "/careers", label: "Careers" },
 ];
 
 /**
@@ -63,10 +66,10 @@ export function Header(): React.ReactElement {
       <div className="container">
         <div
           className={cn(
-            "flex items-center justify-between rounded-full border px-4 py-3 transition-all duration-500 sm:px-6",
+            "flex items-center justify-between rounded-full px-4 py-3 transition-all duration-500 sm:px-6",
             scrolled
-              ? "border-border/70 bg-background/82 shadow-soft backdrop-blur-xl"
-              : "border-white/45 bg-white/55 shadow-[0_18px_44px_-34px_rgba(32,41,47,0.22)] backdrop-blur-md dark:border-border/50 dark:bg-surface/72"
+              ? "bg-background/80 shadow-soft ring-1 ring-border/45 backdrop-blur-xl"
+              : "bg-white/60 shadow-[0_18px_44px_-34px_rgba(32,41,47,0.18)] ring-1 ring-white/60 backdrop-blur-md dark:bg-surface/72 dark:ring-border/35"
           )}
         >
           <Link
@@ -94,7 +97,7 @@ export function Header(): React.ReactElement {
           </Link>
 
           <nav className="hidden flex-1 items-center justify-center px-6 md:flex">
-            <div className="flex items-center gap-1 rounded-full bg-black/[0.025] p-1 dark:bg-white/[0.04]">
+            <div className="flex items-center gap-1 rounded-full bg-white/60 p-1.5 shadow-[inset_0_0_0_1px_hsla(var(--border),0.32)] backdrop-blur dark:bg-surface/72">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -102,8 +105,8 @@ export function Header(): React.ReactElement {
                   className={cn(
                     "rounded-full px-4 py-2 text-[0.86rem] font-medium transition-all duration-300",
                     isActive(link.href)
-                      ? "bg-white text-foreground shadow-sm dark:bg-surface-2"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "bg-primary/12 text-foreground shadow-sm dark:bg-primary/18"
+                      : "text-muted-foreground hover:bg-white/75 hover:text-foreground dark:hover:bg-surface-2"
                   )}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
@@ -127,7 +130,7 @@ export function Header(): React.ReactElement {
             <ThemeToggle />
             <button
               aria-label="Toggle navigation"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/70 text-foreground shadow-sm transition-colors hover:text-primary dark:bg-surface/80"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/72 text-foreground shadow-sm transition-colors hover:bg-white hover:text-primary dark:bg-surface/80"
               onClick={() => setMobileOpen((prev) => !prev)}
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -142,7 +145,7 @@ export function Header(): React.ReactElement {
         side="right"
         title="Navigate"
         description="Explore Spire Technosoft"
-        className="md:hidden border-l border-border/50 bg-background/92 backdrop-blur-2xl"
+        className="md:hidden bg-background/92 backdrop-blur-2xl"
       >
         <nav className="mt-8 flex flex-col gap-3 text-base font-semibold">
           {navLinks.map((link) => (
@@ -160,6 +163,18 @@ export function Header(): React.ReactElement {
               {link.label}
             </Link>
           ))}
+          <div className="mt-3 grid gap-3 border-t border-border/55 pt-5">
+            {mobileUtilityLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-[1.25rem] px-4 py-4 text-base text-foreground/80 transition-all duration-300 hover:bg-white/60 hover:text-foreground dark:hover:bg-surface-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
           <Link
             href={siteContent.nav.ctaHref}
             onClick={() => setMobileOpen(false)}

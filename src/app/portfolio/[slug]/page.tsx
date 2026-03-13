@@ -227,12 +227,12 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
           <div className="cta-inner max-w-3xl mx-auto space-y-8">
             <h2 className="display-1 text-white">Need a similar initiative?</h2>
             <p className="body-lg text-white/80">
-              We align delivery pods across strategy, design, and engineering in under two weeks. Let's discuss your roadmap.
+              We align strategy, design, and engineering in under two weeks. Let's discuss your roadmap.
             </p>
             <div className="flex justify-center">
               <Button asChild size="xl" className="bg-white text-primary hover:bg-white/95">
                 <Link href="/contact" className="flex items-center gap-2">
-                  Book discovery workshop <ArrowRight className="h-5 w-5 icon-accent" />
+                  Book free consultation <ArrowRight className="h-5 w-5 icon-accent" />
                 </Link>
               </Button>
             </div>

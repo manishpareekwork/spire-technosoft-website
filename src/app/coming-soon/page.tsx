@@ -44,7 +44,7 @@ export default function ComingSoonPage(): React.ReactElement {
             </h1>
             <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
               This page is being built with cutting-edge insights, case studies, and resources. 
-              In the meantime, explore our solutions and portfolio, or book a discovery call to discuss your next project.
+              In the meantime, explore our solutions and portfolio, or book a free consultation to discuss your next project.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function ComingSoonPage(): React.ReactElement {
 
           <div className="pt-4">
             <Link href="/contact" className="group inline-flex items-center text-sm font-semibold text-white/90 underline underline-offset-4 transition-colors hover:text-white">
-              Book a discovery call
+              Book a free consultation
               <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 icon-inverse" />
             </Link>
           </div>
