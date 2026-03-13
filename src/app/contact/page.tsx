@@ -47,11 +47,11 @@ export default function ContactPage() {
         <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
         <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="space-y-6">
+          <div className="max-w-[39rem] space-y-5">
             <Badge variant="soft" className="w-fit">
               {contact.hero.eyebrow}
             </Badge>
-            <h1 className="display-1 text-foreground">{contact.hero.title}</h1>
+            <h1 className="display-1 max-w-[14ch] text-foreground">{contact.hero.title}</h1>
             <p className="max-w-3xl body-lg text-muted-foreground">{contact.hero.description}</p>
             <Button asChild size="xl" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export default function ContactPage() {
             </Button>
           </div>
 
-          <div className="space-y-4 rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+          <div className="compact-tile space-y-4 rounded-[2rem] px-6 py-6 shadow-soft">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
               Before we talk
             </p>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 "Who needs to use it every day?",
                 "What needs to be true after the first release?",
               ].map((item) => (
-                <div key={item} className="border-t border-border/45 pt-4 first:border-t-0 first:pt-0">
+                <div key={item} className="rounded-[1rem] bg-white/48 px-4 py-3 dark:bg-surface/60">
                   <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
               ))}
@@ -82,7 +82,7 @@ export default function ContactPage() {
 
       <section id="inquiry" className="container pb-20 pt-4">
         <div className="grid gap-10 lg:grid-cols-[0.64fr,0.36fr] lg:items-start">
-          <div className="rounded-[2.4rem] border border-border/45 bg-white/60 px-6 py-7 shadow-soft backdrop-blur dark:bg-surface/72">
+          <div className="section-anchor rounded-[2.4rem] px-6 py-7">
             <div className="space-y-4">
               <Badge variant="soft" className="w-fit">
                 {contact.formIntro.eyebrow}
@@ -97,8 +97,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="space-y-8 lg:sticky lg:top-28">
-            <div className="space-y-4 border-t border-border/55 pt-5">
+          <div className="space-y-6 lg:sticky lg:top-28">
+            <div className="compact-tile space-y-4 rounded-[1.7rem] px-5 py-5">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                 Fastest route
               </p>
@@ -111,7 +111,7 @@ export default function ContactPage() {
               </Button>
             </div>
 
-            <div className="space-y-3 border-t border-border/55 pt-5">
+            <div className="compact-tile space-y-3 rounded-[1.7rem] px-5 py-5">
               {contactPoints.map((point) => (
                 <a key={point.label} href={point.href} className="grid gap-2 sm:grid-cols-[0.18fr,0.82fr]">
                   <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="space-y-4 border-t border-border/55 pt-5">
+            <div className="compact-tile space-y-4 rounded-[1.7rem] px-5 py-5">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                 What happens next
               </p>
@@ -144,7 +144,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[1.6rem] border border-border/45 bg-surface-2">
+            <div className="overflow-hidden rounded-[1.6rem] shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_18px_40px_-30px_rgba(9,26,45,0.14)]">
               <iframe
                 title="Spire Technosoft location"
                 src="https://www.google.com/maps?q=Gurugram%2C%20India&z=10&output=embed"
@@ -154,7 +154,7 @@ export default function ContactPage() {
               />
             </div>
 
-            <div className="flex gap-3 border-t border-border/55 pt-5">
+            <div className="flex gap-3 pt-1">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}

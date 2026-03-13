@@ -176,12 +176,12 @@ export default function InnovationPage(): React.ReactElement {
         <div className="absolute inset-0 -z-10 lab-grid opacity-70" />
 
         <div className="container grid gap-12 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
-          <div className="space-y-6 text-white">
+          <div className="max-w-[42rem] space-y-5 text-white">
             <Badge variant="soft" className="w-fit border-white/15 bg-white/10 text-white">
               <Sparkles className="h-3.5 w-3.5 text-white" />
               Innovation Lab
             </Badge>
-            <h1 className="display-hero text-white">
+            <h1 className="display-1 max-w-[13ch] text-white">
               A focused space for testing product ideas before they become expensive assumptions
             </h1>
             <p className="max-w-3xl body-lg text-white/74">

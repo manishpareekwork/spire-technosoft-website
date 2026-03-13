@@ -73,9 +73,9 @@
   --warning: 32 88% 58%;
   --destructive: 8 74% 54%;
 
-  --border: 216 20% 86%;
-  --border-strong: 216 17% 72%;
-  --border-subtle: 213 22% 89%;
+  --border: 214 24% 90%;
+  --border-strong: 214 18% 80%;
+  --border-subtle: 214 26% 93%;
   --input: 213 24% 95%;
   --ring: 182 86% 39%;
 
@@ -110,9 +110,9 @@
   --muted: 216 17% 21%;
   --muted-foreground: 214 16% 70%;
 
-  --border: 216 17% 27%;
-  --border-strong: 215 16% 36%;
-  --border-subtle: 216 16% 22%;
+  --border: 216 16% 24%;
+  --border-strong: 216 14% 30%;
+  --border-subtle: 216 15% 20%;
   --input: 216 18% 19%;
   --ring: 168 39% 56%;
 
@@ -158,10 +158,10 @@
   h5,
   h6 {
     color: hsl(var(--foreground));
-    font-family: var(--font-montserrat), sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
+    font-family: var(--font-poppins), var(--font-inter), sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
   }
 
   p,
@@ -281,39 +281,41 @@
 
 @layer utilities {
   .display-hero {
-    font-size: clamp(3.2rem, 6vw + 0.8rem, 6.7rem);
-    line-height: 0.95;
-    letter-spacing: -0.065em;
-    font-weight: 700;
+    font-size: clamp(1.9rem, 2.25vw + 1.05rem, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    font-weight: 600;
   }
 
   .display-1 {
-    font-size: clamp(2.45rem, 3vw + 1rem, 4.35rem);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-    font-weight: 700;
+    font-size: clamp(1.55rem, 1.05vw + 1rem, 2.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.032em;
+    font-weight: 600;
   }
 
   .heading-2 {
-    font-size: clamp(1.85rem, 1.9vw + 1rem, 3rem);
-    line-height: 1.05;
-    letter-spacing: -0.045em;
+    font-size: clamp(1.28rem, 0.65vw + 1rem, 1.75rem);
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+    font-weight: 600;
   }
 
   .heading-3 {
-    font-size: clamp(1.25rem, 1vw + 0.9rem, 1.9rem);
-    line-height: 1.15;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.02rem, 0.4vw + 0.92rem, 1.28rem);
+    line-height: 1.24;
+    letter-spacing: -0.02em;
+    font-weight: 600;
   }
 
   .body-lg {
-    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
-    line-height: 1.8;
+    font-size: clamp(0.98rem, 0.18vw + 0.94rem, 1.04rem);
+    line-height: 1.64;
   }
 
   .body-md {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.96rem;
+    line-height: 1.62;
   }
 
   .body-sm {
@@ -434,22 +436,99 @@
     padding-block: clamp(4.5rem, 6vw, 7rem);
   }
 
+  .section-anchor {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background:
+      radial-gradient(circle at top left, hsla(var(--primary), 0.08), transparent 18rem),
+      radial-gradient(circle at bottom right, hsla(var(--accent), 0.08), transparent 18rem),
+      linear-gradient(180deg, hsla(var(--surface), 0.84) 0%, hsla(var(--surface-2), 0.7) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.18),
+      var(--shadow-soft);
+  }
+
+  .section-anchor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, hsla(var(--border), 0.16) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(var(--border), 0.14) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 88%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 88%);
+    opacity: 0.46;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .section-anchor-muted {
+    background:
+      radial-gradient(circle at top left, hsla(var(--primary), 0.06), transparent 18rem),
+      radial-gradient(circle at bottom right, hsla(var(--accent), 0.06), transparent 18rem),
+      linear-gradient(180deg, hsla(var(--surface-2), 0.86) 0%, hsla(var(--surface), 0.72) 100%);
+  }
+
+  .section-intro {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-intro::after {
+    content: "";
+    height: 1px;
+    width: min(7rem, 30vw);
+    background: linear-gradient(
+      90deg,
+      hsla(var(--primary), 0.85) 0%,
+      hsla(var(--border), 0.36) 100%
+    );
+  }
+
+  .section-intro-center {
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-intro-center::after {
+    width: min(11rem, 46vw);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(var(--primary), 0.85) 28%,
+      hsla(var(--border), 0.36) 72%,
+      transparent 100%
+    );
+  }
+
   .surface-card {
-    border: 1px solid hsla(var(--border), 0.58);
+    border: 1px solid transparent;
     background:
       linear-gradient(180deg, hsla(var(--surface), 0.92) 0%, hsla(var(--surface-2), 0.82) 100%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.26),
+      var(--shadow-soft);
   }
 
   .interactive-card {
-    border: 1px solid hsla(var(--border), 0.58);
+    border: 1px solid transparent;
     background:
       linear-gradient(180deg, hsla(var(--surface), 0.9) 0%, hsla(var(--surface-2), 0.78) 100%);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.24),
+      var(--shadow-soft);
     transition:
       transform 220ms ease,
       box-shadow 220ms ease,
@@ -459,8 +538,9 @@
 
   .interactive-card:hover {
     transform: translateY(-5px);
-    border-color: hsla(var(--primary), 0.24);
-    box-shadow: var(--shadow-float);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--primary), 0.14),
+      var(--shadow-float);
   }
 
   .card-lift {
@@ -480,24 +560,28 @@
   }
 
   .glass-effect {
-    border: 1px solid hsla(var(--border), 0.5);
+    border: 1px solid transparent;
     background:
       linear-gradient(180deg, hsla(var(--surface), 0.78) 0%, hsla(var(--surface-2), 0.62) 100%);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.22),
+      var(--shadow-soft);
   }
 
   .cta-band {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    border: 1px solid hsla(var(--border), 0.2);
+    border: 1px solid transparent;
     background:
       radial-gradient(circle at 20% 20%, hsla(var(--accent), 0.16), transparent 22rem),
       radial-gradient(circle at 80% 15%, hsla(var(--primary), 0.22), transparent 26rem),
       linear-gradient(135deg, hsl(213 28% 18%) 0%, hsl(219 22% 23%) 45%, hsl(169 31% 22%) 100%);
-    box-shadow: var(--shadow-float);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      var(--shadow-float);
     color: hsl(var(--primary-foreground));
   }
 
@@ -522,18 +606,21 @@
   .section-contrast {
     position: relative;
     overflow: hidden;
-    border: 1px solid hsla(var(--border), 0.32);
+    border: 1px solid transparent;
     background:
       radial-gradient(circle at top left, hsla(var(--accent), 0.08), transparent 18rem),
       linear-gradient(180deg, hsla(var(--surface), 0.72) 0%, hsla(var(--surface-2), 0.5) 100%);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.18),
+      var(--shadow-soft);
   }
 
   .compact-tile {
-    border: 1px solid hsla(var(--border), 0.46);
+    border: 1px solid transparent;
     background: hsla(var(--surface), 0.48);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+    box-shadow: inset 0 0 0 1px hsla(var(--border), 0.2);
   }
 
   .editorial-rule {
@@ -566,14 +653,16 @@
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    border: 1px solid hsla(var(--border), 0.42);
+    border: 1px solid transparent;
     background:
       radial-gradient(circle at top left, hsla(var(--accent), 0.12), transparent 18rem),
       radial-gradient(circle at bottom right, hsla(var(--primary), 0.12), transparent 20rem),
       linear-gradient(180deg, hsla(var(--surface), 0.82) 0%, hsla(var(--surface-2), 0.68) 100%);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.18),
+      var(--shadow-soft);
   }
 
   .flow-stage::before {
@@ -605,12 +694,14 @@
   .flow-node {
     position: relative;
     overflow: hidden;
-    border: 1px solid hsla(var(--border), 0.42);
+    border: 1px solid transparent;
     background:
       linear-gradient(180deg, hsla(var(--surface), 0.94) 0%, hsla(var(--surface-2), 0.76) 100%);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.18),
+      var(--shadow-soft);
   }
 
   .flow-node::before {
@@ -628,11 +719,13 @@
   .flow-chip {
     position: relative;
     overflow: hidden;
-    border: 1px solid hsla(var(--border), 0.34);
+    border: 1px solid transparent;
     background:
       radial-gradient(circle at top right, hsla(var(--accent), 0.14), transparent 12rem),
       linear-gradient(180deg, hsla(var(--surface), 0.96) 0%, hsla(var(--surface-2), 0.82) 100%);
-    box-shadow: var(--shadow-float);
+    box-shadow:
+      inset 0 0 0 1px hsla(var(--border), 0.16),
+      var(--shadow-float);
   }
 
   .flow-chip::before {

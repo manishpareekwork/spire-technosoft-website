@@ -38,15 +38,15 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
   const activeItem = items[activeIndex];
 
   return (
-    <div className={cn("grid gap-10 lg:grid-cols-[0.56fr,0.44fr]", className)}>
+    <div className={cn("grid gap-10 lg:grid-cols-[0.42fr,0.58fr]", className)}>
       <div className="space-y-5">
-        <div className="relative aspect-[16/11] overflow-hidden rounded-[2.2rem] bg-surface-2">
+        <div className="relative aspect-[5/4] max-w-[420px] overflow-hidden rounded-[1.8rem] bg-surface-2">
           <Image
             src={activeItem.image}
             alt={activeItem.imageAlt}
             fill
             className="object-cover"
-            sizes="(min-width: 1024px) 42vw, 100vw"
+            sizes="420px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/12 to-transparent" />
           <div className="absolute left-4 top-4">
@@ -115,9 +115,9 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
                   : "hover:-translate-y-0.5 hover:border-primary/18"
               )}
             >
-              <div className="grid gap-4 sm:grid-cols-[96px,1fr] sm:items-center">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[1rem] bg-surface-2">
-                  <Image src={item.image} alt="" fill className="object-cover" sizes="96px" />
+              <div className="grid gap-4 sm:grid-cols-[84px,1fr] sm:items-center">
+                <div className="relative aspect-[5/4] overflow-hidden rounded-[0.9rem] bg-surface-2">
+                  <Image src={item.image} alt="" fill className="object-cover" sizes="84px" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">

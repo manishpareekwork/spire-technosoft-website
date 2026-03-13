@@ -14,7 +14,7 @@ export const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-soft hover:-translate-y-0.5 hover:bg-secondary/92 hover:shadow-soft",
         outline:
-          "border border-border/70 bg-white/55 text-foreground shadow-sm backdrop-blur hover:-translate-y-0.5 hover:border-primary/25 hover:bg-white/80 hover:shadow-soft dark:bg-surface/70",
+          "border border-transparent bg-white/72 text-foreground shadow-[inset_0_0_0_1px_hsla(var(--border),0.2),0_18px_40px_-30px_rgba(9,26,45,0.18)] backdrop-blur hover:-translate-y-0.5 hover:bg-white/88 hover:shadow-[inset_0_0_0_1px_hsla(var(--primary),0.12),0_24px_52px_-30px_rgba(9,26,45,0.22)] dark:bg-surface/78 dark:text-foreground dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.28),0_18px_40px_-30px_rgba(0,0,0,0.34)]",
         ghost:
           "text-foreground hover:bg-surface/80",
         destructive:
@@ -24,8 +24,8 @@ export const buttonVariants = cva(
       size: {
         default: "h-11 px-5 py-2.5 has-[>svg]:px-4",
         sm: "h-9 gap-1.5 px-4 has-[>svg]:px-3",
-        lg: "h-[3.25rem] px-7 text-[0.95rem] has-[>svg]:px-6",
-        xl: "h-[3.75rem] px-9 text-base has-[>svg]:px-8",
+        lg: "h-[3rem] px-6 text-[0.92rem] has-[>svg]:px-5",
+        xl: "h-[3.4rem] px-7 text-[0.96rem] has-[>svg]:px-6",
         icon: "size-10 rounded-full",
       },
     },

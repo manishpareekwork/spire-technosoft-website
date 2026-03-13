@@ -53,45 +53,48 @@ export function InsightFeed({ articles }: InsightFeedProps) {
         ))}
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {filteredArticles.map((article, index) => (
+      <div className="grid gap-4 md:grid-cols-2">
+        {filteredArticles.map((article) => (
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className={cn("group block space-y-4 border-t border-border/55 pt-5", index % 2 === 1 && "md:translate-y-10")}
+            className="compact-tile group block rounded-[1.7rem] px-4 py-4 shadow-soft"
           >
-            <div className="relative aspect-[16/11] max-w-[340px] overflow-hidden rounded-[1.5rem] bg-surface-2">
-              <Image
-                src={article.image}
-                alt={article.imageAlt}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="(min-width: 768px) 24vw, 100vw"
-              />
-            </div>
+            <div className="grid gap-4 sm:grid-cols-[76px,1fr] sm:items-start">
+              <div className="relative aspect-square overflow-hidden rounded-[0.95rem] bg-surface-2">
+                <Image
+                  src={article.image}
+                  alt={article.imageAlt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  sizes="76px"
+                />
+              </div>
 
-            <div className="space-y-3">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                {article.category}
-              </p>
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold text-foreground">{article.title}</h2>
-                <p className="text-sm text-muted-foreground">{article.description}</p>
-              </div>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <span className="inline-flex items-center gap-2">
-                  <CalendarDays className="h-4 w-4 icon-accent" />
-                  {formatDate(article.publishedAt)}
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em]">
+                  <span className="text-primary">{article.category}</span>
+                  <span className="text-muted-foreground">{article.readTime}</span>
+                </div>
+                <div className="space-y-2">
+                  <h2 className="text-lg font-semibold text-foreground">{article.title}</h2>
+                  <p className="text-sm text-muted-foreground">{article.description}</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                  <span className="inline-flex items-center gap-2">
+                    <CalendarDays className="h-4 w-4 icon-accent" />
+                    {formatDate(article.publishedAt)}
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <Clock3 className="h-4 w-4 icon-accent" />
+                    {article.readTime}
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                  Read article
+                  <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
                 </span>
-                <span className="inline-flex items-center gap-2">
-                  <Clock3 className="h-4 w-4 icon-accent" />
-                  {article.readTime}
-                </span>
               </div>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                Read article
-                <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
-              </span>
             </div>
           </Link>
         ))}

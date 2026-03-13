@@ -40,7 +40,7 @@ export function TabsList({ className, ...props }: React.HTMLAttributes<HTMLDivEl
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center gap-2 rounded-full border border-border/65 bg-white/65 p-2 shadow-sm backdrop-blur dark:bg-surface/75",
+        "flex flex-wrap items-center gap-2 rounded-full border border-transparent bg-white/72 p-2 shadow-[inset_0_0_0_1px_hsla(var(--border),0.18),0_16px_36px_-28px_rgba(9,26,45,0.18)] backdrop-blur dark:bg-surface/78 dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.28),0_16px_36px_-28px_rgba(0,0,0,0.32)]",
         className
       )}
       role="tablist"
@@ -72,8 +72,8 @@ export function TabsTrigger({ value, className, ...props }: TabsTriggerProps) {
       className={cn(
         "rounded-full px-5 py-2 text-sm font-medium transition-all",
         isActive
-          ? "bg-primary text-primary-foreground shadow-sm"
-          : "text-muted-foreground hover:text-foreground",
+          ? "bg-primary text-primary-foreground shadow-soft"
+          : "text-muted-foreground hover:bg-white/75 hover:text-foreground dark:hover:bg-surface/82",
         className
       )}
       {...props}

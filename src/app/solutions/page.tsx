@@ -46,12 +46,12 @@ export default function SolutionsPage(): React.ReactElement {
         <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
         <div className="container grid gap-12 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
-          <div className="space-y-7">
+          <div className="max-w-[40rem] space-y-6">
             <Badge variant="soft" className="w-fit">
               {solutions.hero.eyebrow}
             </Badge>
             <div className="space-y-5">
-              <h1 className="display-1 text-foreground">{solutions.hero.title}</h1>
+              <h1 className="display-1 max-w-[14ch] text-foreground">{solutions.hero.title}</h1>
               <p className="body-lg max-w-2xl text-muted-foreground">{solutions.hero.description}</p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ export default function SolutionsPage(): React.ReactElement {
             </div>
           </div>
 
-          <div className="rounded-[2.4rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+          <div className="section-anchor rounded-[2.4rem] px-6 py-6">
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
@@ -102,7 +102,7 @@ export default function SolutionsPage(): React.ReactElement {
                 ].map((column) => (
                   <div key={column.title} className="space-y-3">
                     <p className="text-sm font-semibold text-foreground">{column.title}</p>
-                    <div className="space-y-3 border-t border-border/45 pt-3">
+                    <div className="grid gap-2">
                       {column.items.map((item) => (
                         <p key={item} className="text-sm text-muted-foreground">
                           {item}
@@ -113,9 +113,9 @@ export default function SolutionsPage(): React.ReactElement {
                 ))}
               </div>
 
-              <div className="grid gap-4 border-t border-border/45 pt-5 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-3">
                 {productModes.map((item) => (
-                  <div key={item.title} className="space-y-2">
+                  <div key={item.title} className="compact-tile rounded-[1.2rem] px-4 py-4">
                     <p className="text-sm font-semibold text-foreground">{item.title}</p>
                     <p className="text-sm text-muted-foreground">{item.detail}</p>
                   </div>
@@ -201,7 +201,7 @@ export default function SolutionsPage(): React.ReactElement {
       </section>
 
       <section className="container py-16">
-        <div className="grid gap-10 border-y border-border/55 py-10 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
+        <div className="section-anchor section-anchor-muted grid gap-10 rounded-[2.4rem] px-6 py-8 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">Inside the work</p>
             <h2 className="heading-2 text-foreground">What usually sits inside each solution area</h2>

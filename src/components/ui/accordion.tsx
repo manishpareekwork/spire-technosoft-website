@@ -24,7 +24,7 @@ export function AccordionItem({
   return (
     <details
       className={cn(
-        "group rounded-[1.6rem] border border-border/55 bg-white/38 px-6 py-5 shadow-sm backdrop-blur-md transition-colors dark:bg-surface/62",
+        "group rounded-[1.6rem] border border-transparent bg-white/62 px-6 py-5 shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_18px_40px_-30px_rgba(9,26,45,0.14)] backdrop-blur-md transition-colors dark:bg-surface/68 dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.26),0_18px_40px_-30px_rgba(0,0,0,0.28)]",
         className
       )}
       open={defaultOpen}
@@ -45,7 +45,7 @@ export function AccordionItem({
           </span>
         </div>
       </summary>
-      <div className="mt-4 border-t border-border/45 pt-4 text-sm text-muted-foreground">{children}</div>
+      <div className="mt-4 pt-4 text-sm text-muted-foreground">{children}</div>
     </details>
   );
 }

@@ -44,8 +44,8 @@ export default function AboutPage() {
             <p className="max-w-2xl body-lg text-muted-foreground">{about.hero.description}</p>
           </div>
 
-          <div className="space-y-6">
-            <div className="rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+          <div className="grid gap-4">
+            <div className="compact-tile rounded-[2rem] px-6 py-6 shadow-soft">
               <div className="flex items-center gap-3">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
                   <Target className="h-4 w-4 icon-accent" />
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <p className="mt-4 text-sm text-muted-foreground">{about.mission.description}</p>
             </div>
 
-            <div className="rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+            <div className="compact-tile rounded-[2rem] px-6 py-6 shadow-soft">
               <div className="flex items-center gap-3">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
                   <Eye className="h-4 w-4 icon-accent" />
@@ -76,20 +76,22 @@ export default function AboutPage() {
             <p className="body-md text-muted-foreground">{about.valuesIntro.description}</p>
           </div>
 
-          <div className="space-y-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {about.values.map((value, index) => {
               const Icon = valueIcons[index % valueIcons.length];
 
               return (
                 <div
                   key={value.name}
-                  className="grid gap-4 border-t border-border/55 py-5 sm:grid-cols-[0.08fr,0.24fr,0.68fr]"
+                  className="compact-tile grid gap-4 rounded-[1.7rem] px-5 py-5 sm:grid-cols-[40px,1fr]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                     <Icon className="h-4 w-4 icon-accent" />
                   </span>
-                  <p className="text-base font-semibold text-foreground">{value.name}</p>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <div className="space-y-2">
+                    <p className="text-base font-semibold text-foreground">{value.name}</p>
+                    <p className="text-sm text-muted-foreground">{value.description}</p>
+                  </div>
                 </div>
               );
             })}
@@ -98,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       <section className="container py-16">
-        <div className="space-y-8 border-y border-border/55 py-10">
+        <div className="section-anchor rounded-[2.4rem] px-6 py-8 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.42fr,0.58fr] lg:items-start">
             <div className="space-y-4">
               <p className="eyebrow">Why teams choose us</p>
@@ -106,7 +108,7 @@ export default function AboutPage() {
               <p className="body-md text-muted-foreground">{about.proof.description}</p>
             </div>
 
-            <blockquote className="space-y-4 rounded-[2rem] border border-border/45 bg-white/55 px-6 py-6 backdrop-blur dark:bg-surface/72">
+            <blockquote className="compact-tile space-y-4 rounded-[2rem] px-6 py-6 shadow-soft">
               <Quote className="h-8 w-8 icon-accent opacity-60" />
               <p className="text-xl font-semibold leading-snug text-foreground">
                 &quot;{about.testimonial.quote}&quot;
@@ -120,9 +122,9 @@ export default function AboutPage() {
             </blockquote>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {about.proof.metrics.map((metric) => (
-              <div key={metric.label} className="space-y-2 border-t border-border/45 pt-4">
+              <div key={metric.label} className="compact-tile rounded-[1.5rem] px-4 py-4 shadow-soft">
                 <p className="text-3xl font-semibold text-foreground">{metric.value}</p>
                 <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
                   {metric.label}

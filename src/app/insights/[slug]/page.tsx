@@ -119,17 +119,27 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
             </div>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-[2.5rem] surface-card p-4 sm:p-5">
-            <div className="relative h-full min-h-[320px] overflow-hidden rounded-[2rem]">
+          <div className="grid gap-6 border-y border-border/55 py-8 lg:grid-cols-[1fr,240px] lg:items-start">
+            <div className="space-y-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Article overview
+              </p>
+              <p className="body-md text-muted-foreground">
+                A concise point of view on the workflow issue behind the topic, written to help teams
+                make a better product decision before they commit to the wrong build.
+              </p>
+            </div>
+
+            <div className="relative aspect-[5/4] overflow-hidden rounded-[1.4rem] bg-surface-2 shadow-soft">
               <Image
                 src={article.image}
                 alt={article.imageAlt}
                 fill
                 className="object-cover"
-                sizes="100vw"
+                sizes="240px"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-slate-900/8 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/18 via-transparent to-transparent" />
             </div>
           </div>
 

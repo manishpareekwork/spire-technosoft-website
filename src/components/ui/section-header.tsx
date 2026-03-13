@@ -35,7 +35,7 @@ export function SectionHeader({
         badge ? (
           <div
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/55 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary shadow-sm backdrop-blur-md dark:bg-surface/70",
+              "inline-flex items-center gap-2 rounded-full border border-transparent bg-white/78 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_16px_34px_-28px_rgba(9,26,45,0.16)] backdrop-blur-md dark:bg-surface/78 dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.28),0_16px_34px_-28px_rgba(0,0,0,0.32)]",
               align === "center" && "mx-auto"
             )}
           >

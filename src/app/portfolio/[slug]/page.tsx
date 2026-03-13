@@ -63,7 +63,7 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
             Back to Portfolio
           </Link>
 
-          <div className="grid gap-10 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[0.64fr,0.36fr] lg:items-start">
             <div className="space-y-6">
               <Badge variant="soft">{project.industry}</Badge>
               <h1 className="display-1 text-foreground">{project.title}</h1>
@@ -98,18 +98,29 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
               </div>
             </div>
 
-            <div className="rounded-[2.2rem] border border-border/45 bg-white/55 p-4 shadow-soft backdrop-blur dark:bg-surface/72 lg:sticky lg:top-28">
-              <div className="relative min-h-[320px] overflow-hidden rounded-[1.8rem] bg-surface-2">
+            <div className="space-y-4 rounded-[2rem] border border-border/45 bg-white/60 p-5 shadow-soft backdrop-blur dark:bg-surface/72 lg:sticky lg:top-28">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[1.4rem] bg-surface-2">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1024px) 34vw, 100vw"
+                  sizes="(min-width: 1024px) 24vw, 100vw"
                   priority
                   unoptimized={project.image.startsWith("http")}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/32 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/24 via-transparent to-transparent" />
+              </div>
+
+              <div className="grid gap-4 border-t border-border/45 pt-4">
+                {project.metrics.slice(0, 2).map((metric) => (
+                  <div key={metric.label}>
+                    <p className="text-2xl font-semibold text-foreground">{metric.value}</p>
+                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

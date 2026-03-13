@@ -24,9 +24,9 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
 
         <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="space-y-6">
+          <div className="max-w-[41rem] space-y-5">
             <p className="eyebrow">Industries</p>
-            <h1 className="display-1 text-foreground">Product work shaped around the context each team works in</h1>
+            <h1 className="display-1 max-w-[15ch] text-foreground">Product work shaped around the context each team works in</h1>
             <p className="max-w-3xl body-lg text-muted-foreground">
               We do not force the same playbook everywhere. Finance, healthcare, energy,
               manufacturing, and retail each bring different workflows, users, and operational
@@ -34,7 +34,7 @@ export default function IndustriesPage(): React.ReactElement {
             </p>
           </div>
 
-          <div className="space-y-4 rounded-[2rem] border border-border/45 bg-white/70 px-6 py-6 shadow-soft backdrop-blur dark:bg-surface/76">
+          <div className="compact-tile space-y-4 rounded-[2rem] px-6 py-6 shadow-soft">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
               What changes from one industry to another
             </p>
@@ -44,7 +44,7 @@ export default function IndustriesPage(): React.ReactElement {
                 "The approvals and handoffs hiding behind the UI",
                 "The amount of visibility teams need after launch",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3 border-t border-border/45 pt-4 first:border-t-0 first:pt-0">
+                <div key={item} className="flex items-start gap-3 rounded-[1rem] bg-white/48 px-4 py-3 dark:bg-surface/60">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
                   <p className="text-sm text-muted-foreground">{item}</p>
                 </div>
@@ -56,59 +56,62 @@ export default function IndustriesPage(): React.ReactElement {
 
       <section className="container pb-8">
         <div className="grid gap-10 lg:grid-cols-2">
-          {featuredIndustries.map((industry, index) => (
-            <article
-              key={industry.slug}
-              className={cn("space-y-5", index === 1 && "lg:translate-y-12")}
-            >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-surface-2">
-                <Image
-                  src={industry.image}
-                  alt={`${industry.title} preview`}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 34vw, 100vw"
-                />
-              </div>
+          {featuredIndustries.map((industry) => (
+            <article key={industry.slug} className="section-anchor rounded-[2.2rem] p-6">
+              <div className="grid gap-5 sm:grid-cols-[116px,1fr] sm:items-start">
+                <div className="relative aspect-square overflow-hidden rounded-[1.3rem] bg-surface-2">
+                  <Image
+                    src={industry.image}
+                    alt={`${industry.title} preview`}
+                    fill
+                    className="object-cover"
+                    sizes="116px"
+                  />
+                </div>
 
-              <div className="space-y-3">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {industry.title}
-                </p>
-                <h2 className="heading-2 text-foreground">{industry.summary}</h2>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {industry.focusAreas.slice(0, 2).map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
-                    <p className="text-sm text-muted-foreground">{item}</p>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {industry.title}
+                    </p>
+                    <h2 className="text-[1.55rem] font-semibold leading-tight text-foreground">
+                      {industry.summary}
+                    </h2>
                   </div>
-                ))}
-              </div>
 
-              <div className="flex flex-wrap gap-2">
-                {industry.successMetrics.slice(0, 2).map((metric) => (
-                  <span
-                    key={metric}
-                    className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface/72"
-                  >
-                    {metric}
-                  </span>
-                ))}
-              </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {industry.focusAreas.slice(0, 2).map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                        <p className="text-sm text-muted-foreground">{item}</p>
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="flex flex-wrap gap-4">
-                <Link href={`/industries/${industry.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                  Explore industry page
-                  <ArrowRight className="h-4 w-4 icon-accent" />
-                </Link>
-                <Link
-                  href={industry.caseStudies[0]?.href ?? "/portfolio"}
-                  className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-fit")}
-                >
-                  View case study
-                </Link>
+                  <div className="flex flex-wrap gap-2">
+                    {industry.successMetrics.slice(0, 2).map((metric) => (
+                      <span
+                        key={metric}
+                        className="rounded-full bg-white/65 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm dark:bg-surface/72"
+                      >
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-4">
+                    <Link href={`/industries/${industry.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                      Explore industry page
+                      <ArrowRight className="h-4 w-4 icon-accent" />
+                    </Link>
+                    <Link
+                      href={industry.caseStudies[0]?.href ?? "/portfolio"}
+                      className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-fit")}
+                    >
+                      View case study
+                    </Link>
+                  </div>
+                </div>
               </div>
             </article>
           ))}
@@ -121,40 +124,41 @@ export default function IndustriesPage(): React.ReactElement {
             <article
               key={industry.slug}
               className={cn(
-                "space-y-4 border-t border-border/55 pt-5",
-                index === 1 && "md:translate-y-8"
+                "compact-tile grid gap-4 rounded-[1.7rem] px-4 py-4 shadow-soft sm:grid-cols-[88px,1fr] sm:items-start"
               )}
             >
-              <div className="relative aspect-[4/3] max-w-[260px] overflow-hidden rounded-[1.6rem] bg-surface-2">
+              <div className="relative aspect-square max-w-[88px] overflow-hidden rounded-[1rem] bg-surface-2">
                 <Image
                   src={industry.image}
                   alt={`${industry.title} preview`}
                   fill
                   className="object-cover"
-                  sizes="260px"
+                  sizes="88px"
                 />
               </div>
 
-              <div className="space-y-2">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {industry.title}
-                </p>
-                <h2 className="text-xl font-semibold text-foreground">{industry.summary}</h2>
-              </div>
-
               <div className="space-y-3">
-                {industry.typicalPrograms.slice(0, 2).map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
-                    <p className="text-sm text-muted-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
+                <div className="space-y-2">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    {industry.title}
+                  </p>
+                  <h2 className="text-lg font-semibold text-foreground">{industry.summary}</h2>
+                </div>
 
-              <Link href={`/industries/${industry.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                Explore industry page
-                <ArrowRight className="h-4 w-4 icon-accent" />
-              </Link>
+                <div className="space-y-3">
+                  {industry.typicalPrograms.slice(0, 2).map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <Workflow className="mt-0.5 h-4 w-4 icon-accent" />
+                      <p className="text-sm text-muted-foreground">{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <Link href={`/industries/${industry.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                  Explore industry page
+                  <ArrowRight className="h-4 w-4 icon-accent" />
+                </Link>
+              </div>
             </article>
           ))}
         </div>

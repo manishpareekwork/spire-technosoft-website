@@ -54,11 +54,11 @@ export default function InsightsPage() {
         <div className="absolute inset-0 -z-10 hero-lines opacity-20" />
 
         <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="space-y-5">
+          <div className="max-w-[39rem] space-y-5">
             <Badge variant="soft" className="w-fit">
               Resources & Insights
             </Badge>
-            <h1 className="display-1 text-foreground">Writing that supports better product decisions</h1>
+            <h1 className="display-1 max-w-[14ch] text-foreground">Writing that supports better product decisions</h1>
             <p className="max-w-3xl body-lg text-muted-foreground">
               Notes, articles, and practical thinking for teams planning new software, improving
               operations, or figuring out where AI fits without the noise.
@@ -86,17 +86,17 @@ export default function InsightsPage() {
       </section>
 
       <section className="container py-14">
-        <div className="grid gap-8 border-y border-border/55 py-8 lg:grid-cols-[280px,1fr] lg:items-start">
+        <div className="grid gap-8 border-y border-border/55 py-8 lg:grid-cols-[168px,1fr] lg:items-start">
           <Link
             href={`/insights/${featuredArticle.slug}`}
-            className="group relative min-h-[220px] overflow-hidden rounded-[1.8rem] bg-surface-2"
+            className="group relative aspect-[5/4] overflow-hidden rounded-[1.2rem] bg-surface-2"
           >
             <Image
               src={featuredArticle.image}
               alt={featuredArticle.imageAlt}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              sizes="280px"
+              sizes="168px"
             />
           </Link>
 

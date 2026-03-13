@@ -59,7 +59,7 @@ export default async function IndustryDetailPage({
             Back to industries
           </Link>
 
-          <div className="grid gap-8 lg:grid-cols-[0.82fr,1.18fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-start">
             <div className="space-y-6">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                 {industry.title}
@@ -83,16 +83,29 @@ export default async function IndustryDetailPage({
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2.5rem] section-contrast p-4 sm:p-5">
-              <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-surface-2">
+            <div className="grid gap-4 sm:grid-cols-[200px,1fr]">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[1.8rem] bg-surface-2 shadow-soft">
                 <Image
                   src={industry.image}
-                  alt={`${industry.title} background`}
+                  alt={`${industry.title} preview`}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  sizes="200px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/46 via-slate-900/12 to-transparent" />
+              </div>
+
+              <div className="rounded-[2rem] border border-border/45 bg-white/72 px-5 py-5 shadow-soft backdrop-blur dark:bg-surface/76">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                  Snapshot
+                </p>
+                <div className="mt-4 space-y-4">
+                  {industry.successMetrics.slice(0, 3).map((item) => (
+                    <div key={item} className="flex items-start gap-3 border-t border-border/45 pt-4 first:border-t-0 first:pt-0">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
+                      <p className="text-sm text-muted-foreground">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
