@@ -5,7 +5,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { Check, Laptop, Moon, Sun } from "lucide-react";
 
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -21,26 +23,56 @@ import {
  * @returns {React.ReactElement} The rendered theme toggle component.
  */
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const icon =
+    mounted && resolvedTheme === "dark" ? (
+      <Moon className="h-[1.1rem] w-[1.1rem]" />
+    ) : (
+      <Sun className="h-[1.1rem] w-[1.1rem]" />
+    );
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button variant="outline" size="icon" className="relative">
+          {icon}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+      <DropdownMenuContent align="end" className="min-w-[11rem] rounded-2xl p-2">
+        <DropdownMenuLabel className="px-3 py-2 text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+          Appearance
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          className="mt-1 rounded-xl px-3 py-2.5"
+        >
+          <Sun className="mr-2 h-4 w-4" />
           Light
+          {theme === "light" ? <Check className="ml-auto h-4 w-4" /> : null}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          className="rounded-xl px-3 py-2.5"
+        >
+          <Moon className="mr-2 h-4 w-4" />
           Dark
+          {theme === "dark" ? <Check className="ml-auto h-4 w-4" /> : null}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          className="rounded-xl px-3 py-2.5"
+        >
+          <Laptop className="mr-2 h-4 w-4" />
           System
+          {theme === "system" ? <Check className="ml-auto h-4 w-4" /> : null}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

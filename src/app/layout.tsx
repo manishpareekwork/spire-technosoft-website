@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { FloatingCta } from "@/components/layout/floating-cta";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider, ThemeScript } from "@/components/theme-provider";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { siteContent } from "@/content/site";
 import {
@@ -109,9 +109,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${openSans.variable} ${poppins.variable} ${inter.variable} antialiased bg-background font-sans text-foreground`}
       >
+        <ThemeScript attribute="class" defaultTheme="system" enableSystem />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
