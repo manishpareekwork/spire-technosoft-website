@@ -43,45 +43,45 @@
 :root {
   --radius: 1.5rem;
 
-  --background: 36 33% 96%;
-  --foreground: 214 27% 16%;
+  --background: 214 28% 96%;
+  --foreground: 212 69% 16%;
 
-  --surface: 36 31% 98%;
-  --surface-2: 34 28% 94%;
-  --surface-3: 35 20% 89%;
+  --surface: 0 0% 100%;
+  --surface-2: 214 24% 94%;
+  --surface-3: 215 22% 89%;
 
-  --card: 36 31% 98%;
-  --card-foreground: 214 27% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 212 69% 16%;
 
-  --popover: 36 31% 98%;
-  --popover-foreground: 214 27% 16%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 212 69% 16%;
 
-  --primary: 169 35% 33%;
-  --primary-foreground: 36 31% 98%;
+  --primary: 182 86% 39%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 219 17% 31%;
-  --secondary-foreground: 36 31% 98%;
+  --secondary: 212 83% 17%;
+  --secondary-foreground: 0 0% 100%;
 
-  --accent: 33 88% 61%;
-  --accent-foreground: 214 27% 16%;
+  --accent: 18 100% 60%;
+  --accent-foreground: 0 0% 100%;
 
-  --muted: 36 22% 92%;
-  --muted-foreground: 216 10% 38%;
+  --muted: 213 24% 93%;
+  --muted-foreground: 216 14% 37%;
 
   --info: 203 71% 46%;
   --success: 153 42% 40%;
   --warning: 32 88% 58%;
   --destructive: 8 74% 54%;
 
-  --border: 215 18% 84%;
-  --border-strong: 215 16% 74%;
-  --border-subtle: 36 22% 88%;
-  --input: 36 22% 93%;
-  --ring: 169 35% 33%;
+  --border: 216 20% 86%;
+  --border-strong: 216 17% 72%;
+  --border-subtle: 213 22% 89%;
+  --input: 213 24% 95%;
+  --ring: 182 86% 39%;
 
-  --shadow-soft: 0 18px 50px -30px rgba(37, 46, 52, 0.22);
-  --shadow-float: 0 30px 80px -42px rgba(37, 46, 52, 0.28);
-  --shadow-glow: 0 18px 45px -30px rgba(44, 123, 110, 0.45);
+  --shadow-soft: 0 24px 60px -36px rgba(9, 26, 45, 0.2);
+  --shadow-float: 0 40px 100px -46px rgba(9, 26, 45, 0.28);
+  --shadow-glow: 0 18px 45px -30px rgba(19, 179, 184, 0.45);
 }
 
 .dark {
@@ -141,8 +141,8 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: hsl(var(--background));
     background-image:
-      radial-gradient(circle at top left, hsla(var(--accent), 0.14), transparent 24rem),
-      radial-gradient(circle at top right, hsla(var(--primary), 0.12), transparent 30rem),
+      radial-gradient(circle at top left, hsla(var(--primary), 0.08), transparent 22rem),
+      radial-gradient(circle at top right, hsla(var(--accent), 0.08), transparent 26rem),
       linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface-2)));
   }
 
@@ -254,6 +254,28 @@
   100% {
     opacity: 0;
     transform: translateX(112%);
+  }
+}
+
+@keyframes slowPan {
+  0%,
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.07) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@keyframes pulseHalo {
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.08);
   }
 }
 
@@ -377,6 +399,31 @@
       radial-gradient(circle at center, hsla(var(--primary), 0.12), transparent 55%);
     background-size: 72px 72px, 72px 72px, auto;
     animation: pulseGrid 14s ease-in-out infinite;
+  }
+
+  .hero-stage {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(16, 193, 196, 0.18), transparent 16rem),
+      radial-gradient(circle at 80% 12%, rgba(255, 119, 61, 0.12), transparent 14rem),
+      linear-gradient(180deg, rgba(5, 28, 52, 0.94), rgba(7, 36, 64, 0.96));
+  }
+
+  .dark-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 84px 84px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 95%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 95%);
+  }
+
+  .hero-image-pan {
+    animation: slowPan 22s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .hero-orb {
+    animation: pulseHalo 8s ease-in-out infinite;
   }
 }
 

@@ -9,6 +9,8 @@ export const buttonVariants = cva(
           "bg-primary text-primary-foreground shadow-soft hover:-translate-y-0.5 hover:bg-primary/92 hover:shadow-glow",
         primary:
           "bg-primary text-primary-foreground shadow-soft hover:-translate-y-0.5 hover:bg-primary/92 hover:shadow-glow",
+        accent:
+          "bg-accent text-white shadow-soft hover:-translate-y-0.5 hover:bg-accent/92 hover:shadow-[0_22px_55px_-28px_rgba(255,114,58,0.58)]",
         secondary:
           "bg-secondary text-secondary-foreground shadow-soft hover:-translate-y-0.5 hover:bg-secondary/92 hover:shadow-soft",
         outline:

@@ -13,6 +13,7 @@ import { type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 import { useTheme } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 
 /**
  * A client component that renders an animated particle background.
@@ -20,7 +21,13 @@ import { useTheme } from "@/components/theme-provider";
  *
  * @returns {React.ReactElement | null} The rendered Particles component or null if not initialized.
  */
-export function ParticleBackground() {
+export function ParticleBackground({
+  variant = "light",
+  className,
+}: {
+  variant?: "light" | "dark";
+  className?: string;
+}) {
   const [init, setInit] = useState(false);
   const { resolvedTheme } = useTheme();
 
@@ -38,7 +45,11 @@ export function ParticleBackground() {
   const options: ISourceOptions = useMemo(() => {
     // Set particle color based on the current theme
     const particleColor =
-      resolvedTheme === "light" ? "rgba(15,58,125,0.18)" : "rgba(148,197,255,0.25)";
+      variant === "dark"
+        ? "rgba(23, 215, 208, 0.34)"
+        : resolvedTheme === "light"
+          ? "rgba(10, 42, 88, 0.18)"
+          : "rgba(148, 197, 255, 0.25)";
 
     return {
       background: {
@@ -69,8 +80,8 @@ export function ParticleBackground() {
           color: particleColor,
           distance: 120,
           enable: true,
-          opacity: 0.18,
-          width: 0.4,
+          opacity: variant === "dark" ? 0.22 : 0.18,
+          width: variant === "dark" ? 0.7 : 0.4,
         },
         move: {
           direction: "none",
@@ -79,7 +90,7 @@ export function ParticleBackground() {
             default: "out",
           },
           random: false,
-          speed: 0.25, // Softer motion.
+          speed: variant === "dark" ? 0.45 : 0.25,
           straight: false,
         },
         number: {
@@ -87,28 +98,31 @@ export function ParticleBackground() {
             enable: true,
             area: 800,
           },
-          value: 40, // Lighter field of particles.
+          value: variant === "dark" ? 52 : 40,
         },
         opacity: {
-          value: 0.18,
+          value: variant === "dark" ? 0.24 : 0.18,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: variant === "dark" ? { min: 1, max: 3.5 } : { min: 1, max: 3 },
         },
       },
       detectRetina: true,
     };
-  }, [resolvedTheme]);
+  }, [resolvedTheme, variant]);
 
   if (init) {
     return (
       <Particles
         id="tsparticles"
         options={options}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-40" // Positioned near the hero, away from dense UI.
+        className={cn(
+          "pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-40",
+          className
+        )}
       />
     );
   }

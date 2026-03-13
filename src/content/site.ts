@@ -19,9 +19,9 @@ export const siteContent = {
     defaultOg: "/images/logo/1080x1080.png",
   },
   nav: {
-    ctaLabel: "Book Free Consultation",
+    ctaLabel: "Get Started",
     ctaHref: "/contact",
-    mobileCtaLabel: "Book Free Consultation",
+    mobileCtaLabel: "Get Started",
   },
   differentiators: [
     {
@@ -113,14 +113,14 @@ export const siteContent = {
   },
   home: {
     hero: {
-      eyebrow: "Custom software, product design, and AI",
-      title: "Custom software that feels considered from day one",
-      highlight: "Custom software",
+      eyebrow: "Product studio for software, apps, and AI",
+      title: "Custom software and AI workflows built with real delivery momentum",
+      highlight: "AI workflows",
       description:
-        "We help ambitious teams design and build web platforms, mobile apps, internal tools, and AI-assisted workflows with clarity, craft, and real delivery momentum.",
+        "We help ambitious teams turn messy ideas into web platforms, mobile apps, internal tools, and automation that feel intentional from the first release.",
       primaryCta: { label: "Book Free Consultation", href: "/contact" },
       secondaryCta: { label: "See Selected Work", href: "/portfolio" },
-      sectors: ["Web platforms", "Mobile apps", "Internal tools", "AI features"],
+      sectors: ["Web platforms", "Mobile apps", "Internal tools", "AI workflows"],
     },
     stats: [
       { label: "Products Delivered", value: "25+", helper: "Across web, mobile, and operational software" },

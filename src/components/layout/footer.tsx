@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { resourceDownloads } from "@/data/resources";
@@ -7,148 +6,136 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/about", label: "About" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
-  { href: "/portfolio", label: "Case Studies" },
   { href: "/innovation", label: "Innovation Lab" },
-  { href: "/insights", label: "Insights" },
+  { href: "/portfolio", label: "Case Studies" },
+  { href: "/insights", label: "Resources" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Footer(): React.ReactElement {
   return (
-    <footer className="relative z-20 mt-20 overflow-hidden border-t border-border/60 bg-[linear-gradient(180deg,transparent,rgba(28,42,45,0.04))]">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <footer className="relative z-20 mt-20 overflow-hidden bg-secondary text-white">
+      <div className="absolute inset-0 opacity-40">
+        <div className="dark-grid absolute inset-x-0 top-0 h-56" />
+        <div className="hero-orb absolute left-[10%] top-24 h-52 w-52 rounded-full bg-primary/12 blur-[90px]" />
+        <div className="hero-orb absolute right-[8%] top-14 h-44 w-44 rounded-full bg-accent/10 blur-[88px]" />
+      </div>
 
-      <div className="container py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr,0.8fr,1fr]">
-          <div className="space-y-6">
-            <Link href="/" className="inline-flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-sm dark:bg-surface/90">
-                <Image
-                  src="/images/logo/24x24.png"
-                  alt="Spire Technosoft logo"
-                  width={34}
-                  height={34}
-                  className="rounded-full"
-                />
-              </div>
-              <div className="space-y-1">
-                <p className="text-lg font-semibold tracking-tight text-foreground">
-                  Spire Technosoft
-                </p>
-                <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
-                  Custom software and AI product studio
-                </p>
-              </div>
+      <div className="container relative z-10 py-[4.5rem]">
+        <div className="mx-auto max-w-4xl space-y-6 border-b border-white/12 pb-14 text-center">
+          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.24em] text-primary">
+            Ready to get started?
+          </p>
+          <h2 className="display-1 text-white">Need a product team that can shape and ship with you?</h2>
+          <p className="mx-auto max-w-2xl body-lg text-white/72">
+            Bring the rough scope, the stalled build, or the next product bet. We will help you
+            find a cleaner path to the first useful release.
+          </p>
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/contact" className={cn(buttonVariants({ variant: "accent", size: "xl" }))}>
+              Book Free Consultation
+              <ArrowRight className="h-4 w-4" />
             </Link>
+            <Link
+              href="/portfolio"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "xl" }),
+                "border-white/18 bg-white/6 text-white hover:bg-white/10 hover:text-white"
+              )}
+            >
+              View case studies
+            </Link>
+          </div>
+        </div>
 
-            <p className="max-w-md text-sm text-muted-foreground">
-              We design custom software, mobile products, dashboards, and AI-assisted workflows
-              for teams that want clear product thinking and dependable delivery.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm dark:bg-surface/70">
-                <MapPin className="h-4 w-4 icon-accent" />
-                India | Global delivery
+        <div className="grid gap-10 py-12 lg:grid-cols-[1.1fr,0.8fr,0.95fr,1fr]">
+          <div className="space-y-5">
+            <Link href="/" className="inline-block">
+              <span className="text-[2rem] font-bold tracking-[-0.06em] text-white">
+                Spire<span className="text-primary">Technosoft</span>
               </span>
+            </Link>
+            <p className="max-w-sm text-base leading-8 text-white/72">
+              Custom software, mobile products, dashboards, and AI workflows designed with product
+              clarity and delivered with dependable execution.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+              Quick Links
+            </p>
+            <div className="flex flex-col gap-3 text-sm text-white/72">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+              Contact
+            </p>
+            <div className="space-y-4 text-sm text-white/72">
               <Link
                 href="mailto:contact@spiretechnosoft.com"
-                className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm transition-colors hover:text-foreground dark:bg-surface/70"
+                className="flex items-center gap-3 transition-colors hover:text-white"
               >
-                <Mail className="h-4 w-4 icon-accent" />
+                <Mail className="h-4 w-4 text-primary" />
                 contact@spiretechnosoft.com
               </Link>
               <Link
                 href="tel:+919910070933"
-                className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow-sm transition-colors hover:text-foreground dark:bg-surface/70"
+                className="flex items-center gap-3 transition-colors hover:text-white"
               >
-                <Phone className="h-4 w-4 icon-accent" />
+                <Phone className="h-4 w-4 text-primary" />
                 +91 99100 70933
               </Link>
-            </div>
-          </div>
-
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
-            <div className="space-y-4">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Explore
+              <p className="flex items-center gap-3 text-white/72">
+                <MapPin className="h-4 w-4 text-primary" />
+                India | Global delivery
               </p>
-              <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Resources
-              </p>
-              <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-                {resourceDownloads.map((resource) => (
-                  <a
-                    key={resource.title}
-                    href={resource.href}
-                    download
-                    className="transition-colors hover:text-foreground"
-                  >
-                    {resource.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="surface-card rounded-[2rem] p-6 sm:p-8">
-            <div className="space-y-4">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Start a conversation
-              </p>
-              <h3 className="text-2xl font-semibold text-foreground">
-                Bring the roadmap. We will shape the team, priorities, and first milestone.
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Consultation sessions are structured around your goals, delivery constraints,
-                and the first release needed to prove value quickly.
-              </p>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className={cn(buttonVariants({ size: "lg" }), "px-6")}
-              >
-                Book Free Consultation
-                <ArrowRight className="h-4 w-4 icon-inverse" />
-              </Link>
               <Link
                 href="https://www.linkedin.com/company/spire-technosoft"
                 target="_blank"
-                className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-6")}
+                className="inline-flex items-center gap-3 transition-colors hover:text-white"
               >
-                <Linkedin className="h-4 w-4 icon-accent" />
+                <Linkedin className="h-4 w-4 text-primary" />
                 LinkedIn
               </Link>
             </div>
           </div>
+
+          <div className="space-y-4">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+              Guides
+            </p>
+            <div className="flex flex-col gap-3 text-sm text-white/72">
+              {resourceDownloads.slice(0, 3).map((resource) => (
+                <a
+                  key={resource.title}
+                  href={resource.href}
+                  download
+                  className="transition-colors hover:text-white"
+                >
+                  {resource.title}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-border/60 pt-6 text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/10 pt-6 text-[0.72rem] uppercase tracking-[0.14em] text-white/46 md:flex-row md:items-center md:justify-between">
           <p>Copyright {new Date().getFullYear()} Spire Technosoft. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="transition-colors hover:text-foreground">
+            <Link href="/privacy" className="transition-colors hover:text-white/82">
               Privacy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-foreground">
+            <Link href="/terms" className="transition-colors hover:text-white/82">
               Terms
             </Link>
           </div>
