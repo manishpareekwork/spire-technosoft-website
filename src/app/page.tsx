@@ -190,7 +190,7 @@ export default function Home() {
         <div className="homepage-mesh homepage-mesh-two" />
         <div className="homepage-mesh homepage-mesh-three" />
 
-        <div className="container relative z-10 grid max-w-[1440px] gap-14 pb-20 pt-14 lg:min-h-[calc(100vh-5.25rem)] lg:grid-cols-[0.98fr,0.82fr] lg:items-center">
+        <div className="container relative z-10 grid max-w-[1440px] gap-14 pb-24 pt-14 lg:min-h-[calc(100vh-5.25rem)] lg:grid-cols-[0.98fr,0.82fr] lg:items-center">
           <div className="max-w-[48rem] space-y-7">
             <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
               <Sparkles className="h-3.5 w-3.5 text-white" />
@@ -381,7 +381,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="homepage-stats" className="container relative z-20 -mt-12 max-w-[1440px] pb-8">
+      <section id="homepage-stats" className="container relative z-20 max-w-[1440px] pb-8 pt-2 md:pt-4">
         <div className="section-anchor rounded-[1.4rem] px-8 py-8">
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {home.stats.map((metric) => (
