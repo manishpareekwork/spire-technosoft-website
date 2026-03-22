@@ -56,7 +56,7 @@ export default function ContactPage() {
             <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
               Direct contact, structured discovery, and a cleaner project brief from the start
             </p>
-            <h1 className="innovation-display max-w-[16ch] sm:max-w-[12ch] lg:max-w-[14ch] text-white">
+            <h1 className="innovation-display max-w-[18ch] sm:max-w-[16ch] lg:max-w-[15ch] text-white">
               {contact.hero.title}
             </h1>
             <p className="max-w-3xl body-lg text-white/72">{contact.hero.description}</p>

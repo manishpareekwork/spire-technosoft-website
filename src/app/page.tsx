@@ -23,7 +23,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CountUpText } from "@/components/ui/count-up-text";
-import { HeroBenefitRotator } from "@/components/home/hero-benefit-rotator";
 import { LogoMarquee } from "@/components/home/logo-marquee";
 import { siteContent } from "@/content/site";
 import { industryProfiles } from "@/data/industries";
@@ -120,12 +119,6 @@ const deliverySignals = [
   "Usage and quality tracked from v1",
 ];
 const releaseReadiness = ["Priorities aligned", "Usable workflows", "Telemetry wired"];
-const heroRotationItems = [
-  "AI workflows",
-  "custom software",
-  "operational platforms",
-  "real delivery momentum",
-];
 const industryIcons = {
   finance: Building2,
   healthcare: HeartPulse,
@@ -208,10 +201,10 @@ export default function Home() {
               <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
                 Trusted by teams modernizing healthcare, industrial, retail, and analytics products
               </p>
-              <h1 className="display-hero max-w-[12ch] text-white">
+              <h1 className="display-hero max-w-[16ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
                 {heroTitlePrefix.trim()}{" "}
                 <span className="bg-[linear-gradient(135deg,#93c5fd_0%,#38bdf8_42%,#10b981_100%)] bg-clip-text text-transparent">
-                  <HeroBenefitRotator items={heroRotationItems} />
+                  {home.hero.highlight}
                 </span>
               </h1>
               <p className="max-w-2xl body-lg text-white/74">

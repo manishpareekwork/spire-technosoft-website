@@ -314,15 +314,15 @@
 
 @layer utilities {
   .display-hero {
-    font-size: clamp(3rem, 6vw, 5.2rem);
-    line-height: 0.98;
+    font-size: clamp(2.5rem, 4.6vw, 4.4rem);
+    line-height: 1.02;
     letter-spacing: -0.06em;
     font-weight: 700;
   }
 
   .display-1 {
-    font-size: clamp(1.9rem, 2vw + 1rem, 3rem);
-    line-height: 1.02;
+    font-size: clamp(1.75rem, 1.35vw + 1rem, 2.7rem);
+    line-height: 1.08;
     letter-spacing: -0.032em;
     font-weight: 700;
   }
@@ -469,8 +469,8 @@
   }
 
   .innovation-display {
-    font-size: clamp(2.85rem, 6vw, 4.9rem);
-    line-height: 0.98;
+    font-size: clamp(2.15rem, 4.3vw, 3.9rem);
+    line-height: 1.03;
     letter-spacing: -0.055em;
     font-weight: 700;
     text-wrap: balance;

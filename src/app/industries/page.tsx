@@ -31,7 +31,7 @@ export default function IndustriesPage(): React.ReactElement {
             <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
               Different sectors, different operational pressure, different product decisions
             </p>
-            <h1 className="innovation-display max-w-[12ch] text-white">
+            <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
               Product work shaped around the context each team works in
             </h1>
             <p className="max-w-3xl body-lg text-white/72">

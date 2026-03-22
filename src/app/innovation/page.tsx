@@ -204,7 +204,7 @@ export default function InnovationPage(): React.ReactElement {
                 <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-cyan-100/72">
                   Rapid validation for AI, product, and workflow bets
                 </p>
-                <h1 className="innovation-display max-w-[13ch] text-white">
+                <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
                   Shape bold product ideas into something concrete, testable, and decision-ready
                 </h1>
               </div>

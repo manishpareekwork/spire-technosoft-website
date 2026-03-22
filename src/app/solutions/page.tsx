@@ -56,7 +56,9 @@ export default function SolutionsPage(): React.ReactElement {
               <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
                 Product systems, workflow engines, and release-ready software directions
               </p>
-              <h1 className="innovation-display max-w-[12ch] text-white">{solutions.hero.title}</h1>
+              <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
+                {solutions.hero.title}
+              </h1>
               <p className="body-lg max-w-2xl text-white/72">{solutions.hero.description}</p>
             </div>
             <div className="flex flex-wrap gap-2">
