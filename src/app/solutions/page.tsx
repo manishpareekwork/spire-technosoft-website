@@ -41,46 +41,63 @@ export default function SolutionsPage(): React.ReactElement {
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      <section className="relative overflow-hidden pb-16 pt-10 sm:pt-14">
-        <div className="absolute inset-0 -z-10 hero-mesh opacity-85" />
-        <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
+      <section className="innovation-hero relative overflow-hidden pb-20 pt-10 sm:pt-16 sm:pb-24">
+        <div className="innovation-mesh innovation-mesh-one" />
+        <div className="innovation-mesh innovation-mesh-two" />
+        <div className="innovation-mesh innovation-mesh-three" />
+        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
 
-        <div className="container grid gap-12 lg:grid-cols-[0.56fr,0.44fr] lg:items-start">
-          <div className="max-w-[40rem] space-y-6">
-            <Badge variant="soft" className="w-fit">
+        <div className="container max-w-[1440px] grid gap-12 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
+          <div className="max-w-[44rem] space-y-6 text-white">
+            <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white">
               {solutions.hero.eyebrow}
             </Badge>
             <div className="space-y-5">
-              <h1 className="display-1 max-w-[14ch] text-foreground">{solutions.hero.title}</h1>
-              <p className="body-lg max-w-2xl text-muted-foreground">{solutions.hero.description}</p>
+              <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+                Product systems, workflow engines, and release-ready software directions
+              </p>
+              <h1 className="innovation-display max-w-[12ch] text-white">{solutions.hero.title}</h1>
+              <p className="body-lg max-w-2xl text-white/72">{solutions.hero.description}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {siteContent.differentiators.map((item) => (
                 <span
                   key={item.title}
-                  className="rounded-full bg-white/58 px-4 py-2 text-sm text-muted-foreground shadow-sm backdrop-blur dark:bg-surface/72"
+                  className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm text-white/72 shadow-sm backdrop-blur"
                 >
                   {item.title}
                 </span>
               ))}
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className={cn(buttonVariants({ size: "xl" }))}>
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ size: "xl" }),
+                  "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+                )}
+              >
                 Book Free Consultation
               </Link>
-              <Link href="/portfolio" className={cn(buttonVariants({ variant: "outline", size: "xl" }))}>
+              <Link
+                href="/portfolio"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "xl" }),
+                  "border-white/12 bg-white/[0.06] text-white hover:bg-white/[0.12] hover:text-white"
+                )}
+              >
                 See Selected Work
               </Link>
             </div>
           </div>
 
-          <div className="section-anchor rounded-[2.4rem] px-6 py-6">
+          <div className="innovation-panel-dark rounded-[1.25rem] px-6 py-6">
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                   <Sparkles className="h-4 w-4 icon-accent" />
                 </span>
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                   Delivery blueprint
                 </p>
               </div>
@@ -101,10 +118,10 @@ export default function SolutionsPage(): React.ReactElement {
                   },
                 ].map((column) => (
                   <div key={column.title} className="space-y-3">
-                    <p className="text-sm font-semibold text-foreground">{column.title}</p>
+                    <p className="text-sm font-semibold text-white">{column.title}</p>
                     <div className="grid gap-2">
                       {column.items.map((item) => (
-                        <p key={item} className="text-sm text-muted-foreground">
+                        <p key={item} className="text-sm text-white/68">
                           {item}
                         </p>
                       ))}
@@ -115,9 +132,9 @@ export default function SolutionsPage(): React.ReactElement {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {productModes.map((item) => (
-                  <div key={item.title} className="compact-tile rounded-[1.2rem] px-4 py-4">
-                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                    <p className="text-sm text-muted-foreground">{item.detail}</p>
+                  <div key={item.title} className="rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-4">
+                    <p className="text-sm font-semibold text-white">{item.title}</p>
+                    <p className="text-sm text-white/64">{item.detail}</p>
                   </div>
                 ))}
               </div>
@@ -126,7 +143,7 @@ export default function SolutionsPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container py-16">
+      <section className="container max-w-[1440px] py-20">
         <div className="grid gap-10 lg:grid-cols-[0.28fr,0.72fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">Capability map</p>
@@ -148,7 +165,7 @@ export default function SolutionsPage(): React.ReactElement {
                   key={solution.slug}
                   href={`/solutions/${solution.slug}`}
                   className={cn(
-                    "group rounded-[2rem] bg-white/70 p-6 shadow-soft backdrop-blur transition-transform hover:-translate-y-1 dark:bg-surface/76",
+                    "innovation-panel group rounded-[1.15rem] p-6 transition-transform hover:-translate-y-2",
                     isPrimary && "lg:row-span-2",
                     isWide && "lg:col-span-2"
                   )}
@@ -158,7 +175,7 @@ export default function SolutionsPage(): React.ReactElement {
                       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
                         <Icon className="h-4 w-4 icon-accent" />
                       </span>
-                      <span className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                      <span className="text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground">
                         {solution.tags.slice(0, 2).join(" / ")}
                       </span>
                     </div>
@@ -181,7 +198,7 @@ export default function SolutionsPage(): React.ReactElement {
                       {solution.successMetrics.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary"
+                          className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
                         >
                           {tag}
                         </span>
@@ -200,8 +217,8 @@ export default function SolutionsPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container py-16">
-        <div className="section-anchor section-anchor-muted grid gap-10 rounded-[2.4rem] px-6 py-8 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
+      <section className="container max-w-[1440px] py-20">
+        <div className="section-anchor section-anchor-muted grid gap-10 rounded-[1.4rem] px-6 py-10 lg:grid-cols-[0.3fr,0.7fr] lg:items-start">
           <div className="space-y-4">
             <p className="eyebrow">Inside the work</p>
             <h2 className="heading-2 text-foreground">What usually sits inside each solution area</h2>
@@ -270,7 +287,7 @@ export default function SolutionsPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container py-12">
+      <section className="container max-w-[1440px] py-12">
         <SocialProofBand
           title="Selected results"
           description="A few measurable outcomes from the kinds of systems and workflows we help teams improve."
@@ -278,7 +295,7 @@ export default function SolutionsPage(): React.ReactElement {
         />
       </section>
 
-      <section className="container pb-28 pt-8">
+      <section className="container max-w-[1440px] pb-28 pt-8">
         <ResourceDownloads title={solutions.assets.title} description={solutions.assets.description} />
       </section>
     </div>

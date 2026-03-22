@@ -98,22 +98,28 @@ export function Footer(): React.ReactElement {
   const content = footerContent.find((item) => item.match(pathname)) ?? footerContent[footerContent.length - 1];
 
   return (
-    <footer className="relative z-20 mt-20 overflow-hidden bg-[#072947] text-white">
-      <div className="absolute inset-0 opacity-50">
+    <footer className="site-footer relative z-20 mt-24 overflow-hidden text-white">
+      <div className="absolute inset-0 opacity-60">
         <div className="dark-grid absolute inset-x-0 top-0 h-56" />
         <div className="hero-orb absolute left-[10%] top-20 h-52 w-52 rounded-full bg-primary/12 blur-[90px]" />
         <div className="hero-orb absolute right-[8%] top-14 h-44 w-44 rounded-full bg-accent/10 blur-[88px]" />
       </div>
 
       <div className="container relative z-10 py-[4.5rem]">
-        <div className="mx-auto max-w-4xl space-y-5 pb-14 text-center">
-          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.24em] text-primary">
+        <div className="footer-cta-panel mx-auto max-w-5xl space-y-5 rounded-[1.35rem] px-6 py-10 text-center sm:px-10">
+          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
             {content.eyebrow}
           </p>
           <h2 className="display-1 text-white">{content.title}</h2>
           <p className="mx-auto max-w-2xl body-lg text-white/74">{content.description}</p>
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href={content.primary.href} className={cn(buttonVariants({ variant: "accent", size: "xl" }))}>
+            <Link
+              href={content.primary.href}
+              className={cn(
+                buttonVariants({ variant: "accent", size: "xl" }),
+                "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+              )}
+            >
               {content.primary.label}
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -121,7 +127,7 @@ export function Footer(): React.ReactElement {
               href={content.secondary.href}
               className={cn(
                 buttonVariants({ variant: "outline", size: "xl" }),
-                "border-transparent bg-white/7 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_40px_-30px_rgba(0,0,0,0.28)] hover:bg-white/10 hover:text-white"
+                "border-white/10 bg-white/[0.07] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_40px_-30px_rgba(0,0,0,0.28)] hover:bg-white/10 hover:text-white"
               )}
             >
               {content.secondary.label}
@@ -129,16 +135,16 @@ export function Footer(): React.ReactElement {
           </div>
         </div>
 
-        <div className="grid gap-10 py-12 lg:grid-cols-[1.1fr,0.8fr,0.95fr,1fr]">
+        <div className="grid gap-10 py-14 lg:grid-cols-[1.05fr,0.78fr,0.88fr,1fr]">
           <div className="space-y-5">
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] backdrop-blur">
+              <span className="flex h-12 w-12 items-center justify-center rounded-[0.95rem] bg-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] backdrop-blur">
                 <Image
                   src="/images/logo/512x512.png"
                   alt="Spire Technosoft logo"
                   width={30}
                   height={30}
-                  className="rounded-full"
+                  className="rounded-[0.8rem]"
                 />
               </span>
               <span className="text-[1.9rem] font-bold tracking-[-0.055em] text-white">
@@ -149,10 +155,25 @@ export function Footer(): React.ReactElement {
               Custom software, mobile products, dashboards, and AI workflows designed with product
               clarity and delivered with dependable execution.
             </p>
+            <div className="rounded-[1rem] border border-white/10 bg-white/[0.05] p-4">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-primary">
+                Stay in the loop
+              </p>
+              <p className="mt-2 text-sm text-white/66">
+                For delivery notes, AI workflow thinking, and selected product case studies.
+              </p>
+              <Link
+                href="mailto:contact@spiretechnosoft.com?subject=Subscribe%20to%20Spire%20updates"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white"
+              >
+                Request updates
+                <ArrowRight className="h-4 w-4 text-primary" />
+              </Link>
+            </div>
           </div>
 
           <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
               Quick Links
             </p>
             <div className="flex flex-col gap-3 text-sm text-white/76">
@@ -165,7 +186,7 @@ export function Footer(): React.ReactElement {
           </div>
 
           <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
               Contact
             </p>
             <div className="space-y-4 text-sm text-white/76">
@@ -199,7 +220,7 @@ export function Footer(): React.ReactElement {
           </div>
 
           <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
               Guides
             </p>
             <div className="flex flex-col gap-3 text-sm text-white/76">
@@ -217,7 +238,7 @@ export function Footer(): React.ReactElement {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 pt-6 text-[0.72rem] uppercase tracking-[0.14em] text-white/50 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/10 pt-6 text-[0.72rem] uppercase tracking-[0.08em] text-white/50 md:flex-row md:items-center md:justify-between">
           <p>Copyright {new Date().getFullYear()} Spire Technosoft. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="transition-colors hover:text-white/82">

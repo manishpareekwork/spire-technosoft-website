@@ -19,23 +19,50 @@ export default function IndustriesPage(): React.ReactElement {
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      <section className="relative overflow-hidden pb-16 pt-10 sm:pt-14">
-        <div className="absolute inset-0 -z-10 hero-mesh opacity-80" />
-        <div className="absolute inset-0 -z-10 hero-lines opacity-15" />
+      <section className="innovation-hero relative overflow-hidden pb-20 pt-10 sm:pt-16 sm:pb-24">
+        <div className="innovation-mesh innovation-mesh-one" />
+        <div className="innovation-mesh innovation-mesh-two" />
+        <div className="innovation-mesh innovation-mesh-three" />
+        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
 
-        <div className="container grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="max-w-[41rem] space-y-5">
+        <div className="container max-w-[1440px] grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="max-w-[44rem] space-y-5 text-white">
             <p className="eyebrow">Industries</p>
-            <h1 className="display-1 max-w-[15ch] text-foreground">Product work shaped around the context each team works in</h1>
-            <p className="max-w-3xl body-lg text-muted-foreground">
+            <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+              Different sectors, different operational pressure, different product decisions
+            </p>
+            <h1 className="innovation-display max-w-[12ch] text-white">
+              Product work shaped around the context each team works in
+            </h1>
+            <p className="max-w-3xl body-lg text-white/72">
               We do not force the same playbook everywhere. Finance, healthcare, energy,
               manufacturing, and retail each bring different workflows, users, and operational
               constraints.
             </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ size: "xl" }),
+                  "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+                )}
+              >
+                Discuss Your Industry Context
+              </Link>
+              <Link
+                href="/portfolio"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "xl" }),
+                  "border-white/12 bg-white/[0.06] text-white hover:bg-white/[0.12] hover:text-white"
+                )}
+              >
+                See Relevant Work
+              </Link>
+            </div>
           </div>
 
-          <div className="compact-tile space-y-4 rounded-[2rem] px-6 py-6 shadow-soft">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+          <div className="innovation-panel-dark space-y-4 rounded-[1.2rem] px-6 py-6">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
               What changes from one industry to another
             </p>
             <div className="space-y-4">
@@ -44,9 +71,9 @@ export default function IndustriesPage(): React.ReactElement {
                 "The approvals and handoffs hiding behind the UI",
                 "The amount of visibility teams need after launch",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-[1rem] bg-white/48 px-4 py-3 dark:bg-surface/60">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 icon-accent" />
-                  <p className="text-sm text-muted-foreground">{item}</p>
+                <div key={item} className="flex items-start gap-3 rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-cyan-300" />
+                  <p className="text-sm text-white/68">{item}</p>
                 </div>
               ))}
             </div>
@@ -54,12 +81,12 @@ export default function IndustriesPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container pb-8">
+      <section className="container max-w-[1440px] pb-8">
         <div className="grid gap-10 lg:grid-cols-2">
           {featuredIndustries.map((industry) => (
-            <article key={industry.slug} className="section-anchor rounded-[2.2rem] p-6">
+            <article key={industry.slug} className="innovation-panel rounded-[1.2rem] p-6">
               <div className="grid gap-5 sm:grid-cols-[116px,1fr] sm:items-start">
-                <div className="relative aspect-square overflow-hidden rounded-[1.3rem] bg-surface-2">
+                <div className="relative aspect-square overflow-hidden rounded-[1rem] bg-surface-2">
                   <Image
                     src={industry.image}
                     alt={`${industry.title} preview`}
@@ -71,7 +98,7 @@ export default function IndustriesPage(): React.ReactElement {
 
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-primary">
                       {industry.title}
                     </p>
                     <h2 className="text-[1.55rem] font-semibold leading-tight text-foreground">
@@ -118,16 +145,14 @@ export default function IndustriesPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container pb-12 pt-10">
+      <section className="container max-w-[1440px] pb-12 pt-10">
         <div className="grid gap-6 md:grid-cols-3">
-          {supportingIndustries.map((industry, index) => (
+          {supportingIndustries.map((industry) => (
             <article
               key={industry.slug}
-              className={cn(
-                "compact-tile grid gap-4 rounded-[1.7rem] px-4 py-4 shadow-soft sm:grid-cols-[88px,1fr] sm:items-start"
-              )}
+              className="innovation-panel grid gap-4 rounded-[1rem] px-4 py-4 shadow-soft sm:grid-cols-[88px,1fr] sm:items-start"
             >
-              <div className="relative aspect-square max-w-[88px] overflow-hidden rounded-[1rem] bg-surface-2">
+              <div className="relative aspect-square max-w-[88px] overflow-hidden rounded-[0.85rem] bg-surface-2">
                 <Image
                   src={industry.image}
                   alt={`${industry.title} preview`}
@@ -139,7 +164,7 @@ export default function IndustriesPage(): React.ReactElement {
 
               <div className="space-y-3">
                 <div className="space-y-2">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-primary">
                     {industry.title}
                   </p>
                   <h2 className="text-lg font-semibold text-foreground">{industry.summary}</h2>
@@ -164,7 +189,7 @@ export default function IndustriesPage(): React.ReactElement {
         </div>
       </section>
 
-      <section className="container pb-28 pt-10">
+      <section className="container max-w-[1440px] pb-28 pt-10">
         <SocialProofBand
           title="A few of the spaces we know well"
           description="Product work across finance, healthcare, manufacturing, energy, and retail."

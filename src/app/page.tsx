@@ -7,10 +7,12 @@ import {
   BarChart3,
   BrainCircuit,
   Building2,
+  ChevronDown,
   CheckCircle2,
   Factory,
   HeartPulse,
   Quote,
+  Search,
   ShieldCheck,
   ShoppingBag,
   Smartphone,
@@ -21,7 +23,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CountUpText } from "@/components/ui/count-up-text";
-import { ParticleBackground } from "@/components/ui/particle-background";
+import { HeroBenefitRotator } from "@/components/home/hero-benefit-rotator";
+import { LogoMarquee } from "@/components/home/logo-marquee";
 import { siteContent } from "@/content/site";
 import { industryProfiles } from "@/data/industries";
 import { insightArticles } from "@/data/insights";
@@ -117,6 +120,12 @@ const deliverySignals = [
   "Usage and quality tracked from v1",
 ];
 const releaseReadiness = ["Priorities aligned", "Usable workflows", "Telemetry wired"];
+const heroRotationItems = [
+  "AI workflows",
+  "custom software",
+  "operational platforms",
+  "real delivery momentum",
+];
 const industryIcons = {
   finance: Building2,
   healthcare: HeartPulse,
@@ -135,13 +144,10 @@ export default function Home() {
   const additionalArticles = featuredInsights.slice(1);
   const leadTestimonial = socialProof.testimonials[0];
 
-  const heroTitleIndex = home.hero.title.indexOf(home.hero.highlight);
   const heroTitlePrefix =
-    heroTitleIndex === -1 ? home.hero.title : home.hero.title.slice(0, heroTitleIndex);
-  const heroTitleSuffix =
-    heroTitleIndex === -1
-      ? ""
-      : home.hero.title.slice(heroTitleIndex + home.hero.highlight.length);
+    home.hero.title.indexOf(home.hero.highlight) === -1
+      ? home.hero.title
+      : home.hero.title.slice(0, home.hero.title.indexOf(home.hero.highlight));
 
   const structuredData = [
     {
@@ -172,7 +178,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="hero-stage relative isolate overflow-hidden">
+      <section className="homepage-hero hero-stage">
         {heroPrimary ? (
           <div className="absolute inset-0 -z-30">
             <Image
@@ -180,38 +186,47 @@ export default function Home() {
               alt={heroPrimary.project.imageAlt}
               fill
               priority
-              className="hero-image-pan object-cover opacity-[0.24]"
+              className="hero-image-pan object-cover opacity-[0.16]"
               sizes="100vw"
             />
           </div>
         ) : null}
 
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(4,18,37,0.96)_0%,rgba(4,28,50,0.9)_46%,rgba(4,28,50,0.76)_100%)]" />
-        <div className="dark-grid absolute inset-0 -z-10 opacity-40" />
-        <div className="hero-orb absolute left-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-primary/20 blur-[95px]" />
-        <div className="hero-orb absolute right-[10%] top-[18%] -z-10 h-56 w-56 rounded-full bg-accent/14 blur-[110px]" />
-        <ParticleBackground variant="dark" className="inset-0 h-full opacity-70" />
+        <div className="homepage-grid absolute inset-0 -z-10 opacity-70" />
+        <div className="homepage-mesh homepage-mesh-one" />
+        <div className="homepage-mesh homepage-mesh-two" />
+        <div className="homepage-mesh homepage-mesh-three" />
 
-        <div className="container relative z-10 grid gap-14 pb-20 pt-14 lg:min-h-[calc(100vh-5.5rem)] lg:grid-cols-[0.96fr,0.84fr] lg:items-center">
-          <div className="max-w-[44rem] space-y-6">
-            <Badge variant="soft" className="w-fit border-transparent bg-white/8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
+        <div className="container relative z-10 grid max-w-[1440px] gap-14 pb-20 pt-14 lg:min-h-[calc(100vh-5.25rem)] lg:grid-cols-[0.98fr,0.82fr] lg:items-center">
+          <div className="max-w-[48rem] space-y-7">
+            <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
+              <Sparkles className="h-3.5 w-3.5 text-white" />
               {home.hero.eyebrow}
             </Badge>
 
-            <div className="space-y-5">
-              <h1 className="display-hero max-w-[13ch] text-white">
-                {heroTitlePrefix}
-                <span className="text-primary">{home.hero.highlight}</span>
-                {heroTitleSuffix}
+            <div className="space-y-6">
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+                Trusted by teams modernizing healthcare, industrial, retail, and analytics products
+              </p>
+              <h1 className="display-hero max-w-[12ch] text-white">
+                {heroTitlePrefix.trim()}{" "}
+                <span className="bg-[linear-gradient(135deg,#93c5fd_0%,#38bdf8_42%,#10b981_100%)] bg-clip-text text-transparent">
+                  <HeroBenefitRotator items={heroRotationItems} />
+                </span>
               </h1>
-              <p className="max-w-2xl body-lg text-white/74">{home.hero.description}</p>
+              <p className="max-w-2xl body-lg text-white/74">
+                {home.hero.description} Strategy, design, and engineering stay connected from the
+                first milestone through launch.
+              </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 href={home.hero.primaryCta.href}
-                className={cn(buttonVariants({ variant: "accent", size: "xl" }))}
+                className={cn(
+                  buttonVariants({ variant: "accent", size: "xl" }),
+                  "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_26px_65px_-30px_rgba(59,130,246,0.72)] hover:scale-[1.02]"
+                )}
               >
                 {home.hero.primaryCta.label}
                 <ArrowRight className="h-4 w-4" />
@@ -220,10 +235,17 @@ export default function Home() {
                 href={home.hero.secondaryCta.href}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-transparent bg-white/6 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_40px_-30px_rgba(0,0,0,0.28)] hover:bg-white/12 hover:text-white"
+                  "border-white/12 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_40px_-30px_rgba(0,0,0,0.28)] hover:bg-white/12 hover:text-white"
                 )}
               >
                 {home.hero.secondaryCta.label}
+              </Link>
+              <Link
+                href="/insights"
+                className="inline-flex h-[3.4rem] items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-6 text-sm font-semibold text-white/82 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-all duration-300 hover:bg-white/[0.1]"
+              >
+                <Search className="h-4 w-4" />
+                Browse insights
               </Link>
             </div>
 
@@ -231,48 +253,65 @@ export default function Home() {
               {home.hero.sectors.map((sector) => (
                 <span
                   key={sector}
-                  className="rounded-full border border-transparent bg-white/8 px-4 py-2 text-sm text-white/70 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur"
+                  className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm text-white/72 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur"
                 >
                   {sector}
                 </span>
               ))}
             </div>
 
-            <div className="space-y-3 pt-6">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/46">
+            <div className="grid gap-3 pt-2 sm:grid-cols-3">
+              {home.stats.slice(0, 3).map((metric) => (
+                <div key={metric.label} className="hero-stat-panel rounded-[1rem] px-4 py-4">
+                  <CountUpText
+                    value={metric.value}
+                    className="block text-3xl font-semibold tracking-[-0.05em] text-white"
+                  />
+                  <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/56">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-3 pt-3">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/46">
                 Selected client contexts
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {socialProof.clientLogos.slice(0, 4).map((client) => (
-                  <div key={client.name} className="text-sm text-white/70">
-                    <span className="font-semibold text-white/88">{client.name}</span>
-                    <span className="ml-2 text-white/44">{client.tagline}</span>
-                  </div>
-                ))}
-              </div>
+              <LogoMarquee items={socialProof.clientLogos} />
             </div>
+
+            <a
+              href="#homepage-stats"
+              className="scroll-cue inline-flex items-center gap-3 pt-2 text-sm font-semibold text-white/72 transition-colors hover:text-white"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.05]">
+                <ChevronDown className="h-4 w-4" />
+              </span>
+              Scroll to explore
+            </a>
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="relative ml-auto max-w-[31rem] rounded-[2.4rem] border border-transparent bg-white/8 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_40px_120px_-48px_rgba(0,0,0,0.72)] backdrop-blur-xl">
-              <div className="grid gap-4 sm:grid-cols-[1.18fr,0.82fr]">
-                <div className="rounded-[2rem] border border-transparent bg-slate-950/26 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+            <div className="hero-glass-panel relative ml-auto max-w-[33rem] rounded-[1.4rem] p-5">
+              <div className="grid gap-4 sm:grid-cols-[1.16fr,0.84fr]">
+                <div className="rounded-[1rem] border border-white/10 bg-slate-950/32 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                     Delivery rhythm
                   </p>
-                  <h2 className="mt-3 text-2xl font-semibold text-white">
+                  <h2 className="mt-3 text-[2rem] font-semibold leading-tight text-white">
                     Discovery to first release with fewer blind spots.
                   </h2>
                   <div className="mt-6 space-y-4">
                     {home.operatingRhythm.steps.map((step, index) => (
                       <div key={step.title} className="space-y-2">
-                        <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.18em] text-white/46">
+                        <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.08em] text-white/46">
                           <span>{step.title}</span>
                           <span>{step.duration}</span>
                         </div>
                         <div className="h-2 rounded-full bg-white/8">
                           <div
-                            className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
+                            className="h-full rounded-full bg-[linear-gradient(90deg,#3b82f6,#06b6d4,#10b981)]"
                             style={{ width: `${[100, 82, 68, 48][index]}%` }}
                           />
                         </div>
@@ -282,25 +321,25 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[2rem] border border-transparent bg-white/10 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                  <div className="rounded-[1rem] border border-white/10 bg-white/[0.08] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                       Launch confidence
                     </p>
                     <p className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-white">100%</p>
-                    <p className="mt-3 text-sm text-white/68">
+                    <p className="mt-3 text-sm leading-7 text-white/66">
                       Clear milestones, visible scope, and measurable outcomes from v1.
                     </p>
                   </div>
 
-                  <div className="rounded-[2rem] border border-transparent bg-white/6 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                  <div className="rounded-[1rem] border border-white/10 bg-white/[0.06] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                       First release focus
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {releaseReadiness.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-transparent bg-white/8 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/68 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+                          className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-white/68 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
                         >
                           {item}
                         </span>
@@ -312,9 +351,9 @@ export default function Home() {
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {socialProof.resultsCallouts.map((callout) => (
-                  <div key={callout.metric} className="rounded-[1.7rem] border border-transparent bg-white/6 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+                  <div key={callout.metric} className="rounded-[1rem] border border-white/10 bg-white/[0.06] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
                     <p className="text-lg font-semibold text-white">{callout.metric}</p>
-                    <p className="mt-2 text-sm text-white/66">{callout.detail}</p>
+                    <p className="mt-2 text-sm leading-7 text-white/64">{callout.detail}</p>
                   </div>
                 ))}
               </div>
@@ -323,9 +362,9 @@ export default function Home() {
             {heroPrimary ? (
               <Link
                 href={`/portfolio/${heroPrimary.project.slug}`}
-                className="float-slow absolute -bottom-7 -left-6 max-w-[15rem] rounded-[1.8rem] border border-transparent bg-white/10 p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.3)] backdrop-blur-xl"
+                className="float-slow absolute -bottom-7 -left-6 max-w-[16rem] rounded-[1rem] border border-white/10 bg-white/[0.09] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.4)] backdrop-blur-xl"
               >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                   Featured build
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">{heroPrimary.title}</p>
@@ -336,9 +375,9 @@ export default function Home() {
             {heroSecondary ? (
               <Link
                 href={`/portfolio/${heroSecondary.project.slug}`}
-                className="float-slower absolute -top-6 right-4 max-w-[13rem] rounded-[1.7rem] border border-transparent bg-white/10 p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.3)] backdrop-blur-xl"
+                className="float-slower absolute -top-6 right-4 max-w-[14rem] rounded-[1rem] border border-white/10 bg-white/[0.09] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.4)] backdrop-blur-xl"
               >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
                   Recent work
                 </p>
                 <p className="mt-2 text-base font-semibold text-white">{heroSecondary.title}</p>
@@ -349,13 +388,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container relative z-20 -mt-12 pb-6">
-        <div className="rounded-[2.4rem] bg-white px-8 py-8 shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_40px_100px_-46px_rgba(9,26,45,0.22)] dark:bg-surface/88">
+      <section id="homepage-stats" className="container relative z-20 -mt-12 max-w-[1440px] pb-8">
+        <div className="section-anchor rounded-[1.4rem] px-8 py-8">
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {home.stats.map((metric) => (
               <div key={metric.label} className="space-y-2 text-center xl:text-left">
                 <CountUpText value={metric.value} className="text-4xl font-semibold tracking-[-0.05em] text-foreground" />
-                <p className="text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="text-[0.72rem] uppercase tracking-[0.08em] text-muted-foreground">
                   {metric.label}
                 </p>
                 <p className="text-sm text-muted-foreground">{metric.helper}</p>
@@ -365,10 +404,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-10">
-        <div className="section-anchor section-anchor-muted rounded-[2.6rem] px-6 py-6 sm:px-8">
+      <section className="container max-w-[1440px] py-10">
+        <div className="section-anchor section-anchor-muted rounded-[1.4rem] px-6 py-6 sm:px-8">
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
               Selected client contexts
             </p>
             <div className="flex flex-wrap gap-x-8 gap-y-3">

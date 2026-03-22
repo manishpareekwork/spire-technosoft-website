@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, Search, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -22,6 +22,12 @@ const navLinks = [
 ];
 
 const mobileUtilityLinks = [
+  { href: "/portfolio", label: "Case Studies" },
+  { href: "/about", label: "About" },
+  { href: "/careers", label: "Careers" },
+];
+
+const quickLinks = [
   { href: "/portfolio", label: "Case Studies" },
   { href: "/about", label: "About" },
   { href: "/careers", label: "Careers" },
@@ -50,23 +56,40 @@ export function Header(): React.ReactElement {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-[#072947]/94 backdrop-blur-xl transition-all duration-500",
-        scrolled && "shadow-[0_20px_60px_-32px_rgba(2,12,27,0.72)]"
+        "sticky top-0 z-50 border-b border-white/8 bg-[linear-gradient(180deg,rgba(10,18,33,0.82),rgba(10,18,33,0.66))] backdrop-blur-xl transition-all duration-500",
+        scrolled
+          ? "border-white/10 bg-[linear-gradient(180deg,rgba(10,18,33,0.92),rgba(10,18,33,0.78))] shadow-[0_24px_70px_-34px_rgba(2,6,23,0.72)]"
+          : "shadow-none"
       )}
     >
-      <div className="container flex h-[5.5rem] items-center justify-between gap-6 py-5">
+      <div className="hidden border-b border-white/8 md:block">
+        <div className="container flex h-10 items-center justify-between text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/52">
+          <div className="flex items-center gap-5">
+            <span>Shipping custom software, AI workflows, and modern product systems</span>
+          </div>
+          <div className="flex items-center gap-4">
+            {quickLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-white/82">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="container flex h-[5.25rem] items-center justify-between gap-6">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Spire Technosoft Home">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] backdrop-blur">
+          <span className="flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-white/10 bg-white/[0.08] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur">
             <Image
               src="/images/logo/512x512.png"
               alt="Spire Technosoft logo"
               width={28}
               height={28}
-              className="rounded-full"
+              className="rounded-[0.7rem]"
               priority
             />
           </span>
-          <span className="text-[1.7rem] font-bold tracking-[-0.055em] text-white">
+          <span className="text-[1.6rem] font-bold tracking-[-0.055em] text-white">
             Spire<span className="text-primary">Technosoft</span>
           </span>
         </Link>
@@ -77,10 +100,8 @@ export function Header(): React.ReactElement {
               key={link.href}
               href={link.href}
               className={cn(
-                "relative py-2 text-[0.9rem] font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300",
-                isActive(link.href)
-                  ? "text-primary after:scale-x-100"
-                  : "text-white/84 hover:text-white"
+                "nav-link-modern relative py-2 text-[0.92rem] font-medium transition-colors duration-300",
+                isActive(link.href) ? "text-white" : "text-white/74 hover:text-white"
               )}
               aria-current={isActive(link.href) ? "page" : undefined}
             >
@@ -90,17 +111,31 @@ export function Header(): React.ReactElement {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle className="border-transparent bg-white/8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] hover:bg-white/12 hover:text-white dark:border-transparent dark:bg-white/8" />
-          <Link href={siteContent.nav.ctaHref} className={cn(buttonVariants({ variant: "accent", size: "sm" }), "px-6")}>
+          <Link
+            href="/insights"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 text-sm text-white/72 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.1] hover:text-white"
+          >
+            <Search className="h-4 w-4" />
+            <span>Insights</span>
+          </Link>
+          <ThemeToggle className="border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.1] hover:text-white dark:border-white/10 dark:bg-white/[0.06]" />
+          <Link
+            href={siteContent.nav.ctaHref}
+            className={cn(
+              buttonVariants({ variant: "accent", size: "sm" }),
+              "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] px-6 text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+            )}
+          >
             {siteContent.nav.ctaLabel}
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle className="border-transparent bg-white/8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] hover:bg-white/12 hover:text-white dark:border-transparent dark:bg-white/8" />
+          <ThemeToggle className="border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.1] hover:text-white dark:border-white/10 dark:bg-white/[0.06]" />
           <button
             aria-label="Toggle navigation"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-transparent bg-white/8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] transition-colors hover:bg-white/14"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.12]"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -114,7 +149,7 @@ export function Header(): React.ReactElement {
         side="right"
         title="Navigate"
         description="Explore Spire Technosoft"
-        className="border-transparent bg-[#072947]/96 text-white backdrop-blur-2xl md:hidden"
+        className="border-transparent bg-[linear-gradient(180deg,rgba(10,18,33,0.97),rgba(13,27,46,0.98))] text-white backdrop-blur-2xl md:hidden"
       >
         <nav className="mt-8 flex flex-col gap-3 text-base font-semibold">
           {navLinks.map((link) => (
