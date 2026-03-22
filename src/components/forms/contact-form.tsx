@@ -5,12 +5,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+
+import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { Alert } from "@/components/ui/alert";
+import { Textarea } from "@/components/ui/textarea";
 
 const inquiryOptions = [
   { label: "New Project / Discovery", value: "New Project" },
@@ -90,7 +91,9 @@ export function ContactForm() {
   const validate = () => {
     const nextErrors: Record<string, string> = {};
     if (!name.trim()) nextErrors.name = "Please enter your name.";
-    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) nextErrors.email = "Enter a valid email address.";
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
+      nextErrors.email = "Enter a valid email address.";
+    }
     if (!inquiryType) nextErrors.inquiryType = "Select an inquiry type.";
     if (!message.trim()) nextErrors.message = "Tell us about your roadmap.";
 
@@ -171,7 +174,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-6" noValidate>
+    <form onSubmit={handleSubmit} className="w-full space-y-7" noValidate>
       {status === "success" && (
         <Alert variant="success">Thank you. We will respond within 24 hours.</Alert>
       )}
@@ -185,76 +188,87 @@ export function ContactForm() {
         autoComplete="off"
         aria-hidden="true"
       />
-      <div className="grid w-full items-center gap-1.5">
-        <Label htmlFor="name">Name</Label>
-        <Input
-          type="text"
-          id="name"
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? "name-error" : undefined}
-        />
-        {errors.name && (
-          <p id="name-error" className="text-xs text-destructive">
-            {errors.name}
-          </p>
-        )}
+
+      <div className="grid gap-7 md:grid-cols-2">
+        <div className="grid w-full items-center gap-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            type="text"
+            id="name"
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "name-error" : undefined}
+          />
+          {errors.name && (
+            <p id="name-error" className="text-xs text-destructive">
+              {errors.name}
+            </p>
+          )}
+        </div>
+
+        <div className="grid w-full items-center gap-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            type="email"
+            id="email"
+            placeholder="your.email@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "email-error" : undefined}
+          />
+          {errors.email && (
+            <p id="email-error" className="text-xs text-destructive">
+              {errors.email}
+            </p>
+          )}
+        </div>
       </div>
-      <div className="grid w-full items-center gap-1.5">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          type="email"
-          id="email"
-          placeholder="your.email@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        {errors.email && (
-          <p id="email-error" className="text-xs text-destructive">
-            {errors.email}
-          </p>
-        )}
-      </div>
-      <div className="grid w-full items-center gap-1.5">
-        <Label htmlFor="organization">Organization</Label>
-        <Input
-          type="text"
-          id="organization"
-          placeholder="Company or team"
-          value={organization}
-          onChange={(e) => setOrganization(e.target.value)}
-        />
-      </div>
-      <div className="grid w-full items-center gap-1.5">
-        <Label htmlFor="inquiryType">Inquiry Type</Label>
-        <Select
-          id="inquiryType"
-          value={inquiryType}
-          onChange={(e) => setInquiryType(e.target.value)}
-          options={[{ label: "Select an option", value: "", disabled: true }, ...inquiryOptions]}
-          aria-invalid={Boolean(errors.inquiryType)}
-          aria-describedby={errors.inquiryType ? "inquiry-type-error" : undefined}
-        />
-        {errors.inquiryType && (
-          <p id="inquiry-type-error" className="text-xs text-destructive">
-            {errors.inquiryType}
-          </p>
-        )}
+
+      <div className="grid gap-7 md:grid-cols-2">
+        <div className="grid w-full items-center gap-2">
+          <Label htmlFor="organization">Organization</Label>
+          <Input
+            type="text"
+            id="organization"
+            placeholder="Company or team"
+            value={organization}
+            onChange={(e) => setOrganization(e.target.value)}
+          />
+        </div>
+
+        <div className="grid w-full items-center gap-2">
+          <Label htmlFor="inquiryType">Inquiry Type</Label>
+          <Select
+            id="inquiryType"
+            value={inquiryType}
+            onChange={(e) => setInquiryType(e.target.value)}
+            options={[{ label: "Select an option", value: "", disabled: true }, ...inquiryOptions]}
+            aria-invalid={Boolean(errors.inquiryType)}
+            aria-describedby={errors.inquiryType ? "inquiry-type-error" : undefined}
+          />
+          {errors.inquiryType && (
+            <p id="inquiry-type-error" className="text-xs text-destructive">
+              {errors.inquiryType}
+            </p>
+          )}
+        </div>
       </div>
 
       {inquiryType === "New Project" && (
-        <>
-          <div className="grid w-full items-center gap-1.5">
+        <div className="grid gap-7 md:grid-cols-3">
+          <div className="grid w-full items-center gap-2">
             <Label htmlFor="projectType">Project Type</Label>
             <Select
               id="projectType"
               value={projectType}
               onChange={(e) => setProjectType(e.target.value)}
-              options={[{ label: "Select a project type", value: "", disabled: true }, ...projectTypeOptions]}
+              options={[
+                { label: "Select a project type", value: "", disabled: true },
+                ...projectTypeOptions,
+              ]}
               aria-invalid={Boolean(errors.projectType)}
               aria-describedby={errors.projectType ? "project-type-error" : undefined}
             />
@@ -264,7 +278,8 @@ export function ContactForm() {
               </p>
             )}
           </div>
-          <div className="grid w-full items-center gap-1.5">
+
+          <div className="grid w-full items-center gap-2">
             <Label htmlFor="timeline">Timeline</Label>
             <Select
               id="timeline"
@@ -280,7 +295,8 @@ export function ContactForm() {
               </p>
             )}
           </div>
-          <div className="grid w-full items-center gap-1.5">
+
+          <div className="grid w-full items-center gap-2">
             <Label htmlFor="budget">Budget Range</Label>
             <Select
               id="budget"
@@ -296,11 +312,11 @@ export function ContactForm() {
               </p>
             )}
           </div>
-        </>
+        </div>
       )}
 
       {inquiryType === "Partnership" && (
-        <div className="grid w-full items-center gap-1.5">
+        <div className="grid w-full items-center gap-2">
           <Label htmlFor="partnershipType">Partnership Type</Label>
           <Select
             id="partnershipType"
@@ -324,7 +340,7 @@ export function ContactForm() {
       )}
 
       {inquiryType === "Hiring" && (
-        <div className="grid w-full items-center gap-1.5">
+        <div className="grid w-full items-center gap-2">
           <Label htmlFor="roleInterest">Role of Interest</Label>
           <Input
             id="roleInterest"
@@ -344,7 +360,7 @@ export function ContactForm() {
       )}
 
       {inquiryType === "Vendor" && (
-        <div className="grid w-full items-center gap-1.5">
+        <div className="grid w-full items-center gap-2">
           <Label htmlFor="vendorCategory">Service Category</Label>
           <Input
             id="vendorCategory"
@@ -364,7 +380,7 @@ export function ContactForm() {
       )}
 
       {inquiryType === "Media" && (
-        <div className="grid w-full items-center gap-1.5">
+        <div className="grid w-full items-center gap-2">
           <Label htmlFor="mediaOutlet">Media Outlet</Label>
           <Input
             id="mediaOutlet"
@@ -384,7 +400,7 @@ export function ContactForm() {
       )}
 
       {inquiryType === "Other" && (
-        <div className="grid w-full items-center gap-1.5">
+        <div className="grid w-full items-center gap-2">
           <Label htmlFor="topic">Topic</Label>
           <Input
             id="topic"
@@ -403,10 +419,10 @@ export function ContactForm() {
         </div>
       )}
 
-      <div className="grid w-full gap-1.5">
+      <div className="grid w-full gap-2">
         <Label htmlFor="message">Your Message</Label>
         <Textarea
-          placeholder="Share your goals, timelines, and constraints."
+          placeholder="Share your goals, timelines, constraints, and what success should look like."
           id="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -420,8 +436,14 @@ export function ContactForm() {
           </p>
         )}
       </div>
+
       <div className="flex items-center justify-between">
-        <Button type="submit" disabled={status === "submitting"}>
+        <Button
+          type="submit"
+          size="xl"
+          className="w-full bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)] sm:w-auto"
+          disabled={status === "submitting"}
+        >
           {status === "submitting" ? "Sending..." : "Send Message"}
         </Button>
       </div>

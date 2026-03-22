@@ -20,7 +20,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         ref={ref}
         data-invalid={props["aria-invalid"] === true ? "true" : undefined}
         className={cn(
-          "flex h-12 w-full appearance-none rounded-2xl border border-transparent bg-white/76 px-4 pr-10 text-sm text-foreground shadow-[inset_0_0_0_1px_hsla(var(--border),0.22),0_12px_28px_-24px_rgba(9,26,45,0.16)] backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring/60 focus:ring-offset-2 focus:ring-offset-background data-[invalid=true]:shadow-[inset_0_0_0_1px_hsla(var(--destructive),0.45),0_12px_28px_-24px_rgba(9,26,45,0.16)] data-[invalid=true]:focus:ring-destructive/40 dark:bg-surface/78 dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.3),0_14px_30px_-24px_rgba(0,0,0,0.34)]",
+          "flex h-14 w-full appearance-none rounded-[1rem] border border-transparent bg-white/82 px-5 pr-10 text-sm text-foreground shadow-[inset_0_0_0_1px_hsla(var(--border),0.24),0_12px_28px_-24px_rgba(9,26,45,0.16)] backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring/60 focus:ring-offset-2 focus:ring-offset-background data-[invalid=true]:shadow-[inset_0_0_0_1px_hsla(var(--destructive),0.45),0_12px_28px_-24px_rgba(9,26,45,0.16)] data-[invalid=true]:focus:ring-destructive/40 dark:bg-surface/78 dark:shadow-[inset_0_0_0_1px_hsla(var(--border),0.3),0_14px_30px_-24px_rgba(0,0,0,0.34)] md:h-12",
           className
         )}
         {...props}
