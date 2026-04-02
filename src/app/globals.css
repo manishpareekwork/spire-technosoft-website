@@ -121,6 +121,15 @@
   --shadow-glow: 0 22px 56px -34px hsla(var(--primary), 0.42);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-softFade,
+  .animate-slideUp {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @layer base {
   * {
     border-color: hsl(var(--border));
@@ -812,7 +821,7 @@
   .section-shell {
     position: relative;
     width: 100%;
-    padding-block: clamp(4.5rem, 6vw, 7rem);
+    padding-block: clamp(2.75rem, 4vw, 4.5rem);
   }
 
   .section-anchor {

@@ -104,7 +104,7 @@ export default async function PortfolioCasePage({ params }: PortfolioCaseProps) 
                   src={project.image}
                   alt={project.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(min-width: 1024px) 24vw, 100vw"
                   priority
                   unoptimized={project.image.startsWith("http")}

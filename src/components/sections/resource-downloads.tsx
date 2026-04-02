@@ -40,7 +40,7 @@ export function ResourceDownloads({
                   alt={`${resource.title} cover`}
                   fill
                   sizes="72px"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
             </div>

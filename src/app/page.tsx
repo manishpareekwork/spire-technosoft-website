@@ -29,6 +29,7 @@ import { siteContent } from "@/content/site";
 import { industryProfiles } from "@/data/industries";
 import { insightArticles } from "@/data/insights";
 import { portfolioProjects } from "@/data/portfolio";
+import { ecosystemProducts } from "@/data/ecosystem-products";
 import { solutionDetails } from "@/data/solutions";
 import { absoluteUrl, siteKeywords } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -178,7 +179,7 @@ export default function Home() {
         <div className="homepage-mesh homepage-mesh-two" />
         <div className="homepage-mesh homepage-mesh-three" />
 
-        <div className="container relative z-10 grid max-w-[1440px] gap-14 pb-24 pt-14 lg:min-h-[calc(100vh-5.25rem)] lg:grid-cols-[0.98fr,0.82fr] lg:items-center">
+        <div className="container relative z-10 grid max-w-[1440px] gap-10 pb-14 pt-10 lg:grid-cols-[0.98fr,0.82fr] lg:items-center lg:gap-12">
           <div className="max-w-[48rem] space-y-7">
             <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50 shadow-none">
               <Sparkles className="h-3.5 w-3.5 text-slate-100" />
@@ -271,13 +272,13 @@ export default function Home() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="relative ml-auto mb-6 aspect-[16/10] max-w-[33rem] overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
+            <div className="relative ml-auto mb-5 aspect-[3/2] max-w-[33rem] overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
               <Image
                 src="/images/about/mission-hero.png"
                 alt="Engineering and product teams collaborating on software delivery"
                 fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 33rem, 100vw"
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 528px, 100vw"
                 priority
               />
             </div>
@@ -376,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="homepage-stats" className="container relative z-20 max-w-[1440px] pb-8 pt-2 md:pt-4">
+      <section id="homepage-stats" className="container relative z-20 max-w-[1440px] pb-6 pt-1 md:pt-2">
         <div className="section-anchor rounded-[1.4rem] px-8 py-8">
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {home.stats.map((metric) => (
@@ -392,8 +393,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] py-10">
-        <div className="section-anchor section-anchor-muted rounded-[1.4rem] px-6 py-6 sm:px-8">
+      <section className="container max-w-[1440px] py-7">
+        <div className="section-anchor section-anchor-muted rounded-[1.4rem] px-6 py-5 sm:px-8">
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
               Selected client contexts
@@ -412,8 +413,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] py-16">
-        <div className="section-anchor rounded-[3rem] px-5 py-10 sm:px-10 sm:py-12">
+      <section className="container max-w-[1440px] py-10">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">Why Spire</p>
             <h2 className="heading-2 text-foreground">Built like an in-house product team, without the overhead</h2>
@@ -422,13 +423,13 @@ export default function Home() {
               and software that survives real operations—are how we work week to week.
             </p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
             {siteContent.differentiators.map((item, index) => {
               const DiffIcon = [UsersRound, Workflow, BrainCircuit][index] ?? Sparkles;
               return (
                 <div
                   key={item.title}
-                  className="interactive-card card-pad rounded-[2rem]"
+                  className="interactive-card card-pad rounded-[1.5rem] transition-transform duration-300 hover:-translate-y-0.5"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-primary/12">
                     <DiffIcon className="h-5 w-5 icon-accent" aria-hidden />
@@ -445,8 +446,48 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-16">
-        <div className="section-anchor rounded-[3rem] px-5 py-8 sm:px-8 sm:py-10">
+      <section className="container max-w-[1440px] py-10">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="section-intro max-w-2xl lg:max-w-3xl">
+              <p className="eyebrow">Spire software</p>
+              <h2 className="heading-2 text-foreground">Products we build and operate</h2>
+              <p className="body-md text-muted-foreground">
+                Alongside client programs, we ship and evolve Spire&apos;s own multi-tenant line—operations
+                ERP, billing, assessments, marketing automation, security, and platform governance.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants({ variant: "accent", size: "lg" }),
+                "shrink-0 bg-gradient-brand text-white shadow-brand-glow-sm"
+              )}
+            >
+              Talk about a product or build
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ecosystemProducts.map((product, i) => (
+              <div
+                key={product.slug}
+                className="compact-tile rounded-[1.35rem] p-5 shadow-soft motion-safe:animate-softFade"
+                style={{ animationDelay: `${i * 55}ms` }}
+              >
+                <h3 className="text-base font-semibold text-foreground">{product.title}</h3>
+                <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-primary">
+                  {product.tagline}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-10">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">Solutions snapshot</p>
             <h2 className="heading-2 text-foreground">Product, platform, and workflow systems built for actual use</h2>
@@ -456,7 +497,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="section-contrast mt-10 rounded-[2.8rem] px-4 py-4 sm:px-6 sm:py-6">
+          <div className="section-contrast mt-8 rounded-[2rem] px-4 py-4 sm:px-6 sm:py-6">
             <div className="grid divide-y divide-border/45 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">
               {featuredSolutions.map((solution, index) => {
                 const Icon = solutionIcons[index % solutionIcons.length];
@@ -498,8 +539,8 @@ export default function Home() {
       </section>
 
       {spotlightIndustry ? (
-        <section className="container py-16">
-          <div className="section-anchor section-anchor-muted rounded-[3rem] px-5 py-8 sm:px-8 sm:py-10">
+        <section className="container py-10">
+          <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
             <div className="section-intro section-intro-center mx-auto max-w-3xl">
               <p className="eyebrow">Where we help</p>
               <h2 className="heading-2 text-foreground">Different industries, different operational pressure</h2>
@@ -527,13 +568,13 @@ export default function Home() {
               })}
             </div>
 
-            <div className="mt-10 grid gap-6 rounded-[2.8rem] bg-white/78 p-4 shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_24px_60px_-36px_rgba(9,26,45,0.18)] lg:grid-cols-[1fr,0.94fr] lg:p-6 dark:bg-surface/82">
+            <div className="mt-8 grid gap-6 rounded-[2rem] bg-white/78 p-4 shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_24px_60px_-36px_rgba(9,26,45,0.18)] lg:grid-cols-[1fr,0.94fr] lg:p-6 dark:bg-surface/82">
               <div className="relative min-h-[320px] overflow-hidden rounded-[2.2rem] bg-surface-2">
                 <Image
                   src={spotlightIndustry.image}
                   alt={`${spotlightIndustry.title} preview`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(min-width: 1024px) 46vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/18 via-transparent to-transparent" />
@@ -619,7 +660,7 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="bg-secondary py-[4.5rem] text-white">
+      <section className="bg-secondary py-14 text-white sm:py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -632,7 +673,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {featuredProjects.map(({ project, title, summary, metric, href }) => (
               <Link
                 key={project.slug}
@@ -662,15 +703,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-[4.5rem]">
-        <div className="section-anchor section-anchor-muted rounded-[3rem] px-5 py-8 sm:px-8 sm:py-10">
+      <section className="container py-12">
+        <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">{home.operatingRhythm.eyebrow}</p>
             <h2 className="heading-2 text-foreground">A lean delivery rhythm from idea to first release</h2>
             <p className="body-md text-muted-foreground">{home.operatingRhythm.description}</p>
           </div>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-[0.72fr,0.28fr]">
+          <div className="mt-8 grid gap-8 lg:grid-cols-[0.72fr,0.28fr]">
             <div className="flow-stage rounded-[2.8rem] px-5 py-6 sm:px-7 sm:py-7">
             <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.12]" />
 
@@ -816,8 +857,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] pb-10 pt-6">
-        <div className="cta-band relative overflow-hidden rounded-[2.6rem] px-6 py-12 sm:px-12 sm:py-14">
+      <section className="container max-w-[1440px] pb-8 pt-4">
+        <div className="cta-band relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12">
           <div className="cta-inner mx-auto max-w-3xl text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-white/75">
               {home.labCta.eyebrow}
@@ -849,8 +890,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container pb-[4.5rem] pt-6">
-        <div className="section-anchor rounded-[3rem] px-5 py-8 sm:px-8 sm:py-10">
+      <section className="container pb-12 pt-4">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
           <div className="grid gap-8 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
             <div className="section-contrast rounded-[2.8rem] px-6 py-6 sm:px-8 sm:py-8">
               <div className="section-intro max-w-2xl">

@@ -66,7 +66,7 @@ export function InsightFeed({ articles }: InsightFeedProps) {
                   src={article.image}
                   alt={article.imageAlt}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                   sizes="76px"
                 />
               </div>

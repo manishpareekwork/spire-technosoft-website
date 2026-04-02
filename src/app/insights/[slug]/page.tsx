@@ -135,7 +135,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 src={article.image}
                 alt={article.imageAlt}
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="240px"
                 priority
               />

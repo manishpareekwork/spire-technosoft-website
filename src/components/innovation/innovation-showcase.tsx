@@ -47,7 +47,7 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
             src={activeItem.image}
             alt={activeItem.imageAlt}
             fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             sizes="(max-width: 1024px) 100vw, 480px"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,24,0.08),rgba(7,13,24,0.72))]" />
@@ -132,9 +132,15 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
                   : "hover:-translate-y-1 hover:border-primary/18"
               )}
             >
-              <div className="grid gap-4 sm:grid-cols-[84px,1fr] sm:items-center">
-                <div className="relative aspect-[5/4] overflow-hidden rounded-[0.8rem] bg-surface-2">
-                  <Image src={item.image} alt="" fill className="object-cover" sizes="84px" />
+              <div className="grid gap-4 sm:grid-cols-[96px,1fr] sm:items-center">
+                <div className="relative aspect-[4/3] w-full max-w-[96px] overflow-hidden rounded-[0.75rem] bg-surface-2 sm:mx-0">
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    className="object-cover object-center"
+                    sizes="96px"
+                  />
                 </div>
                 <div className="space-y-2">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-primary">

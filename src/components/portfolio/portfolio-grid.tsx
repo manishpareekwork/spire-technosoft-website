@@ -143,7 +143,7 @@ export function PortfolioGrid(): React.ReactElement {
                   src={project.image}
                   alt={project.imageAlt}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                   sizes="128px"
                   unoptimized={project.image.startsWith("http")}
                 />

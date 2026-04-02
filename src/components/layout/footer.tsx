@@ -98,7 +98,7 @@ export function Footer(): React.ReactElement {
   const content = footerContent.find((item) => item.match(pathname)) ?? footerContent[footerContent.length - 1];
 
   return (
-    <footer className="site-footer relative z-20 mt-24 overflow-hidden text-white">
+    <footer className="site-footer relative z-20 mt-14 overflow-hidden text-white sm:mt-16">
       <div className="absolute inset-0 opacity-60">
         <div className="dark-grid absolute inset-x-0 top-0 h-56" />
         <div className="hero-orb absolute left-[10%] top-20 h-52 w-52 rounded-full bg-primary/12 blur-[90px]" />

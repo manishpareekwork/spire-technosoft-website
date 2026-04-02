@@ -89,7 +89,7 @@ export default async function IndustryDetailPage({
                   src={industry.image}
                   alt={`${industry.title} preview`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="200px"
                 />
               </div>

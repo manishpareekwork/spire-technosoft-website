@@ -91,7 +91,7 @@ export default function IndustriesPage(): React.ReactElement {
                     src={industry.image}
                     alt={`${industry.title} preview`}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="116px"
                   />
                 </div>
@@ -157,7 +157,7 @@ export default function IndustriesPage(): React.ReactElement {
                   src={industry.image}
                   alt={`${industry.title} preview`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="88px"
                 />
               </div>
