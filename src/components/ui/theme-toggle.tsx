@@ -23,7 +23,14 @@ import { cn } from "@/lib/utils";
  * A dropdown component that allows the user to switch between light, dark, and system themes.
  * @returns {React.ReactElement} The rendered theme toggle component.
  */
-export function ThemeToggle({ className }: { className?: string }) {
+export function ThemeToggle({
+  className,
+  variant = "default",
+}: {
+  className?: string;
+  /** Use on the dark glass header so the control stays visible. */
+  variant?: "default" | "onDark";
+}) {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -41,7 +48,17 @@ export function ThemeToggle({ className }: { className?: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className={cn("relative", className)}>
+        <Button
+          variant="outline"
+          size="icon"
+          className={cn(
+            "relative shrink-0",
+            variant === "onDark" &&
+              "border-white/35 bg-white/18 text-white shadow-none backdrop-blur-sm hover:bg-white/28 hover:text-white focus-visible:ring-white/70 focus-visible:ring-offset-[rgb(10,18,33)] dark:border-white/35 dark:bg-white/18 dark:text-white dark:hover:bg-white/28",
+            variant === "onDark" && "focus-visible:ring-2 focus-visible:ring-offset-2",
+            className
+          )}
+        >
           {icon}
           <span className="sr-only">Toggle theme</span>
         </Button>

@@ -179,8 +179,8 @@ export default function Home() {
         <div className="homepage-mesh homepage-mesh-two" />
         <div className="homepage-mesh homepage-mesh-three" />
 
-        <div className="container relative z-10 grid max-w-[1440px] gap-10 pb-14 pt-10 lg:grid-cols-[0.98fr,0.82fr] lg:items-center lg:gap-12">
-          <div className="max-w-[48rem] space-y-7">
+        <div className="container relative z-10 grid max-w-[1440px] gap-10 pb-14 pt-10 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
+          <div className="min-w-0 max-w-[min(42rem,100%)] space-y-7 lg:max-w-none lg:pr-2">
             <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50 shadow-none">
               <Sparkles className="h-3.5 w-3.5 text-slate-100" />
               {home.hero.eyebrow}
@@ -190,7 +190,7 @@ export default function Home() {
               <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
                 Trusted by teams modernizing healthcare, industrial, retail, and analytics products
               </p>
-              <h1 className="display-hero max-w-[18ch] sm:max-w-[17ch] lg:max-w-[16ch] text-slate-50 drop-shadow-sm">
+              <h1 className="display-hero max-w-[18ch] text-slate-50 drop-shadow-sm sm:max-w-[20ch] lg:max-w-[22ch]">
                 {heroTitlePrefix.trim()}{" "}
                 <span className="text-gradient-hero-accent">{home.hero.highlight}</span>
               </h1>
@@ -271,18 +271,18 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="relative ml-auto mb-5 aspect-[3/2] max-w-[33rem] overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
+          <div className="relative hidden min-w-0 flex-col gap-5 lg:flex xl:sticky xl:top-28">
+            <div className="relative mb-0 aspect-[3/2] w-full overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
               <Image
                 src="/images/about/mission-hero.png"
                 alt="Engineering and product teams collaborating on software delivery"
                 fill
                 className="object-cover object-center"
-                sizes="(min-width: 1024px) 528px, 100vw"
+                sizes="(min-width: 1280px) 42vw, (min-width: 1024px) 45vw, 100vw"
                 priority
               />
             </div>
-            <div className="hero-glass-panel relative ml-auto max-w-[33rem] rounded-[1.4rem] p-5">
+            <div className="hero-glass-panel relative w-full rounded-[1.4rem] p-5">
               <div className="grid gap-4 sm:grid-cols-[1.16fr,0.84fr]">
                 <div className="rounded-[1rem] border border-white/15 bg-slate-950/75 p-5 shadow-none">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
@@ -348,30 +348,33 @@ export default function Home() {
               </div>
             </div>
 
-            {heroPrimary ? (
-              <Link
-                href={`/portfolio/${heroPrimary.project.slug}`}
-                className="float-slow absolute -bottom-7 -left-6 max-w-[16rem] rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm"
-              >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
-                  Featured build
-                </p>
-                <p className="mt-2 text-lg font-semibold text-slate-50">{heroPrimary.title}</p>
-                <p className="mt-1 text-sm text-slate-300">{heroPrimary.metric}</p>
-              </Link>
-            ) : null}
-
-            {heroSecondary ? (
-              <Link
-                href={`/portfolio/${heroSecondary.project.slug}`}
-                className="float-slower absolute -top-6 right-4 max-w-[14rem] rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm"
-              >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
-                  Recent work
-                </p>
-                <p className="mt-2 text-base font-semibold text-slate-50">{heroSecondary.title}</p>
-                <p className="mt-1 text-sm text-slate-300">{heroSecondary.summary}</p>
-              </Link>
+            {heroPrimary || heroSecondary ? (
+              <div className="grid w-full gap-3 sm:grid-cols-2">
+                {heroPrimary ? (
+                  <Link
+                    href={`/portfolio/${heroPrimary.project.slug}`}
+                    className="rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-slate-950"
+                  >
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
+                      Featured build
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-slate-50">{heroPrimary.title}</p>
+                    <p className="mt-1 text-sm text-slate-300">{heroPrimary.metric}</p>
+                  </Link>
+                ) : null}
+                {heroSecondary ? (
+                  <Link
+                    href={`/portfolio/${heroSecondary.project.slug}`}
+                    className="rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-slate-950"
+                  >
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
+                      Recent work
+                    </p>
+                    <p className="mt-2 text-base font-semibold text-slate-50">{heroSecondary.title}</p>
+                    <p className="mt-1 text-sm text-slate-300">{heroSecondary.summary}</p>
+                  </Link>
+                ) : null}
+              </div>
             ) : null}
           </div>
         </div>

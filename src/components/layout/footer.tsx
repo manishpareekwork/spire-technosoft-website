@@ -138,13 +138,13 @@ export function Footer(): React.ReactElement {
         <div className="grid gap-10 py-14 lg:grid-cols-[1.05fr,0.78fr,0.88fr,1fr]">
           <div className="space-y-5">
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-[0.95rem] bg-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] backdrop-blur">
+              <span className="flex h-12 w-12 items-center justify-center rounded-[0.95rem] border border-slate-200/90 bg-white shadow-sm ring-1 ring-black/5 dark:border-slate-200 dark:bg-white">
                 <Image
                   src="/images/logo/512x512.png"
                   alt="Spire Technosoft logo"
                   width={30}
                   height={30}
-                  className="rounded-[0.8rem]"
+                  className="rounded-[0.7rem]"
                 />
               </span>
               <span className="text-[1.9rem] font-bold tracking-[-0.055em] text-white">

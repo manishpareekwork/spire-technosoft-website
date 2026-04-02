@@ -12,13 +12,13 @@ export default function ComingSoonPage(): React.ReactElement {
         <div className="hero-orb absolute -bottom-20 right-0 h-60 w-60 rounded-full bg-accent/22 blur-[96px]" />
 
         <div className="relative z-10 mx-auto flex min-h-[65vh] max-w-3xl flex-col items-center justify-center gap-8 px-6 py-16 text-white md:py-24">
-          <div className="rounded-2xl bg-white p-4 shadow-2xl ring-2 ring-white/15">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xl ring-1 ring-black/5">
             <Image
               src="/images/logo/1080x1080.png"
               alt="Spire Technosoft Logo"
               width={80}
               height={80}
-              className="rounded-xl"
+              className="rounded-xl bg-white"
               priority
             />
           </div>

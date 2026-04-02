@@ -63,7 +63,7 @@ export function Header(): React.ReactElement {
       )}
     >
       <div className="hidden border-b border-white/8 md:block">
-        <div className="container flex h-10 items-center justify-between text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/52">
+        <div className="container flex h-10 items-center justify-between text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/72">
           <div className="flex items-center gap-5">
             <span>Shipping custom software, AI workflows, and modern product systems</span>
           </div>
@@ -79,13 +79,13 @@ export function Header(): React.ReactElement {
 
       <div className="container flex h-[5.25rem] items-center justify-between gap-6">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Spire Technosoft Home">
-          <span className="flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-white/10 bg-white/[0.08] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur">
+          <span className="flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-slate-200/90 bg-white shadow-sm ring-1 ring-black/5 dark:border-slate-200 dark:bg-white">
             <Image
               src="/images/logo/512x512.png"
               alt="Spire Technosoft logo"
               width={28}
               height={28}
-              className="rounded-[0.7rem]"
+              className="rounded-[0.65rem]"
               priority
             />
           </span>
@@ -118,7 +118,7 @@ export function Header(): React.ReactElement {
             <Search className="h-4 w-4" />
             <span>Insights</span>
           </Link>
-          <ThemeToggle className="border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.1] hover:text-white dark:border-white/10 dark:bg-white/[0.06]" />
+          <ThemeToggle variant="onDark" />
           <Link
             href={siteContent.nav.ctaHref}
             className={cn(
@@ -132,7 +132,7 @@ export function Header(): React.ReactElement {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle className="border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.1] hover:text-white dark:border-white/10 dark:bg-white/[0.06]" />
+          <ThemeToggle variant="onDark" />
           <button
             aria-label="Toggle navigation"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.12]"
