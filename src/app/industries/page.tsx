@@ -23,18 +23,18 @@ export default function IndustriesPage(): React.ReactElement {
         <div className="innovation-mesh innovation-mesh-one" />
         <div className="innovation-mesh innovation-mesh-two" />
         <div className="innovation-mesh innovation-mesh-three" />
-        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
+        <div className="innovation-grid pointer-events-none absolute inset-0 z-0 opacity-25" />
 
-        <div className="container max-w-[1440px] grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="max-w-[44rem] space-y-5 text-white">
-            <p className="eyebrow">Industries</p>
-            <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+        <div className="relative z-10 container max-w-[1440px] grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="max-w-[44rem] space-y-5 text-slate-50">
+            <p className="eyebrow text-slate-200">Industries</p>
+            <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
               Different sectors, different operational pressure, different product decisions
             </p>
-            <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
+            <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-slate-50">
               Product work shaped around the context each team works in
             </h1>
-            <p className="max-w-3xl body-lg text-white/72">
+            <p className="max-w-3xl text-lg leading-relaxed text-slate-300">
               We do not force the same playbook everywhere. Finance, healthcare, energy,
               manufacturing, and retail each bring different workflows, users, and operational
               constraints.
@@ -53,7 +53,7 @@ export default function IndustriesPage(): React.ReactElement {
                 href="/portfolio"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-white/12 bg-white/[0.06] text-white hover:bg-white/[0.12] hover:text-white"
+                  "border-white/20 bg-white/10 text-slate-50 hover:bg-white/15 hover:text-white"
                 )}
               >
                 See Relevant Work
@@ -73,7 +73,7 @@ export default function IndustriesPage(): React.ReactElement {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 text-cyan-300" />
-                  <p className="text-sm text-white/68">{item}</p>
+                  <p className="text-sm text-slate-300">{item}</p>
                 </div>
               ))}
             </div>

@@ -31,7 +31,7 @@ export const solutionDetails: SolutionDetail[] = [
     summary: "Digitize inspections, evidence capture, certifications, and regulator dashboards with offline-ready tooling.",
     intro:
       "Regulated programs need traceability, speed, and accuracy. We build audit ecosystems that replace paper processes and keep evidence audit-ready across regions.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/supply-chain-quality-system.png",
     tags: ["Manufacturing", "ESG", "Quality", "Regulatory"],
     outcomes: [
       "Accelerated audit cycles with offline-first inspections.",
@@ -111,7 +111,7 @@ export const solutionDetails: SolutionDetail[] = [
     summary: "Connect patients, caregivers, and clinicians with secure mobile and web experiences.",
     intro:
       "We build healthcare platforms that balance compassionate UX with HIPAA-grade security. From patient onboarding to remote monitoring, every workflow is designed for adherence and outcomes.",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/healthcare-dashboard.png",
     tags: ["Digital Health", "Wellness", "Care Teams", "Patient Experience"],
     outcomes: [
       "Improved adherence with personalized care journeys.",
@@ -192,7 +192,7 @@ export const solutionDetails: SolutionDetail[] = [
     summary: "Supplier onboarding, quality workflows, and predictive analytics in one compliant platform.",
     intro:
       "We help procurement and operations leaders build resilient supply chains with real-time visibility across suppliers, factories, and logistics partners.",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/retail-dashboard.png",
     tags: ["Retail", "FMCG", "Procurement", "Supplier Ops"],
     outcomes: [
       "Faster supplier onboarding and compliance readiness.",
@@ -272,7 +272,7 @@ export const solutionDetails: SolutionDetail[] = [
     summary: "Operational dashboards, digital twins, and predictive maintenance for field and control-room teams.",
     intro:
       "Spire builds industrial intelligence platforms that fuse IoT telemetry with actionable workflows for reliability, safety, and energy efficiency.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/manufacturing-dashboard.png",
     tags: ["Energy", "Utilities", "Industrial Ops", "IoT"],
     outcomes: [
       "Reduced downtime with predictive maintenance models.",

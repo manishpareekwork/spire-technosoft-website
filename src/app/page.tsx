@@ -173,42 +173,28 @@ export default function Home() {
       />
 
       <section className="homepage-hero hero-stage">
-        {heroPrimary ? (
-          <div className="absolute inset-0 -z-30">
-            <Image
-              src={heroPrimary.project.image}
-              alt={heroPrimary.project.imageAlt}
-              fill
-              priority
-              className="hero-image-pan object-cover opacity-[0.16]"
-              sizes="100vw"
-            />
-          </div>
-        ) : null}
-
-        <div className="homepage-grid absolute inset-0 -z-10 opacity-70" />
+        <div className="homepage-grid absolute inset-0 opacity-45" />
         <div className="homepage-mesh homepage-mesh-one" />
         <div className="homepage-mesh homepage-mesh-two" />
         <div className="homepage-mesh homepage-mesh-three" />
 
         <div className="container relative z-10 grid max-w-[1440px] gap-14 pb-24 pt-14 lg:min-h-[calc(100vh-5.25rem)] lg:grid-cols-[0.98fr,0.82fr] lg:items-center">
           <div className="max-w-[48rem] space-y-7">
-            <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-              <Sparkles className="h-3.5 w-3.5 text-white" />
+            <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50 shadow-none">
+              <Sparkles className="h-3.5 w-3.5 text-slate-100" />
               {home.hero.eyebrow}
             </Badge>
 
             <div className="space-y-6">
-              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white/65">
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
                 Trusted by teams modernizing healthcare, industrial, retail, and analytics products
               </p>
-              <h1 className="display-hero max-w-[18ch] sm:max-w-[17ch] lg:max-w-[16ch] text-white">
+              <h1 className="display-hero max-w-[18ch] sm:max-w-[17ch] lg:max-w-[16ch] text-slate-50 drop-shadow-sm">
                 {heroTitlePrefix.trim()}{" "}
                 <span className="text-gradient-hero-accent">{home.hero.highlight}</span>
               </h1>
-              <p className="max-w-2xl body-lg text-white/74">
-                {home.hero.description} Strategy, design, and engineering stay connected from the
-                first milestone through launch.
+              <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-[1.05rem]">
+                {home.hero.description}
               </p>
             </div>
 
@@ -227,14 +213,14 @@ export default function Home() {
                 href={home.hero.secondaryCta.href}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-white/12 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_40px_-30px_rgba(0,0,0,0.28)] hover:bg-white/12 hover:text-white"
+                  "border-white/20 bg-white/10 text-slate-50 shadow-none hover:bg-white/15 hover:text-white"
                 )}
               >
                 {home.hero.secondaryCta.label}
               </Link>
               <Link
                 href="/insights"
-                className="inline-flex h-[3.4rem] items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-6 text-sm font-semibold text-white/82 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-all duration-300 hover:bg-white/[0.1]"
+                className="inline-flex h-[3.4rem] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-semibold text-slate-100 transition-all duration-300 hover:bg-white/15"
               >
                 <Search className="h-4 w-4" />
                 Browse insights
@@ -245,7 +231,7 @@ export default function Home() {
               {home.hero.sectors.map((sector) => (
                 <span
                   key={sector}
-                  className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm text-white/72 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur"
+                  className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm"
                 >
                   {sector}
                 </span>
@@ -257,9 +243,9 @@ export default function Home() {
                 <div key={metric.label} className="hero-stat-panel rounded-[1rem] px-4 py-4">
                   <CountUpText
                     value={metric.value}
-                    className="block text-3xl font-semibold tracking-[-0.05em] text-white"
+                    className="block text-3xl font-semibold tracking-[-0.05em] text-slate-50"
                   />
-                  <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/56">
+                  <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                     {metric.label}
                   </p>
                 </div>
@@ -267,7 +253,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-3 pt-3">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/46">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                 Selected client contexts
               </p>
               <LogoMarquee items={socialProof.clientLogos} />
@@ -275,9 +261,9 @@ export default function Home() {
 
             <a
               href="#homepage-stats"
-              className="scroll-cue inline-flex items-center gap-3 pt-2 text-sm font-semibold text-white/72 transition-colors hover:text-white"
+              className="scroll-cue inline-flex items-center gap-3 pt-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.05]">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10">
                 <ChevronDown className="h-4 w-4" />
               </span>
               Scroll to explore
@@ -285,23 +271,33 @@ export default function Home() {
           </div>
 
           <div className="relative hidden lg:block">
+            <div className="relative ml-auto mb-6 aspect-[16/10] max-w-[33rem] overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
+              <Image
+                src="/images/about/mission-hero.png"
+                alt="Engineering and product teams collaborating on software delivery"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 33rem, 100vw"
+                priority
+              />
+            </div>
             <div className="hero-glass-panel relative ml-auto max-w-[33rem] rounded-[1.4rem] p-5">
               <div className="grid gap-4 sm:grid-cols-[1.16fr,0.84fr]">
-                <div className="rounded-[1rem] border border-white/10 bg-slate-950/32 p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                <div className="rounded-[1rem] border border-white/15 bg-slate-950/75 p-5 shadow-none">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                     Delivery rhythm
                   </p>
-                  <h2 className="mt-3 text-[2rem] font-semibold leading-tight text-white">
+                  <h2 className="mt-3 text-[2rem] font-semibold leading-tight text-slate-50">
                     Discovery to first release with fewer blind spots.
                   </h2>
                   <div className="mt-6 space-y-4">
                     {home.operatingRhythm.steps.map((step, index) => (
                       <div key={step.title} className="space-y-2">
-                        <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.08em] text-white/46">
+                        <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.08em] text-slate-400">
                           <span>{step.title}</span>
                           <span>{step.duration}</span>
                         </div>
-                        <div className="h-2 rounded-full bg-white/8">
+                        <div className="h-2 rounded-full bg-white/15">
                           <div
                             className="h-full rounded-full bg-gradient-brand-flow"
                             style={{ width: `${[100, 82, 68, 48][index]}%` }}
@@ -313,25 +309,25 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[1rem] border border-white/10 bg-white/[0.08] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                  <div className="rounded-[1rem] border border-white/15 bg-slate-950/70 p-5 shadow-none">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                       Launch confidence
                     </p>
-                    <p className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-white">100%</p>
-                    <p className="mt-3 text-sm leading-7 text-white/66">
+                    <p className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-slate-50">100%</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">
                       Clear milestones, visible scope, and measurable outcomes from v1.
                     </p>
                   </div>
 
-                  <div className="rounded-[1rem] border border-white/10 bg-white/[0.06] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                  <div className="rounded-[1rem] border border-white/15 bg-slate-950/65 p-5 shadow-none">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                       First release focus
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {releaseReadiness.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-white/68 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+                          className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-200"
                         >
                           {item}
                         </span>
@@ -343,9 +339,9 @@ export default function Home() {
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {socialProof.resultsCallouts.map((callout) => (
-                  <div key={callout.metric} className="rounded-[1rem] border border-white/10 bg-white/[0.06] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                    <p className="text-lg font-semibold text-white">{callout.metric}</p>
-                    <p className="mt-2 text-sm leading-7 text-white/64">{callout.detail}</p>
+                  <div key={callout.metric} className="rounded-[1rem] border border-white/15 bg-slate-950/70 p-5 shadow-none">
+                    <p className="text-lg font-semibold text-slate-50">{callout.metric}</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-300">{callout.detail}</p>
                   </div>
                 ))}
               </div>
@@ -354,26 +350,26 @@ export default function Home() {
             {heroPrimary ? (
               <Link
                 href={`/portfolio/${heroPrimary.project.slug}`}
-                className="float-slow absolute -bottom-7 -left-6 max-w-[16rem] rounded-[1rem] border border-white/10 bg-white/[0.09] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+                className="float-slow absolute -bottom-7 -left-6 max-w-[16rem] rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm"
               >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                   Featured build
                 </p>
-                <p className="mt-2 text-lg font-semibold text-white">{heroPrimary.title}</p>
-                <p className="mt-1 text-sm text-white/68">{heroPrimary.metric}</p>
+                <p className="mt-2 text-lg font-semibold text-slate-50">{heroPrimary.title}</p>
+                <p className="mt-1 text-sm text-slate-300">{heroPrimary.metric}</p>
               </Link>
             ) : null}
 
             {heroSecondary ? (
               <Link
                 href={`/portfolio/${heroSecondary.project.slug}`}
-                className="float-slower absolute -top-6 right-4 max-w-[14rem] rounded-[1rem] border border-white/10 bg-white/[0.09] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_24px_55px_-34px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+                className="float-slower absolute -top-6 right-4 max-w-[14rem] rounded-[1rem] border border-white/15 bg-slate-950/90 p-4 shadow-lg backdrop-blur-sm"
               >
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                   Recent work
                 </p>
-                <p className="mt-2 text-base font-semibold text-white">{heroSecondary.title}</p>
-                <p className="mt-1 text-sm text-white/64">{heroSecondary.summary}</p>
+                <p className="mt-2 text-base font-semibold text-slate-50">{heroSecondary.title}</p>
+                <p className="mt-1 text-sm text-slate-300">{heroSecondary.summary}</p>
               </Link>
             ) : null}
           </div>

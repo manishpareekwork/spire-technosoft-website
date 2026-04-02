@@ -190,25 +190,25 @@ export default function InnovationPage(): React.ReactElement {
         <div className="innovation-mesh innovation-mesh-one" />
         <div className="innovation-mesh innovation-mesh-two" />
         <div className="innovation-mesh innovation-mesh-three" />
-        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
-        <div className="innovation-noise absolute inset-0 -z-10 opacity-35" />
+        <div className="innovation-grid pointer-events-none absolute inset-0 z-0 opacity-25" />
+        <div className="innovation-noise pointer-events-none absolute inset-0 z-0 opacity-20" />
 
-        <div className="container max-w-[1400px]">
+        <div className="relative z-10 container max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
-            <div className="max-w-[46rem] space-y-6 text-white">
-              <Badge variant="soft" className="w-fit border-white/15 bg-white/10 text-white">
-                <Sparkles className="h-3.5 w-3.5 text-white" />
+            <div className="max-w-[46rem] space-y-6 text-slate-50">
+              <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50">
+                <Sparkles className="h-3.5 w-3.5 text-slate-100" />
                 Innovation Lab
               </Badge>
               <div className="space-y-4">
-                <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-cyan-100/72">
+                <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
                   Rapid validation for AI, product, and workflow bets
                 </p>
-                <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
+                <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-slate-50">
                   Shape bold product ideas into something concrete, testable, and decision-ready
                 </h1>
               </div>
-              <p className="max-w-3xl text-[1.05rem] leading-8 text-white/76">
+              <p className="max-w-3xl text-[1.05rem] leading-8 text-slate-300">
                 The lab gives founders, product teams, and operators a faster way to pressure-test
                 ambitious concepts. Instead of debating assumptions in slides, we prototype the
                 interface, workflow, and AI behavior that matter most.
@@ -238,9 +238,9 @@ export default function InnovationPage(): React.ReactElement {
                 {heroSignals.map((signal) => (
                   <div
                     key={signal.label}
-                    className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-4 backdrop-blur-md"
+                    className="rounded-[1rem] border border-white/18 bg-slate-950/55 px-4 py-4 backdrop-blur-sm"
                   >
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/58">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                       {signal.label}
                     </p>
                     <p className="mt-2 text-2xl font-semibold text-white">{signal.value}</p>
@@ -248,8 +248,8 @@ export default function InnovationPage(): React.ReactElement {
                 ))}
               </div>
 
-              <div className="innovation-logo-strip mt-2 flex flex-wrap items-center gap-3 text-white/70">
-                <span className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-white/54">
+              <div className="innovation-logo-strip mt-2 flex flex-wrap items-center gap-3 text-slate-300">
+                <span className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                   Trusted across
                 </span>
                 {clientLogos.slice(0, 4).map((client) => (
@@ -267,7 +267,7 @@ export default function InnovationPage(): React.ReactElement {
               <div className="innovation-panel-dark relative overflow-hidden rounded-[1.15rem] px-6 py-6">
                 <div className="absolute right-[-8%] top-[-8%] h-40 w-40 rounded-full bg-cyan-400/18 blur-3xl" />
                 <div className="absolute bottom-[-12%] left-[10%] h-44 w-44 rounded-full bg-blue-500/18 blur-3xl" />
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/58">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                   Best used when
                 </p>
                 <div className="mt-5 space-y-4">
@@ -277,7 +277,7 @@ export default function InnovationPage(): React.ReactElement {
                       className="flex items-start gap-3 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 text-cyan-300" />
-                      <p className="text-sm leading-7 text-white/72">{item}</p>
+                      <p className="text-sm leading-7 text-slate-300">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -285,21 +285,21 @@ export default function InnovationPage(): React.ReactElement {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="innovation-float-card innovation-panel-dark px-5 py-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/58">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                     Concepts explored
                   </p>
                   <CountUpText value="12+" className="mt-3 block text-4xl font-semibold text-white" />
-                  <p className="mt-2 text-sm leading-7 text-white/66">
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
                     AI copilots, control rooms, dashboards, workflow assistants, and product
                     experiments.
                   </p>
                 </div>
                 <div className="innovation-float-card innovation-panel-dark px-5 py-5 sm:translate-y-6">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/58">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                     Core output
                   </p>
                   <p className="mt-3 text-3xl font-semibold text-white">Decision clarity</p>
-                  <p className="mt-2 text-sm leading-7 text-white/66">
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
                     A sharper go or no-go call before the broader roadmap absorbs time and budget.
                   </p>
                 </div>
@@ -493,11 +493,11 @@ export default function InnovationPage(): React.ReactElement {
       <section className="container max-w-[1400px] pb-28 pt-10">
         <div className="cta-band rounded-[1.4rem] px-8 py-16 text-center sm:px-10 sm:py-20">
           <div className="cta-inner mx-auto max-w-3xl space-y-8">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/60">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-200">
               Rapid validation
             </p>
             <h2 className="display-1 text-white">Plan a 2-week lab sprint</h2>
-            <p className="body-lg text-white/78">
+            <p className="text-lg leading-relaxed text-slate-200">
               Use the lab when an idea needs evidence, direction, and a credible next move.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">

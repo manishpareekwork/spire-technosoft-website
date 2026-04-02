@@ -21,7 +21,7 @@ export function LogoMarquee({ items }: LogoMarqueeProps) {
             className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-white/72 backdrop-blur"
           >
             <span className="font-semibold text-white/90">{item.name}</span>
-            <span className="text-white/42">{item.tagline}</span>
+            <span className="text-slate-300">{item.tagline}</span>
           </div>
         ))}
       </div>

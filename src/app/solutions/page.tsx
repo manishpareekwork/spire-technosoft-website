@@ -45,27 +45,27 @@ export default function SolutionsPage(): React.ReactElement {
         <div className="innovation-mesh innovation-mesh-one" />
         <div className="innovation-mesh innovation-mesh-two" />
         <div className="innovation-mesh innovation-mesh-three" />
-        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
+        <div className="innovation-grid pointer-events-none absolute inset-0 z-0 opacity-25" />
 
-        <div className="container max-w-[1440px] grid gap-12 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
-          <div className="max-w-[44rem] space-y-6 text-white">
-            <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white">
+        <div className="relative z-10 container max-w-[1440px] grid gap-12 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
+          <div className="max-w-[44rem] space-y-6 text-slate-50">
+            <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50">
               {solutions.hero.eyebrow}
             </Badge>
             <div className="space-y-5">
-              <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+              <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
                 Product systems, workflow engines, and release-ready software directions
               </p>
-              <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
+              <h1 className="innovation-display max-w-[17ch] sm:max-w-[15ch] lg:max-w-[14ch] text-slate-50">
                 {solutions.hero.title}
               </h1>
-              <p className="body-lg max-w-2xl text-white/72">{solutions.hero.description}</p>
+              <p className="max-w-2xl text-lg leading-relaxed text-slate-300">{solutions.hero.description}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {siteContent.differentiators.map((item) => (
                 <span
                   key={item.title}
-                  className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm text-white/72 shadow-sm backdrop-blur"
+                  className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm"
                 >
                   {item.title}
                 </span>
@@ -85,7 +85,7 @@ export default function SolutionsPage(): React.ReactElement {
                 href="/portfolio"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-white/12 bg-white/[0.06] text-white hover:bg-white/[0.12] hover:text-white"
+                  "border-white/20 bg-white/10 text-slate-50 hover:bg-white/15 hover:text-white"
                 )}
               >
                 See Selected Work
@@ -93,13 +93,13 @@ export default function SolutionsPage(): React.ReactElement {
             </div>
           </div>
 
-          <div className="innovation-panel-dark rounded-[1.25rem] px-6 py-6">
+          <div className="relative z-10 innovation-panel-dark rounded-[1.25rem] px-6 py-6">
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                   <Sparkles className="h-4 w-4 icon-accent" />
                 </span>
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-blue-100/64">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
                   Delivery blueprint
                 </p>
               </div>
@@ -120,10 +120,10 @@ export default function SolutionsPage(): React.ReactElement {
                   },
                 ].map((column) => (
                   <div key={column.title} className="space-y-3">
-                    <p className="text-sm font-semibold text-white">{column.title}</p>
+                    <p className="text-sm font-semibold text-slate-50">{column.title}</p>
                     <div className="grid gap-2">
                       {column.items.map((item) => (
-                        <p key={item} className="text-sm text-white/68">
+                        <p key={item} className="text-sm text-slate-300">
                           {item}
                         </p>
                       ))}
@@ -134,9 +134,9 @@ export default function SolutionsPage(): React.ReactElement {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {productModes.map((item) => (
-                  <div key={item.title} className="rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-4">
-                    <p className="text-sm font-semibold text-white">{item.title}</p>
-                    <p className="text-sm text-white/64">{item.detail}</p>
+                  <div key={item.title} className="rounded-[1rem] border border-white/15 bg-slate-950/50 px-4 py-4">
+                    <p className="text-sm font-semibold text-slate-50">{item.title}</p>
+                    <p className="text-sm text-slate-300">{item.detail}</p>
                   </div>
                 ))}
               </div>

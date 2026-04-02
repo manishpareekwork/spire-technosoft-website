@@ -46,20 +46,20 @@ export default function ContactPage() {
         <div className="innovation-mesh innovation-mesh-one" />
         <div className="innovation-mesh innovation-mesh-two" />
         <div className="innovation-mesh innovation-mesh-three" />
-        <div className="innovation-grid absolute inset-0 -z-10 opacity-70" />
+        <div className="innovation-grid pointer-events-none absolute inset-0 z-0 opacity-25" />
 
-        <div className="container max-w-[1440px] grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
-          <div className="max-w-[42rem] space-y-6 text-white">
-            <Badge variant="soft" className="w-fit border-white/10 bg-white/[0.08] text-white">
+        <div className="relative z-10 container max-w-[1440px] grid gap-10 lg:grid-cols-[0.62fr,0.38fr] lg:items-start">
+          <div className="max-w-[42rem] space-y-6 text-slate-50">
+            <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50">
               {contact.hero.eyebrow}
             </Badge>
             <p className="text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
               Direct contact, structured discovery, and a cleaner project brief from the start
             </p>
-            <h1 className="innovation-display max-w-[18ch] sm:max-w-[16ch] lg:max-w-[15ch] text-white">
+            <h1 className="innovation-display max-w-[18ch] sm:max-w-[16ch] lg:max-w-[15ch] text-slate-50">
               {contact.hero.title}
             </h1>
-            <p className="max-w-3xl body-lg text-white/72">{contact.hero.description}</p>
+            <p className="max-w-3xl text-lg leading-relaxed text-slate-300">{contact.hero.description}</p>
             <Button
               asChild
               size="xl"
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 "What needs to be true after the first release?",
               ].map((item) => (
                 <div key={item} className="rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-4">
-                  <p className="text-sm leading-7 text-white/68">{item}</p>
+                  <p className="text-sm leading-7 text-slate-300">{item}</p>
                 </div>
               ))}
             </div>

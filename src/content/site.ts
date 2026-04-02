@@ -117,7 +117,7 @@ export const siteContent = {
       title: "Product-grade software and AI workflows, built to ship and scale",
       highlight: "ship and scale",
       description:
-        "We partner with teams that need more than a vendor—strategy, design, and engineering in one lane so your first release is credible and your roadmap stays honest.",
+        "We partner with teams that need more than a vendor—strategy, design, and engineering in one lane so your first release is credible, your roadmap stays honest, and delivery stays visible end to end.",
       primaryCta: { label: "Book Free Consultation", href: "/contact" },
       secondaryCta: { label: "See Selected Work", href: "/portfolio" },
       sectors: ["Web platforms", "Mobile apps", "Internal tools", "AI workflows"],
