@@ -171,7 +171,7 @@ export function InnovationShowcase({ items, className }: InnovationShowcaseProps
             </button>
             <a
               href="mailto:innovation@spiretechnosoft.com?subject=Innovation%20Lab%20Inquiry"
-              className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_50px_-28px_rgba(59,130,246,0.7)] transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-5 py-3 text-sm font-semibold text-white shadow-brand-glow-sm transition-transform hover:-translate-y-0.5"
             >
               Discuss this direction
               <ArrowRight className="h-4 w-4" />

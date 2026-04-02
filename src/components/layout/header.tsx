@@ -123,7 +123,7 @@ export function Header(): React.ReactElement {
             href={siteContent.nav.ctaHref}
             className={cn(
               buttonVariants({ variant: "accent", size: "sm" }),
-              "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] px-6 text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+              "bg-gradient-brand px-6 text-white shadow-brand-glow-sm"
             )}
           >
             {siteContent.nav.ctaLabel}

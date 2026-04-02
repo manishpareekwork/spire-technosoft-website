@@ -17,6 +17,7 @@ import {
   ShoppingBag,
   Smartphone,
   Sparkles,
+  UsersRound,
   Workflow,
 } from "lucide-react";
 
@@ -33,9 +34,9 @@ import { absoluteUrl, siteKeywords } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Custom Software & AI Product Studio | Spire Technosoft",
+  title: "Spire Technosoft | Product engineering for serious software",
   description:
-    "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
+    "Custom software, mobile, dashboards, and AI workflows—built with clear milestones and outcomes. Engineering business growth from discovery to launch.",
   keywords: [
     ...siteKeywords,
     "custom software product studio",
@@ -46,16 +47,16 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Custom Software & AI Product Studio | Spire Technosoft",
+    title: "Spire Technosoft | Product engineering for serious software",
     description:
-      "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
+      "Custom software, mobile, dashboards, and AI workflows—built with clear milestones and outcomes. Engineering business growth from discovery to launch.",
     images: [{ url: siteContent.seo.defaultOg }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & AI Product Studio | Spire Technosoft",
+    title: "Spire Technosoft | Product engineering for serious software",
     description:
-      "Spire Technosoft designs custom software, mobile apps, dashboards, and AI-assisted workflows for ambitious teams that want useful products and clear execution.",
+      "Custom software, mobile, dashboards, and AI workflows—built with clear milestones and outcomes. Engineering business growth from discovery to launch.",
     images: [siteContent.seo.defaultOg],
   },
 };
@@ -146,7 +147,7 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "Custom Software & AI Product Studio",
+      name: "Spire Technosoft — Product engineering",
       description: metadata.description,
       url: absoluteUrl("/"),
     },
@@ -198,14 +199,12 @@ export default function Home() {
             </Badge>
 
             <div className="space-y-6">
-              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-blue-100/70">
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white/65">
                 Trusted by teams modernizing healthcare, industrial, retail, and analytics products
               </p>
-              <h1 className="display-hero max-w-[16ch] sm:max-w-[15ch] lg:max-w-[14ch] text-white">
+              <h1 className="display-hero max-w-[18ch] sm:max-w-[17ch] lg:max-w-[16ch] text-white">
                 {heroTitlePrefix.trim()}{" "}
-                <span className="bg-[linear-gradient(135deg,#93c5fd_0%,#38bdf8_42%,#10b981_100%)] bg-clip-text text-transparent">
-                  {home.hero.highlight}
-                </span>
+                <span className="text-gradient-hero-accent">{home.hero.highlight}</span>
               </h1>
               <p className="max-w-2xl body-lg text-white/74">
                 {home.hero.description} Strategy, design, and engineering stay connected from the
@@ -218,7 +217,7 @@ export default function Home() {
                 href={home.hero.primaryCta.href}
                 className={cn(
                   buttonVariants({ variant: "accent", size: "xl" }),
-                  "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_26px_65px_-30px_rgba(59,130,246,0.72)] hover:scale-[1.02]"
+                  "bg-gradient-brand text-white shadow-brand-glow hover:scale-[1.02] hover:shadow-brand-glow"
                 )}
               >
                 {home.hero.primaryCta.label}
@@ -304,7 +303,7 @@ export default function Home() {
                         </div>
                         <div className="h-2 rounded-full bg-white/8">
                           <div
-                            className="h-full rounded-full bg-[linear-gradient(90deg,#3b82f6,#06b6d4,#10b981)]"
+                            className="h-full rounded-full bg-gradient-brand-flow"
                             style={{ width: `${[100, 82, 68, 48][index]}%` }}
                           />
                         </div>
@@ -413,6 +412,39 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container max-w-[1440px] py-16">
+        <div className="section-anchor rounded-[3rem] px-5 py-10 sm:px-10 sm:py-12">
+          <div className="section-intro section-intro-center mx-auto max-w-3xl">
+            <p className="eyebrow">Why Spire</p>
+            <h2 className="heading-2 text-foreground">Built like an in-house product team, without the overhead</h2>
+            <p className="body-md text-muted-foreground">
+              The same ideas that show up in procurement decks—cross-functional delivery, measurable outcomes,
+              and software that survives real operations—are how we work week to week.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {siteContent.differentiators.map((item, index) => {
+              const DiffIcon = [UsersRound, Workflow, BrainCircuit][index] ?? Sparkles;
+              return (
+                <div
+                  key={item.title}
+                  className="interactive-card card-pad rounded-[2rem]"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-primary/12">
+                    <DiffIcon className="h-5 w-5 icon-accent" aria-hidden />
+                  </span>
+                  <p className="mt-4 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-primary">
+                    {item.metric}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -775,7 +807,10 @@ export default function Home() {
 
               <Link
                 href={home.operatingRhythm.cta.href}
-                className={cn(buttonVariants({ variant: "accent", size: "lg" }), "w-full")}
+                className={cn(
+                  buttonVariants({ variant: "accent", size: "lg" }),
+                  "w-full bg-gradient-brand text-white shadow-brand-glow-sm hover:shadow-brand-glow"
+                )}
               >
                 {home.operatingRhythm.cta.label}
                 <ArrowRight className="h-4 w-4" />
@@ -785,7 +820,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container pb-[4.5rem] pt-14">
+      <section className="container max-w-[1440px] pb-10 pt-6">
+        <div className="cta-band relative overflow-hidden rounded-[2.6rem] px-6 py-12 sm:px-12 sm:py-14">
+          <div className="cta-inner mx-auto max-w-3xl text-center">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-white/75">
+              {home.labCta.eyebrow}
+            </p>
+            <h2 className="mt-3 display-1 text-white text-balance">{home.labCta.title}</h2>
+            <p className="mx-auto mt-4 max-w-xl body-lg text-white/78">{home.labCta.description}</p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href={home.labCta.primaryCta.href}
+                className={cn(
+                  buttonVariants({ size: "xl" }),
+                  "border-0 bg-white text-foreground shadow-lg hover:bg-white/95 hover:text-foreground"
+                )}
+              >
+                {home.labCta.primaryCta.label}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href={home.labCta.secondaryCta.href}
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "xl" }),
+                  "border-white/25 bg-white/10 text-white hover:bg-white/18 hover:text-white"
+                )}
+              >
+                {home.labCta.secondaryCta.label}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container pb-[4.5rem] pt-6">
         <div className="section-anchor rounded-[3rem] px-5 py-8 sm:px-8 sm:py-10">
           <div className="grid gap-8 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
             <div className="section-contrast rounded-[2.8rem] px-6 py-6 sm:px-8 sm:py-8">

@@ -441,7 +441,7 @@ export function ContactForm() {
         <Button
           type="submit"
           size="xl"
-          className="w-full bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)] sm:w-auto"
+          className="w-full bg-gradient-brand text-white shadow-brand-glow-sm sm:w-auto"
           disabled={status === "submitting"}
         >
           {status === "submitting" ? "Sending..." : "Send Message"}

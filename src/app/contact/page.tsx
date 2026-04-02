@@ -63,7 +63,7 @@ export default function ContactPage() {
             <Button
               asChild
               size="xl"
-              className="bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+              className="bg-gradient-brand text-white shadow-brand-glow-sm"
             >
               <a href={contact.hero.cta.href} target="_blank" rel="noreferrer" className="flex items-center gap-3">
                 {contact.hero.cta.label}
@@ -120,7 +120,7 @@ export default function ContactPage() {
               <Button
                 asChild
                 size="lg"
-                className="w-full bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+                className="w-full bg-gradient-brand text-white shadow-brand-glow-sm"
               >
                 <a href={contact.fastRoute.cta.href} target="_blank" rel="noreferrer">
                   {contact.fastRoute.cta.label}

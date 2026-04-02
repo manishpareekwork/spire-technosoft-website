@@ -117,7 +117,7 @@ export function Footer(): React.ReactElement {
               href={content.primary.href}
               className={cn(
                 buttonVariants({ variant: "accent", size: "xl" }),
-                "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+                "bg-gradient-brand text-white shadow-brand-glow-sm"
               )}
             >
               {content.primary.label}
@@ -152,8 +152,8 @@ export function Footer(): React.ReactElement {
               </span>
             </Link>
             <p className="max-w-sm text-[0.98rem] leading-8 text-white/74">
-              Custom software, mobile products, dashboards, and AI workflows designed with product
-              clarity and delivered with dependable execution.
+              Product engineering for teams that need measurable outcomes—custom software, mobile,
+              dashboards, and AI workflows from discovery to launch.
             </p>
             <div className="rounded-[1rem] border border-white/10 bg-white/[0.05] p-4">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-primary">

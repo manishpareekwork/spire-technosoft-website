@@ -44,7 +44,7 @@ export default function IndustriesPage(): React.ReactElement {
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "xl" }),
-                  "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-[0_24px_55px_-28px_rgba(59,130,246,0.62)]"
+                  "bg-gradient-brand text-white shadow-brand-glow-sm"
                 )}
               >
                 Discuss Your Industry Context

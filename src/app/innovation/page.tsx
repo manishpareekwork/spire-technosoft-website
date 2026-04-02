@@ -218,7 +218,7 @@ export default function InnovationPage(): React.ReactElement {
                   href="/contact"
                   className={cn(
                     buttonVariants({ size: "xl" }),
-                    "innovation-button-primary relative overflow-hidden bg-[linear-gradient(135deg,#60a5fa_0%,#06b6d4_52%,#0ea5e9_100%)] text-white"
+                    "innovation-button-primary relative overflow-hidden bg-gradient-brand text-white"
                   )}
                 >
                   Book an Innovation Session

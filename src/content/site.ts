@@ -1,9 +1,9 @@
 export const siteContent = {
   seo: {
     siteName: "Spire Technosoft",
-    baseTitle: "Custom Software & AI Product Studio | Spire Technosoft",
+    baseTitle: "Spire Technosoft | Product engineering for serious software",
     baseDescription:
-      "Spire Technosoft is a product studio that designs custom software, AI-assisted workflows, and modern digital platforms for ambitious businesses.",
+      "Engineering business growth through custom software, AI-assisted workflows, and release-ready platforms—from discovery to dependable launch.",
     baseKeywords: [
       "custom software development company",
       "product studio India",
@@ -113,11 +113,11 @@ export const siteContent = {
   },
   home: {
     hero: {
-      eyebrow: "Product studio for software, apps, and AI",
-      title: "Custom software and AI workflows built with real delivery momentum",
-      highlight: "AI workflows",
+      eyebrow: "Engineering business growth",
+      title: "Product-grade software and AI workflows, built to ship and scale",
+      highlight: "ship and scale",
       description:
-        "We help ambitious teams turn messy ideas into web platforms, mobile apps, internal tools, and automation that feel intentional from the first release.",
+        "We partner with teams that need more than a vendor—strategy, design, and engineering in one lane so your first release is credible and your roadmap stays honest.",
       primaryCta: { label: "Book Free Consultation", href: "/contact" },
       secondaryCta: { label: "See Selected Work", href: "/portfolio" },
       sectors: ["Web platforms", "Mobile apps", "Internal tools", "AI workflows"],
