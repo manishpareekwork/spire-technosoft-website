@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteContent } from "@/content/site";
 import { ArrowRight, Compass, Map, Code2, Activity, Zap, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button-variants";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -129,16 +129,17 @@ export default function HowWeWorkPage() {
 
         {/* Action Call */}
         <div className="mt-16 text-center animate-softFade" style={{ animationDelay: "500ms" }}>
-          <Link
-            href={operatingRhythm.cta.href}
-            className={cn(
-              buttonVariants({ variant: "accent", size: "xl" }),
-              "bg-gradient-brand text-white shadow-brand-glow-sm hover:shadow-brand-glow rounded-full px-10"
-            )}
+          <Button
+            asChild
+            variant="accent"
+            size="xl"
+            className="bg-gradient-brand text-white shadow-brand-glow-sm hover:shadow-brand-glow rounded-full px-10"
           >
-            {operatingRhythm.cta.label}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+            <Link href={operatingRhythm.cta.href}>
+              {operatingRhythm.cta.label}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </section>
     </main>
