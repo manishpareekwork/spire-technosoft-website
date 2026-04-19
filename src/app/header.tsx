@@ -20,6 +20,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/solutions", label: "Solutions" },
   { href: "/innovation", label: "Innovation Lab" },
+  { href: "/how-we-work", label: "How We Work" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
