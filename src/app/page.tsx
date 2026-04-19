@@ -449,46 +449,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] py-8">
-        <div className="section-anchor rounded-[2.2rem] px-5 py-6 sm:px-8">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div className="section-intro max-w-2xl lg:max-w-3xl">
-              <p className="eyebrow">Spire software</p>
-              <h2 className="heading-2 text-foreground">Products we build and operate</h2>
-              <p className="body-md text-muted-foreground">
-                Alongside client programs, we ship and evolve Spire&apos;s own multi-tenant line—operations
-                ERP, billing, assessments, marketing automation, security, and platform governance.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ variant: "accent", size: "lg" }),
-                "shrink-0 bg-gradient-brand text-white shadow-brand-glow-sm"
-              )}
-            >
-              Talk about a product or build
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {ecosystemProducts.map((product, i) => (
-              <div
-                key={product.slug}
-                className="compact-tile rounded-[1.35rem] p-5 shadow-soft motion-safe:animate-softFade"
-                style={{ animationDelay: `${i * 55}ms` }}
-              >
-                <h3 className="text-base font-semibold text-foreground">{product.title}</h3>
-                <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                  {product.tagline}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="container py-8">
         <div className="section-anchor rounded-[2.2rem] px-5 py-6 sm:px-8 sm:py-8">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
@@ -709,7 +669,7 @@ export default function Home() {
 
 
       <section className="container max-w-[1440px] pb-8 pt-4">
-        <div className="cta-band relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12">
+        <div className="cta-band bg-slate-950 dark relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12">
           <div className="cta-inner mx-auto max-w-3xl text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-white/75">
               {home.labCta.eyebrow}
