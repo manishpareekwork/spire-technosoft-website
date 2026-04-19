@@ -272,7 +272,7 @@ export default function Home() {
           </div>
 
           <div className="relative hidden min-w-0 flex-col gap-5 lg:flex xl:sticky xl:top-28">
-            <div className="relative mb-0 aspect-[3/2] w-full overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
+            <div className="relative mb-0 aspect-video w-full overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
               <Image
                 src="/images/about/mission-hero.png"
                 alt="Engineering and product teams collaborating on software delivery"
@@ -416,8 +416,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] py-10">
-        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
+      <section className="container max-w-[1440px] py-8">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-6 sm:px-8 sm:py-8">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">Why Spire</p>
             <h2 className="heading-2 text-foreground">Built like an in-house product team, without the overhead</h2>
@@ -449,8 +449,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container max-w-[1440px] py-10">
-        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8">
+      <section className="container max-w-[1440px] py-8">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-6 sm:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="section-intro max-w-2xl lg:max-w-3xl">
               <p className="eyebrow">Spire software</p>
@@ -489,8 +489,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-10">
-        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
+      <section className="container py-8">
+        <div className="section-anchor rounded-[2.2rem] px-5 py-6 sm:px-8 sm:py-8">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">Solutions snapshot</p>
             <h2 className="heading-2 text-foreground">Product, platform, and workflow systems built for actual use</h2>
@@ -542,8 +542,8 @@ export default function Home() {
       </section>
 
       {spotlightIndustry ? (
-        <section className="container py-10">
-          <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
+        <section className="container py-8">
+          <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-6 sm:px-8 sm:py-8">
             <div className="section-intro section-intro-center mx-auto max-w-3xl">
               <p className="eyebrow">Where we help</p>
               <h2 className="heading-2 text-foreground">Different industries, different operational pressure</h2>
@@ -572,7 +572,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 grid gap-6 rounded-[2rem] bg-white/78 p-4 shadow-[inset_0_0_0_1px_hsla(var(--border),0.16),0_24px_60px_-36px_rgba(9,26,45,0.18)] lg:grid-cols-[1fr,0.94fr] lg:p-6 dark:bg-surface/82">
-              <div className="relative min-h-[320px] overflow-hidden rounded-[2.2rem] bg-surface-2">
+              <div className="relative aspect-video w-full overflow-hidden rounded-[2.2rem] bg-surface-2">
                 <Image
                   src={spotlightIndustry.image}
                   alt={`${spotlightIndustry.title} preview`}
@@ -663,7 +663,7 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="bg-secondary py-14 text-white sm:py-16">
+      <section className="bg-secondary py-10 text-white sm:py-12">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -706,8 +706,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container py-12">
-        <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
+      <section className="container py-8">
+        <div className="section-anchor section-anchor-muted rounded-[2.2rem] px-5 py-6 sm:px-8 sm:py-8">
           <div className="section-intro section-intro-center mx-auto max-w-3xl">
             <p className="eyebrow">{home.operatingRhythm.eyebrow}</p>
             <h2 className="heading-2 text-foreground">A lean delivery rhythm from idea to first release</h2>

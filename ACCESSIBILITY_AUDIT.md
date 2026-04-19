@@ -16,7 +16,7 @@ Last reviewed: **2026-04-02** (code pass; manual browser verification recommende
 | **Focus visible** | Theme toggle: `focus-visible:ring-2` on white/70 with offset on dark header. Audit other `outline-none` controls. |
 | **Contrast** | Dark header: nav at `text-white/74`, top bar at `text-white/72` (bumped from /52). Hero body text `text-slate-300` on `slate-950` — spot-check with a contrast tool. Light pages: `text-muted-foreground` on `background` — verify cards and borders. |
 | **Images** | `next/image` uses descriptive `alt` on key heroes; decorative icons use `aria-hidden` where paired with visible text. |
-| **Headings** | One `h1` per page; section `h2`/`h3` order should not skip levels. |
+|    **Headings** | One `h1` per page; section `h2`/`h3` order should not skip levels. |
 | **Forms** | Careers/contact: ensure every input has an associated label (check `CareersForm` and contact components). |
 | **Skip link** | Implemented in `layout.tsx`: “Skip to content” → `#main-content` with visible focus styles. |
 | **Target size** | Icon buttons are 40×40 (`size="icon"`). Mobile drawer hit areas are adequate. |
@@ -49,7 +49,8 @@ Export or source at **2×** display size. Prefer **3:2** for heroes and dashboar
 
 ---
 
-## Follow-ups
+ ## Follow-ups- 
 
 - Run automated contrast on **Badge**, **eyebrow**, and **ghost** buttons in both themes.  
 - After replacing images, re-check **LCP** and `sizes` attributes on `next/image`.
+  
