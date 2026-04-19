@@ -181,20 +181,20 @@ export default function Home() {
 
         <div className="container relative z-10 grid max-w-[1440px] gap-10 pb-14 pt-10 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
           <div className="min-w-0 max-w-[min(42rem,100%)] space-y-7 lg:max-w-none lg:pr-2">
-            <Badge variant="soft" className="w-fit border-white/20 bg-white/10 text-slate-50 shadow-none">
-              <Sparkles className="h-3.5 w-3.5 text-slate-100" />
+            <Badge variant="soft" className="w-fit border-border/20 bg-surface text-foreground shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
               {home.hero.eyebrow}
             </Badge>
 
             <div className="space-y-6">
-              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-slate-300">
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                 Trusted by teams modernizing healthcare, industrial, retail, and analytics products
               </p>
-              <h1 className="display-hero max-w-[18ch] text-slate-50 drop-shadow-sm sm:max-w-[20ch] lg:max-w-[22ch]">
+              <h1 className="display-hero max-w-[18ch] text-foreground drop-shadow-sm sm:max-w-[20ch] lg:max-w-[22ch]">
                 {heroTitlePrefix.trim()}{" "}
                 <span className="text-gradient-hero-accent">{home.hero.highlight}</span>
               </h1>
-              <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-[1.05rem]">
+              <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-[1.05rem]">
                 {home.hero.description}
               </p>
             </div>
@@ -214,14 +214,14 @@ export default function Home() {
                 href={home.hero.secondaryCta.href}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-white/20 bg-white/10 text-slate-50 shadow-none hover:bg-white/15 hover:text-white"
+                  "border-border/40 bg-surface/50 text-foreground shadow-none hover:bg-surface hover:text-foreground"
                 )}
               >
                 {home.hero.secondaryCta.label}
               </Link>
               <Link
                 href="/insights"
-                className="inline-flex h-[3.4rem] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-semibold text-slate-100 transition-all duration-300 hover:bg-white/15"
+                className="inline-flex h-[3.4rem] items-center justify-center gap-2 rounded-full border border-border/40 bg-surface/50 px-6 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-surface"
               >
                 <Search className="h-4 w-4" />
                 Browse insights
@@ -232,7 +232,7 @@ export default function Home() {
               {home.hero.sectors.map((sector) => (
                 <span
                   key={sector}
-                  className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-sm"
+                  className="rounded-full border border-border/40 bg-surface/50 px-4 py-2 text-sm text-foreground backdrop-blur-sm"
                 >
                   {sector}
                 </span>
@@ -241,12 +241,12 @@ export default function Home() {
 
             <div className="grid gap-3 pt-2 sm:grid-cols-3">
               {home.stats.slice(0, 3).map((metric) => (
-                <div key={metric.label} className="hero-stat-panel rounded-[1rem] px-4 py-4">
+                <div key={metric.label} className="hero-stat-panel rounded-[1rem] px-4 py-4 border border-border/30 bg-surface/40">
                   <CountUpText
                     value={metric.value}
-                    className="block text-3xl font-semibold tracking-[-0.05em] text-slate-50"
+                    className="block text-3xl font-semibold tracking-[-0.05em] text-foreground"
                   />
-                  <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
+                  <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                     {metric.label}
                   </p>
                 </div>
@@ -623,14 +623,14 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="bg-secondary py-10 text-white sm:py-12">
+      <section className="py-10 sm:py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-primary">
               Selected work
             </p>
-            <h2 className="heading-2 text-white">A few recent builds with measurable outcomes</h2>
-            <p className="body-md text-white/68">
+            <h2 className="heading-3 text-foreground">A few recent builds with measurable outcomes</h2>
+            <p className="body-md text-muted-foreground">
               Shorter proof, less noise. A quick view of the kinds of product systems we have
               helped teams launch and improve.
             </p>
@@ -641,23 +641,25 @@ export default function Home() {
               <Link
                 key={project.slug}
                 href={href}
-                className="group rounded-[2.3rem] border border-transparent bg-white/6 p-6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+                className="interactive-card flex flex-col justify-between rounded-[2rem] p-6 transition-transform hover:-translate-y-1"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-white/10">
-                  <BarChart3 className="h-5 w-5 text-primary" />
-                </span>
+                <div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-primary/12">
+                    <BarChart3 className="h-5 w-5 icon-accent" />
+                  </span>
 
-                <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {project.domain}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold text-white">{title}</h3>
-                <p className="mt-3 text-sm text-white/68">{summary}</p>
+                  <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    {project.domain}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold text-foreground leading-snug">{title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{summary}</p>
+                </div>
 
-                <div className="mt-6 pt-5">
-                    <p className="text-[2rem] font-semibold tracking-[-0.04em] text-accent">{metric}</p>
-                  <div className="mt-4 flex items-center justify-between text-sm text-white/52">
+                <div className="mt-6 pt-5 border-t border-border/40">
+                  <p className="text-[2rem] font-semibold tracking-[-0.04em] text-accent">{metric}</p>
+                  <div className="mt-4 flex items-center justify-between text-sm text-muted-foreground font-semibold">
                     <span>{project.platform}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 icon-accent" />
                   </div>
                 </div>
               </Link>

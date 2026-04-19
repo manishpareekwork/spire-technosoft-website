@@ -135,8 +135,8 @@ export function Footer(): React.ReactElement {
           </div>
         </div>
 
-        <div className="grid gap-10 py-14 lg:grid-cols-[1.05fr,0.78fr,0.88fr,1fr]">
-          <div className="space-y-5">
+        <div className="grid gap-10 py-14 lg:grid-cols-[1.1fr,2fr] lg:gap-16">
+          <div className="space-y-5 lg:pr-10">
             <Link href="/" className="inline-flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center rounded-[0.95rem] border border-slate-200/90 bg-white shadow-sm ring-1 ring-black/5 dark:border-slate-200 dark:bg-white">
                 <Image
@@ -151,10 +151,6 @@ export function Footer(): React.ReactElement {
                 Spire<span className="text-primary">Technosoft</span>
               </span>
             </Link>
-            <p className="max-w-sm text-[0.98rem] leading-8 text-white/74">
-              Product engineering for teams that need measurable outcomes—custom software, mobile,
-              dashboards, and AI workflows from discovery to launch.
-            </p>
             <div className="rounded-[1rem] border border-white/10 bg-white/[0.05] p-4">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-primary">
                 Stay in the loop
@@ -172,70 +168,78 @@ export function Footer(): React.ReactElement {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
-              Quick Links
-            </p>
-            <div className="flex flex-col gap-3 text-sm text-white/76">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
-              Contact
-            </p>
-            <div className="space-y-4 text-sm text-white/76">
-              <Link
-                href="mailto:contact@spiretechnosoft.com"
-                className="flex items-center gap-3 transition-colors hover:text-white"
-              >
-                <Mail className="h-4 w-4 text-primary" />
-                contact@spiretechnosoft.com
-              </Link>
-              <Link
-                href="tel:+919910070933"
-                className="flex items-center gap-3 transition-colors hover:text-white"
-              >
-                <Phone className="h-4 w-4 text-primary" />
-                +91 99100 70933
-              </Link>
-              <p className="flex items-center gap-3 text-white/76">
-                <MapPin className="h-4 w-4 text-primary" />
-                India | Global delivery
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <div className="space-y-4">
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
+                Quick Links
               </p>
-              <Link
-                href="https://www.linkedin.com/company/spire-technosoft"
-                target="_blank"
-                className="inline-flex items-center gap-3 transition-colors hover:text-white"
-              >
-                <Linkedin className="h-4 w-4 text-primary" />
-                LinkedIn
-              </Link>
+              <div className="flex flex-col gap-3 text-sm text-white/76">
+                {navLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="space-y-4">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
-              Guides
-            </p>
-            <div className="flex flex-col gap-3 text-sm text-white/76">
-              {resourceDownloads.slice(0, 3).map((resource) => (
-                <a
-                  key={resource.title}
-                  href={resource.href}
-                  download
-                  className="transition-colors hover:text-white"
+            <div className="space-y-4">
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
+                Contact
+              </p>
+              <div className="space-y-4 text-sm text-white/76">
+                <Link
+                  href="mailto:contact@spiretechnosoft.com"
+                  className="flex items-center gap-3 transition-colors hover:text-white break-words"
                 >
-                  {resource.title}
-                </a>
-              ))}
+                  <Mail className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="truncate">contact@spiretechnosoft.com</span>
+                </Link>
+                <Link
+                  href="tel:+919910070933"
+                  className="flex items-center gap-3 transition-colors hover:text-white"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-primary" />
+                  +91 99100 70933
+                </Link>
+                <p className="flex items-center gap-3 text-white/76">
+                  <MapPin className="h-4 w-4 shrink-0 text-primary" />
+                  India | Global delivery
+                </p>
+                <Link
+                  href="https://www.linkedin.com/company/spire-technosoft"
+                  target="_blank"
+                  className="inline-flex items-center gap-3 transition-colors hover:text-white"
+                >
+                  <Linkedin className="h-4 w-4 shrink-0 text-primary" />
+                  LinkedIn
+                </Link>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-primary">
+                Guides
+              </p>
+              <div className="flex flex-col gap-3 text-sm text-white/76">
+                {resourceDownloads.slice(0, 3).map((resource) => (
+                  <a
+                    key={resource.title}
+                    href={resource.href}
+                    download
+                    className="transition-colors hover:text-white"
+                  >
+                    {resource.title}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+
+        <div className="border-t border-white/10 py-6 text-center">
+          <p className="text-[0.92rem] text-white/60">
+            Product engineering for teams that need measurable outcomes—custom software, mobile, dashboards, and AI workflows from discovery to launch.
+          </p>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-white/10 pt-6 text-[0.72rem] uppercase tracking-[0.08em] text-white/50 md:flex-row md:items-center md:justify-between">
