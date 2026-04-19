@@ -671,19 +671,19 @@ export default function Home() {
 
 
       <section className="container max-w-[1440px] pb-8 pt-4">
-        <div className="cta-band bg-slate-950 dark relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12">
+        <div className="cta-band bg-surface-2 border border-border/40 relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 shadow-sm">
           <div className="cta-inner mx-auto max-w-3xl text-center">
-            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-white/75">
+            <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-primary">
               {home.labCta.eyebrow}
             </p>
-            <h2 className="mt-3 display-1 text-white text-balance">{home.labCta.title}</h2>
-            <p className="mx-auto mt-4 max-w-xl body-lg text-white/78">{home.labCta.description}</p>
+            <h2 className="mt-3 display-1 text-foreground text-balance">{home.labCta.title}</h2>
+            <p className="mx-auto mt-4 max-w-xl body-lg text-muted-foreground">{home.labCta.description}</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href={home.labCta.primaryCta.href}
                 className={cn(
-                  buttonVariants({ size: "xl" }),
-                  "border-0 bg-white text-foreground shadow-lg hover:bg-white/95 hover:text-foreground"
+                  buttonVariants({ variant: "default", size: "xl" }),
+                  "shadow-lg hover:-translate-y-0.5 transition-transform"
                 )}
               >
                 {home.labCta.primaryCta.label}
@@ -693,7 +693,7 @@ export default function Home() {
                 href={home.labCta.secondaryCta.href}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "xl" }),
-                  "border-white/25 bg-white/10 text-white hover:bg-white/18 hover:text-white"
+                  "border-border/60 bg-surface/40 hover:bg-surface shadow-none"
                 )}
               >
                 {home.labCta.secondaryCta.label}

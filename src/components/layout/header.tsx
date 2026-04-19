@@ -56,20 +56,20 @@ export function Header(): React.ReactElement {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-white/8 bg-[linear-gradient(180deg,rgba(10,18,33,0.82),rgba(10,18,33,0.66))] backdrop-blur-xl transition-all duration-500",
+        "sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl transition-all duration-500",
         scrolled
-          ? "border-white/10 bg-[linear-gradient(180deg,rgba(10,18,33,0.92),rgba(10,18,33,0.78))] shadow-[0_24px_70px_-34px_rgba(2,6,23,0.72)]"
+          ? "border-border/60 bg-background/95 shadow-sm"
           : "shadow-none"
       )}
     >
-      <div className="hidden border-b border-white/8 md:block">
-        <div className="container flex h-10 items-center justify-between text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white/72">
+      <div className="hidden border-b border-border/40 md:block">
+        <div className="container flex h-10 items-center justify-between text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           <div className="flex items-center gap-5">
             <span>Shipping custom software, AI workflows, and modern product systems</span>
           </div>
           <div className="flex items-center gap-4">
             {quickLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition-colors hover:text-white/82">
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
                 {link.label}
               </Link>
             ))}
@@ -79,7 +79,7 @@ export function Header(): React.ReactElement {
 
       <div className="container flex h-[5.25rem] items-center justify-between gap-6">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Spire Technosoft Home">
-          <span className="flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-slate-200/90 bg-white shadow-sm ring-1 ring-black/5 dark:border-slate-200 dark:bg-white">
+          <span className="flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-border/40 bg-surface shadow-sm ring-1 ring-black/5 dark:border-border dark:bg-surface-2">
             <Image
               src="/images/logo/512x512.png"
               alt="Spire Technosoft logo"
@@ -89,7 +89,7 @@ export function Header(): React.ReactElement {
               priority
             />
           </span>
-          <span className="text-[1.6rem] font-bold tracking-[-0.055em] text-white">
+          <span className="text-[1.6rem] font-bold tracking-[-0.055em] text-foreground">
             Spire<span className="text-primary">Technosoft</span>
           </span>
         </Link>
@@ -101,7 +101,7 @@ export function Header(): React.ReactElement {
               href={link.href}
               className={cn(
                 "nav-link-modern relative py-2 text-[0.92rem] font-medium transition-colors duration-300",
-                isActive(link.href) ? "text-white" : "text-white/74 hover:text-white"
+                isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
               )}
               aria-current={isActive(link.href) ? "page" : undefined}
             >
@@ -113,12 +113,12 @@ export function Header(): React.ReactElement {
         <div className="hidden items-center gap-3 md:flex">
           <Link
             href="/insights"
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 text-sm text-white/72 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.1] hover:text-white"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-border/50 bg-surface/40 px-4 text-sm text-foreground shadow-sm transition-colors hover:bg-surface hover:text-primary"
           >
             <Search className="h-4 w-4" />
             <span>Insights</span>
           </Link>
-          <ThemeToggle variant="onDark" />
+          <ThemeToggle variant="default" />
           <Link
             href={siteContent.nav.ctaHref}
             className={cn(
@@ -132,10 +132,10 @@ export function Header(): React.ReactElement {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle variant="onDark" />
+          <ThemeToggle variant="default" />
           <button
             aria-label="Toggle navigation"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.12]"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border/50 bg-surface/40 text-foreground shadow-sm transition-colors hover:bg-surface"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -149,7 +149,7 @@ export function Header(): React.ReactElement {
         side="right"
         title="Navigate"
         description="Explore Spire Technosoft"
-        className="border-transparent bg-[linear-gradient(180deg,rgba(10,18,33,0.97),rgba(13,27,46,0.98))] text-white backdrop-blur-2xl md:hidden"
+        className="block md:hidden border-transparent bg-background/95 text-foreground backdrop-blur-2xl"
       >
         <nav className="mt-8 flex flex-col gap-3 text-base font-semibold">
           {navLinks.map((link) => (
@@ -159,8 +159,8 @@ export function Header(): React.ReactElement {
               className={cn(
                 "rounded-[1.25rem] px-4 py-4 text-lg transition-all duration-300",
                 isActive(link.href)
-                  ? "bg-white/8 text-primary"
-                  : "text-white/84 hover:bg-white/8 hover:text-white"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-surface hover:text-foreground"
               )}
               onClick={() => setMobileOpen(false)}
             >
@@ -172,7 +172,7 @@ export function Header(): React.ReactElement {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-[1.25rem] px-4 py-4 text-base text-white/78 transition-all duration-300 hover:bg-white/8 hover:text-white"
+                className="rounded-[1.25rem] px-4 py-4 text-base text-muted-foreground transition-all duration-300 hover:bg-surface hover:text-foreground"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
