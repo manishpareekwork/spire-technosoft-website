@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteContent } from "@/content/site";
 import { ArrowRight, Compass, Map, Code2, Activity, Zap, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
