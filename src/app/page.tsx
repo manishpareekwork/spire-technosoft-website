@@ -701,70 +701,48 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container pb-12 pt-4">
-        <div className="section-anchor rounded-[2.2rem] px-5 py-8 sm:px-8 sm:py-9">
-          <div className="grid gap-8 lg:grid-cols-[0.58fr,0.42fr] lg:items-start">
-            <div className="section-contrast rounded-[2.8rem] px-6 py-6 sm:px-8 sm:py-8">
-              <div className="section-intro max-w-2xl">
-                <p className="eyebrow">Insights</p>
-                <h2 className="heading-3 text-foreground">Useful thinking on software, AI, and product delivery</h2>
-              </div>
-
-              {featuredArticle ? (
-                <div className="mt-8 space-y-6">
-                  <Link href={`/insights/${featuredArticle.slug}`} className="group block space-y-4 pb-6">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <Badge variant="soft">{featuredArticle.category}</Badge>
-                      <span className="text-sm text-muted-foreground">{featuredArticle.readTime}</span>
-                    </div>
-                    <h3 className="text-3xl font-semibold text-foreground">{featuredArticle.title}</h3>
-                    <p className="body-md text-muted-foreground">{featuredArticle.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                      Read article
-                      <ArrowRight className="h-4 w-4 icon-accent transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </Link>
-
-                  <div className="space-y-4">
-                    {additionalArticles.map((article) => (
-                      <Link
-                        key={article.slug}
-                        href={`/insights/${article.slug}`}
-                        className="compact-tile group block rounded-[1.6rem] px-5 py-5 shadow-soft"
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="space-y-2">
-                            <p className="text-[0.72rem] uppercase tracking-[0.18em] text-primary">
-                              {article.category}
-                            </p>
-                            <h3 className="text-xl font-semibold text-foreground">{article.title}</h3>
-                            <p className="text-sm text-muted-foreground">{article.excerpt}</p>
-                          </div>
-                          <ArrowRight className="mt-1 h-4 w-4 shrink-0 icon-accent transition-transform group-hover:translate-x-1" />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
+      <section className="container max-w-[1440px] pb-16 pt-4">
+        {featuredArticle ? (
+          <div className="mb-20">
+            <div className="section-intro section-intro-center mx-auto max-w-2xl">
+              <p className="eyebrow">Insights</p>
+              <h2 className="heading-3 text-foreground">Useful thinking on software, AI, and product delivery</h2>
             </div>
-
-            <div className="space-y-5">
-              <div className="section-intro max-w-xl">
-                <p className="eyebrow">FAQ</p>
-                <h2 className="heading-3 text-foreground">Questions teams ask before the first call</h2>
-              </div>
-
-              {faqItems.map((item) => (
-                <div key={item.question} className="compact-tile rounded-[1.7rem] px-5 py-5 shadow-soft">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-foreground">{item.question}</h3>
-                    <ArrowRight className="mt-1 h-4 w-4 shrink-0 icon-accent" />
+            
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {[featuredArticle, ...additionalArticles].filter(Boolean).slice(0, 3).map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/insights/${article.slug}`}
+                  className="interactive-card flex flex-col justify-between rounded-[1.6rem] p-6 transition-transform hover:-translate-y-1"
+                >
+                  <div className="space-y-4">
+                    <Badge variant="soft" className="w-fit">{article.category}</Badge>
+                    <h3 className="text-xl font-semibold text-foreground leading-snug">{article.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{item.answer}</p>
-                </div>
+                  <div className="mt-6 flex items-center justify-between border-t border-border/40 pt-4 text-sm font-semibold text-foreground">
+                    Read article
+                    <ArrowRight className="h-4 w-4 icon-accent" />
+                  </div>
+                </Link>
               ))}
             </div>
+          </div>
+        ) : null}
+
+        <div>
+          <div className="section-intro section-intro-center mx-auto max-w-2xl">
+            <p className="eyebrow">FAQ</p>
+            <h2 className="heading-3 text-foreground">Questions teams ask before the first call</h2>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {faqItems.map((item) => (
+              <div key={item.question} className="compact-tile flex flex-col rounded-[1.4rem] p-6 shadow-sm">
+                <h3 className="text-sm font-semibold text-foreground leading-snug">{item.question}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
