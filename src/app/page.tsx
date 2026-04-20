@@ -173,7 +173,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="homepage-hero hero-stage">
+      <section className="homepage-hero hero-stage dark">
         <div className="homepage-grid absolute inset-0 opacity-45" />
         <div className="homepage-mesh homepage-mesh-one" />
         <div className="homepage-mesh homepage-mesh-two" />
@@ -671,7 +671,7 @@ export default function Home() {
 
 
       <section className="container max-w-[1440px] pb-8 pt-4">
-        <div className="cta-band bg-surface-2 border border-border/40 relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 shadow-sm">
+        <div className="cta-band dark bg-surface-2 border border-border/40 relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 shadow-sm">
           <div className="cta-inner mx-auto max-w-3xl text-center">
             <p className="text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-primary">
               {home.labCta.eyebrow}

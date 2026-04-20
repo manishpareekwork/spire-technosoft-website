@@ -3,6 +3,8 @@
  * @module /src/components/layout/header.tsx
  */
 
+"use client";
+
 import Link from "next/link";
 import { Sprout } from "lucide-react"; // Using a placeholder icon for the logo.
 import { usePathname } from "next/navigation";
